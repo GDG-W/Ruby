@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@utility font-akira {
+  font-family: var(--font-custom), sans-serif;
+}
+
+
+html {
+  font-size: 16px; 
+}
+
+.writing-mode-vertical-lr {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg); 
+}
+
+.writing-mode-vertical-rl {
+  writing-mode: vertical-rl;
+}
+
+/* *{
+    outline: 1px solid red;
+} */
+
+
+
+

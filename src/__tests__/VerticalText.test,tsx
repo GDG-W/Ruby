@@ -1,0 +1,16 @@
+import { render, screen } from "@testing-library/react";
+import VerticalText from "@/app/components/VerticalText";
+
+describe("VerticalText", () => {
+  it("renders the passed text", () => {
+    render(<VerticalText text="TEST" />);
+    expect(screen.getByText("TEST")).toBeInTheDocument();
+  });
+
+  it("uses the correct writing mode", () => {
+    const { container } = render(<VerticalText text="TEXT" writingMode="vertical-rl" />);
+
+    const element = container.querySelector("h1") as HTMLElement;
+    expect(element).toHaveStyle({ writingMode: "vertical-rl" });
+  });
+});
