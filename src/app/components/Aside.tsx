@@ -25,32 +25,32 @@ interface AsideProps {
 export default function Aside({
   leftText = "DEVFEST",
   rightText = "2025",
-  className = "2xl:ml-0 xl:my-4 flex justify-between min-h-screen items-stretch h-full overflow-hidden relative",
+  className = "2xl:ml-0  flex justify-between items-stretch h-full overflow-hidden relative",
   leftIcons = [
     {
       component: <Image src="/icons.svg" alt="icons" width={36} height={100} />,
       positioning: "absolute",
-      className: "top-0 xl:left-26 w-[2rem]",
+      className: "-top-2 xl:left-21 2xl:left-24 2xl:-top-5 w-[2.25rem]",
     },
     {
-      component: <Image src="/v-shaped-icon.svg" alt="icons" width={45} height={100} />,
+      component: <Image src="/v-shaped-icon.svg" alt="icons" width={55} height={100} />,
       positioning: "absolute",
-      className: "bottom-55 xl:-left-4",
+      className: "bottom-32 2xl:left-0 2xl:w-[40px] 2xl:bottom-36 xl:-left-8",
     },
   ],
   rightIcons = [
     {
       component: <Image src="/arrow.svg" alt="icons" width={100} height={100} />,
       positioning: "",
-      className: "flex  justify-center w-full h-full",
+      className: "flex  justify-center 2xl:w-[80px]   w-full h-full",
     },
   ],
-  leftTextClassName = "xl:text-[7rem] leading-trim-cap  text-8xl  font-extrabold writing-mode-vertical-lr text-[#242424] ",
-  rightTextClassName = "leading-trim-cap items-center flex xl:text-[7rem]  text-8xl font-extrabold writing-mode-vertical-rl text-[#242424] ",
+  leftTextClassName = "leading-[1] 2xl:leading-normal text-[5.5rem]  font-akira  font-extrabold writing-mode-vertical-lr text-[#242424] ",
+  rightTextClassName = "leading-[1] items-center flex font-akira text-[5.5rem] font-extrabold writing-mode-vertical-rl text-[#242424] ",
 }: AsideProps) {
   return (
     <aside className={`${className}`}>
-      <div className="relative flex-shrink-0 xl:ml-4">
+      <div className="relative flex-shrink-0 xl:my-8 xl:ml-8 2xl:ml-0">
         <VerticalText text={leftText} className={leftTextClassName} />
         {leftIcons.map((icon, index) => (
           <div
@@ -62,13 +62,13 @@ export default function Aside({
           </div>
         ))}
       </div>
-      <section className="relative top-[26rem] left-[23.5rem] h-fit w-fit">
+      <section className="relative top-[26.5rem] left-[23.5rem] h-fit w-fit 2xl:top-[28rem] 2xl:left-[25.5rem]">
         <Image
           src="/top-quote.svg"
           alt="Top Quote Icon"
           width={44}
           height={24}
-          className="absolute -top-12 -left-12"
+          className="absolute -top-12 -left-15 2xl:-left-20"
         />
 
         <blockquote
@@ -83,7 +83,7 @@ export default function Aside({
           alt="Bottom Quote Icon"
           width={44}
           height={24}
-          className="absolute -right-12 -bottom-12"
+          className="absolute -right-12 -bottom-12 2xl:-right-11"
         />
       </section>
 

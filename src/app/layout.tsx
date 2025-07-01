@@ -37,12 +37,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${customFont.variable} min-h-screen bg-[#FFFAEB] antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${customFont.variable} bg-[#FFFAEB] antialiased`}
       >
         <img
           src="/lanyard.svg"
           alt="Lanyard"
-          className="absolute top-[-50px] left-1/2 hidden w-[14.8rem] -translate-x-1/2 lg:flex"
+          className="absolute top-[-50px] left-1/2 hidden -translate-x-1/2 lg:flex"
           style={{ zIndex: 10 }}
         />
         <div>{children}</div>

@@ -6,7 +6,7 @@ import Header from "./components/Header";
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex flex-col">
       <div className="hidden lg:flex">
         <GridLayout>
           <Header />
