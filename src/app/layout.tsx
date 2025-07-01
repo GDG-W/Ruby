@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${customFont.variable} bg-[#FFFAEB] antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${customFont.variable} h-screen bg-[#FFFAEB] antialiased`}
       >
         <img
           src="/lanyard.svg"

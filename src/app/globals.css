@@ -4,14 +4,70 @@
   font-family: var(--font-custom), sans-serif;
 }
 
+@layer utilities {
+  .bg-size-70vw {
+    background-size: 70vw;
+  }
+
+  @media (min-width: 600px) {
+    .bg-size-30rem {
+      background-size: 30rem;
+    }
+  }
+}
+
+
+@media (min-width: 1280px) and (max-width: 1300px) {
+  .cmf\:gap-10 {
+    gap: 1.25 rem;
+  }
+
+  .cmf\:left-10 {
+    position: absolute;
+    left: 4.5rem;
+    width: 2rem;
+  }
+}
+
+
+@media (min-width: 1303px) and (max-width: 1510px) {
+  .mv\:top-10 {
+    position: absolute;
+    top: 28.5rem;
+    left: 77%;
+  }
+
+  .cmf\:left-10 {
+    position: absolute;
+    left: 4.5rem;
+    width: 2rem;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1423px) {
+  .op\:gap-10 {
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1424px) and (max-width: 1550px){
+  .ab\:gap-10{
+    gap: 2.35rem
+  }
+}
+
+
+
+
+
 
 html {
-  font-size: 16px; 
+  font-size: 16px;
 }
 
 .writing-mode-vertical-lr {
   writing-mode: vertical-lr;
-  transform: rotate(180deg); 
+  transform: rotate(180deg);
 }
 
 .writing-mode-vertical-rl {
@@ -21,7 +77,3 @@ html {
 /* *{
     outline: 1px solid red;
 } */
-
-
-
-

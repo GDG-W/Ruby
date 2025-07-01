@@ -30,7 +30,7 @@ export default function Aside({
     {
       component: <Image src="/icons.svg" alt="icons" width={36} height={100} />,
       positioning: "absolute",
-      className: "-top-2 xl:left-21 2xl:left-24 2xl:-top-5 w-[2.25rem]",
+      className: "-top-2 cmf:left-10 xl:left-21 2xl:left-24 2xl:-top-5 w-[2.25rem]",
     },
     {
       component: <Image src="/v-shaped-icon.svg" alt="icons" width={55} height={100} />,
@@ -62,7 +62,7 @@ export default function Aside({
           </div>
         ))}
       </div>
-      <section className="relative top-[26.5rem] left-[24.5rem] h-fit w-fit 2xl:top-[28rem] 2xl:left-[25.5rem]">
+      <section className="mv:top-10 cmf:top-10 relative top-[26.5rem] left-[24.5rem] h-fit w-fit 2xl:top-[28rem] 2xl:left-[25.5rem]">
         <Image
           src="/top-quote.svg"
           alt="Top Quote Icon"
@@ -72,7 +72,7 @@ export default function Aside({
         />
 
         <blockquote
-          className="text-base font-semibold text-[#242424] uppercase sm:text-lg xl:text-xl"
+          className="text-base font-bold text-[#242424] uppercase sm:text-lg xl:text-xl"
           aria-label="Event invitation quote"
         >
           Are you there?

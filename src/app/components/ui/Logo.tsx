@@ -2,13 +2,14 @@ import Image from "next/image";
 
 interface LogoProps {
   className?: string;
+  src?: string;
 }
 
-export default function Logo({ className = "" }: LogoProps) {
+export default function Logo({ className = "", src = "" }: LogoProps) {
   return (
     <div className={`flex items-center ${className}`}>
       <Image
-        src="/Logo.svg"
+        src={src}
         alt="DevFest"
         width={0}
         height={0}
