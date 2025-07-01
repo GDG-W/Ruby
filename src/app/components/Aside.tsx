@@ -62,7 +62,7 @@ export default function Aside({
           </div>
         ))}
       </div>
-      <section className="relative top-[26.5rem] left-[23.5rem] h-fit w-fit 2xl:top-[28rem] 2xl:left-[25.5rem]">
+      <section className="relative top-[26.5rem] left-[24.5rem] h-fit w-fit 2xl:top-[28rem] 2xl:left-[25.5rem]">
         <Image
           src="/top-quote.svg"
           alt="Top Quote Icon"
