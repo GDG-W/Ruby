@@ -40,7 +40,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${customFont.variable} h-screen bg-[#FFFAEB] antialiased`}
       >
         <img
-          src="/lanyard.avif"
+          src="/lanyard.webp"
           alt="Lanyard"
           className="absolute top-[-50px] left-1/2 hidden -translate-x-1/2 lg:flex"
           style={{ zIndex: 10 }}
