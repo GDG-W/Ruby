@@ -11,7 +11,7 @@ interface GridLayoutProps {
 export default function MobileGridLayoutPrecise({ children, className = "" }: GridLayoutProps) {
   return (
     <div
-      className={`bg-size-70vw sm:bg-size-30rem h-screen ${className}`}
+      className={`bg-size-70vw min-h-screen md:bg-none ${className}`}
       style={{
         backgroundImage: "url('/gridlines.svg')",
         backgroundRepeat: "no-repeat",

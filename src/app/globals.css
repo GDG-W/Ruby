@@ -58,6 +58,32 @@
 
 
 
+@media (min-width: 359px) and (max-width: 374px){
+    .sm1\:top-10{
+      position: relative;
+      top: 70vh;
+    }
+
+    .sm1\:min-h-screen{
+      height: 85vh;
+    }
+
+    .sm1\:top-5{
+      top: 10rem;
+    }
+}
+
+
+@media (min-width: 413px) and (max-width: 450px){
+  .sm2\:h-screen{
+    height: 90vh;
+  }
+
+  .sm2\:top-20{
+    top:70vh;
+  }
+  
+}
 
 
 
@@ -74,6 +100,6 @@ html {
   writing-mode: vertical-rl;
 }
 
-/* *{
+*{
     outline: 1px solid red;
-} */
+}
