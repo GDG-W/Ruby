@@ -82,7 +82,7 @@
   .sm2\:top-20{
     top:70vh;
   }
-  
+
 }
 
 
@@ -100,6 +100,6 @@ html {
   writing-mode: vertical-rl;
 }
 
-*{
+/* *{
     outline: 1px solid red;
-}
+} */
