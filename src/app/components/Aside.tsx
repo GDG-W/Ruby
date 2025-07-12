@@ -2,11 +2,14 @@
 
 import Image from "next/image";
 import VerticalText from "./VerticalText";
+import { logoWidth } from "./Header";
 
 export default function Aside() {
   return (
     <aside className="relative flex flex-grow items-stretch justify-between overflow-hidden 2xl:ml-0">
-      <div className="cmf:flex relative flex flex-shrink-0 items-center xl:my-8 xl:ml-8 2xl:ml-0">
+      <div
+        className={`cmf:flex relative lg:w-[${logoWidth}px] flex flex-shrink-0 items-center lg:mx-10 xl:my-8 xl:ml-8 2xl:ml-0`}
+      >
         <VerticalText
           text="DEVFEST"
           className="font-akira writing-mode-vertical-lr text-[12dvh] leading-[1] font-extrabold text-[#242424] 2xl:leading-normal"
