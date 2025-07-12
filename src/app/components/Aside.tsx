@@ -1,107 +1,49 @@
 /* eslint-disable simple-import-sort/imports */
 
-import { CSSProperties, ReactNode } from "react";
-
 import Image from "next/image";
 import VerticalText from "./VerticalText";
 
-interface IconConfig {
-  id?: string;
-  component: ReactNode;
-  positioning?: string;
-  className?: string;
-  style?: CSSProperties;
-}
-
-interface AsideProps {
-  leftText?: string;
-  rightText?: string;
-  className?: string;
-  leftIcons?: IconConfig[];
-  rightIcons?: IconConfig[];
-  leftTextClassName?: string;
-  rightTextClassName?: string;
-}
-export default function Aside({
-  leftText = "DEVFEST",
-  rightText = "2025",
-  className = "2xl:ml-0  flex justify-between items-stretch h-full overflow-hidden relative",
-  leftIcons = [
-    {
-      component: <Image src="/icons.svg" alt="icons" width={36} height={100} />,
-      positioning: "absolute",
-      className: "-top-2 cmf:left-10 xl:left-21 2xl:left-24 2xl:-top-5 w-[2.25rem]",
-    },
-    {
-      component: <Image src="/v-shaped-icon.svg" alt="icons" width={55} height={100} />,
-      positioning: "absolute",
-      className: "bottom-32 2xl:left-0 2xl:w-[40px] 2xl:bottom-36 xl:-left-8",
-    },
-  ],
-  rightIcons = [
-    {
-      component: <Image src="/arrow.svg" alt="icons" width={100} height={100} />,
-      positioning: "",
-      className: "flex  justify-center 2xl:w-[80px]   w-full h-full",
-    },
-  ],
-  leftTextClassName = "leading-[1] 2xl:leading-normal text-[5.5rem]  font-akira  font-extrabold writing-mode-vertical-lr text-[#242424] ",
-  rightTextClassName = "leading-[1] items-center flex font-akira text-[5.5rem] font-extrabold writing-mode-vertical-rl text-[#242424] ",
-}: AsideProps) {
+export default function Aside() {
   return (
-    <aside className={`${className}`}>
-      <div className="relative flex-shrink-0 xl:my-8 xl:ml-8 2xl:ml-0">
-        <VerticalText text={leftText} className={leftTextClassName} />
-        {leftIcons.map((icon, index) => (
-          <div
-            key={`left-icon-${index}`}
-            className={`z-10 ${icon.positioning ?? ""} ${icon.className ?? ""}`}
-            style={icon.style}
-          >
-            {icon.component}
-          </div>
-        ))}
+    <aside className="relative flex flex-grow items-stretch justify-between overflow-hidden 2xl:ml-0">
+      <div className="cmf:flex relative flex flex-shrink-0 items-center xl:my-8 xl:ml-8 2xl:ml-0">
+        <VerticalText
+          text="DEVFEST"
+          className="font-akira writing-mode-vertical-lr text-[12dvh] leading-[1] font-extrabold text-[#242424] 2xl:leading-normal"
+        />
+        <div className="cmf:left-10 absolute -top-2 z-10 w-[2.25rem] xl:left-21 2xl:-top-5 2xl:left-24">
+          <Image src="/icons.svg" alt="icons" width={36} height={100} />
+        </div>
+        <div className="absolute bottom-32 z-10 xl:-left-8 2xl:bottom-36 2xl:left-0 2xl:w-[40px]">
+          <Image src="/v-shaped-icon.svg" alt="icons" width={55} height={100} />
+        </div>
       </div>
-      <section className="mv:top-10 cmf:top-10 relative top-[26.5rem] left-[24.5rem] h-fit w-fit 2xl:top-[28rem] 2xl:left-[25.5rem]">
-        <Image
-          src="/top-quote.svg"
-          alt="Top Quote Icon"
-          width={44}
-          height={24}
-          className="absolute -top-12 -left-15 2xl:-left-20"
-        />
 
-        <blockquote
-          className="text-base font-bold text-[#242424] uppercase sm:text-lg xl:text-xl"
-          aria-label="Event invitation quote"
-        >
-          Are you there?
-        </blockquote>
-
-        <Image
-          src="/bottom-quote.svg"
-          alt="Bottom Quote Icon"
-          width={44}
-          height={24}
-          className="absolute -right-12 -bottom-12 2xl:-right-11"
-        />
-      </section>
+      <div
+        className="flex-grow"
+        style={{
+          zIndex: 5,
+          backgroundImage: "url('/Pattern-2.svg')",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "contain",
+        }}
+      />
 
       <div className="relative flex flex-shrink-0 flex-col items-center justify-center space-y-8">
         <div>
-          <VerticalText text={rightText} writingMode="vertical-rl" className={rightTextClassName} />
+          <VerticalText
+            text="2025"
+            writingMode="vertical-rl"
+            className="font-akira writing-mode-vertical-rl flex items-center text-[12dvh] leading-[1] font-extrabold text-[#242424]"
+          />
         </div>
 
-        {rightIcons.map((icon, index) => (
-          <div key={`right-icon-${index}`}>
-            <div
-              className={`z-10 ${icon.positioning ?? ""} ${icon.className ?? ""}`}
-              style={icon.style}
-            >
-              {icon.component}
-            </div>
+        <div>
+          <div className="z-10 flex h-full w-full justify-center 2xl:w-[80px]">
+            <Image src="/arrow.svg" alt="icons" width={100} height={100} />
           </div>
-        ))}
+        </div>
       </div>
     </aside>
   );
