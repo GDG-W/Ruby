@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import VerticalText from "./VerticalText";
-import { logoWidth } from "./Header";
+import { logoWidth } from "./ui/Logo";
 
 export default function Aside() {
   return (
     <aside className="relative flex flex-grow items-stretch justify-between overflow-hidden 2xl:ml-0">
       <div
-        className={`cmf:flex relative lg:w-[${logoWidth}px] flex flex-shrink-0 items-center lg:mx-10 xl:my-8 xl:ml-8 2xl:ml-0`}
+        style={{ width: `${logoWidth}px` }}
+        className="cmf:flex relative flex flex-shrink-0 items-center lg:mx-10 xl:my-8"
       >
         <VerticalText
           text="DEVFEST"
