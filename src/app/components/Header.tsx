@@ -5,14 +5,16 @@ import Image from "next/image";
 import Logo from "./ui/Logo";
 import { motion } from "framer-motion";
 
+export const logoWidth = 112;
+
 export default function Header() {
   return (
     <motion.header className="w-full border-b border-[#D1D1D1] bg-[#FFF7E5]/95 backdrop-blur-sm">
       <div className="mx-auto flex items-center justify-between gap-4">
-        <div className="cmf:gap-10 op:gap-10 ab:gap-10 flex flex-shrink-0 justify-between xl:ml-2 xl:gap-[2.35rem] 2xl:ml-0 2xl:gap-[1.6rem]">
-          <Logo src="/logo.svg" className="ml-7" />
+        <div className="flex flex-shrink-0 justify-between">
+          <Logo src="/logo.svg" className={`mx-10 w-[${logoWidth}px]`} />
           <div className="border-[.5px] border-[#D1D1D1]"></div>
-          <h2 className="font-akira text-[12dvh] leading-none font-extrabold text-[#242424]">
+          <h2 className="font-akira ml-10 text-[12dvh] leading-none font-extrabold text-[#242424]">
             LAGOS
           </h2>
         </div>
