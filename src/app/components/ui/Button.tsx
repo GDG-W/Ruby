@@ -19,7 +19,7 @@ export default function Button({
   onClick,
   disabled = false,
 }: ButtonProps) {
-  const baseClasses = "p-6 md:p-[1.75rem] xl:p-[2.215rem]  font-medium text-sm sm:text-base";
+  const baseClasses = "px-6 md:px-[1.75rem] xl:px-[2.215rem] font-medium text-sm sm:text-base";
 
   const variantClasses = {
     primary: "text-[#242424]",
