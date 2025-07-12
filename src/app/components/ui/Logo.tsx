@@ -5,13 +5,15 @@ interface LogoProps {
   src?: string;
 }
 
+export const logoWidth = 112;
+
 export default function Logo({ className = "", src = "" }: LogoProps) {
   return (
     <div className={`flex items-center ${className}`}>
       <Image
         src={src}
         alt="DevFest"
-        width={0}
+        width={logoWidth}
         height={0}
         sizes="(max-width: 768px) 80px, 100px"
         className="h-auto w-32 object-contain sm:w-36 md:w-40 lg:w-28"
