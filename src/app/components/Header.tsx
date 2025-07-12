@@ -5,14 +5,12 @@ import Image from "next/image";
 import Logo from "./ui/Logo";
 import { motion } from "framer-motion";
 
-export const logoWidth = 112;
-
 export default function Header() {
   return (
     <motion.header className="w-full border-b border-[#D1D1D1] bg-[#FFF7E5]/95 backdrop-blur-sm">
       <div className="mx-auto flex items-center justify-between gap-4">
         <div className="flex flex-shrink-0 justify-between">
-          <Logo src="/logo.svg" className={`mx-10 w-[${logoWidth}px]`} />
+          <Logo src="/logo.svg" className="mx-10" />
           <div className="border-[.5px] border-[#D1D1D1]"></div>
           <h2 className="font-akira ml-10 text-[12dvh] leading-none font-extrabold text-[#242424]">
             LAGOS
