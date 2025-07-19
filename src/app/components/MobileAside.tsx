@@ -1,71 +1,27 @@
 /* eslint-disable simple-import-sort/imports */
 
-import { CSSProperties, ReactNode } from "react";
-
 import Button from "./ui/Button";
 import Image from "next/image";
 import VerticalText from "./VerticalText";
 
-interface IconConfig {
-  id?: string;
-  component: ReactNode;
-  positioning?: string;
-  className?: string;
-  style?: CSSProperties;
-}
-
-interface MobileAsideProps {
-  leftText?: string;
-  rightText?: string;
-  className?: string;
-  leftIcons?: IconConfig[];
-  rightIcons?: IconConfig[];
-  leftTextClassName?: string;
-  rightTextClassName?: string;
-}
-
-export default function MobileAside({
-  leftText = "DEVFEST",
-  rightText = "2025",
-  className = "flex justify-between h-screen sm1:min-h-screen  sm2:h-screen items-stretch  overflow-y-hidden relative",
-  leftIcons = [
-    {
-      component: <Image src="/icons.svg" alt="icons" width={24} height={60} />,
-      positioning: "absolute",
-      className: "top-50 left-4 sm1:top-5 w-[1.5rem]",
-    },
-    {
-      component: <Image src="/v-shaped-icon.svg" alt="icons" width={32} height={60} />,
-      positioning: "absolute",
-      className: "bottom-16 -left-4 w-[1.75rem]",
-    },
-  ],
-  rightIcons = [
-    {
-      component: <Image src="/arrow.svg" alt="icons" width={60} height={60} />,
-      positioning: "",
-      className: "flex justify-center w-[3.75rem] h-full",
-    },
-  ],
-  leftTextClassName = "leading-[1]  text-[3rem] font-akira font-extrabold writing-mode-vertical-lr text-[#242424]",
-  rightTextClassName = "leading-[1] items-center flex font-akira text-[3rem] font-extrabold writing-mode-vertical-rl text-[#242424]",
-}: MobileAsideProps) {
+export default function MobileAside() {
   return (
-    <aside className={`${className}`}>
+    <aside className="relative flex flex-grow items-stretch justify-between overflow-y-hidden">
       <div className="relative mb-8 flex flex-shrink-0 items-end justify-end">
-        <VerticalText text={leftText} className={leftTextClassName} />
-        {leftIcons.map((icon, index) => (
-          <div
-            key={`left-icon-${index}`}
-            className={`z-10 ${icon.positioning ?? ""} ${icon.className ?? ""}`}
-            style={icon.style}
-          >
-            {icon.component}
-          </div>
-        ))}
+        <VerticalText
+          text="DEVFEST"
+          className="font-akira writing-mode-vertical-lr text-[3rem] leading-[1] font-extrabold text-[#242424]"
+        />
+        <div className="sm1:top-5 absolute top-50 left-4 z-10 w-[1.5rem]">
+          <Image src="/icons.svg" alt="icons" width={24} height={60} />
+        </div>
+        <div className="absolute bottom-16 -left-4 z-10 w-[1.75rem]">
+          <Image src="/v-shaped-icon.svg" alt="icons" width={32} height={60} />
+        </div>
+        @
       </div>
 
-      <div className="sm1:top-10 sm2:top-20 relative top-[78vh] flex w-full flex-col">
+      <div className="relative isolate z-99 mt-auto mb-[5dvh] flex w-full flex-col">
         <Button
           variant="primary"
           className="flex items-center justify-center gap-2 bg-[#F6B51E] px-3 py-6 text-xs whitespace-nowrap transition-all hover:bg-[#E5A818] sm:px-4 sm:text-sm lg:px-6 lg:py-3 lg:text-base"
@@ -86,17 +42,16 @@ export default function MobileAside({
 
       <div className="relative flex flex-shrink-0 flex-col items-center justify-between border-l border-[#D1D1D1]">
         <div className="mt-4 space-x-8">
-          <VerticalText text={rightText} writingMode="vertical-rl" className={rightTextClassName} />
-          {rightIcons.map((icon, index) => (
-            <div key={`right-icon-${index}`}>
-              <div
-                className={`z-10 ${icon.positioning ?? ""} ${icon.className ?? ""}`}
-                style={icon.style}
-              >
-                {icon.component}
-              </div>
+          <VerticalText
+            text="2025"
+            writingMode="vertical-rl"
+            className="font-akira writing-mode-vertical-rl flex items-center text-[3rem] leading-[1] font-extrabold text-[#242424]"
+          />
+          <div>
+            <div className="z-10 flex h-full w-[3.75rem] justify-center">
+              <Image src="/arrow.svg" alt="icons" width={60} height={60} />
             </div>
-          ))}
+          </div>
         </div>
 
         <section className="writing-mode-vertical-rl relative mb-12 h-fit w-fit">
