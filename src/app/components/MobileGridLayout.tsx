@@ -18,7 +18,7 @@ export default function MobileGridLayoutPrecise({ children, className = "" }: Gr
         backgroundPosition: "top center",
       }}
     >
-      <motion.div className="w-full">{children}</motion.div>
+      <motion.div className="flex min-h-screen w-full flex-col">{children}</motion.div>
     </div>
   );
 }
