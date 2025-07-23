@@ -18,7 +18,6 @@ export default function MobileAside() {
         <div className="absolute bottom-16 -left-4 z-10 w-[1.75rem]">
           <Image src="/v-shaped-icon.svg" alt="icons" width={32} height={60} />
         </div>
-        @
       </div>
 
       <div className="relative isolate z-99 mt-auto mb-[5dvh] flex w-full flex-col">
