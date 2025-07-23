@@ -20,7 +20,7 @@ export default function HomePage() {
       </div>
 
       {/* Mobile */}
-      <div className="flex h-screen flex-col lg:hidden">
+      <div className="flex h-dvh flex-col lg:hidden">
         <MobileGridLayout>
           <MobileHeader />
           <Lanyard />
