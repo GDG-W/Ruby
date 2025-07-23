@@ -22,7 +22,7 @@ export default function MobileAside() {
       </div>
 
       <div className="relative isolate z-99 mt-auto mb-[5dvh] flex w-full flex-col">
-        <Link href="https://2024.devfestlagos.com/">
+        <Link href="https://2024.devfestlagos.com/" target="_blank">
           <Button
             variant="primary"
             className="flex items-center justify-center gap-2 bg-[#F6B51E] px-3 py-6 text-xs whitespace-nowrap transition-all hover:bg-[#E5A818] sm:px-4 sm:text-sm lg:px-6 lg:py-3 lg:text-base"
@@ -31,7 +31,7 @@ export default function MobileAside() {
             <Image src="/vector.svg" alt="arrow icon" width={14} height={14} />
           </Button>
         </Link>
-        <Link href="https://photos.app.goo.gl/LyuJgDDFsefN2r5i6">
+        <Link href="https://photos.app.goo.gl/LyuJgDDFsefN2r5i6" target="_blank">
           <Button
             variant="secondary"
             className="flex items-center justify-center gap-2 px-3 py-6 text-xs whitespace-nowrap transition-all sm:px-4 sm:text-sm lg:px-6 lg:py-3 lg:text-base"
