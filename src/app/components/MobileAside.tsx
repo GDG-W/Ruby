@@ -25,7 +25,7 @@ export default function MobileAside() {
         <Link href="https://2024.devfestlagos.com/" target="_blank">
           <Button
             variant="primary"
-            className="flex items-center justify-center gap-2 bg-[#F6B51E] px-3 py-6 text-xs whitespace-nowrap transition-all hover:bg-[#E5A818] sm:px-4 sm:text-sm lg:px-6 lg:py-3 lg:text-base"
+            className="flex w-full items-center justify-center gap-2 bg-[#F6B51E] px-3 py-6 text-xs whitespace-nowrap transition-all hover:bg-[#E5A818] sm:px-4 sm:text-sm lg:px-6 lg:py-3 lg:text-base"
           >
             Visit 2024 Website
             <Image src="/vector.svg" alt="arrow icon" width={14} height={14} />
@@ -34,7 +34,7 @@ export default function MobileAside() {
         <Link href="https://photos.app.goo.gl/LyuJgDDFsefN2r5i6" target="_blank">
           <Button
             variant="secondary"
-            className="flex items-center justify-center gap-2 px-3 py-6 text-xs whitespace-nowrap transition-all sm:px-4 sm:text-sm lg:px-6 lg:py-3 lg:text-base"
+            className="flex w-full items-center justify-center gap-2 px-3 py-6 text-xs whitespace-nowrap transition-all sm:px-4 sm:text-sm lg:px-6 lg:py-3 lg:text-base"
           >
             View 2024 Recap
             <Image src="/play.svg" alt="play icon" width={16} height={16} />

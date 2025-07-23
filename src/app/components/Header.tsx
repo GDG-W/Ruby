@@ -39,7 +39,7 @@ export default function Header() {
             <Link href="https://photos.app.goo.gl/LyuJgDDFsefN2r5i6" target="_blank">
               <Button
                 variant="secondary"
-                className="flex items-center justify-center gap-2 px-3 text-xs whitespace-nowrap transition-all sm:px-4 sm:text-sm lg:px-6 lg:text-base"
+                className="flex h-full items-center justify-center gap-2 px-3 text-xs whitespace-nowrap transition-all sm:px-4 sm:text-sm lg:px-6 lg:text-base"
               >
                 View 2024 Recap
                 <Image src="/play.svg" alt="play icon" width={16} height={16} />
