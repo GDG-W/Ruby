@@ -1,6 +1,5 @@
-/* eslint-disable simple-import-sort/imports */
-
 import Image from "next/image";
+
 import Logo from "./ui/Logo";
 
 export default function MobileHeader() {

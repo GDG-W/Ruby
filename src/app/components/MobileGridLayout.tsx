@@ -1,7 +1,5 @@
-/* eslint-disable simple-import-sort/imports */
-
-import { ReactNode } from "react";
 import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
 interface GridLayoutProps {
   children: ReactNode;

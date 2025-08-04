@@ -1,8 +1,7 @@
-/* eslint-disable simple-import-sort/imports */
-
 import Image from "next/image";
-import VerticalText from "./VerticalText";
+
 import { logoWidth } from "./ui/Logo";
+import VerticalText from "./VerticalText";
 
 export default function Aside() {
   return (

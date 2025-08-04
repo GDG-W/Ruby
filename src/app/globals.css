@@ -16,7 +16,6 @@
   }
 }
 
-
 @media (min-width: 1280px) and (max-width: 1300px) {
   .cmf\:gap-10 {
     gap: 1.25 rem;
@@ -28,7 +27,6 @@
     width: 2rem;
   }
 }
-
 
 @media (min-width: 1303px) and (max-width: 1510px) {
   .mv\:top-10 {
@@ -50,42 +48,36 @@
   }
 }
 
-@media (min-width: 1424px) and (max-width: 1550px){
-  .ab\:gap-10{
-    gap: 2.35rem
+@media (min-width: 1424px) and (max-width: 1550px) {
+  .ab\:gap-10 {
+    gap: 2.35rem;
   }
 }
 
+@media (min-width: 359px) and (max-width: 374px) {
+  .sm1\:top-10 {
+    position: relative;
+    top: 70vh;
+  }
 
+  .sm1\:min-h-screen {
+    height: 85vh;
+  }
 
-@media (min-width: 359px) and (max-width: 374px){
-    .sm1\:top-10{
-      position: relative;
-      top: 70vh;
-    }
-
-    .sm1\:min-h-screen{
-      height: 85vh;
-    }
-
-    .sm1\:top-5{
-      top: 10rem;
-    }
+  .sm1\:top-5 {
+    top: 10rem;
+  }
 }
 
-
-@media (min-width: 413px) and (max-width: 450px){
-  .sm2\:h-screen{
+@media (min-width: 413px) and (max-width: 450px) {
+  .sm2\:h-screen {
     height: 90vh;
   }
 
-  .sm2\:top-20{
-    top:70vh;
+  .sm2\:top-20 {
+    top: 70vh;
   }
-
 }
-
-
 
 html {
   font-size: 16px;

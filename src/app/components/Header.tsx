@@ -1,10 +1,9 @@
-/* eslint-disable simple-import-sort/imports */
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 
 import Button from "./ui/Button";
-import Image from "next/image";
 import Logo from "./ui/Logo";
-import { motion } from "framer-motion";
-import Link from "next/link";
 
 export default function Header() {
   return (

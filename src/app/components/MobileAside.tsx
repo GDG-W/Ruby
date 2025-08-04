@@ -1,9 +1,8 @@
-/* eslint-disable simple-import-sort/imports */
+import Image from "next/image";
+import Link from "next/link";
 
 import Button from "./ui/Button";
-import Image from "next/image";
 import VerticalText from "./VerticalText";
-import Link from "next/link";
 
 export default function MobileAside() {
   return (

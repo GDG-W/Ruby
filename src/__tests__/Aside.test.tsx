@@ -1,8 +1,7 @@
-/* eslint-disable simple-import-sort/imports */
 import { render, screen } from "@testing-library/react";
+import React from "react";
 
 import Aside from "../app/components/Aside";
-import React from "react";
 
 describe("Aside", () => {
   it("renders all icons", () => {

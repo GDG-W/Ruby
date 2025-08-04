@@ -1,11 +1,9 @@
-/* eslint-disable simple-import-sort/imports */
 /* eslint-disable @next/next/no-img-element */
 
 import "./globals.css";
 
-import { Geist, Geist_Mono } from "next/font/google";
-
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 
 const geistSans = Geist({
