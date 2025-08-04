@@ -24,11 +24,10 @@ const customFont = localFont({
 
 export const metadata: Metadata = {
   title: "DevFest Lagos 2025 - Coming Soon",
-  metadataBase: new URL("https://devfestlagos.com"),
   openGraph: {
     title: "DevFest Lagos 2025 - Coming Soon",
     images: {
-      url: "/preview.webp",
+      url: "https://storage.googleapis.com/devfestlagos2025/Ruby/preview.webp",
       alt: "DevFest Lagos 2025 - Coming Soon",
     },
     description:
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DevFest Lagos 2025 - Coming Soon",
     images: {
-      url: "/preview.webp",
+      url: "https://storage.googleapis.com/devfestlagos2025/Ruby/preview.webp",
       alt: "DevFest Lagos 2025 - Coming Soon",
     },
     description:
