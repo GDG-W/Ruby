@@ -58,7 +58,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${customFont.variable} h-dvh bg-[#FFFAEB] antialiased`}
       >
         <img
-          src="/lanyard-2.webp"
+          src="/lanyard-3.png"
           alt="Lanyard"
           width={328}
           height={875}
