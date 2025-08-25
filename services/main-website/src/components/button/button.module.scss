@@ -1,0 +1,21 @@
+.button{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 20px;
+    border-radius: 36px;
+    @include text-h6;
+    color: $grey-100;
+    border: 4px solid $background-dark;
+    background-color: $secondary-yellow;
+    cursor: pointer;
+
+    @include media("<=phone"){
+        font-size: .875rem;
+        height: 52px;
+    }
+}
+
+.buttonNoBorder{
+    border: none;
+}

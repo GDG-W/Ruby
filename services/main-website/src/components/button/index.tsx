@@ -1,0 +1,39 @@
+import type React from "react";
+import styles from "./button.module.scss";
+import clsx from "clsx";
+import NextLink, { type LinkProps } from "next/link";
+
+type BaseProps = { children: React.ReactNode; hideBorder?: boolean; className?: string };
+
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & { type: "button" };
+type NextLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & { type: "a"; to: string };
+type ExternalLinkProps = LinkProps & { type: "link"; };
+
+type Props = BaseProps & (ButtonProps | NextLinkProps | ExternalLinkProps);
+
+export function Button(props: Props) {
+  const { children } = props;
+
+  const className = clsx(styles.button, props.hideBorder && styles.buttonNoBorder, props.className);
+
+  switch (props.type) {
+    case "button":
+      return (
+        <button {...props} className={className}>
+          {children}
+        </button>
+      );
+    case "link":
+      return (
+        <NextLink {...props} className={className}>
+          {children}
+        </NextLink>
+      );
+    case "a":
+      return (
+        <a {...props} className={className}>
+          {children}
+        </a>
+      );
+  }
+}
