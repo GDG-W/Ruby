@@ -1,5 +1,7 @@
 @import "reset.scss";
 
 html{
-    font-size: 62.5%;
+    overscroll-behavior: none;
+    font-size: 62.5%; // 1 rem = 10px
+    // 62px 6.2rem
 }

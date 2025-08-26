@@ -1,4 +1,4 @@
-import styles from "./homepage-hero.module.scss";
+import styles from "./hero.module.scss";
 
 export function HomepageHero(){
   return (

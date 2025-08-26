@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import clsx from "clsx";
+import "@/styles/global.scss";
 
 const akira = localFont({
   src: "../fonts/Akira.otf",
