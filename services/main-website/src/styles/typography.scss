@@ -1,56 +1,56 @@
 // Headings
 @mixin text-h1 {
     font-family: $font-akira;
-    font-size: 3.5rem;
-    line-height: 4rem;
+    font-size: 5.6rem;
+    line-height: 6.4rem;
     font-weight: 900;
     letter-spacing: -2.24px;
 }
 
 @mixin text-h2 {
     font-family: $font-akira;
-    font-size: 3rem;
-    line-height: 3.5rem;
+    font-size: 4.8rem;
+    line-height: 5.6rem;
     font-weight: 900;
     letter-spacing: -1.92px;
 }
 
 @mixin text-h3 {
     font-family: $font-akira;
-    font-size: 2.5rem;
-    line-height: 3rem;
+    font-size: 4rem;
+    line-height: 4.8rem;
     font-weight: 900;
     letter-spacing: -1.6px;
 }
 
 @mixin text-h4 {
     font-family: $font-akira;
-    font-size: 2rem;
-    line-height: 2.5rem;
+    font-size: 3.2rem;
+    line-height: 4rem;
     font-weight: 900;
     letter-spacing: -1.28px;
 }
 
 @mixin text-h5 {
     font-family: $font-akira;
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
     font-weight: 900;
     letter-spacing: -0.96px;
 }
 
 @mixin text-h6 {
     font-family: $font-akira;
-    font-size: 1rem;
-    line-height: 1.25rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
     font-weight: 900;
     letter-spacing: -0.32px;
 }
 
 @mixin text-h7 {
     font-family: $font-akira;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    font-size: 1.4rem;
+    line-height: 2rem;
     font-weight: 900;
     letter-spacing: -0.28px;
 }
@@ -58,56 +58,56 @@
 // Paragraphs
 @mixin text-p0 {
     font-family: $font-inter;
-    font-size: 1.75rem;
-    line-height: 2.1rem;
+    font-size: 2.8rem;
+    line-height: 3.36rem;
     font-weight: 600;
     letter-spacing: -0.84px;
 }
 
 @mixin text-p01 {
     font-family: $font-inter;
-    font-size: 1.25rem;
-    line-height: 1.5625rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
     font-weight: 600;
     letter-spacing: -0.6px;
 }
 
 @mixin text-p1 {
     font-family: $font-inter;
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
     font-weight: 400;
     letter-spacing: -0.72px;
 }
 
 @mixin text-p2 {
     font-family: $font-inter;
-    font-size: 1.125rem;
-    line-height: 1.5rem;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
     font-weight: 400;
     letter-spacing: -0.54px;
 }
 
 @mixin text-p3 {
     font-family: $font-inter;
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
     font-weight: 400;
     letter-spacing: -0.48px;
 }
 
 @mixin text-p4 {
     font-family: $font-inter;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    font-size: 1.4rem;
+    line-height: 2rem;
     font-weight: 400;
     letter-spacing: -0.42px;
 }
 
 @mixin text-p5 {
     font-family: $font-inter;
-    font-size: 0.75rem;
-    line-height: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
     font-weight: 400;
     letter-spacing: -0.36px;
 }
@@ -115,40 +115,40 @@
 // Labels
 @mixin text-l1 {
     font-family: $font-inter;
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
     font-weight: 600;
     letter-spacing: -0.72px;
 }
 
 @mixin text-l2 {
     font-family: $font-inter;
-    font-size: 1.125rem;
-    line-height: 1.5rem;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
     font-weight: 600;
     letter-spacing: -0.54px;
 }
 
 @mixin text-l3 {
     font-family: $font-inter;
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
     font-weight: 600;
     letter-spacing: -0.48px;
 }
 
 @mixin text-l4 {
     font-family: $font-inter;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    font-size: 1.4rem;
+    line-height: 2rem;
     font-weight: 600;
     letter-spacing: -0.42px;
 }
 
 @mixin text-l5 {
     font-family: $font-inter;
-    font-size: 0.75rem;
-    line-height: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
     font-weight: 600;
     letter-spacing: -0.36px;
 }
