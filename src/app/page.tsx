@@ -11,6 +11,14 @@ import MobileHeader from "./components/MobileHeader";
 export default function HomePage() {
   return (
     <div className="flex flex-col">
+      {/* Lanyard image - only shows on homepage */}
+      <img
+        alt="Lanyard"
+        width={300}
+        src="/lanyard-0.webp"
+        className="absolute bottom-[10vh] left-1/2 hidden -translate-x-1/2 lg:flex"
+        style={{ zIndex: 10 }}
+      />
       {/* Desktop */}
       <div className="hidden min-h-screen lg:flex">
         <GridLayout>
