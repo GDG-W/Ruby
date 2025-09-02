@@ -26,7 +26,7 @@ const EarlyBirdPage = () => {
 
   const ticketDetails: { [key: string]: string } = {
     "2025-11-18": "Tuesday - Student Edition",
-    "2025-11-19": "Wednesday - Design & Content Day",
+    "2025-11-19": "Wednesday - Design & Product Day",
     "2025-11-20": "Thursday - Startup & Pro Dev Day",
     "2025-11-21": "Friday - Engineering & Infrastructure Day",
     "2025-11-22": "Saturday - AI & Cloud Day",
