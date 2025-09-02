@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,6 +53,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* Google tag (gtag.js) */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-ZR44Q96G06"
+        strategy="afterInteractive"
+      />
+      <Script id="ga-init" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-ZR44Q96G06');`}
+      </Script>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${customFont.variable} h-dvh bg-[#FFFAEB] antialiased`}
       >
