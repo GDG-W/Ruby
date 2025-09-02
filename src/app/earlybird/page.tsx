@@ -40,7 +40,7 @@ const EarlyBirdPage = () => {
     "2025-11-18":
       "A day for students and aspiring tech enthusiasts to learn, connect, and explore the tech ecosystem through workshops and talks.",
     "2025-11-19":
-      "Focused on product design, UX/UI, and building user-centered experiences that drive innovation.",
+      "A day for designers, product managers, project and program managers, and technical writers to explore product design, UI/UX, and creating user-centered experiences. Learn from experts, share insights, and discover strategies to deliver products that truly resonate with users.",
     "2025-11-20-standard":
       "Explore the world of decentralized technologies and open-source projects, with talks and sessions from experts shaping the future of tech.",
     "2025-11-20-pro":
