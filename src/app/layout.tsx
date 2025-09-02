@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 import "./globals.css";
 
 import type { Metadata } from "next";
@@ -57,13 +55,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${customFont.variable} h-dvh bg-[#FFFAEB] antialiased`}
       >
-        <img
-          alt="Lanyard"
-          width={300}
-          src="/lanyard-0.webp"
-          className="absolute bottom-[10vh] left-1/2 hidden -translate-x-1/2 lg:flex"
-          style={{ zIndex: 10 }}
-        />
         <div>{children}</div>
       </body>
     </html>
