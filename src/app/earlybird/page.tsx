@@ -6,12 +6,14 @@ import styles from "./styles.module.css";
 
 const EarlyBirdPage = () => {
   const [selectedDates, setSelectedDates] = useState<string[]>([]);
+  const [thursdayOption, setThursdayOption] = useState<"standard" | "pro">("standard");
   const [totalPrice, setTotalPrice] = useState<number>(0);
 
   const ticketPrices: { [key: string]: number } = {
     "2025-11-18": 5000,
     "2025-11-19": 5000,
-    "2025-11-20": 50000,
+    "2025-11-20-standard": 5000,
+    "2025-11-20-pro": 50000,
     "2025-11-21": 5000,
     "2025-11-22": 5000,
   };
@@ -19,7 +21,8 @@ const EarlyBirdPage = () => {
   const paystackLinks: { [key: string]: string } = {
     "2025-11-18": "https://paystack.com/buy/dflagos25-tuesday",
     "2025-11-19": "https://paystack.com/buy/dflagos25-wednesday",
-    "2025-11-20": "https://paystack.com/buy/dflagos25-thursday",
+    "2025-11-20-standard": "https://paystack.com/buy/dflagos25-thursday-standard",
+    "2025-11-20-pro": "https://paystack.com/buy/dflagos25-thursday",
     "2025-11-21": "https://paystack.com/buy/dflagos25-friday",
     "2025-11-22": "https://paystack.com/buy/dflagos25-saturday",
   };
@@ -27,18 +30,63 @@ const EarlyBirdPage = () => {
   const ticketDetails: { [key: string]: string } = {
     "2025-11-18": "Tuesday - Student Edition",
     "2025-11-19": "Wednesday - Design & Product Day",
-    "2025-11-20": "Thursday - Startup & Pro Dev Day",
-    "2025-11-21": "Friday - Engineering & Infrastructure Day",
-    "2025-11-22": "Saturday - AI & Cloud Day",
+    "2025-11-20-standard": "Thursday - Web3 & Open Source (Standard)",
+    "2025-11-20-pro": "Thursday - Startups & Pro Dev (Pro)",
+    "2025-11-21": "Friday - Engineering & Security Day",
+    "2025-11-22": "Saturday - AI, Cloud & DevOps Day",
+  };
+
+  const ticketDescriptions: { [key: string]: string } = {
+    "2025-11-18":
+      "A day for students and aspiring tech enthusiasts to learn, connect, and explore the tech ecosystem through workshops and talks.",
+    "2025-11-19":
+      "Focused on product design, UX/UI, and building user-centered experiences that drive innovation.",
+    "2025-11-20-standard":
+      "Explore the world of decentralized technologies and open-source projects, with talks and sessions from experts shaping the future of tech.",
+    "2025-11-20-pro":
+      "Your exclusive chance to sit with top startups and industry pros, ask questions, gain insider insights, and level up your career. Limited slots, high-value connections, and exclusive swags await. You don't want to miss this!",
+    "2025-11-21":
+      "Deep dive into software engineering, infrastructure, and cybersecurity best practices for building secure and scalable solutions.",
+    "2025-11-22":
+      "Explore the future of AI, cloud computing, and DevOps, gaining actionable skills and insights to stay ahead in the tech world.",
   };
 
   const handleDateClick = (date: string) => {
+    // Handle Thursday special case
+    if (date === "2025-11-20") {
+      const thursdayKey = `2025-11-20-${thursdayOption}`;
+      setSelectedDates((prevDates) => {
+        // Remove any existing Thursday option
+        const filteredDates = prevDates.filter((d) => !d.startsWith("2025-11-20"));
+
+        if (prevDates.some((d) => d.startsWith("2025-11-20"))) {
+          return filteredDates;
+        } else {
+          return [...filteredDates, thursdayKey];
+        }
+      });
+    } else {
+      setSelectedDates((prevDates) => {
+        if (prevDates.includes(date)) {
+          return prevDates.filter((d) => d !== date);
+        } else {
+          return [...prevDates, date];
+        }
+      });
+    }
+  };
+
+  const handleThursdayOptionChange = (option: "standard" | "pro") => {
+    setThursdayOption(option);
+
+    // Update selected dates if Thursday is already selected
     setSelectedDates((prevDates) => {
-      if (prevDates.includes(date)) {
-        return prevDates.filter((d) => d !== date);
-      } else {
-        return [...prevDates, date];
+      const hasThursday = prevDates.some((d) => d.startsWith("2025-11-20"));
+      if (hasThursday) {
+        const filteredDates = prevDates.filter((d) => !d.startsWith("2025-11-20"));
+        return [...filteredDates, `2025-11-20-${option}`];
       }
+      return prevDates;
     });
   };
 
@@ -56,7 +104,8 @@ const EarlyBirdPage = () => {
   };
 
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
+    const baseDate = dateString.split("-").slice(0, 3).join("-"); // Remove -standard/-pro suffix
+    const date = new Date(baseDate);
     const options: Intl.DateTimeFormatOptions = {
       weekday: "long",
       year: "numeric",
@@ -64,6 +113,10 @@ const EarlyBirdPage = () => {
       day: "numeric",
     };
     return date.toLocaleDateString("en-US", options);
+  };
+
+  const isThursdaySelected = () => {
+    return selectedDates.some((date) => date.startsWith("2025-11-20"));
   };
 
   useEffect(() => {
@@ -97,20 +150,68 @@ const EarlyBirdPage = () => {
             <div className={styles.calendar}>
               <div className={styles.calendarHeader}>November 2025</div>
               <div className={styles.calendarGrid}>
-                {Object.keys(ticketPrices).map((date) => (
-                  <div
-                    key={date}
-                    className={`${styles.day} ${selectedDates.includes(date) ? styles.selected : ""}`}
-                    onClick={() => handleDateClick(date)}
-                  >
-                    <div className={styles.dayName}>
-                      {new Date(date).toLocaleDateString("en-US", { weekday: "short" })}
+                {["2025-11-18", "2025-11-19", "2025-11-20", "2025-11-21", "2025-11-22"].map(
+                  (date) => (
+                    <div
+                      key={date}
+                      className={`${styles.day} ${
+                        date === "2025-11-20"
+                          ? isThursdaySelected()
+                            ? styles.selected
+                            : ""
+                          : selectedDates.includes(date)
+                            ? styles.selected
+                            : ""
+                      }`}
+                      onClick={() => handleDateClick(date)}
+                    >
+                      <div className={styles.dayName}>
+                        {new Date(date).toLocaleDateString("en-US", { weekday: "short" })}
+                      </div>
+                      <div className={styles.dayNumber}>{new Date(date).getDate()}</div>
                     </div>
-                    <div className={styles.dayNumber}>{new Date(date).getDate()}</div>
-                  </div>
-                ))}
+                  )
+                )}
               </div>
             </div>
+
+            {/* Thursday Options */}
+            {isThursdaySelected() && (
+              <div
+                style={{
+                  marginTop: "20px",
+                  padding: "15px",
+                  border: "1px solid #ddd",
+                  borderRadius: "8px",
+                }}
+              >
+                <h4 style={{ marginBottom: "10px" }}>Choose Thursday Option:</h4>
+                <div style={{ display: "flex", gap: "15px" }}>
+                  <label style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+                    <input
+                      type="radio"
+                      name="thursday-option"
+                      value="standard"
+                      checked={thursdayOption === "standard"}
+                      onChange={() => handleThursdayOptionChange("standard")}
+                      style={{ marginRight: "8px" }}
+                    />
+                    <span>Web3 & Open Source (₦5,000)</span>
+                  </label>
+                  <label style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+                    <input
+                      type="radio"
+                      name="thursday-option"
+                      value="pro"
+                      checked={thursdayOption === "pro"}
+                      onChange={() => handleThursdayOptionChange("pro")}
+                      style={{ marginRight: "8px" }}
+                    />
+                    <span>Startups & Pro Dev (₦50,000)</span>
+                  </label>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className={styles.ticketDetailsPlaceholder}>
@@ -121,6 +222,16 @@ const EarlyBirdPage = () => {
                     <div>
                       <strong>{ticketDetails[date]}</strong>
                       <br />
+                      <small
+                        style={{
+                          color: "#666",
+                          fontSize: "0.9em",
+                          marginTop: "5px",
+                          display: "block",
+                        }}
+                      >
+                        {ticketDescriptions[date]}
+                      </small>
                       <small>{formatDate(date)}</small> - ₦{ticketPrices[date].toLocaleString()}
                     </div>
                   </div>
@@ -142,7 +253,9 @@ const EarlyBirdPage = () => {
                 <div className={styles.selectedDateLabel}>Selected Date</div>
                 <div className={styles.selectedDateValue}>
                   {selectedDates.map((date) => (
-                    <div key={date}>{formatDate(date)}</div>
+                    <div key={date}>
+                      {formatDate(date)} - {ticketDetails[date]}
+                    </div>
                   ))}
                 </div>
               </div>
