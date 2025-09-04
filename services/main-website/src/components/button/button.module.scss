@@ -14,8 +14,9 @@
         font-size: 1.4rem;
         height: 52px;
     }
-}
 
-.buttonNoBorder{
-    border: none;
+    &.small{
+        height: 46px;
+        @include text-h7
+    }
 }
