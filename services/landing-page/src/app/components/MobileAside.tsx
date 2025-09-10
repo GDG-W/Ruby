@@ -21,12 +21,12 @@ export default function MobileAside() {
       </div>
 
       <div className="relative isolate z-99 mt-auto mb-[5dvh] flex w-full flex-col">
-        <Link href="https://2024.devfestlagos.com/" target="_blank">
+        <Link href="/earlybird">
           <Button
             variant="primary"
             className="flex w-full items-center justify-center gap-2 bg-[#F6B51E] px-3 py-6 text-xs whitespace-nowrap transition-all hover:bg-[#E5A818] sm:px-4 sm:text-sm lg:px-6 lg:py-3 lg:text-base"
           >
-            Visit 2024 Website
+            Get Early Bird Tickets
             <Image src="/vector.svg" alt="arrow icon" width={14} height={14} />
           </Button>
         </Link>
