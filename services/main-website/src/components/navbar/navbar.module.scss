@@ -1,0 +1,37 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+    height: 72px;
+    width: 100vw;
+    background-color: $background-dark;
+    position: relative;
+
+    .logo{
+        border-radius: 40px;
+        padding: 12px;
+        background: $background-white;
+    }
+
+    .links{
+        padding: 6px 8px;
+        border-radius: 40px;
+        background: $background-white;
+        display: flex;
+        align-items: center;
+        column-gap: 56px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .link{
+            padding: 2px 16px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            @include text-h7;
+            color: $grey-100;
+        }
+    }
+}
