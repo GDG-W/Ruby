@@ -84,5 +84,56 @@
             display: none;
         }
     }
+}
 
+.callToAction{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 38px 52px 56px;
+
+    @include media("<=800px") {
+        flex-direction: column-reverse;
+        padding: 60px 20px;
+    }
+
+    .buyButton{
+        width: 25%;
+
+        @include media("<=800px") {
+            width: 100%;
+        }
+    }
+
+    .arrow{
+        height: auto;
+        max-width: 119px;
+
+        @include media("<=800px") {
+            display: none;
+        }
+    }
+
+    .mobileArrow{
+        @include media(">800px") {
+            display: none;
+        }
+    }
+
+    .dateAndLocation{
+        background-color: $pastel-blue;
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+        justify-content: center;
+        @include text-p01;
+        color: $grey-100;
+        flex-grow: 1;
+        height: 60px;
+        border-radius: 36px;
+
+        @include media("<=800px") {
+            width: 100%;
+        }
+    }
 }
