@@ -2,14 +2,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 100px;
-    height: 72px;
+    padding: 0 7vw;
+    height: 7.2rem;
     width: 100vw;
     background-color: $background-dark;
     position: relative;
 
+    @include media("<=1000px") {
+        padding: 0 20px;
+    }
+
     .logo{
-        border-radius: 40px;
+        border-radius: 4rem;
         padding: 12px;
         background: $background-white;
     }
@@ -20,10 +24,18 @@
         background: $background-white;
         display: flex;
         align-items: center;
-        column-gap: 56px;
+        column-gap: min(3.75vw, 56px);
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+
+        @include media("<=1000px") {
+            column-gap: 10px;
+        }
+
+        @include media("<=800px") {
+            display: none;
+        }
 
         .link{
             padding: 2px 16px;
@@ -33,5 +45,76 @@
             @include text-h7;
             color: $grey-100;
         }
+    }
+
+    .buyTicket{
+        @include media("<=800px") {
+            display: none;
+        }
+    }
+
+    .mobileNavButton{
+        height: 5rem;
+        width: 5rem;
+        border-radius: 50%;
+        padding: 0;
+
+        @include media(">800px") {
+            display: none;
+        }
+    }
+}
+
+.mobileNav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $background-dark;
+    z-index: 3;
+    display: none;
+    padding: 0 20px 64px;
+
+    &.open{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .topRow{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 7.2rem;
+        width: 100%;
+        margin-bottom: 6rem;
+    }
+
+    .logo{
+        border-radius: 4rem;
+        padding: 12px;
+        background: $background-white;
+    }
+
+    .mobileNavClose{
+        height: 5rem;
+        width: 5rem;
+        border-radius: 50%;
+        padding: 0;
+    }
+
+    .links{
+        display: grid;
+        row-gap: 48px;
+
+        .link{
+            @include text-h5;
+            color: white;
+        }
+    }
+
+    .buyTicket{
+        margin-top: auto;
+        width: 100%;
     }
 }
