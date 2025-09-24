@@ -59,7 +59,7 @@ export function Footer() {
         <Image
           width={177}
           height={177}
-          className={styles.globe}
+          className={styles.sticker}
           src="/stickers/world-class-energy-globe.svg"
           alt="'World Class Energy' written above a green globe"
         />
