@@ -1,0 +1,70 @@
+.speaker{
+    background-color: $background-dark;
+    width: 320px;
+    flex-shrink: 0;
+
+    .imageWrapper{
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+        position: relative;
+        height: 308px;
+        margin-bottom: 4px;
+        display: flex;
+        justify-content: center;
+
+        .image{
+            position: absolute;
+            bottom: 0;
+            width: auto;
+            height: 90%;
+            margin: 0 auto;
+            object-fit: cover;
+        }
+    }
+
+    .info{
+        padding: 20px 20px 16px;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        background-color: $background-white;
+        height: 104px;
+        overflow: hidden;
+    }
+
+    .name{
+        @include text-h6;
+        color: $grey-100;
+        margin-bottom: 4px;
+    }
+
+    .tagline{
+        @include text-p4;
+        margin-bottom: 24px;
+        color: $grey-90;
+    }
+
+    .description{
+        @include text-p4;
+        margin-bottom: auto;
+        color: $grey-90;
+    }
+
+    .socialMediaLinks{
+        display: flex;
+        column-gap: 16px;
+        align-items: center;
+    }
+
+    .socialMediaLink{
+        height: 32px;
+        width: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $background-dark;
+    }
+}

@@ -1,0 +1,55 @@
+.speakers{
+    padding: 56px 50px 90px;
+
+    .header{
+        padding: 58px 50px;
+        background-color: $background-white;
+        border-radius: 12px;
+        position: relative;
+        margin-bottom: 32px;
+
+        .content{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 22px;
+        }
+
+        .learnListenIcon{
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: translateY(-50%);
+        }
+
+        .title{
+            @include text-h1;
+            color: $background-dark;
+            margin-bottom: 2px;
+
+            sup{
+                vertical-align: super;
+                font-size: 4rem
+            }
+        }
+
+        .description{
+            @include text-p3;
+            color: $grey-100;
+            max-width: 694px;
+        }
+
+        .controlButtons{
+            display: flex;
+            align-items: center;
+            column-gap: 32px;
+        }
+    }
+
+    .carousel{
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        column-gap: 32px;
+    }
+}
