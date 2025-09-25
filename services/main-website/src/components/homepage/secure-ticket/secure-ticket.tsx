@@ -37,7 +37,7 @@ export function SecureTicket() {
           <h3 className={classes.header}>
             Standard Ticket (₦10,000 PER day)
           </h3>
-          <p className={classes.description}>
+          <p className={classes.ticketDescription}>
             Open to everyone — whether you're just starting out or deep in the industry
           </p>
           <ul className={classes.perks}>
@@ -58,7 +58,7 @@ export function SecureTicket() {
           <h3 className={classes.header}>
             Pro Ticket (₦70,000 FOR THURSDAY)
           </h3>
-          <p className={classes.description}>
+          <p className={classes.ticketDescription}>
             For those who want more access and a more focused, premium experience — all in one day
           </p>
           <ul className={classes.perks}>
