@@ -43,6 +43,16 @@
   leading-trim: both;
   text-edge: cap;
 
+  @include media("<=desktop") {
+    font-size: 11.8rem;
+    line-height: 13.7rem;
+  }
+
+  @include media("<=desktop-md") {
+    font-size: 10.5rem;
+    line-height: 12.2rem;
+  }
+
   @include media("<=desktop-sm") {
     @include text-h2;
   }
