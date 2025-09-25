@@ -1,0 +1,95 @@
+.secureTicket{
+    padding: 84px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .heading{
+        @include text-h1;
+        max-width: 600px;
+        color: $grey-0;
+        text-align: center;
+        position: relative;
+
+        .icon{
+            position: absolute;
+            top: 0;
+            top: -30px;
+            left: -40px;
+        }
+    }
+
+    .description{
+        max-width: 600px;
+        @include text-p3;
+        color: $grey-20;
+        margin-bottom: 56px;
+    }
+
+    .tickets{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 32px;
+    }
+
+    .ticket{
+        padding: 48px 20px 48px 24px;
+        border-radius: 8px;
+        max-width: 510px;
+
+        &.standard{
+            border: 10px solid $secondary-blue;
+            background-color: $pastel-blue;
+        }
+
+        &.pro{
+            border: 10px solid  $secondary-yellow;
+            background-color: $pastel-yellow;
+        }
+
+        .logo{
+            margin-bottom: 16px;
+            max-width: 233px;
+            height: auto;
+        }
+
+        .line{
+            height: 2px;
+            background-color: $grey-100;
+            margin-bottom: 28px;
+            display: block
+        }
+
+        .header{
+            @include text-h6;
+            color: $grey-100;
+            margin-bottom: 4px;
+            text-transform: capitalize;
+        }
+
+        .description{
+            @include text-p3;
+            color: $grey-70;
+            margin-bottom: 32px;
+        }
+
+        .perks{
+            display: grid;
+            row-gap: 16px;
+        }
+
+        .perk{
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 16px;
+            align-items: center;
+            @include text-l3;
+            color: $grey-100;
+        }
+
+        .buyButton{
+            width: 256px;
+            margin-top: 40px;
+        }
+    }
+}
