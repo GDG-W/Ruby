@@ -1,0 +1,136 @@
+.tracks {
+    background-color: $background-white;
+    height: 846px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media("<=800px"){
+        height: unset;
+        padding: 292px 18px 312px;
+    }
+
+    .textWrapper{
+        position: relative;
+        width: fit-content;
+        height: auto;
+    }
+
+    .text{
+        @include text-h1;
+        font-weight: 800;
+        color: $grey-100;
+        text-align: center;
+        max-width: 861px;
+
+        @include media("<=800px"){
+            @include text-h4;
+            span{
+                display: block;
+                color: $grey-20;
+            }
+        }
+    }
+
+    .webTrack{
+        position: absolute;
+        bottom: calc(100% + 12px);
+        left: 34%;
+        width: 106px;
+        height: auto;
+
+        @include media("<=800px"){
+            width: 95px;
+            left: 28%;
+            bottom: calc(100% + 85px);
+        }
+    }
+
+    .cloudTrack{
+        position: absolute;
+        right: 19%;
+        bottom: calc(100% + 24px);
+        width: 168px;
+        height: auto;
+
+        @include media("<=800px"){
+            width: 126px;
+            right: 14px;
+            bottom: calc(100% + 32px);
+        }
+    }
+
+    .promptTrack{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -60px;
+        width: 171px;
+        height: auto;
+
+        @include media("<=800px"){
+            width: 100px;
+            right: -7px;
+            top: unset;
+            bottom: -30px;
+            transform: translateY(0%);
+        }
+    }
+
+    .docsTrack{
+        position: absolute;
+        right: 22%;
+        top: 90%;
+        width: 160px;
+        height: auto;
+
+        @include media("<=800px"){
+            width: 116px;
+            right: 14px;
+            top: 115%;
+        }
+    }
+
+    .designTrack{
+        position: absolute;
+        left: 22%;
+        top: 90%;
+        width: 139px;
+        height: auto;
+
+        @include media("<=800px"){
+            width: 100px;
+            top: 160%;
+            left: 25%;
+        }
+    }
+
+    .productTrack{
+        position: absolute;
+        bottom: -40px;
+        left: -13%;
+        width: 213px;
+        height: auto;
+
+        @include media("<=800px"){
+            width: 136px;
+            bottom: -100px;
+            left: 0%;
+        }
+    }
+
+    .prodTrack{
+        position: absolute;
+        bottom: 96%;
+        left: -32px;
+        width: 170px;
+        height: auto;
+
+        @include media("<=800px"){
+            width: 140px;
+            top: -70px;
+            bottom: unset;
+            left: 0%;
+        }
+    }
+}
