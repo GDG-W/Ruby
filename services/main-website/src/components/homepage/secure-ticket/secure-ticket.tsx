@@ -33,7 +33,6 @@ export function SecureTicket() {
       <div className={classes.tickets}>
         <div className={`${classes.ticket} ${classes.standard}`}>
           <Image className={classes.logo} src={standardTicket} alt="Standard Ticket" />
-          {/*<StandardTicket className={classes.logo} />*/}
           <span className={classes.line} />
           <h3 className={classes.header}>
             Standard Ticket (₦10,000 PER day)
