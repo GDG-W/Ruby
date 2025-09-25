@@ -133,7 +133,10 @@
         border-radius: 36px;
 
         @include media("<=800px") {
+            padding: 0 8px;
+            column-gap: 4px;
             width: 100%;
+            @include text-p4;
         }
     }
 }
