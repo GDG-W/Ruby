@@ -5,10 +5,13 @@ import CarouselRight from "@/assets/carousel-right.svg";
 import LearnListenRepeat from "@/assets/learn-listen-repeat.svg";
 import { demoSpeakers } from "@/lib/speakers";
 import { Speaker } from "@/components/speaker/speaker";
+import laptop from "@/assets/speakers-laptop.png";
+import Image from "next/image";
 
 export function Speakers() {
   return (
     <section className={classes.speakers}>
+      <Image src={laptop} alt="Speakers Laptop" className={classes.speakerLaptop} />
       <div className={classes.header}>
         <div className={classes.content}>
           <LearnListenRepeat className={classes.learnListenIcon} />

@@ -1,5 +1,6 @@
 .speakers{
     padding: 56px 50px 90px;
+    position: relative;
 
     .header{
         padding: 58px 50px;
@@ -51,5 +52,11 @@
         align-items: center;
         flex-wrap: nowrap;
         column-gap: 32px;
+    }
+
+    .speakerLaptop{
+        position: absolute;
+        bottom: 30px;
+        right: 70px;
     }
 }
