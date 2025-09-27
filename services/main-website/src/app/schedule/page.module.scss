@@ -10,13 +10,15 @@
   padding: 4rem 2rem;
   text-align: center;
   background: $background-dark;
+  flex-direction: column-reverse;
 
   @include media(">tablet") {
-    padding: 6rem 2rem;
+    padding: 7.6rem 2rem;
   }
 
   @include media(">desktop") {
-    padding: 8rem 2rem;
+    padding: 7.6rem 2rem;
+    flex-direction: row;
   }
 }
 
@@ -32,6 +34,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  margin-top: 2rem;
 
   @include media(">tablet") {
     font-size: 4rem;
@@ -42,21 +45,17 @@
   @include media(">desktop") {
     font-size: 5rem;
     gap: 2rem;
+    margin-top: 8rem;
   }
 }
 
 .fiveDaysIcon {
-  width: 80px;
   height: auto;
-  margin-left: 1rem;
+  margin-left: -2rem;
   
-  @include media(">tablet") {
-    width: 120px;
-    margin-left: 2rem;
-  }
 
   @include media(">desktop") {
     width: 150px;
-    margin-left: 2rem;
+    margin-left: -5rem;
   }
 }

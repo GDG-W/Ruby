@@ -127,8 +127,8 @@ export default function SchedulePage() {
           EXPLORE OUR ALL
           <br />
           INCLUSIVE SCHEDULE
-          <FiveDaysIcon className={styles.fiveDaysIcon} />
         </h1>
+        <FiveDaysIcon className={styles.fiveDaysIcon} />
       </div>
       
       <ScheduleDayGroup days={sampleScheduleData} />
