@@ -1,0 +1,218 @@
+.scheduleDayGroup {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+
+  @include media(">tablet") {
+    padding: 4rem 2rem;
+  }
+
+  @include media(">desktop") {
+    padding: 6rem 2rem;
+  }
+}
+
+.dayTabs {
+  display: flex;
+  outline: none;
+  border: none;
+  position: relative;
+  z-index: 2;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.dayTab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 20%;
+  padding: 1.5rem 1rem 2rem;
+  outline: none !important;
+  border: none;
+  border-radius: 2.4rem 2.4rem 0 0;
+  cursor: pointer;
+  transform: scaleX(1.2) translateY(0);
+  animation: tabIdle 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+  &:hover {
+    animation: tabHover 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    z-index: 10 !important;
+  }
+
+  &.active {
+    animation: tabActive 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    z-index: 15 !important;
+  }
+
+  &:not(:hover):not(.active) {
+    animation: tabReturn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @include media(">tablet") {
+    padding: 2rem 1rem 2.5rem;
+  }
+
+  // Day-specific colors and z-index
+  &.day0 {
+    background: $pastel-yellow;
+    z-index: 4;
+    transform-origin: left;
+  }
+
+  &.day1 {
+    background: $pastel-blue;
+    z-index: 3;
+  }
+
+  &.day2 {
+    background: $pastel-red;
+    z-index: 2;
+  }
+
+  &.day3 {
+    background: $background-cream;
+    z-index: 1;
+  }
+
+  &.day4 {
+    background: $pastel-green;
+    z-index: 0;
+    transform-origin: right;
+  }
+}
+
+.tabLabel {
+  @include text-h5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $text-main-900;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+
+  @include media(">tablet") {
+    margin-bottom: 0.75rem;
+  }
+
+  .dayTab.active & {
+    @include text-h3;
+  }
+
+    // Day-specific colors for active/hover states
+  .dayTab.day0:hover &,
+  .dayTab.day0.active & {
+    color: $secondary-yellow;
+  }
+
+  .dayTab.day1:hover &,
+  .dayTab.day1.active & {
+    color: $secondary-blue;
+  }
+
+  .dayTab.day2:hover &,
+  .dayTab.day2.active & {
+    color: $secondary-red;
+  }
+
+  .dayTab.day3:hover &,
+  .dayTab.day3.active & {
+    color: $text-main-900;
+  }
+
+  .dayTab.day4:hover &,
+  .dayTab.day4.active & {
+    color: $secondary-green;
+  }
+}
+
+.tabDate {
+  @include text-p4;
+  color: $grey-70;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  @include media(">tablet") {
+    @include text-p3;
+  }
+
+}
+
+.dayCardContainer {
+  position: relative;
+  z-index: 1;
+}
+
+.activeDayCard {
+  animation: fadeScaleIn 0.4s ease-out forwards;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+// Tab animation keyframes
+@keyframes tabIdle {
+  0% {
+    transform: scaleX(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scaleX(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes tabHover {
+  0% {
+    transform: scaleX(1.2);
+  }
+  50% {
+    transform: scaleX(1.25);
+  }
+  100% {
+    transform: scaleX(1.2);
+  }
+}
+
+@keyframes tabActive {
+  0% {
+    transform: scaleX(1.2);
+  }
+  30% {
+    transform: scaleX(1.3);
+  }
+  100% {
+    transform: scaleX(1.2);
+  }
+}
+
+@keyframes tabReturn {
+  0% {
+    transform: scaleX(1.2);
+  }
+  100% {
+    transform: scaleX(1.2);
+  }
+}
+
+// Day card animation
+@keyframes fadeScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
