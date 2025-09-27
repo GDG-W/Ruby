@@ -52,6 +52,8 @@
         align-items: center;
         flex-wrap: nowrap;
         column-gap: 32px;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
     }
 
     .speakerLaptop{

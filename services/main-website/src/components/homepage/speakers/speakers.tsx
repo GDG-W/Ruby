@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/button/button";
 import classes from "./speakers.module.scss";
 import CarouselLeft from "@/assets/carousel-left.svg";
@@ -7,8 +9,23 @@ import { demoSpeakers } from "@/lib/speakers";
 import { Speaker } from "@/components/speaker/speaker";
 import laptop from "@/assets/speakers-laptop.png";
 import Image from "next/image";
+import { useRef } from "react";
 
 export function Speakers() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: -352, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: 352, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className={classes.speakers}>
       <Image src={laptop} alt="Speakers Laptop" className={classes.speakerLaptop} />
@@ -28,16 +45,16 @@ export function Speakers() {
           </Button>
         </div>
         <div className={classes.controlButtons}>
-          <button>
+          <button onClick={scrollLeft}>
             <CarouselLeft />
           </button>
-          <button>
+          <button onClick={scrollRight}>
             <CarouselRight />
           </button>
         </div>
       </div>
-      <div className={classes.carousel}>
-        {demoSpeakers.map(speaker => <Speaker {...speaker} key={speaker.name} />)}
+      <div className={classes.carousel} ref={carouselRef}>
+        {demoSpeakers.concat(demoSpeakers).concat(demoSpeakers).map(speaker => <Speaker {...speaker} key={speaker.name} />)}
       </div>
     </section>
   )
