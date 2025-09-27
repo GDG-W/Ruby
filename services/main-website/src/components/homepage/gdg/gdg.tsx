@@ -18,7 +18,7 @@ const GDG = () => {
           </Button>
         </div>
         <Image
-          alt="GDG"
+          alt="GDG Lagos orbit illustration"
           width={500}
           height={538}
           className={styles.image}
