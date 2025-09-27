@@ -1,0 +1,95 @@
+.faqs {
+  background-color: $background-dark;
+
+  @include media("<=desktop-sm") {
+    background-color: $background-cream;
+  }
+}
+
+.container {
+  max-width: 1512px;
+  margin: 0 auto;
+  padding: 6.7rem 0 8rem;
+  background-color: $background-dark;
+
+  @include media("<=desktop-sm") {
+    padding: 7.2rem 2rem;
+    border-radius: 0 0 6rem 6rem;
+  }
+}
+
+.content {
+  position: relative;
+  width: 75%;
+  max-width: 1082px;
+  background-color: $background-white;
+  padding: 5.8rem 0 4rem;
+  margin: 0 auto;
+  border-radius: 2rem;
+
+  @include media("<=desktop-sm") {
+    width: 100%;
+    padding: 2.8rem 2.3rem 5.3rem;
+    border-radius: 0.8rem;
+  }
+}
+
+.sticker {
+  position: absolute;
+  top: -5.6rem;
+  left: -13.6rem;
+
+  @include media("<=desktop-sm") {
+    top: -7.25rem;
+    left: -2rem;
+    width: 16rem;
+    height: 12.2rem;
+  }
+}
+
+.inner {
+  width: 65%;
+  max-width: 706px;
+  margin: 0 auto;
+
+  @include media("<=desktop-sm") {
+    width: 100%;
+  }
+}
+
+.title {
+  @include text-h2;
+  text-align: center;
+  margin-bottom: 0.8rem;
+
+  @include media("<=desktop-sm") {
+    @include text-h5;
+  }
+}
+
+.description {
+  @include text-p3;
+  color: $grey-50;
+  text-align: center;
+
+  @include media("<=desktop-sm") {
+    @include text-p4;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.8rem;
+  margin: 3.1rem 0 5.6rem;
+
+  @include media("<=desktop-sm") {
+    row-gap: 2.2rem;
+    margin: 3.2rem 0 4.8rem;
+  }
+}
+
+.button {
+  width: fit-content;
+  margin: 0 auto;
+}

@@ -5,6 +5,7 @@ import { Tracks } from "@/components/homepage/tracks/tracks";
 import { Speakers } from "@/components/homepage/speakers/speakers";
 import Throwback from "@/components/homepage/throwback/throwback";
 import GDG from "@/components/homepage/gdg/gdg";
+import FAQs from "@/components/homepage/faqs/faqs";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Tracks />
       <Throwback />
       <GDG />
+      <FAQs />
     </div>
   );
 }

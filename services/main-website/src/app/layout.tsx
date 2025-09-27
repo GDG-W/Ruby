@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import clsx from "clsx";
 import "@/styles/global.scss";
 import { Navbar } from "@/components/navbar/navbar";
+import { Footer } from "@/components/footer/footer";
 
 const akira = localFont({
   src: "../fonts/Akira.otf",
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={clsx(akira.variable, inter.variable)}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

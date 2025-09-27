@@ -3,7 +3,14 @@ import styles from "./button.module.scss";
 import clsx from "clsx";
 import NextLink, { type LinkProps } from "next/link";
 
-type BaseProps = { children: React.ReactNode; size?: "sm" | "default"; className?: string };
+type Variant = "primary" | "secondary" | "tertiary";
+
+type BaseProps = {
+  children: React.ReactNode;
+  size?: "sm" | "default";
+  variant?: Variant;
+  className?: string;
+};
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & { type?: "button" };
 type NextLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & { type: "a"; to: string };
@@ -12,9 +19,14 @@ type ExternalLinkProps = LinkProps & { type: "link"; };
 type Props = BaseProps & (ButtonProps | NextLinkProps | ExternalLinkProps);
 
 export function Button(props: Props) {
-  const { children } = props;
+  const { children, variant = "primary" } = props;
 
-  const className = clsx(styles.button, props.className, props.size === "sm" && styles.small);
+  const className = clsx(
+    styles.button,
+    props.className,
+    styles[variant],
+    props.size === "sm" && styles.small
+  );
 
   switch (props.type) {
     case "link":
