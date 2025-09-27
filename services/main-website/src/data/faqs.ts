@@ -45,3 +45,8 @@ export const FAQ_DATA: Record<Tab, FAQ[]> = {
     },
   ],
 };
+
+export const TAB_LABELS: Record<Tab, string> = {
+  "devfest-lagos-2025": "DevFest Lagos 2025",
+  tickets: "Tickets",
+};

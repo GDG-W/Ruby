@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { FAQ_DATA, TABS, type Tab } from "@/data/faqs";
+import { FAQ_DATA, TABS, TAB_LABELS, type Tab } from "@/data/faqs";
 import FaqItem from "@/components/faq-item/faq-item";
 import styles from "./page.module.scss";
 import { Button } from "@/components/button/button";
@@ -11,10 +11,6 @@ export default function FAQs({ params }: { params: { tab: string } }) {
   if (!TABS.includes(tab)) return notFound();
 
   const faqs = FAQ_DATA[tab];
-  const TAB_INFO: Record<Tab, string> = {
-    "devfest-lagos-2025": "DevFest Lagos 2025",
-    tickets: "Tickets",
-  } as const;
 
   return (
     <>
@@ -26,7 +22,7 @@ export default function FAQs({ params }: { params: { tab: string } }) {
             href={`/faqs/${slug}`}
             variant={slug === tab ? "primary" : "tertiary"}
           >
-            {TAB_INFO[slug]}
+            {TAB_LABELS[slug]}
           </Button>
         ))}
       </div>
