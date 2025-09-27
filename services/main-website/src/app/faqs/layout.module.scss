@@ -7,6 +7,11 @@
   max-width: 1082px;
   margin: 0 auto;
   padding: 10.8rem 0 8rem;
+
+  @include media("<=desktop-sm") {
+    width: 100%;
+    padding: 3rem 2.1rem 10rem;
+  }
 }
 
 .title {
@@ -17,6 +22,10 @@
 
   @include media("<=desktop-sm") {
     @include text-h5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
   }
 }
 
@@ -26,9 +35,19 @@
   left: 3rem;
 
   @include media("<=desktop-sm") {
-    top: -7.25rem;
-    left: -2rem;
-    width: 16rem;
-    height: 12.2rem;
+    position: relative;
+    margin-right: 2rem;
+    width: 14rem;
+    height: 10rem;
+  }
+}
+
+.description {
+  @include text-p3;
+  color: $grey-50;
+  text-align: center;
+
+  @include media("<=desktop-sm") {
+    @include text-p4;
   }
 }
