@@ -78,21 +78,21 @@ export function Footer() {
             <ul className={styles.links}>
               {footerLinks.topLeft.map((link) => (
                 <li key={link.href} className={styles.link}>
-                  <a href={link.href}>{link.label}</a>
+                  <Link href={link.href}>{link.label}</Link>
                 </li>
               ))}
             </ul>
             <ul className={styles.links}>
               {footerLinks.topRight.map((link) => (
                 <li key={link.href} className={styles.link}>
-                  <a href={link.href}>{link.label}</a>
+                  <Link href={link.href}>{link.label}</Link>
                 </li>
               ))}
             </ul>
             <ul className={styles.links}>
               {footerLinks.bottomLeft.map((link) => (
                 <li key={link.href} className={styles.link}>
-                  <a href={link.href}>{link.label}</a>
+                  <Link href={link.href}>{link.label}</Link>
                 </li>
               ))}
             </ul>
