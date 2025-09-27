@@ -21,4 +21,8 @@
         height: 46px;
         @include text-h7
     }
+
+  &.tertiary {
+    background-color: $background-white;
+  }
 }
