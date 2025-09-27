@@ -12,7 +12,10 @@ const footerLinks = {
   topRight: [
     { label: "Map Venue", href: "/map" },
     { label: "Claim Ticket", href: "/" },
-    { label: "Join the Community", href: "https://gdg.community.dev/gdg-lagos/" },
+    {
+      label: "Join the Community",
+      href: "https://gdg.community.dev/gdg-lagos/",
+    },
   ],
   bottomLeft: [
     { label: "FAQs", href: "/faqs" },
@@ -108,7 +111,12 @@ export function Footer() {
                     className={styles.socialLink}
                     aria-label={`Follow us on ${social.name}`}
                   >
-                    <Image src={social.icon} width={50} height={50} alt={social.name} />
+                    <Image
+                      src={social.icon}
+                      width={50}
+                      height={50}
+                      alt={social.name}
+                    />
                   </a>
                 ))}
               </div>
@@ -117,7 +125,12 @@ export function Footer() {
 
           {/* Social + imagery */}
           <div className={styles.right}>
-            <Button size="sm" type="link" href="/buy" className={styles.mobileCta}>
+            <Button
+              size="sm"
+              type="link"
+              href="/buy"
+              className={styles.mobileCta}
+            >
               Buy Tickets
             </Button>
             <Image
@@ -139,7 +152,9 @@ export function Footer() {
           </div>
         </div>
 
-        <p className={styles.copyright}>© 2025 DevFest Lagos. All Rights Reserved.</p>
+        <p className={styles.copyright}>
+          © 2025 DevFest Lagos. All Rights Reserved.
+        </p>
       </div>
     </footer>
   );

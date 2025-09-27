@@ -8,13 +8,13 @@ import { Footer } from "@/components/footer/footer";
 
 const akira = localFont({
   src: "../fonts/Akira.otf",
-  variable: "--font-akira"
-})
+  variable: "--font-akira",
+});
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter"
-})
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",

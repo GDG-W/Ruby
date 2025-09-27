@@ -4,7 +4,11 @@ import styles from "./layout.module.scss";
 
 export const metadata = { title: "FAQs" };
 
-export default function FAQParentLayout({ children }: { children: React.ReactNode }) {
+export default function FAQParentLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className={styles.faqs}>
       <div className={styles.container}>

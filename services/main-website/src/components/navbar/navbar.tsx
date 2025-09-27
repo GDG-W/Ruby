@@ -6,21 +6,21 @@ import { Button } from "../button/button";
 const links = [
   {
     link: "/schedule",
-    text: "Schedule"
+    text: "Schedule",
   },
   {
     link: "/speakers",
-    text: "Speakers"
+    text: "Speakers",
   },
   {
     link: "/faqs",
-    text: "FAQs"
+    text: "FAQs",
   },
   {
     link: "/team",
-    text: "Team"
-  }
-]
+    text: "Team",
+  },
+];
 
 export function Navbar() {
   return (
@@ -29,19 +29,15 @@ export function Navbar() {
         <NavLogo />
       </Link>
       <ul className={styles.links}>
-        {
-          links.map(link => (
-            <li key={link.link}>
-              <Link href={link.link} className={styles.link}>
-                {link.text}
-              </Link>
-            </li>
-          ))
-        }
+        {links.map((link) => (
+          <li key={link.link}>
+            <Link href={link.link} className={styles.link}>
+              {link.text}
+            </Link>
+          </li>
+        ))}
       </ul>
-      <Button size="sm">
-        BUY TICKETS
-      </Button>
+      <Button size="sm">BUY TICKETS</Button>
     </nav>
-  )
+  );
 }
