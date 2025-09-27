@@ -11,23 +11,24 @@ export default function FAQs({ params }: { params: { tab: string } }) {
   if (!TABS.includes(tab)) return notFound();
 
   const faqs = FAQ_DATA[tab];
+  const TAB_INFO: Record<Tab, string> = {
+    "devfest-lagos-2025": "DevFest Lagos 2025",
+    tickets: "Tickets",
+  } as const;
+
   return (
     <>
       <div className={styles.tabs}>
-        <Button
-          type="link"
-          href="/faqs/devfest-lagos-2025"
-          variant={tab === "devfest-lagos-2025" ? "primary" : "tertiary"}
-        >
-          DevFest Lagos 2025
-        </Button>
-        <Button
-          type="link"
-          href="/faqs/tickets"
-          variant={tab === "tickets" ? "primary" : "tertiary"}
-        >
-          Tickets
-        </Button>
+        {TABS.map((slug) => (
+          <Button
+            key={slug}
+            type="link"
+            href={`/faqs/${slug}`}
+            variant={slug === tab ? "primary" : "tertiary"}
+          >
+            {TAB_INFO[slug]}
+          </Button>
+        ))}
       </div>
       <ul className={styles.list}>
         {faqs.map(({ id, question, answer }) => (
