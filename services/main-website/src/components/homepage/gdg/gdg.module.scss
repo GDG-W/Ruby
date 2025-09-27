@@ -1,9 +1,5 @@
 .gdg {
-  background-color: $background-dark;
-
-  @include media("<=desktop-sm") {
-    background-color: transparent;
-  }
+  background-color: transparent;
 }
 
 .container {
@@ -15,6 +11,7 @@
   background-color: $background-dark;
   margin: 0 auto;
   padding: 4.8rem 10.2rem;
+  border-radius: 10rem 10rem 0 0;
 
   @include media("<=desktop-sm") {
     flex-direction: column;
