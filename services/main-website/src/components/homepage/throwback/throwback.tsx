@@ -51,7 +51,7 @@ const Throwback = () => {
                 <svg
                   height="12"
                   width="100%"
-                  aria-hidden
+                  aria-hidden="true"
                   viewBox="0 0 100 12"
                   className={styles.dashes}
                   preserveAspectRatio="none"
