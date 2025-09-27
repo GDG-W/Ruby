@@ -104,6 +104,7 @@ export function Footer() {
                     target="_blank"
                     key={social.name}
                     href={social.href}
+                    rel="noopener noreferrer"
                     className={styles.socialLink}
                     aria-label={`Follow us on ${social.name}`}
                   >
