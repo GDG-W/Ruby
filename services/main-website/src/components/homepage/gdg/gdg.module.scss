@@ -2,7 +2,7 @@
   background-color: $background-dark;
 
   @include media("<=desktop-sm") {
-    background-color: $background-cream;
+    background-color: transparent;
   }
 }
 
