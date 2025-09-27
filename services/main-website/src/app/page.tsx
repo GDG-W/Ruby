@@ -6,11 +6,13 @@ import { Speakers } from "@/components/homepage/speakers/speakers";
 import Throwback from "@/components/homepage/throwback/throwback";
 import GDG from "@/components/homepage/gdg/gdg";
 import FAQs from "@/components/homepage/faqs/faqs";
+import { Sponsor } from "@/components/homepage/sponsor/sponsor";
 
 export default function Home() {
   return (
     <div className={styles.home}>
       <HomepageHero />
+      <Sponsor />
       <SecureTicket />
       <Speakers />
       <Tracks />
