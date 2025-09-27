@@ -1,0 +1,34 @@
+.faqs {
+  background-color: $background-white;
+}
+
+.container {
+  width: 75%;
+  max-width: 1082px;
+  margin: 0 auto;
+  padding: 10.8rem 0 8rem;
+}
+
+.title {
+  @include text-h2;
+  position: relative;
+  text-align: center;
+  margin-bottom: 0.8rem;
+
+  @include media("<=desktop-sm") {
+    @include text-h5;
+  }
+}
+
+.sticker {
+  position: absolute;
+  top: -70%;
+  left: 3rem;
+
+  @include media("<=desktop-sm") {
+    top: -7.25rem;
+    left: -2rem;
+    width: 16rem;
+    height: 12.2rem;
+  }
+}
