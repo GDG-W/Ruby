@@ -1,0 +1,61 @@
+.schedulePage {
+  min-height: 100vh;
+  background: $background-dark;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: $background-dark;
+  flex-direction: column-reverse;
+
+  @include media(">tablet") {
+    padding: 7.6rem 2rem;
+  }
+
+  @include media(">desktop") {
+    padding: 7.6rem 2rem;
+    flex-direction: row;
+  }
+}
+
+.heroTitle {
+  @include text-h1;
+  color: $background-white;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-weight: 900;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  @include media(">tablet") {
+    font-size: 4rem;
+    line-height: 0.9;
+    gap: 1.5rem;
+  }
+
+  @include media(">desktop") {
+    font-size: 5rem;
+    gap: 2rem;
+    margin-top: 8rem;
+  }
+}
+
+.fiveDaysIcon {
+  height: auto;
+  margin-left: -2rem;
+  
+
+  @include media(">desktop") {
+    width: 150px;
+    margin-left: -5rem;
+  }
+}
