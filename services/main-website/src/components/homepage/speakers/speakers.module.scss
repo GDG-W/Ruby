@@ -2,6 +2,10 @@
     padding: 56px 50px 90px;
     position: relative;
 
+    @include media("<=800px") {
+        padding: 60px 24px 75px;
+    }
+
     .header{
         padding: 58px 50px;
         background-color: $background-white;
@@ -9,11 +13,21 @@
         position: relative;
         margin-bottom: 32px;
 
+        @include media("<=800px") {
+            padding: 32px 20px;
+        }
+
         .content{
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 22px;
+
+            @include media("<=800px") {
+                flex-direction: column;
+                align-items: start;
+                row-gap: 12px;
+            }
         }
 
         .learnListenIcon{
@@ -21,6 +35,11 @@
             right: 0;
             top: 0;
             transform: translateY(-50%);
+            width: 21.2rem;
+
+            @include media("<=800px") {
+                width: 13.6rem;
+            }
         }
 
         .title{
@@ -32,12 +51,24 @@
                 vertical-align: super;
                 font-size: 4rem
             }
+
+            @include media("<=800px") {
+                @include text-h5;
+
+                sup{
+                    font-size: 2rem;
+                }
+            }
         }
 
         .description{
             @include text-p3;
             color: $grey-100;
             max-width: 694px;
+
+            @include media("<=800px") {
+                @include text-p4
+            }
         }
 
         .controlButtons{
@@ -60,5 +91,11 @@
         position: absolute;
         bottom: 30px;
         right: 70px;
+        width: 126px;
+        height: auto;
+
+        @include media("<=800px") {
+            width: 96px;
+        }
     }
 }

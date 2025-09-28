@@ -24,6 +24,7 @@
             text-align: center;
             justify-content: center;
             height: 56px;
+            padding-left: 0;
         }
     }
 
@@ -45,6 +46,7 @@
         flex-grow: 1;
         background-color: white;
         overflow: hidden;
+        max-width: 100vw;
     }
 
     .logos{
@@ -56,6 +58,10 @@
         padding-right: 24px;
 
         animation: slide 15s linear infinite;
+
+        @include media("<=tablet") {
+            height: 56px;
+        }
     }
 
     .logo{

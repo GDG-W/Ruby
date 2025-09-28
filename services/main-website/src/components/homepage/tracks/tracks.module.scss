@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 
     @include media("<=800px"){
         height: unset;
