@@ -7,8 +7,19 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import clsx from "clsx";
+import Facebook from "@/assets/social-media/facebook.svg"
+import Instagram from "@/assets/social-media/instagram.svg"
+import LinkedIn from "@/assets/social-media/linkedin.svg"
+import Twitter from "@/assets/social-media/twitter.svg"
 
 type SocialMedia = "twitter" | "linkedin" | "github" | "instagram";
+
+const socialMediaIcons = {
+  twitter: Twitter,
+  linkedin: LinkedIn,
+  github: Facebook,
+  instagram: Instagram
+} as const;
 
 export type SpeakerProps = {
   image: StaticImageData;
@@ -153,15 +164,18 @@ export function Speaker({ image, name, tagline, bio, socialMedia, className, red
         <animated.div style={bioProps} className={classes.bioContent}>
           <p className={classes.description}>{bio}</p>
           <div className={classes.socialMedia}>
-            {socialMedia.map((media) => (
-              <a
-                key={media.type}
-                href={media.url}
-                className={classes.socialMediaLink}
-              >
-                {media.type}
-              </a>
-            ))}
+            {socialMedia.map((media) => {
+              const Icon = socialMediaIcons[media.type];
+              return (
+                <a
+                  key={media.type}
+                  href={media.url}
+                  className={classes.socialMediaLink}
+                >
+                  <Icon />
+                </a>
+              )
+            })}
           </div>
         </animated.div>
       </animated.div>
