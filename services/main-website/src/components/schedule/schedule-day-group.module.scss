@@ -39,7 +39,6 @@
   outline: none !important;
   border: none;
   border-radius: 2.4rem 2.4rem 0 0;
-  cursor: pointer;
   transform: scaleX(1.2) translateY(0);
   animation: tabIdle 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 
@@ -49,7 +48,9 @@
   }
 
   &.active {
-    animation: tabActive 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    @include media(">tablet") {
+        animation: tabActive 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
     z-index: 15 !important;
   }
 
@@ -91,19 +92,24 @@
 }
 
 .tabLabel {
-  @include text-h5;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: $text-main-900;
   margin-bottom: 0.5rem;
   transition: all 0.3s ease;
+  @include text-h7;
+  font-weight: 800;
+  font-family: $font-akira;
 
   @include media(">tablet") {
     margin-bottom: 0.75rem;
+    @include text-h5;
   }
 
   .dayTab.active & {
-    @include text-h3;
+    @include media(">tablet") {
+        @include text-h3;
+    }
   }
 
     // Day-specific colors for active/hover states
@@ -162,6 +168,7 @@
     transform: scaleX(1);
     opacity: 0.8;
   }
+
   100% {
     transform: scaleX(1.2);
     opacity: 1;

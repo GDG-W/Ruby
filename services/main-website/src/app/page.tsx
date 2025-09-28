@@ -7,6 +7,7 @@ import Throwback from "@/components/homepage/throwback/throwback";
 import GDG from "@/components/homepage/gdg/gdg";
 import FAQs from "@/components/homepage/faqs/faqs";
 import { Sponsor } from "@/components/homepage/sponsor/sponsor";
+import { ScheduleSection } from "@/components/homepage/schedule/schedule";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <SecureTicket />
       <Speakers />
       <Tracks />
+      <ScheduleSection />
       <Throwback />
       <GDG />
       <FAQs />
