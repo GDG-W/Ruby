@@ -46,7 +46,7 @@ export function Navbar() {
                 </Link>
               </li>
 
-          ))}
+            ))}
         </ul>
         <Button size="sm" className={styles.buyTicket}>
           BUY TICKETS
@@ -68,7 +68,7 @@ export function Navbar() {
           {
             links.map(link => (
               <li key={link.link}>
-                <Link href={link.link} className={styles.link}>
+                <Link href={link.link} onClick={() => setNavOpen(false)} className={styles.link}>
                   {link.text}
                 </Link>
               </li>
