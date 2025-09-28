@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./layout.module.scss";
+import GDG from "@/components/homepage/gdg/gdg";
 
 export const metadata = { title: "FAQs" };
 
@@ -21,10 +22,14 @@ export default function FAQParentLayout({
             alt="'More Community, Less Ego' written above a group photo of DevFest Digital Working Group (2024)"
             priority
           />
-          Get your questions answered
+          <span>Get your questions answered</span>
         </h2>
+        <p className={styles.description}>
+          From registration to what to expect on the day, our FAQs have all the info you need.
+        </p>
         {children}
       </div>
+      <GDG />
     </div>
   );
 }
