@@ -36,14 +36,14 @@ const Throwback = () => {
               <Button
                 type="link"
                 className={styles.button}
-                href="https://gdg.community.dev/gdg-lagos/"
+                href="https://youtu.be/4HeUaiZLZ34?si=_-n9psHWDKjv36wL"
               >
                 Watch 2024 Recap
               </Button>
               <Button
                 type="link"
                 className={styles.button}
-                href="https://gdg.community.dev/gdg-lagos/"
+                href="https://photos.app.goo.gl/LyuJgDDFsefN2r5i6"
               >
                 View 2024 Photos
               </Button>
