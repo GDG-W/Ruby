@@ -29,8 +29,8 @@ const Throwback = () => {
           <div className={styles.content}>
             <h2 className={styles.title}>Let's take you down memory lane</h2>
             <p className={styles.description}>
-              DevFest Lagos 2024 was unforgettable. A time was thoroughly had and no be by cho cho
-              cho, we have receipts.
+              DevFest Lagos 2024 was unforgettable. A time was thoroughly had
+              and no be by cho cho cho, we have receipts.
             </p>
             <div className={styles.buttons}>
               <Button
@@ -56,7 +56,14 @@ const Throwback = () => {
                   className={styles.dashes}
                   preserveAspectRatio="none"
                 >
-                  <line y1="4" x1="0" y2="4" x2="100" strokeWidth="12" stroke="currentColor" />
+                  <line
+                    y1="4"
+                    x1="0"
+                    y2="4"
+                    x2="100"
+                    strokeWidth="12"
+                    stroke="currentColor"
+                  />
                 </svg>
               </div>
             </div>

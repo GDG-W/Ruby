@@ -18,7 +18,8 @@ export const FAQ_DATA: Record<Tab, FAQ[]> = {
     {
       id: 2,
       question: "Who can attend DevFest Lagos 2025?",
-      answer: "Anyone interested in tech is welcome—students, professionals, or hobbyists.",
+      answer:
+        "Anyone interested in tech is welcome—students, professionals, or hobbyists.",
     },
     {
       id: 3,
@@ -41,7 +42,8 @@ export const FAQ_DATA: Record<Tab, FAQ[]> = {
     {
       id: 3,
       question: "Is lunch included?",
-      answer: "Lunch is not included, but food vendors will be available on-site.",
+      answer:
+        "Lunch is not included, but food vendors will be available on-site.",
     },
   ],
 };

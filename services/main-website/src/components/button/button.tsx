@@ -12,9 +12,14 @@ type BaseProps = {
   className?: string;
 };
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & { type?: "button" };
-type NextLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & { type: "a"; to: string };
-type ExternalLinkProps = LinkProps & { type: "link"; };
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  type?: "button";
+};
+type NextLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  type: "a";
+  to: string;
+};
+type ExternalLinkProps = LinkProps & { type: "link" };
 
 type Props = BaseProps & (ButtonProps | NextLinkProps | ExternalLinkProps);
 
@@ -25,7 +30,7 @@ export function Button(props: Props) {
     styles.button,
     props.className,
     styles[variant],
-    props.size === "sm" && styles.small
+    props.size === "sm" && styles.small,
   );
 
   switch (props.type) {

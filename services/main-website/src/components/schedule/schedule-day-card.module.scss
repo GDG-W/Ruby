@@ -1,0 +1,231 @@
+.scheduleDayCard {
+  border-bottom-left-radius: 2.4rem;
+  border-bottom-right-radius: 2.4rem;
+  overflow: hidden;
+  box-shadow: 0 0.8rem 3.2rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1);
+  z-index: 1;
+  position: relative;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-within,
+  &.focused {
+    transform: scale(1.02);
+    z-index: 10;
+    box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus {
+    outline: 0.3rem solid rgba(255, 255, 255, 0.8);
+    outline-offset: 0.4rem;
+  }
+
+  @include media(">tablet") {
+    border-bottom-left-radius: 2.4rem;
+    border-bottom-right-radius: 2.4rem;
+    margin-bottom: 3rem;
+
+    &:hover,
+    &:focus-within,
+    &.focused {
+      transform: scale(1.03);
+      box-shadow: 0 2.5rem 8rem rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  // Day-specific background colors based on index
+  &.day0 {
+    background: $pastel-yellow;
+  }
+
+  &.day1 {
+    background: $pastel-blue;
+  }
+
+  &.day2 {
+    background: $pastel-red;
+  }
+
+  &.day3 {
+    background: $background-cream;
+  }
+
+  &.day4 {
+    background: $pastel-green;
+  }
+
+  // Fallback colors for additional days
+  &.day5 {
+    background: $pastel-blue;
+  }
+
+  &.day6 {
+    background: $pastel-yellow;
+  }
+}
+
+.dayHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 2rem;
+  position: relative;
+
+  @include media(">tablet") {
+    flex-direction: row;
+    padding: 3rem;
+  }
+
+  @include media(">desktop") {
+    gap: 11.3rem;
+  }
+}
+
+.titleColumn {
+  flex: 1;
+}
+
+.contentColumn {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+}
+
+.dayTitle {
+  @include text-h3;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-weight: 900;
+
+  @include media(">tablet") {
+    @include text-h1;
+    font-size: 4rem;
+    line-height: 0.9;
+  }
+
+  // Day-specific title colors
+  .scheduleDayCard.day0 & {
+    color: $secondary-yellow;
+  }
+
+  .scheduleDayCard.day1 & {
+    color: $secondary-blue;
+  }
+
+  .scheduleDayCard.day2 & {
+    color: $secondary-red;
+  }
+
+  .scheduleDayCard.day3 & {
+    color: $secondary-green;
+  }
+
+  .scheduleDayCard.day4 & {
+    color: $secondary-green;
+  }
+
+  .scheduleDayCard.day5 & {
+    color: $secondary-blue;
+  }
+
+  .scheduleDayCard.day6 & {
+    color: $secondary-yellow;
+  }
+}
+
+
+.dayDescription {
+  @include text-p4;
+  color: $grey-70;
+  line-height: 1.6;
+  flex: 1;
+  max-width: 50rem;
+
+  @include media(">tablet") {
+    @include text-p3;
+    max-width: 60rem;
+  }
+}
+
+.dayActions {
+  display: flex;
+  gap: 1rem;
+
+  @include media(">tablet") {
+    flex-shrink: 0;
+  }
+}
+
+
+.scheduleItems {
+  padding: 0 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @include media(">tablet") {
+    padding: 0 3rem 3rem;
+    gap: 1.5rem;
+  }
+}
+
+// Empty state
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  opacity: 0.7;
+
+  h3 {
+    @include text-h3;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    @include text-p1;
+    max-width: 40rem;
+  }
+
+  // Day-specific empty state colors
+  .scheduleDayCard.day0 & {
+    color: darken($secondary-yellow, 30%);
+  }
+
+  .scheduleDayCard.day1 & {
+    color: darken($secondary-blue, 30%);
+  }
+
+  .scheduleDayCard.day2 & {
+    color: darken($secondary-red, 30%);
+  }
+
+  .scheduleDayCard.day3 & {
+    color: darken($secondary-green, 35%);
+  }
+
+  .scheduleDayCard.day4 & {
+    color: darken($secondary-green, 30%);
+  }
+
+  .scheduleDayCard.day5 & {
+    color: darken($secondary-blue, 35%);
+  }
+
+  .scheduleDayCard.day6 & {
+    color: darken($secondary-yellow, 35%);
+  }
+}

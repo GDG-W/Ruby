@@ -12,21 +12,21 @@ import clsx from "clsx";
 const links = [
   {
     link: "/schedule",
-    text: "Schedule"
+    text: "Schedule",
   },
   {
     link: "/speakers",
-    text: "Speakers"
+    text: "Speakers",
   },
   {
     link: "/faqs",
-    text: "FAQs"
+    text: "FAQs",
   },
   {
     link: "/team",
-    text: "Team"
-  }
-]
+    text: "Team",
+  },
+];
 
 export function Navbar() {
   const [navOpen, setNavOpen] = useState(false);
@@ -39,14 +39,14 @@ export function Navbar() {
         </Link>
         <ul className={styles.links}>
           {
-            links.map(link => (
+            links.map((link) => (
               <li key={link.link}>
                 <Link href={link.link} className={styles.link}>
                   {link.text}
                 </Link>
               </li>
-            ))
-          }
+
+          ))}
         </ul>
         <Button size="sm" className={styles.buyTicket}>
           BUY TICKETS
@@ -80,5 +80,5 @@ export function Navbar() {
         </Button>
       </aside>
     </>
-  )
+  );
 }
