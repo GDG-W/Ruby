@@ -17,6 +17,7 @@ export type SpeakerProps = {
     type: SocialMedia;
     url: string;
   }[];
+  className?: string;
 }
 
 const colorCombos = [
@@ -38,7 +39,7 @@ const openConfig = {
   mass: 0.4
 }
 
-export function Speaker({ image, name, tagline, bio, socialMedia }: SpeakerProps) {
+export function Speaker({ image, name, tagline, bio, socialMedia, className }: SpeakerProps) {
   const [[background, hoverBackground]] = useState(colorCombos[Math.floor(Math.random() * colorCombos.length)]);
   const speakerDivRef = useRef<HTMLDivElement>(null);
   const cardState = useRef<"image" | "bio">("image");
@@ -110,7 +111,7 @@ export function Speaker({ image, name, tagline, bio, socialMedia }: SpeakerProps
 
   return (
     <article
-      className={classes.speaker}
+      className={`${classes.speaker} ${className || ''}`}
       ref={speakerDivRef}
       onClick={onClickImageWrapper}
     >
