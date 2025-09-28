@@ -22,6 +22,11 @@
         @include text-h7
     }
 
+  &.secondary {
+    background-color: $background-dark;
+    color: $grey-0;
+  }
+
   &.tertiary {
     background-color: $background-white;
   }
