@@ -23,7 +23,7 @@
 }
 
 .heroTitle {
-  @include text-h1;
+  @include text-h5;
   color: $background-white;
   line-height: 1.1;
   text-transform: uppercase;
@@ -37,9 +37,8 @@
   margin-top: 2rem;
 
   @include media(">tablet") {
-    font-size: 4rem;
-    line-height: 0.9;
     gap: 1.5rem;
+    @include text-h1;
   }
 
   @include media(">desktop") {
