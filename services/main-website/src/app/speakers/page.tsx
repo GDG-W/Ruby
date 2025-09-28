@@ -44,7 +44,7 @@ export default function SpeakersPage() {
         ))}
       </div>
       <div className={classes.speakersGrid}>
-        {demoSpeakers.concat(demoSpeakers).concat(demoSpeakers).map(speaker => <Speaker className={classes.speaker} {...speaker} key={speaker.name} />)}
+        {demoSpeakers.concat(demoSpeakers).concat(demoSpeakers).map(speaker => <Speaker reduceHeightOnMobile className={classes.speaker} {...speaker} key={speaker.name} />)}
       </div>
     </div>
   )

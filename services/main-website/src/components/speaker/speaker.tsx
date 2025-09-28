@@ -3,8 +3,10 @@
 import { StaticImageData } from "next/image"
 import classes from "./speaker.module.scss";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
+import clsx from "clsx";
 
 type SocialMedia = "twitter" | "linkedin" | "github" | "instagram";
 
@@ -18,6 +20,7 @@ export type SpeakerProps = {
     url: string;
   }[];
   className?: string;
+  reduceHeightOnMobile?: boolean;
 }
 
 const colorCombos = [
@@ -39,13 +42,38 @@ const openConfig = {
   mass: 0.4
 }
 
-export function Speaker({ image, name, tagline, bio, socialMedia, className }: SpeakerProps) {
+const MOBILE_BREAKPOINT = 440;
+
+export function Speaker({ image, name, tagline, bio, socialMedia, className, reduceHeightOnMobile }: SpeakerProps) {
   const [[background, hoverBackground]] = useState(colorCombos[Math.floor(Math.random() * colorCombos.length)]);
   const speakerDivRef = useRef<HTMLDivElement>(null);
   const cardState = useRef<"image" | "bio">("image");
 
+  const windowWidth = useWindowWidth();
+
+  //P.S Used a ref instead of a state variable so that I can use the ref in the event listeners
+  const isOnMobileRef = useRef(windowWidth < MOBILE_BREAKPOINT);
+
+  useEffect(() => {
+    isOnMobileRef.current = windowWidth < MOBILE_BREAKPOINT;
+  }, [windowWidth]);
+
+  const heights = useMemo(() => {
+    const isOnMobile = windowWidth < MOBILE_BREAKPOINT;
+
+    return {
+      imageWrapper: {
+        open: isOnMobile ? 186 : 308,
+      },
+      info: {
+        open: isOnMobile ? 242 : 404,
+        minimized: isOnMobile ? 64 : 104
+      }
+    }
+  }, [windowWidth])
+
   const [imageWrapperProps, imageWrapperApi] = useSpring(() => ({
-    from: { height: 308, backgroundColor: background, borderBottomLeftRadius: 2, borderBottomRightRadius: 2 },
+    from: { height: heights.imageWrapper.open, backgroundColor: background, borderBottomLeftRadius: 2, borderBottomRightRadius: 2 },
     config: closedConfig
   }));
 
@@ -54,7 +82,7 @@ export function Speaker({ image, name, tagline, bio, socialMedia, className }: S
   }))
 
   const [infoProps, infoApi] = useSpring(() => ({
-    from: { height: 104 },
+    from: { height: heights.info.minimized },
     config: openConfig
   }));
 
@@ -64,14 +92,14 @@ export function Speaker({ image, name, tagline, bio, socialMedia, className }: S
 
   useEffect(() => {
     speakerDivRef.current?.addEventListener("mouseenter", () => {
-      if (cardState.current === "image") {
+      if (cardState.current === "image" && !isOnMobileRef.current) {
         imageWrapperApi.start({ height: 300, backgroundColor: hoverBackground })
         infoApi.start({ height: 112 })
       }
     })
 
     speakerDivRef.current?.addEventListener("mouseleave", () => {
-      if (cardState.current === "image") {
+      if (cardState.current === "image" && !isOnMobileRef.current) {
         imageWrapperApi.start({ height: 308, backgroundColor: background })
         infoApi.start({ height: 104 })
       }
@@ -86,15 +114,15 @@ export function Speaker({ image, name, tagline, bio, socialMedia, className }: S
       infoApi.update({ config: closedConfig });
 
       imageWrapperApi.start({ height: 8, borderBottomLeftRadius: 0, borderBottomRightRadius: 0, backgroundColor: hoverBackground })
-      infoApi.start({ height: 404 })
+      infoApi.start({ height: heights.info.open })
 
       imageApi.start({ opacity: 0 });
       bioApi.start({ opacity: 1 });
     } else {
       cardState.current = "image";
 
-      imageWrapperApi.start({ height: 308 })
-      infoApi.start({ height: 104 })
+      imageWrapperApi.start({ height: heights.imageWrapper.open })
+      infoApi.start({ height: heights.info.minimized })
 
       imageApi.start({ opacity: 1 });
       bioApi.start({ opacity: 0 });
@@ -105,13 +133,9 @@ export function Speaker({ image, name, tagline, bio, socialMedia, className }: S
     }
   }
 
-  const onClickInfo = () => {
-
-  }
-
   return (
     <article
-      className={`${classes.speaker} ${className || ''}`}
+      className={clsx(classes.speaker, className, { [classes.reduceHeightOnMobile]: reduceHeightOnMobile })}
       ref={speakerDivRef}
       onClick={onClickImageWrapper}
     >
@@ -123,7 +147,7 @@ export function Speaker({ image, name, tagline, bio, socialMedia, className }: S
           <Image src={image} alt={name} />
         </animated.div>
       </animated.div>
-      <animated.div className={classes.info} style={infoProps} onClick={onClickInfo}>
+      <animated.div className={classes.info} style={infoProps}>
         <h2 className={classes.name}>{name}</h2>
         <p className={classes.tagline}>{tagline}</p>
         <animated.div style={bioProps} className={classes.bioContent}>
