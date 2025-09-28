@@ -1,5 +1,142 @@
+%header {
+   font-size: 8.3vw;
+   color: $grey-0;
+   font-family: $font-akira;
+
+   @include media("<=800px") {
+       font-size: 4.8rem;
+   }
+}
+
 .hero{
-    font-size: 12rem;
-    color: $grey-0;
-    font-family: $font-akira;
+    width: 100vw;
+    padding: 52px;
+    position: relative;
+
+    @include media("<=800px") {
+        padding: 16px 20px 20px;
+    }
+
+    .devfestText{
+        position: absolute;
+        left: 6.5%;
+        top: 7%;
+        display: grid;
+        row-gap: 0;
+        @extend %header;
+
+        .lagosRow{
+            display: flex;
+            align-items: center;
+            column-gap: 30px;
+        }
+
+        svg{
+            width: 11vw;
+        }
+
+        @include media("<=800px") {
+            position: static;
+
+            .lagosRow{
+                display: flex;
+                align-items: center;
+                column-gap: 8px;
+            }
+        }
+
+        @include media("<=400px") {
+            font-size: 3rem;
+        }
+    }
+
+    .yearText{
+        position: absolute;
+        right: 6.5%;
+        bottom: 8%;
+        @extend %header;
+
+        @include media("<=800px") {
+            font-size: 4rem;
+            bottom: 2%;
+        }
+
+        @include media("<=400px") {
+            font-size: 2rem;
+        }
+    }
+
+    .heroImage{
+        width: 100%;
+        height: auto;
+
+        @include media("<=800px") {
+            display: none;
+        }
+    }
+
+    .heroImageMobile{
+        width: 100%;
+        height: auto;
+        margin-top: -24px;
+
+        @include media(">800px") {
+            display: none;
+        }
+    }
+}
+
+.callToAction{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 38px 52px 56px;
+
+    @include media("<=800px") {
+        flex-direction: column-reverse;
+        padding: 60px 20px;
+    }
+
+    .buyButton{
+        width: 25%;
+
+        @include media("<=800px") {
+            width: 100%;
+        }
+    }
+
+    .arrow{
+        height: auto;
+        max-width: 119px;
+
+        @include media("<=800px") {
+            display: none;
+        }
+    }
+
+    .mobileArrow{
+        @include media(">800px") {
+            display: none;
+        }
+    }
+
+    .dateAndLocation{
+        background-color: $pastel-blue;
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+        justify-content: center;
+        @include text-p01;
+        color: $grey-100;
+        flex-grow: 1;
+        height: 60px;
+        border-radius: 36px;
+
+        @include media("<=800px") {
+            padding: 0 8px;
+            column-gap: 4px;
+            width: 100%;
+            @include text-p4;
+        }
+    }
 }

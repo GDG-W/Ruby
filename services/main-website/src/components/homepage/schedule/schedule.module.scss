@@ -1,0 +1,65 @@
+.schedule{
+    padding: 135px 48px 12px;
+    background-color: $background-dark;
+
+    @include media("<=800px"){
+        padding: 32px 20px 67px;
+    }
+
+    .hero{
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 106px;
+
+        @include media("<=800px"){
+            flex-direction: column;
+            margin-bottom: 48px
+        }
+
+        .title{
+            @include text-h1;
+            color: white;
+
+            @include media("<=800px"){
+                @include text-h5;
+                margin-bottom: 8px;
+            }
+        }
+
+        .description{
+            @include text-p3;
+            color: white;
+            align-self: flex-end;
+            max-width: 36%;
+
+            @include media("<=800px"){
+                align-self: flex-start;
+                max-width: 65%;
+            }
+        }
+
+        .fiveDays{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -8px;
+
+            @include media("<=800px"){
+                width: 89px;
+                left: unset;
+                right: 0;
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .networkIcon{
+        margin-top: 72px;
+        width: 191px;
+
+        @include media("<=800px"){
+            width: 120px;
+        }
+    }
+}

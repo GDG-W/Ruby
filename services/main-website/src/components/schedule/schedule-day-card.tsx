@@ -21,6 +21,7 @@ export interface ScheduleDayCardProps {
   className?: string;
   isFocused?: boolean;
   onFocus?: () => void;
+  hideDescription?: boolean;
 }
 
 export function ScheduleDayCard({
@@ -31,7 +32,8 @@ export function ScheduleDayCard({
   onRSVP,
   className,
   isFocused,
-  onFocus
+  onFocus,
+  hideDescription = false,
 }: ScheduleDayCardProps) {
   const handleRSVPClick = () => {
     if (onRSVP) {
@@ -46,7 +48,7 @@ export function ScheduleDayCard({
   };
 
   return (
-    <div 
+    <div
       className={clsx(
         styles.scheduleDayCard,
         styles[`day${dayIndex}`],
@@ -61,13 +63,15 @@ export function ScheduleDayCard({
         <div className={styles.titleColumn}>
           <h2 className={styles.dayTitle}>{title}</h2>
         </div>
-        
+
         <div className={styles.contentColumn}>
           <div className={styles.contentWrapper}>
-            <p className={styles.dayDescription}>{description}</p>
-            
+            {!hideDescription && (
+              <p className={styles.dayDescription}>{description}</p>
+            )}
+
             <div className={styles.dayActions}>
-              <Button 
+              <Button
                 className={styles.rsvpButton}
                 onClick={handleRSVPClick}
               >

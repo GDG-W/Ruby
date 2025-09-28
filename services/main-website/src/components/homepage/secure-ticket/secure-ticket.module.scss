@@ -1,0 +1,147 @@
+.secureTicket{
+    padding: 84px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include media("<=800px"){
+        padding: 48px 16px 22px;
+    }
+
+    .heading{
+        @include text-h1;
+        max-width: 600px;
+        color: $grey-0;
+        text-align: center;
+        position: relative;
+
+        .icon{
+            position: absolute;
+            top: 0;
+            top: -30px;
+            left: -40px;
+            width: 137px;
+
+            @include media("<=800px"){
+                width: 80px;
+                height: auto;
+                top: -16px;
+                left: 2%;
+            }
+        }
+
+        @include media("<=800px"){
+            @include text-h5;
+            max-width: 330px;
+        }
+    }
+
+    .description{
+        max-width: 600px;
+        @include text-p3;
+        color: $grey-20;
+        margin-bottom: 56px;
+        text-align: center;
+
+        @include media("<=800px"){
+            @include text-p4;
+            max-width: 400px;
+            margin-bottom: 28px;
+        }
+    }
+
+    .tickets{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 32px;
+        row-gap: 20px;
+
+        @include media("<=900px"){
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .ticket{
+        padding: 48px 20px 48px 24px;
+        border-radius: 8px;
+        max-width: 510px;
+
+        @include media("<=800px"){
+            padding: 26px 16px;
+        }
+
+        &.standard{
+            border: 10px solid $secondary-blue;
+            background-color: $pastel-blue;
+        }
+
+        &.pro{
+            border: 10px solid  $secondary-yellow;
+            background-color: $pastel-yellow;
+        }
+
+        .logo{
+            margin-bottom: 16px;
+            max-width: 233px;
+            height: auto;
+        }
+
+        .line{
+            height: 2px;
+            background-color: $grey-100;
+            margin-bottom: 28px;
+            display: block
+        }
+
+        .header{
+            @include text-h6;
+            color: $grey-100;
+            margin-bottom: 4px;
+            text-transform: capitalize;
+
+            @include media("<=800px"){
+                @include text-h7;
+            }
+        }
+
+        .ticketDescription{
+            @include text-p3;
+            color: $grey-70;
+            margin-bottom: 32px;
+
+            @include media("<=800px"){
+                @include text-p4;
+                margin-bottom: 16px;
+            }
+        }
+
+        .perks{
+            display: grid;
+            row-gap: 16px;
+        }
+
+        .perk{
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 16px;
+            align-items: center;
+            @include text-l3;
+            color: $grey-100;
+
+            @include media("<=800px"){
+                @include text-l4;
+            }
+        }
+
+        .buyButton{
+            width: 256px;
+            margin-top: 40px;
+
+            @include media("<=800px"){
+                width: 175px;
+                margin-top: 28px;
+                padding: 16px 0;
+            }
+        }
+    }
+}

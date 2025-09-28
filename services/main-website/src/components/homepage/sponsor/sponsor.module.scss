@@ -1,0 +1,81 @@
+.sponsor{
+    display: flex;
+    align-items: center;
+
+    @include media("<=tablet") {
+        flex-direction: column;
+    }
+
+
+    .sponsoredBy{
+        height: 69px;
+        width: 295px;
+        padding-left: 44px;
+        display: flex;
+        align-items: center;
+        @include text-h6;
+        color: $grey-0;
+        background: $secondary-red;
+        flex-shrink: 0;
+        position: relative;
+
+        @include media("<=tablet") {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            height: 56px;
+            padding-left: 0;
+        }
+    }
+
+    .gdgBag{
+        position: absolute;
+        top: 34px;
+        right: -6px;
+        width: 66px;
+
+        @include media("<=tablet") {
+            width: 42px;
+            right: unset;
+            left: 42px;
+            top: 14px;
+        }
+    }
+
+    .logosContainer{
+        flex-grow: 1;
+        background-color: white;
+        overflow: hidden;
+        max-width: 100vw;
+    }
+
+    .logos{
+        display: flex;
+        align-items: center;
+        column-gap: 24px;
+        height: 69px;
+        width: fit-content;
+        padding-right: 24px;
+
+        animation: slide 15s linear infinite;
+
+        @include media("<=tablet") {
+            height: 56px;
+        }
+    }
+
+    .logo{
+        max-height: 24px;
+        width: auto;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+}

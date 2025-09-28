@@ -6,16 +6,18 @@ import clsx from "clsx";
 import { useState, useEffect, useRef } from "react";
 
 export interface ScheduleDayGroupProps {
-  days: (Omit<ScheduleDayCardProps, "dayIndex" | "isFocused" | "onFocus"> & { 
-    date: string; 
-    shortLabel: string; 
+  days: (Omit<ScheduleDayCardProps, "dayIndex" | "isFocused" | "onFocus"> & {
+    date: string;
+    shortLabel: string;
   })[];
   className?: string;
+  hideDescription?: boolean;
 }
 
 export function ScheduleDayGroup({
   days,
-  className
+  className,
+  hideDescription = false
 }: ScheduleDayGroupProps) {
   const [activeDay, setActiveDay] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -24,7 +26,7 @@ export function ScheduleDayGroup({
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
         event.preventDefault();
-        
+
         let newIndex: number;
 
         if (event.key === "ArrowLeft") {
@@ -49,7 +51,7 @@ export function ScheduleDayGroup({
   };
 
   return (
-    <div 
+    <div
       className={clsx(styles.scheduleDayGroup, className)}
       ref={containerRef}
       tabIndex={0}
@@ -76,6 +78,7 @@ export function ScheduleDayGroup({
           dayIndex={activeDay}
           {...days[activeDay]}
           className={styles.activeDayCard}
+          hideDescription={hideDescription}
         />
       </div>
     </div>
