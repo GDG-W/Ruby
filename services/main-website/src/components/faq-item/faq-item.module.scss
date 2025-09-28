@@ -123,7 +123,11 @@
     bottom 0.25s ease-out;
   z-index: -1;
 
-  .detail[open] ~ & {
+  @include media("<=desktop-sm") {
+    right: 0;
+  }
+
+  .detail[open]~& {
     color: $secondary-light-yellow;
     bottom: -1.8rem;
   }
@@ -134,7 +138,7 @@
       stroke-width 0.25s ease-out;
   }
 
-  .detail[open] ~ & path {
+  .detail[open]~& path {
     stroke: $pastel-yellow;
     stroke-width: 3;
   }
@@ -150,7 +154,12 @@
   background-color: $pastel-yellow;
   transition: background-color 0.25s ease-out;
 
-  .detail[open] ~ & {
+  @include media("<=desktop-sm") {
+    right: 0;
+  }
+
+  .detail[open]~& {
     background-color: $secondary-light-yellow;
   }
+
 }

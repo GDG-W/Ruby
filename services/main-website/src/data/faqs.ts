@@ -1,4 +1,4 @@
-export const TABS = ["devfest-lagos-2025", "tickets"] as const;
+export const TABS = ["general", "tickets"] as const;
 export type Tab = (typeof TABS)[number];
 
 interface FAQ {
@@ -8,7 +8,7 @@ interface FAQ {
 }
 
 export const FAQ_DATA: Record<Tab, FAQ[]> = {
-  "devfest-lagos-2025": [
+  "general": [
     {
       id: 1,
       question: "What is DevFest Lagos 2025?",
@@ -49,6 +49,6 @@ export const FAQ_DATA: Record<Tab, FAQ[]> = {
 };
 
 export const TAB_LABELS: Record<Tab, string> = {
-  "devfest-lagos-2025": "DevFest Lagos 2025",
+  "general": "General",
   tickets: "Tickets",
 };

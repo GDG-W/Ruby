@@ -1,15 +1,9 @@
-.faqs {
-  background-color: $background-dark;
-
-  @include media("<=desktop-sm") {
-    background-color: $background-cream;
-  }
-}
 
 .container {
   max-width: 1512px;
   margin: 0 auto;
   padding: 6.7rem 0 8rem;
+  border-radius: 0 0 10rem 10rem;
   background-color: $background-dark;
 
   @include media("<=desktop-sm") {

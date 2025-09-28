@@ -4,6 +4,10 @@
   justify-content: center;
   margin: 6.9rem 0 5.7rem;
   column-gap: 1.6rem;
+
+  @include media("<=desktop-sm") {
+    margin: 4rem 0;
+  }
 }
 
 .list {
