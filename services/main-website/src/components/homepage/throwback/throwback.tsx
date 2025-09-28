@@ -42,6 +42,7 @@ const Throwback = () => {
               </Button>
               <Button
                 type="link"
+                variant="secondary"
                 className={styles.button}
                 href="https://photos.app.goo.gl/LyuJgDDFsefN2r5i6"
               >
