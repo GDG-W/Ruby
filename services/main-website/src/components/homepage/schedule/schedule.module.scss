@@ -44,6 +44,7 @@
             left: 50%;
             transform: translateX(-50%);
             top: -8px;
+            width: 124px;
 
             @include media("<=800px"){
                 width: 89px;
