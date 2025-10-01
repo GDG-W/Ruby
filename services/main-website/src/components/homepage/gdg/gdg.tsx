@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./gdg.module.scss";
-import Image from "next/image";
+import Orbit from "@/components/orbit/Orbit";
 import { Button } from "@/components/button/button";
 
 const GDG = () => {
@@ -21,13 +21,7 @@ const GDG = () => {
             Join the community
           </Button>
         </div>
-        <Image
-          alt="GDG Lagos orbit illustration"
-          width={500}
-          height={538}
-          className={styles.image}
-          src="/images/GDG-Lagos-orbit.svg"
-        />
+        <Orbit className={styles.orbit} />
       </div>
     </div>
   );
