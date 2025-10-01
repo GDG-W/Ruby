@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./orbit.module.scss";
 import clsx from "clsx";
-import { useMotionValue, useSpring, useMotionValueEvent } from "motion/react";
+import { useMotionValue, useSpring, useMotionValueEvent, useInView } from "motion/react";
 
 import CircleWithRings from "./CircleWithRings";
 import DevFestLogo from "@/assets/devfest-logo.svg";
@@ -108,6 +108,16 @@ function Orbit({ className }: { className: string }) {
     return () => clearTimeout(t);
   }, []);
 
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(wrapperRef, { margin: "0px" });
+  const [pageVisible, setPageVisible] = useState(() => document.visibilityState === "visible");
+
+  useEffect(() => {
+    const handler = () => setPageVisible(document.visibilityState === "visible");
+    document.addEventListener("visibilitychange", handler);
+    return () => document.removeEventListener("visibilitychange", handler);
+  }, []);
+
   // Animate angle continuously
   useEffect(() => {
     let raf: number;
@@ -115,12 +125,14 @@ function Orbit({ className }: { className: string }) {
     const animate = (now: number) => {
       const dt = (now - last) / 16.67;
       last = now;
-      setAngle((prev) => (prev + ORBIT_SPEED * dt) % (2 * Math.PI));
+      if (isInView && pageVisible) {
+        setAngle((prev) => (prev + ORBIT_SPEED * dt) % (2 * Math.PI));
+      }
       raf = requestAnimationFrame(animate);
     };
     raf = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [isInView, pageVisible]);
 
   // Orbiting update on angle change
   useEffect(() => {
@@ -159,7 +171,7 @@ function Orbit({ className }: { className: string }) {
     setExpandedCircleId((prev) => (prev === id ? null : id));
 
   return (
-    <div className={clsx(styles.orbit, className)}>
+    <div ref={wrapperRef} className={clsx(styles.orbit, className)}>
       <svg
         viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
         width="100%"
