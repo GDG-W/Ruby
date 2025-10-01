@@ -12,6 +12,7 @@
     width: 100vw;
     padding: 52px;
     position: relative;
+    background: $background-dark;
 
     @include media("<=800px") {
         padding: 16px 20px 20px;
@@ -91,6 +92,8 @@
     align-items: center;
     gap: 16px;
     padding: 38px 52px 56px;
+    background: $background-dark;
+
 
     @include media("<=800px") {
         flex-direction: column-reverse;
