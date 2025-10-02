@@ -27,8 +27,8 @@ export default function FAQs({ params }: { params: { tab: string } }) {
         ))}
       </div>
       <ul className={styles.list}>
-        {faqs.map(({ id, question, answer }) => (
-          <FaqItem key={id} id={id} question={question} answer={answer} />
+        {faqs.map(({ id, question, answer }, idx) => (
+          <FaqItem key={id} idx={idx} question={question} answer={answer} />
         ))}
       </ul>
     </>
