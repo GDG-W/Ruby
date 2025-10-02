@@ -8,6 +8,7 @@ import HamburgerIcon from "@/assets/hamburger.svg";
 import CloseIcon from "@/assets/close.svg";
 import { useState } from "react";
 import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 const links = [
   {
@@ -30,6 +31,7 @@ const links = [
 
 export function Navbar() {
   const [navOpen, setNavOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
@@ -41,12 +43,16 @@ export function Navbar() {
           {
             links.map((link) => (
               <li key={link.link}>
-                <Link href={link.link} className={styles.link}>
+                <Link
+                  href={link.link}
+                  onClick={() => setNavOpen(false)}
+                  className={clsx(styles.link, { [styles.active]: pathname === link.link })}
+                >
                   {link.text}
                 </Link>
               </li>
 
-          ))}
+            ))}
         </ul>
         <Button size="sm" className={styles.buyTicket}>
           BUY TICKETS
@@ -68,7 +74,11 @@ export function Navbar() {
           {
             links.map(link => (
               <li key={link.link}>
-                <Link href={link.link} className={styles.link}>
+                <Link
+                  href={link.link}
+                  onClick={() => setNavOpen(false)}
+                  className={clsx(styles.link, { [styles.active]: pathname === link.link })}
+                >
                   {link.text}
                 </Link>
               </li>

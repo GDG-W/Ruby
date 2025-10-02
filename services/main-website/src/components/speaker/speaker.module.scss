@@ -9,22 +9,21 @@
         border-bottom-left-radius: 2px;
         border-bottom-right-radius: 2px;
         position: relative;
-        height: 308px;
         margin-bottom: 4px;
         display: flex;
         justify-content: center;
         overflow: hidden;
+        height: 308px;
 
         .image{
             position: absolute;
             bottom: 0;
             width: auto;
-            height: 277px;
+            height: 86%;
             margin: 0 auto;
             object-fit: cover;
 
             img{
-                /* width: 100%; */
                 height: 100%;
                 width: auto;
             }
@@ -38,7 +37,6 @@
         border-bottom-left-radius: 12px;
         border-bottom-right-radius: 12px;
         background-color: $background-white;
-        height: 104px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -80,6 +78,39 @@
             align-items: center;
             justify-content: center;
             background-color: $background-dark;
+            border-radius: 6px;
+        }
+    }
+
+
+
+    &.reduceHeightOnMobile{
+        @include media("<=phone"){
+            .info{
+                padding: 12px;
+
+                .name{
+                    font-size: 10px;
+                    margin-bottom: 2px;
+                    line-height: 1.5;
+                }
+
+                .tagline{
+                    font-size: 9px;
+                    margin-bottom: 12px;
+                }
+
+                .description{
+                    font-size: 10px;
+                    margin-bottom: auto;
+                    line-height: 1.25;
+                }
+
+                .socialMediaLink{
+                    height: 24px;
+                    width: 24px;
+                }
+            }
         }
     }
 }

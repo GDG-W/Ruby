@@ -44,6 +44,11 @@
             align-items: center;
             @include text-h7;
             color: $grey-100;
+            border-radius: 40px;
+
+            &.active{
+                background-color: $pastel-blue;
+            }
         }
     }
 
@@ -110,6 +115,12 @@
         .link{
             @include text-h5;
             color: white;
+
+            &.active{
+                color: $pastel-blue;
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
         }
     }
 

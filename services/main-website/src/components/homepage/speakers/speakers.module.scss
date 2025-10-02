@@ -1,6 +1,7 @@
 .speakers{
     padding: 56px 50px 90px;
     position: relative;
+    background: $background-dark;
 
     @include media("<=800px") {
         padding: 60px 24px 75px;

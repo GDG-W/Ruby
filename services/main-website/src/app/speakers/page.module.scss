@@ -1,0 +1,80 @@
+html{
+    background-color: $background-cream;
+}
+
+.speakersPage{
+    padding: 88px 48px 119px;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background-color: $background-dark;
+
+    @include media("<=tablet"){
+        padding: 64px 20px 44px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px; }
+
+    .title{
+        @include text-h1;
+        color: white;
+        text-transform: uppercase;
+        margin-bottom: 32px;
+
+        @include media("<=tablet"){
+            @include text-h5;
+        }
+    }
+
+    .tags{
+        display: flex;
+        align-items: center;
+        column-gap: 28px;
+        row-gap: 12px;
+        margin-bottom: 48px;
+        flex-wrap: wrap;
+
+        @include media("<=tablet"){
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+    }
+
+    .tag{
+        border: 4px solid white;
+        border-radius: 36px;
+        height: 60px;
+        width: 169px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include text-h6;
+        color: white;
+        transition-duration: 150ms;
+
+        @include media("<=tablet"){
+            height: 52px;
+            width: 120px;
+        }
+
+        &.active{
+            background-color: $secondary-yellow;
+            color: $grey-100;
+            border-color: transparent;
+        }
+    }
+
+    .speakersGrid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        row-gap: 32px;
+        column-gap: 20px;
+
+        .speaker{
+            width: 100%;
+        }
+
+        @include media("<=tablet"){
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+    }
+}
