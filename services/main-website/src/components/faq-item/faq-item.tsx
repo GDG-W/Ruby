@@ -2,17 +2,18 @@ import React from "react";
 import styles from "./faq-item.module.scss";
 
 interface FaqItemProps {
-  id: number;
+  idx: number;
   question: string;
   answer: string;
 }
 
-const FaqItem: React.FC<FaqItemProps> = ({ id, question, answer }) => {
+const FaqItem: React.FC<FaqItemProps> = ({ idx, question, answer }) => {
   return (
-    <li className={styles.faq}>
-      <details className={styles.detail} name="faqs" id={`faq-${id}`}>
+      <details className={styles.detail} name="faqs" id={`faq-${idx}`}>
         <summary className={styles.summary}>
-          <span className={styles.question}>{question}</span>
+          <span className={styles.question}>
+            {idx + 1}. {question}
+          </span>
           <div className={styles.toggle}>
             <svg
               width="24"
