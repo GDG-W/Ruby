@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import styles from "./faq-item.module.scss";
 import { motion, type Variants } from "motion/react";
