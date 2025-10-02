@@ -5,7 +5,7 @@ import styles from "./faqs.module.scss";
 import Image from "next/image";
 import { Button } from "@/components/button/button";
 import FaqItem from "@/components/faq-item/faq-item";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 
 const MotionImage = motion(Image);
 
@@ -35,7 +35,7 @@ const faqs = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -44,7 +44,7 @@ const containerVariants = {
   },
 };
 
-const stickerVariants = {
+const stickerVariants: Variants = {
   hidden: { scale: 0.5, opacity: 0 },
   visible: {
     scale: 1,
@@ -53,15 +53,15 @@ const stickerVariants = {
   },
 };
 
-const fadeVariants = {
+const fadeVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: 0.5, ease: "linear" as any },
+    transition: { duration: 0.5, ease: "linear" },
   },
 };
 
-const listVariants = {
+const listVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -71,21 +71,21 @@ const listVariants = {
   },
 };
 
-const listItemVariants = {
+const listItemVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.2, ease: "easeOut" as any },
+    transition: { duration: 0.2, ease: "easeOut" },
   },
 };
 
-const buttonVariants = {
+const buttonVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { delay: 1, duration: 0.2, ease: "easeOut" as any },
+    transition: { delay: 1, duration: 0.2, ease: "easeOut" },
   },
 };
 
@@ -101,7 +101,7 @@ const FAQs = () => {
         <div className={styles.content}>
           <MotionImage
             className={styles.sticker}
-            variants={stickerVariants as any}
+            variants={stickerVariants}
             width={298}
             height={227}
             src="/stickers/more-community-less-ego-dwg-group-picture.svg"
