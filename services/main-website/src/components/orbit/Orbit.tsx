@@ -29,6 +29,9 @@ const FADE_DURATION = 135;
 const ORBIT_SPEED = 0.0025;
 const SPRING_CONFIG = { stiffness: 400, damping: 30, mass: 1 };
 
+const TARGET_FRAME_TIME = 16.67; // 1000ms / 60fps
+const SETTLING_VELOCITY_THRESHOLD = 50;
+
 const CIRCLES_CONFIG = [
   {
     id: 0,
@@ -95,7 +98,7 @@ function Orbit({ className }: { className: string }) {
       const vx = spr.springX.getVelocity();
       const vy = spr.springY.getVelocity();
       const totalV = Math.sqrt(vx * vx + vy * vy);
-      if (totalV < 50) settlingFlags[idx] = false;
+      if (totalV < SETTLING_VELOCITY_THRESHOLD) settlingFlags[idx] = false;
     });
   });
 
@@ -123,7 +126,7 @@ function Orbit({ className }: { className: string }) {
     let raf: number;
     let last = performance.now();
     const animate = (now: number) => {
-      const dt = (now - last) / 16.67;
+      const dt = (now - last) / TARGET_FRAME_TIME;
       last = now;
       if (isInView && pageVisible) {
         setAngle((prev) => (prev + ORBIT_SPEED * dt) % (2 * Math.PI));
