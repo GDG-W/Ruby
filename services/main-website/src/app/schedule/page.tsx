@@ -1,6 +1,6 @@
 import { ScheduleDayGroup } from "@/components/schedule/schedule-day-group";
 import styles from "./page.module.scss";
-import FiveDaysIcon from "@/assets/five-days.svg";
+import { SvgIcon } from "@/components/icon";
 import { sampleScheduleData } from "@/lib/schedule";
 
 export default function SchedulePage() {
@@ -12,7 +12,7 @@ export default function SchedulePage() {
           <br />
           INCLUSIVE SCHEDULE
         </h1>
-        <FiveDaysIcon className={styles.fiveDaysIcon} />
+        <SvgIcon name="five-days" className={styles.fiveDaysIcon} />
       </div>
 
       <ScheduleDayGroup days={sampleScheduleData} />

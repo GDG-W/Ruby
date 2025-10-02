@@ -2,10 +2,8 @@
 
 import Link from "next/link";
 import styles from "./navbar.module.scss";
-import NavLogo from "@/assets/nav-logo.svg";
 import { Button } from "../button/button";
-import HamburgerIcon from "@/assets/hamburger.svg";
-import CloseIcon from "@/assets/close.svg";
+import { SvgIcon } from "@/components/icon";
 import { useState } from "react";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
@@ -37,7 +35,7 @@ export function Navbar() {
     <>
       <nav className={styles.navbar}>
         <Link href="/" className={styles.logo}>
-          <NavLogo />
+          <SvgIcon name="nav-logo" />
         </Link>
         <ul className={styles.links}>
           {
@@ -58,16 +56,16 @@ export function Navbar() {
           BUY TICKETS
         </Button>
         <Button className={styles.mobileNavButton} onClick={() => setNavOpen(true)}>
-          <HamburgerIcon />
+          <SvgIcon name="hamburger" />
         </Button>
       </nav>
       <aside className={clsx(styles.mobileNav, { [styles.open]: navOpen })}>
         <div className={styles.topRow}>
           <div className={styles.logo}>
-            <NavLogo />
+            <SvgIcon name="nav-logo" />
           </div>
           <Button className={styles.mobileNavClose} onClick={() => setNavOpen(false)}>
-            <CloseIcon />
+            <SvgIcon name="close" />
           </Button>
         </div>
         <ul className={styles.links}>

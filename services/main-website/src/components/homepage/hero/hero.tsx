@@ -1,11 +1,9 @@
 import styles from "./hero.module.scss";
-import DLogo from "@/assets/devfest-logo.svg";
+import { SvgIcon } from "@/components/icon";
 import heroImage from "@/assets/hero-image.png";
 import heroImageMobile from "@/assets/hero-image-mobile.png";
 import Image from "next/image";
 import { Button } from "@/components/button/button";
-import DateAndLocationArrow from "@/assets/date-and-location-arrow.svg";
-import DateAndLocationMobileArrow from "@/assets/date-and-location-mobile-arrow.svg";
 
 export function HomepageHero() {
   return (
@@ -14,7 +12,7 @@ export function HomepageHero() {
         <div className={styles.devfestText}>
           Devfest
           <div className={styles.lagosRow}>
-            <DLogo />
+            <SvgIcon name="devfest-logo" />
             <span>Lagos</span>
           </div>
         </div>
@@ -43,8 +41,8 @@ export function HomepageHero() {
           <span>
             18-22 november, 2025
           </span>
-          <DateAndLocationArrow className={styles.arrow} />
-          <DateAndLocationMobileArrow className={styles.mobileArrow} />
+          <SvgIcon name="date-and-location-arrow" className={styles.arrow} />
+          <SvgIcon name="date-and-location-mobile-arrow" className={styles.mobileArrow} />
           <span>
             The Zone, Gbagada, Lagos
           </span>

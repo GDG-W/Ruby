@@ -2,9 +2,8 @@ import classes from './secure-ticket.module.scss';
 import standardTicket from "@/assets/standard-ticket.png";
 import proTicket from "@/assets/pro-ticket.png";
 import Image from 'next/image';
-import TicketArrow from "@/assets/ticket-arrow.svg";
+import { SvgIcon } from '@/components/icon';
 import { Button } from '@/components/button/button';
-import TechiesAssemble from '@/assets/techies-assemble.svg';
 
 const standardPerks = [
   "Access to all talks and sessions",
@@ -24,7 +23,7 @@ export function SecureTicket() {
   return (
     <div className={classes.secureTicket}>
       <h1 className={classes.heading}>
-        <TechiesAssemble className={classes.icon} />
+        <SvgIcon name="techies-assemble" className={classes.icon} />
         SECURE YOUR TICKETS TODAY
       </h1>
       <p className={classes.description}>
@@ -43,7 +42,7 @@ export function SecureTicket() {
           <ul className={classes.perks}>
             {standardPerks.map((perk) => (
               <li key={perk} className={classes.perk}>
-                <TicketArrow className={classes.arrow} />
+                <SvgIcon name="ticket-arrow" className={classes.arrow} />
                 {perk}
               </li>
             ))}
@@ -64,7 +63,7 @@ export function SecureTicket() {
           <ul className={classes.perks}>
             {proPerks.map((perk) => (
               <li key={perk} className={classes.perk}>
-                <TicketArrow className={classes.arrow} />
+                <SvgIcon name="ticket-arrow" className={classes.arrow} />
                 {perk}
               </li>
             ))}

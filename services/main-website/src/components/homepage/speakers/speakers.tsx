@@ -2,9 +2,7 @@
 
 import { Button } from "@/components/button/button";
 import classes from "./speakers.module.scss";
-import CarouselLeft from "@/assets/carousel-left.svg";
-import CarouselRight from "@/assets/carousel-right.svg";
-import LearnListenRepeat from "@/assets/learn-listen-repeat.svg";
+import { SvgIcon } from "@/components/icon";
 import { demoSpeakers } from "@/lib/speakers";
 import { Speaker } from "@/components/speaker/speaker";
 import laptop from "@/assets/speakers-laptop.png";
@@ -31,7 +29,7 @@ export function Speakers() {
       <Image src={laptop} alt="Speakers Laptop" className={classes.speakerLaptop} />
       <div className={classes.header}>
         <div className={classes.content}>
-          <LearnListenRepeat className={classes.learnListenIcon} />
+          <SvgIcon name="learn-listen-repeat" className={classes.learnListenIcon} />
           <div>
             <h2 className={classes.title}>
               20<sup>+</sup> speakers
@@ -46,10 +44,10 @@ export function Speakers() {
         </div>
         <div className={classes.controlButtons}>
           <button onClick={scrollLeft}>
-            <CarouselLeft />
+            <SvgIcon name="carousel-left" />
           </button>
           <button onClick={scrollRight}>
-            <CarouselRight />
+            <SvgIcon name="carousel-right" />
           </button>
         </div>
       </div>
