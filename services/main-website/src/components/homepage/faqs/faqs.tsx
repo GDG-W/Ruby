@@ -1,8 +1,13 @@
+"use client";
+
 import React from "react";
 import styles from "./faqs.module.scss";
 import Image from "next/image";
 import { Button } from "@/components/button/button";
 import FaqItem from "@/components/faq-item/faq-item";
+import { motion } from "motion/react";
+
+const MotionImage = motion(Image);
 
 const faqs = [
   {
@@ -30,35 +35,105 @@ const faqs = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0,
+    },
+  },
+};
+
+const stickerVariants = {
+  hidden: { scale: 0.5, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: { duration: 0.8, ease: [0.34, 1.56, 0.64, 1] },
+  },
+};
+
+const fadeVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.5, ease: "linear" as any },
+  },
+};
+
+const listVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const listItemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.2, ease: "easeOut" as any },
+  },
+};
+
+const buttonVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: 1, duration: 0.2, ease: "easeOut" as any },
+  },
+};
+
 const FAQs = () => {
   return (
-    <div>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      variants={containerVariants}
+      viewport={{ once: true, amount: 0.35 }}
+    >
       <div className={styles.container}>
         <div className={styles.content}>
-          <Image
+          <MotionImage
+            className={styles.sticker}
+            variants={stickerVariants as any}
             width={298}
             height={227}
-            className={styles.sticker}
             src="/stickers/more-community-less-ego-dwg-group-picture.svg"
             alt="'More Community, Less Ego' written above a group photo of DevFest Digital Working Group (2024)"
           />
           <div className={styles.inner}>
-            <h2 className={styles.title}>Get your questions answered</h2>
-            <p className={styles.description}>
+            <motion.h2
+              variants={fadeVariants}
+              className={styles.title}
+            >
+              Get your questions answered
+            </motion.h2>
+            <motion.p
+              variants={fadeVariants}
+              className={styles.description}
+            >
               From registration to what to expect on the day, our FAQs have all the info you need.
-            </p>
-            <ul className={styles.list}>
-              {faqs.map(({ id, question, answer }) => (
-                <FaqItem key={id} id={id} question={question} answer={answer} />
+            </motion.p>
+            <motion.ul variants={listVariants} className={styles.list}>
+              {faqs.map(({ id, question, answer }, idx) => (
+                <FaqItem key={id} idx={idx} question={question} answer={answer} variants={listItemVariants} />
               ))}
-            </ul>
-            <Button type="link" href="/faqs" className={styles.button}>
-              I have more questions
-            </Button>
+            </motion.ul>
+            <motion.div variants={buttonVariants}>
+              <Button type="link" href="/faqs" className={styles.button}>
+                I have more questions
+              </Button>
+            </motion.div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

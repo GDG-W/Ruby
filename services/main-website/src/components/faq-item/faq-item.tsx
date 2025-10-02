@@ -1,14 +1,20 @@
 import React from "react";
 import styles from "./faq-item.module.scss";
+import { motion, type Variants } from "motion/react";
 
 interface FaqItemProps {
   idx: number;
   question: string;
   answer: string;
+  variants?: Variants;
 }
 
-const FaqItem: React.FC<FaqItemProps> = ({ idx, question, answer }) => {
+const FaqItem: React.FC<FaqItemProps> = ({ idx, question, answer, variants }) => {
   return (
+    <motion.li
+    variants={variants}
+    className={styles.faq}
+    >
       <details className={styles.detail} name="faqs" id={`faq-${idx}`}>
         <summary className={styles.summary}>
           <span className={styles.question}>
@@ -43,7 +49,7 @@ const FaqItem: React.FC<FaqItemProps> = ({ idx, question, answer }) => {
         />
       </svg>
       <div className={styles.polygonCover} />
-    </li>
+    </motion.li>
   );
 };
 
