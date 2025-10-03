@@ -8,7 +8,7 @@ interface FAQ {
 }
 
 export const FAQ_DATA: Record<Tab, FAQ[]> = {
-  "general": [
+  general: [
     {
       id: 1,
       question: "What is DevFest Lagos 2025?",
@@ -49,6 +49,6 @@ export const FAQ_DATA: Record<Tab, FAQ[]> = {
 };
 
 export const TAB_LABELS: Record<Tab, string> = {
-  "general": "General",
+  general: "General",
   tickets: "Tickets",
 };

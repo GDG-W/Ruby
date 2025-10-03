@@ -25,7 +25,8 @@ export default function FAQParentLayout({
           <span>Get your questions answered</span>
         </h2>
         <p className={styles.description}>
-          From registration to what to expect on the day, our FAQs have all the info you need.
+          From registration to what to expect on the day, our FAQs have all the
+          info you need.
         </p>
         {children}
       </div>

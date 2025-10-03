@@ -13,9 +13,9 @@ export const demoSpeakers: SpeakerProps[] = [
     socialMedia: [
       {
         type: "twitter",
-        url: "https://twitter.com/acekyd"
-      }
-    ]
+        url: "https://twitter.com/acekyd",
+      },
+    ],
   },
   {
     name: "Adora",
@@ -25,9 +25,9 @@ export const demoSpeakers: SpeakerProps[] = [
     socialMedia: [
       {
         type: "twitter",
-        url: "https://twitter.com/adorab"
-      }
-    ]
+        url: "https://twitter.com/adorab",
+      },
+    ],
   },
   {
     name: "Ayomide",
@@ -37,9 +37,9 @@ export const demoSpeakers: SpeakerProps[] = [
     socialMedia: [
       {
         type: "twitter",
-        url: "https://twitter.com/ayomide"
-      }
-    ]
+        url: "https://twitter.com/ayomide",
+      },
+    ],
   },
   {
     name: "Idk",
@@ -49,8 +49,8 @@ export const demoSpeakers: SpeakerProps[] = [
     socialMedia: [
       {
         type: "twitter",
-        url: "https://twitter.com/idk"
-      }
-    ]
-  }
-]
+        url: "https://twitter.com/idk",
+      },
+    ],
+  },
+];

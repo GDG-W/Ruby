@@ -1,6 +1,9 @@
-'use client';
+"use client";
 
-import { ScheduleDayCard, type ScheduleDayCardProps } from "./schedule-day-card";
+import {
+  ScheduleDayCard,
+  type ScheduleDayCardProps,
+} from "./schedule-day-card";
 import styles from "./schedule-day-group.module.scss";
 import clsx from "clsx";
 import { useState, useEffect, useRef } from "react";
@@ -17,7 +20,7 @@ export interface ScheduleDayGroupProps {
 export function ScheduleDayGroup({
   days,
   className,
-  hideDescription = false
+  hideDescription = false,
 }: ScheduleDayGroupProps) {
   const [activeDay, setActiveDay] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -63,7 +66,7 @@ export function ScheduleDayGroup({
             className={clsx(
               styles.dayTab,
               styles[`day${index}`],
-              activeDay === index && styles.active
+              activeDay === index && styles.active,
             )}
             onClick={() => handleTabClick(index)}
           >
