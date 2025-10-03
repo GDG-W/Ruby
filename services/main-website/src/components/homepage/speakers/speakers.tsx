@@ -2,9 +2,9 @@
 
 import { Button } from "@/components/button/button";
 import classes from "./speakers.module.scss";
-import CarouselLeft from "@/assets/carousel-left.svg";
-import CarouselRight from "@/assets/carousel-right.svg";
-import LearnListenRepeat from "@/assets/learn-listen-repeat.svg";
+import carouselLeft from "@/assets/carousel-left.svg";
+import carouselRight from "@/assets/carousel-right.svg";
+import learnListenRepeat from "@/assets/learn-listen-repeat.svg";
 import { demoSpeakers } from "@/lib/speakers";
 import { Speaker } from "@/components/speaker/speaker";
 import laptop from "@/assets/speakers-laptop.png";
@@ -31,7 +31,7 @@ export function Speakers() {
       <Image src={laptop} alt="Speakers Laptop" className={classes.speakerLaptop} />
       <div className={classes.header}>
         <div className={classes.content}>
-          <LearnListenRepeat className={classes.learnListenIcon} />
+          <Image src={learnListenRepeat} alt="Learn Listen Repeat" className={classes.learnListenIcon} />
           <div>
             <h2 className={classes.title}>
               20<sup>+</sup> speakers
@@ -46,10 +46,10 @@ export function Speakers() {
         </div>
         <div className={classes.controlButtons}>
           <button onClick={scrollLeft}>
-            <CarouselLeft />
+            <Image src={carouselLeft} alt="Scroll left" />
           </button>
           <button onClick={scrollRight}>
-            <CarouselRight />
+            <Image src={carouselRight} alt="Scroll right" />
           </button>
         </div>
       </div>

@@ -9,7 +9,7 @@ import paystack from "@/assets/sponsors/paystack.png";
 import splitIcon from "@/assets/sponsors/split.png";
 import classes from "./sponsor.module.scss";
 import Image from "next/image";
-import GdgBag from "@/assets/sponsors/gdg-bag.svg";
+import gdgBag from "@/assets/sponsors/gdg-bag.svg";
 
 const sponsorImages = [
   abeg,
@@ -27,7 +27,7 @@ export function Sponsor() {
     <section className={classes.sponsor}>
       <div className={classes.sponsoredBy}>
         PROUDLY <br /> SPONSORED BY
-        <GdgBag className={classes.gdgBag} />
+        <Image src={gdgBag} alt="GDG Bag" className={classes.gdgBag} />
       </div>
       <div className={classes.logosContainer}>
         <div className={classes.logos}>

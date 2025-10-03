@@ -1,7 +1,8 @@
 import styles from "./schedule-item-card.module.scss";
 import clsx from "clsx";
-import BreakoutIcon from "@/assets/breakout.svg";
+import breakoutIcon from "@/assets/breakout.svg";
 import defaultAvatar from "@/assets/default-avatar.png";
+import Image from "next/image";
 
 export interface Speaker {
   name: string;
@@ -42,32 +43,32 @@ export function ScheduleItemCard({
             styles.breakoutTag,
             styles[`room${room}`]
           )}>
-            <BreakoutIcon className={styles.breakoutIcon} />
+            <Image src={breakoutIcon} alt="" className={styles.breakoutIcon} />
             <span className={styles.breakoutText}>Breakout session</span>
           </div>
         )}
       </div>
-      
+
       <div className={clsx(
         styles.speakers,
         hasMultipleSpeakers && styles.multipleSpeakers
       )}>
         <div className={styles.speakerAvatars}>
           {speakers.map((speaker, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={styles.speakerAvatar}
               style={{ zIndex: index + 1 }}
             >
-              <img 
-                src={speaker.avatar || defaultAvatar.src} 
+              <img
+                src={speaker.avatar || defaultAvatar.src}
                 alt={`${speaker.name} avatar`}
                 loading="lazy"
               />
             </div>
           ))}
         </div>
-        
+
         <div className={styles.speakerInfo}>
           <div className={styles.speakerNames}>
             {speakers.map((speaker, index) => (
