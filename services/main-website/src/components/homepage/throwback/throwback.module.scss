@@ -1,36 +1,29 @@
 .throwback {
   position: relative;
   background-color: $background-cream;
-  z-index: 0;
 }
 
 .container {
+  height: 90dvh;
   max-width: 1512px;
-  margin: 0 auto;
-  padding: 10rem 12.7rem 14rem;
-
-  @include media("<=desktop-sm") {
-    padding: 4rem 2.2rem 9.3rem;
-  }
-}
-
-.top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 12.7rem;
 
   @include media("<=desktop-sm") {
     flex-direction: column;
+    padding: 0 2.2rem;
   }
 }
 
 .content {
+  flex-basis: 55%;
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   @include media("<=desktop-sm") {
-    margin: 3.5rem 0;
+    flex-basis: initial;
   }
 }
 
@@ -38,7 +31,6 @@
   @include text-h3;
   color: $grey-100;
   font-family: $font-akira;
-  text-align: center;
   margin-bottom: 0.8rem;
 
   @include media("<=desktop-sm") {
@@ -50,7 +42,6 @@
   @include text-p3;
   width: 70%;
   color: $grey-100;
-  text-align: center;
 
   @include media("<=desktop-sm") {
     @include text-p4;
@@ -62,151 +53,62 @@
   position: relative;
   display: flex;
   gap: 1.6rem;
-  margin-top: 4rem;
+  margin-top: 8rem;
 
   @include media("<=desktop-sm") {
     flex-direction: column;
     margin-top: 2.8rem;
   }
 
-  & > button {
+  &>button {
     position: relative;
     z-index: 1;
   }
 }
 
-.lane {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 90px;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  border: solid $pastel-yellow;
-  border-width: 8px 0;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-
-  @include media("<=desktop-sm") {
-    top: 65%;
-  }
-}
-
-.dashes {
-  display: block;
-  width: 100%;
-  height: 12px;
-  color: $pastel-yellow;
-
-  & > line {
-    stroke-dasharray: 3 1;
-
-    @include media("<=desktop-sm") {
-      stroke-dasharray: 6 3;
-    }
-  }
-}
-
-.imageContainer {
+.road {
+  position: relative;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 6.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 45%;
+  overflow: hidden;
 
   @include media("<=desktop-sm") {
-    flex-direction: row;
-    gap: 4rem;
+    flex-basis: initial;
   }
+}
+
+.lane {
+  max-height: 100%;
+}
+
+.memory {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: 'top center';
 }
 
 .photo {
+  @extend .memory;
   width: 150px;
   height: fit-content;
 
   @include media("<=desktop-sm") {
     width: 100px;
   }
-
-  &One {
-    @extend .photo;
-    margin: 0 auto;
-    transform: rotate(-4.33deg);
-
-    @include media("<=desktop-sm") {
-      transform: rotate(-4.33deg) translateY(-2rem);
-    }
-  }
-
-  &Two {
-    @extend .photo;
-    margin-left: auto;
-    transform: rotate(-7.56deg);
-  }
-
-  &Three {
-    @extend .photo;
-    transform: rotate(5.72deg) translateY(-1rem);
-
-    @include media("<=desktop-sm") {
-      transform: rotate(5.72deg);
-    }
-  }
 }
 
 .tweet {
+  @extend .memory;
   width: 250px;
   height: fit-content;
 
   @include media("<=desktop-sm") {
     width: 200px;
-  }
-
-  &One {
-    @extend .tweet;
-    transform: rotate(2.41deg);
-
-    @include media("<=desktop-sm") {
-      order: 2;
-    }
-  }
-
-  &Two {
-    @extend .tweet;
-    transform: translateY(-3rem);
-
-    @include media("<=desktop-sm") {
-      transform: none;
-    }
-  }
-
-  &Three {
-    @extend .tweet;
-    transform: rotate(12.41deg) translateY(2rem);
-
-    @include media("<=desktop-sm") {
-      order: 2;
-      transform: rotate(12.41deg);
-    }
-  }
-
-  &Four {
-    @extend .tweet;
-
-    @include media("<=desktop-sm") {
-      display: none;
-    }
-  }
-}
-
-.bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 7rem;
-
-  @include media("<=desktop-sm") {
-    margin-top: 4rem;
-    justify-content: center;
-    column-gap: 4rem;
   }
 }
