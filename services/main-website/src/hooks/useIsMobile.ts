@@ -30,8 +30,7 @@ export function useIsTouchDevice() {
       setIsTouch(
         "ontouchstart" in window ||
           navigator.maxTouchPoints > 0 ||
-          // @ts-ignore
-          navigator.msMaxTouchPoints > 0,
+          ("msMaxTouchPoints" in navigator && (navigator.msMaxTouchPoints as number) > 0)
       );
     };
 
