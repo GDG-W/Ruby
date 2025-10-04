@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useAnimate } from "motion/react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import styles from "./throwback.module.scss";
 
@@ -161,10 +161,13 @@ const Throwback = () => {
   const isTouchDevice = useIsTouchDevice();
   const [isPaused, setIsPaused] = useState(false);
 
-  const props = isTouchDevice ? { onClick: () => setIsPaused(!isPaused) } : {
-    onMouseEnter: () => setIsPaused(true),
-    onMouseLeave: () => setIsPaused(false),
-  };
+  const interactionProps = useMemo(() => {
+    if (isTouchDevice) return { onClick: () => setIsPaused(!isPaused) };
+    return {
+      onMouseEnter: () => setIsPaused(true),
+      onMouseLeave: () => setIsPaused(false),
+    };
+  }, [isTouchDevice, isPaused]);
 
   return (
     <div className={styles.throwback}>
@@ -193,7 +196,7 @@ const Throwback = () => {
             </Button>
           </div>
         </div>
-        <div className={styles.road} {...props}>
+        <div className={styles.road} {...interactionProps}>
           <Image
             alt="road"
             width={250}
