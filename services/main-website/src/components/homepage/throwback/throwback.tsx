@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import styles from "./throwback.module.scss";
 
-import { useIsMobile } from "@/hooks/useIsMobile";
+import { useIsTouchDevice } from "@/hooks/useIsTouchDevice";
 import { Button } from "@/components/button/button";
 
 const MotionImage = motion(Image);
@@ -158,10 +158,10 @@ const MemoryItem = ({ memory, idx, isPaused }: MemoryItemProps) => {
 };
 
 const Throwback = () => {
-  const isMobile = useIsMobile();
+  const isTouchDevice = useIsTouchDevice();
   const [isPaused, setIsPaused] = useState(false);
 
-  const props = isMobile ? { onClick: () => setIsPaused(!isPaused) } : {
+  const props = isTouchDevice ? { onClick: () => setIsPaused(!isPaused) } : {
     onMouseEnter: () => setIsPaused(true),
     onMouseLeave: () => setIsPaused(false),
   };
