@@ -22,22 +22,22 @@ const customFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "DevFest Lagos 2025 - Coming Soon",
+  title: "DevFest Lagos 2025 - November 2025",
   openGraph: {
-    title: "DevFest Lagos 2025 - Coming Soon",
+    title: "DevFest Lagos 2025",
     images: {
       url: "https://storage.googleapis.com/devfestlagos2025/Ruby/preview.webp",
-      alt: "DevFest Lagos 2025 - Coming Soon",
+      alt: "DevFest Lagos 2025",
     },
     description:
       "DevFest Lagos is coming. The biggest conference in Lagos for tech lovers, ideas, and life-time connections. Something exciting is on the way. You won’t want to miss it.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DevFest Lagos 2025 - Coming Soon",
+    title: "DevFest Lagos 2025",
     images: {
       url: "https://storage.googleapis.com/devfestlagos2025/Ruby/preview.webp",
-      alt: "DevFest Lagos 2025 - Coming Soon",
+      alt: "DevFest Lagos 2025",
     },
     description:
       "DevFest Lagos is coming. The biggest conference in Lagos for tech lovers, ideas, and life-time connections. Something exciting is on the way. You won’t want to miss it.",
