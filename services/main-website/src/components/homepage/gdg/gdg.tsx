@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "@/components/button/button";
 import Orbit from "@/components/orbit/Orbit";
 import styles from "./gdg.module.scss";
