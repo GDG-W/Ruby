@@ -1,12 +1,12 @@
 "use client";
 
+import clsx from "clsx";
+import { useEffect, useRef, useState } from "react";
 import {
   ScheduleDayCard,
   type ScheduleDayCardProps,
 } from "./schedule-day-card";
 import styles from "./schedule-day-group.module.scss";
-import clsx from "clsx";
-import { useState, useEffect, useRef } from "react";
 
 export interface ScheduleDayGroupProps {
   days: (Omit<ScheduleDayCardProps, "dayIndex" | "isFocused" | "onFocus"> & {

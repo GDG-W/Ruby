@@ -1,11 +1,11 @@
-import styles from "./hero.module.scss";
+import Image from "next/image";
+import DateAndLocationArrow from "@/assets/date-and-location-arrow.svg";
+import DateAndLocationMobileArrow from "@/assets/date-and-location-mobile-arrow.svg";
 import DLogo from "@/assets/devfest-logo.svg";
 import heroImage from "@/assets/hero-image.png";
 import heroImageMobile from "@/assets/hero-image-mobile.png";
-import Image from "next/image";
 import { Button } from "@/components/button/button";
-import DateAndLocationArrow from "@/assets/date-and-location-arrow.svg";
-import DateAndLocationMobileArrow from "@/assets/date-and-location-mobile-arrow.svg";
+import styles from "./hero.module.scss";
 
 export function HomepageHero() {
   return (

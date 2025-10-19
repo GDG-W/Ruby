@@ -1,7 +1,7 @@
-import React from "react";
 import Image from "next/image";
-import styles from "./layout.module.scss";
+import type React from "react";
 import GDG from "@/components/homepage/gdg/gdg";
+import styles from "./layout.module.scss";
 
 export const metadata = { title: "FAQs" };
 

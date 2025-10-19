@@ -1,15 +1,15 @@
 "use client";
 
-import { Button } from "@/components/button/button";
-import classes from "./speakers.module.scss";
+import Image from "next/image";
+import { useRef } from "react";
 import CarouselLeft from "@/assets/carousel-left.svg";
 import CarouselRight from "@/assets/carousel-right.svg";
 import LearnListenRepeat from "@/assets/learn-listen-repeat.svg";
-import { demoSpeakers } from "@/lib/speakers";
-import { Speaker } from "@/components/speaker/speaker";
 import laptop from "@/assets/speakers-laptop.png";
-import Image from "next/image";
-import { useRef } from "react";
+import { Button } from "@/components/button/button";
+import { Speaker } from "@/components/speaker/speaker";
+import { demoSpeakers } from "@/lib/speakers";
+import classes from "./speakers.module.scss";
 
 export function Speakers() {
   const carouselRef = useRef<HTMLDivElement>(null);

@@ -1,7 +1,7 @@
 import React from "react";
+import { Button } from "@/components/button/button";
 import styles from "./gdg.module.scss";
 import Orbit from "@/components/orbit/Orbit";
-import { Button } from "@/components/button/button";
 
 const GDG = () => {
   return (

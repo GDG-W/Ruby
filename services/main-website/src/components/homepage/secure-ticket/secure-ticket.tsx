@@ -1,10 +1,10 @@
-import classes from "./secure-ticket.module.scss";
-import standardTicket from "@/assets/standard-ticket.png";
-import proTicket from "@/assets/pro-ticket.png";
 import Image from "next/image";
+import proTicket from "@/assets/pro-ticket.png";
+import standardTicket from "@/assets/standard-ticket.png";
+import TechiesAssemble from "@/assets/techies-assemble.svg";
 import TicketArrow from "@/assets/ticket-arrow.svg";
 import { Button } from "@/components/button/button";
-import TechiesAssemble from "@/assets/techies-assemble.svg";
+import classes from "./secure-ticket.module.scss";
 
 const standardPerks = [
   "Access to all talks and sessions",

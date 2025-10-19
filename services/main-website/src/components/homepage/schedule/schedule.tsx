@@ -1,8 +1,8 @@
-import classes from "./schedule.module.scss";
 import FiveDays from "@/assets/five-days.svg";
+import NetworkIcon from "@/assets/network.svg";
 import { ScheduleDayGroup } from "@/components/schedule/schedule-day-group";
 import { sampleScheduleData } from "@/lib/schedule";
-import NetworkIcon from "@/assets/network.svg";
+import classes from "./schedule.module.scss";
 
 export function ScheduleSection() {
   return (

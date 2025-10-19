@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./footer.module.scss";
 import { Button } from "../button/button";
+import styles from "./footer.module.scss";
 
 const footerLinks = {
   topLeft: [
