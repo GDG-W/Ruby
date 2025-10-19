@@ -1,12 +1,17 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import styles from "./orbit.module.scss";
 import clsx from "clsx";
-import { useMotionValue, useSpring, useMotionValueEvent, useInView } from "motion/react";
+import {
+  useInView,
+  useMotionValue,
+  useMotionValueEvent,
+  useSpring,
+} from "motion/react";
+import React, { useEffect, useRef, useState } from "react";
+import DevFestLogo from "@/assets/devfest-logo.svg";
 
 import CircleWithRings from "./CircleWithRings";
-import DevFestLogo from "@/assets/devfest-logo.svg";
+import styles from "./orbit.module.scss";
 
 function deg(d: number) {
   return (d * Math.PI) / 180;
@@ -73,17 +78,21 @@ function Orbit({ className }: { className: string }) {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(wrapperRef, { margin: "0px" });
   const [isInitialDelayComplete, setIsInitialDelayComplete] = useState(false);
-  const [expandedCircleId, setExpandedCircleId] = useState<CircleId | null>(null);
+  const [expandedCircleId, setExpandedCircleId] = useState<CircleId | null>(
+    null,
+  );
 
   // Track settling flags outside of React state to avoid re-renders
-  const settlingFlags = useRef<boolean[]>(CIRCLES_CONFIG.map(() => false)).current;
+  const settlingFlags = useRef<boolean[]>(
+    CIRCLES_CONFIG.map(() => false),
+  ).current;
 
   const circleRefs = useRef(
     Array.from({ length: 5 }, () => ({
       animatedSize: useMotionValue(100),
       animatedX: useMotionValue(CENTER_X - CIRCLE_SIZE / 2),
       animatedY: useMotionValue(CENTER_Y - CIRCLE_SIZE / 2),
-    }))
+    })),
   ).current;
 
   const springs = useRef(
@@ -91,7 +100,7 @@ function Orbit({ className }: { className: string }) {
       springX: useSpring(c.animatedX, SPRING_CONFIG),
       springY: useSpring(c.animatedY, SPRING_CONFIG),
       springSize: useSpring(c.animatedSize, SPRING_CONFIG),
-    }))
+    })),
   ).current;
 
   springs.forEach((spr, idx) => {
@@ -115,7 +124,8 @@ function Orbit({ className }: { className: string }) {
   }, []);
 
   useEffect(() => {
-    const handler = () => setPageVisible(document.visibilityState === "visible");
+    const handler = () =>
+      setPageVisible(document.visibilityState === "visible");
     document.addEventListener("visibilitychange", handler);
     return () => document.removeEventListener("visibilitychange", handler);
   }, []);
@@ -182,17 +192,19 @@ function Orbit({ className }: { className: string }) {
         className={styles.svg}
       >
         {/* Concentric guide rings */}
-        {[INNER_GUIDE_RADIUS, MIDDLE_ORBIT_RADIUS, OUTER_ORBIT_RADIUS].map((r) => (
-          <circle
-            key={r}
-            cx={CENTER_X}
-            cy={CENTER_Y}
-            r={r}
-            fill="none"
-            stroke="#D4AF74"
-            strokeWidth="3"
-          />
-        ))}
+        {[INNER_GUIDE_RADIUS, MIDDLE_ORBIT_RADIUS, OUTER_ORBIT_RADIUS].map(
+          (r) => (
+            <circle
+              key={r}
+              cx={CENTER_X}
+              cy={CENTER_Y}
+              r={r}
+              fill="none"
+              stroke="#D4AF74"
+              strokeWidth="3"
+            />
+          ),
+        )}
 
         {/* Center logo */}
         <g transform={`translate(${CENTER_X - 56}, ${CENTER_Y - 31})`}>
@@ -207,7 +219,9 @@ function Orbit({ className }: { className: string }) {
           const scale = size / CIRCLE_SIZE;
           const isExpanded = expandedCircleId === cfg.id;
           const isVisible = expandedCircleId === null || isExpanded;
-          const effStrokeWidth = isExpanded ? STROKE_WIDTH / scale : (CIRCLE_SIZE * 0.025) / scale;
+          const effStrokeWidth = isExpanded
+            ? STROKE_WIDTH / scale
+            : (CIRCLE_SIZE * 0.025) / scale;
 
           return (
             <foreignObject
@@ -220,7 +234,8 @@ function Orbit({ className }: { className: string }) {
                 overflow: "visible",
                 opacity: isVisible && isInitialDelayComplete ? 1 : 0,
                 transition: `opacity ${FADE_DURATION}ms ${isVisible ? "ease-out" : "ease-in"}`,
-                pointerEvents: isVisible && isInitialDelayComplete ? "auto" : "none",
+                pointerEvents:
+                  isVisible && isInitialDelayComplete ? "auto" : "none",
               }}
             >
               <div

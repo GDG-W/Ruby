@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useId } from "react";
+import React, { useId, useState } from "react";
 import { OUTER_RING_RATIO } from "./Orbit";
 
 const RING_GAP = 0.06;
@@ -35,7 +35,8 @@ function CircleWithRings({
   const scale = isHovered ? (isExpanded ? 0.98 : HOVER_SCALE) : 1;
 
   // Mask radius changes on hover when collapsed
-  const currentRadius = (isHovered && !isExpanded) || isExpanded ? outerStrokeRadius : centerRadius;
+  const currentRadius =
+    (isHovered && !isExpanded) || isExpanded ? outerStrokeRadius : centerRadius;
 
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
@@ -62,7 +63,11 @@ function CircleWithRings({
             cx={size / 2}
             cy={size / 2}
             r={currentRadius}
-            style={{ transition: isExpanded ? "none" : "r 100ms cubic-bezier(0, 0, 0.58, 1)" }}
+            style={{
+              transition: isExpanded
+                ? "none"
+                : "r 100ms cubic-bezier(0, 0, 0.58, 1)",
+            }}
           />
         </clipPath>
       </defs>
@@ -86,7 +91,11 @@ function CircleWithRings({
           width={currentRadius * 2}
           height={currentRadius * 2}
           preserveAspectRatio="xMidYMid slice"
-          style={{ transition: isExpanded ? "none" : "all 100ms cubic-bezier(0, 0, 0.58, 1)" }}
+          style={{
+            transition: isExpanded
+              ? "none"
+              : "all 100ms cubic-bezier(0, 0, 0.58, 1)",
+          }}
         />
       </g>
 
@@ -98,7 +107,11 @@ function CircleWithRings({
         fill="none"
         stroke="#D4AF74"
         strokeWidth={strokeWidth}
-        style={{ transition: isExpanded ? "none" : "r 100ms cubic-bezier(0, 0, 0.58, 1)" }}
+        style={{
+          transition: isExpanded
+            ? "none"
+            : "r 100ms cubic-bezier(0, 0, 0.58, 1)",
+        }}
       />
     </svg>
   );
