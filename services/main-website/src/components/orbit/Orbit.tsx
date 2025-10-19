@@ -69,6 +69,9 @@ type CircleId = (typeof CIRCLES_CONFIG)[number]["id"];
 
 function Orbit({ className }: { className: string }) {
   const [angle, setAngle] = useState(0);
+  const [pageVisible, setPageVisible] = useState(true);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(wrapperRef, { margin: "0px" });
   const [isInitialDelayComplete, setIsInitialDelayComplete] = useState(false);
   const [expandedCircleId, setExpandedCircleId] = useState<CircleId | null>(null);
 
@@ -110,10 +113,6 @@ function Orbit({ className }: { className: string }) {
     const t = setTimeout(() => setIsInitialDelayComplete(true), 150);
     return () => clearTimeout(t);
   }, []);
-
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(wrapperRef, { margin: "0px" });
-  const [pageVisible, setPageVisible] = useState(() => document.visibilityState === "visible");
 
   useEffect(() => {
     const handler = () => setPageVisible(document.visibilityState === "visible");
