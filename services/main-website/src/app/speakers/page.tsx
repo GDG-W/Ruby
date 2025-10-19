@@ -26,7 +26,9 @@ export default function SpeakersPage() {
       </h1>
       <div className={classes.tags}>
         <button
-          className={clsx(classes.tag, { [classes.active]: activeTag === "All" })}
+          className={clsx(classes.tag, {
+            [classes.active]: activeTag === "All",
+          })}
           onClick={() => setActiveTag("All")}
           type="button"
         >
@@ -35,7 +37,9 @@ export default function SpeakersPage() {
         {tags.map((tag) => (
           <button
             key={tag.day}
-            className={clsx(classes.tag, { [classes.active]: tag.day === activeTag })}
+            className={clsx(classes.tag, {
+              [classes.active]: tag.day === activeTag,
+            })}
             onClick={() => setActiveTag(tag.day)}
             type="button"
           >
@@ -44,8 +48,18 @@ export default function SpeakersPage() {
         ))}
       </div>
       <div className={classes.speakersGrid}>
-        {demoSpeakers.concat(demoSpeakers).concat(demoSpeakers).map(speaker => <Speaker reduceHeightOnMobile className={classes.speaker} {...speaker} key={speaker.name} />)}
+        {demoSpeakers
+          .concat(demoSpeakers)
+          .concat(demoSpeakers)
+          .map((speaker) => (
+            <Speaker
+              reduceHeightOnMobile
+              className={classes.speaker}
+              {...speaker}
+              key={speaker.name}
+            />
+          ))}
       </div>
     </div>
-  )
+  );
 }

@@ -8,7 +8,8 @@ const faqs = [
   {
     id: 1,
     question: "1. What is DevFest?",
-    answer: "Yes! This platform allows you to securely purchase tickets for the five days event",
+    answer:
+      "Yes! This platform allows you to securely purchase tickets for the five days event",
   },
   {
     id: 2,
@@ -45,7 +46,8 @@ const FAQs = () => {
           <div className={styles.inner}>
             <h2 className={styles.title}>Get your questions answered</h2>
             <p className={styles.description}>
-              From registration to what to expect on the day, our FAQs have all the info you need.
+              From registration to what to expect on the day, our FAQs have all
+              the info you need.
             </p>
             <ul className={styles.list}>
               {faqs.map(({ id, question, answer }) => (

@@ -40,24 +40,27 @@ export function Navbar() {
           <NavLogo />
         </Link>
         <ul className={styles.links}>
-          {
-            links.map((link) => (
-              <li key={link.link}>
-                <Link
-                  href={link.link}
-                  onClick={() => setNavOpen(false)}
-                  className={clsx(styles.link, { [styles.active]: pathname === link.link })}
-                >
-                  {link.text}
-                </Link>
-              </li>
-
-            ))}
+          {links.map((link) => (
+            <li key={link.link}>
+              <Link
+                href={link.link}
+                onClick={() => setNavOpen(false)}
+                className={clsx(styles.link, {
+                  [styles.active]: pathname === link.link,
+                })}
+              >
+                {link.text}
+              </Link>
+            </li>
+          ))}
         </ul>
         <Button size="sm" className={styles.buyTicket}>
           BUY TICKETS
         </Button>
-        <Button className={styles.mobileNavButton} onClick={() => setNavOpen(true)}>
+        <Button
+          className={styles.mobileNavButton}
+          onClick={() => setNavOpen(true)}
+        >
           <HamburgerIcon />
         </Button>
       </nav>
@@ -66,28 +69,29 @@ export function Navbar() {
           <div className={styles.logo}>
             <NavLogo />
           </div>
-          <Button className={styles.mobileNavClose} onClick={() => setNavOpen(false)}>
+          <Button
+            className={styles.mobileNavClose}
+            onClick={() => setNavOpen(false)}
+          >
             <CloseIcon />
           </Button>
         </div>
         <ul className={styles.links}>
-          {
-            links.map(link => (
-              <li key={link.link}>
-                <Link
-                  href={link.link}
-                  onClick={() => setNavOpen(false)}
-                  className={clsx(styles.link, { [styles.active]: pathname === link.link })}
-                >
-                  {link.text}
-                </Link>
-              </li>
-            ))
-          }
+          {links.map((link) => (
+            <li key={link.link}>
+              <Link
+                href={link.link}
+                onClick={() => setNavOpen(false)}
+                className={clsx(styles.link, {
+                  [styles.active]: pathname === link.link,
+                })}
+              >
+                {link.text}
+              </Link>
+            </li>
+          ))}
         </ul>
-        <Button className={styles.buyTicket}>
-          BUY TICKETS
-        </Button>
+        <Button className={styles.buyTicket}>BUY TICKETS</Button>
       </aside>
     </>
   );

@@ -18,9 +18,7 @@ export function HomepageHero() {
             <span>Lagos</span>
           </div>
         </div>
-        <h1 className={styles.yearText}>
-          2025
-        </h1>
+        <h1 className={styles.yearText}>2025</h1>
         <Image
           src={heroImage}
           className={styles.heroImage}
@@ -33,24 +31,16 @@ export function HomepageHero() {
           alt="Clipped illustration"
           style={{ width: "100%" }}
         />
-
       </div>
       <div className={styles.callToAction}>
-        <Button className={styles.buyButton}>
-          BUY TICKETS
-        </Button>
+        <Button className={styles.buyButton}>BUY TICKETS</Button>
         <div className={styles.dateAndLocation}>
-          <span>
-            18-22 november, 2025
-          </span>
+          <span>18-22 november, 2025</span>
           <DateAndLocationArrow className={styles.arrow} />
           <DateAndLocationMobileArrow className={styles.mobileArrow} />
-          <span>
-            The Zone, Gbagada, Lagos
-          </span>
+          <span>The Zone, Gbagada, Lagos</span>
         </div>
       </div>
-
     </section>
-  )
+  );
 }

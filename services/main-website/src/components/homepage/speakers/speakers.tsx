@@ -16,19 +16,23 @@ export function Speakers() {
 
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -352, behavior: 'smooth' });
+      carouselRef.current.scrollBy({ left: -352, behavior: "smooth" });
     }
   };
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 352, behavior: 'smooth' });
+      carouselRef.current.scrollBy({ left: 352, behavior: "smooth" });
     }
   };
 
   return (
     <section className={classes.speakers}>
-      <Image src={laptop} alt="Speakers Laptop" className={classes.speakerLaptop} />
+      <Image
+        src={laptop}
+        alt="Speakers Laptop"
+        className={classes.speakerLaptop}
+      />
       <div className={classes.header}>
         <div className={classes.content}>
           <LearnListenRepeat className={classes.learnListenIcon} />
@@ -37,12 +41,12 @@ export function Speakers() {
               20<sup>+</sup> speakers
             </h2>
             <p className={classes.description}>
-              Meet the speakers for this year’s edition. From industry pros to rising voices, they’re bringing real stories, hard-earned lessons, and bold ideas to spark your next big move.
+              Meet the speakers for this year’s edition. From industry pros to
+              rising voices, they’re bringing real stories, hard-earned lessons,
+              and bold ideas to spark your next big move.
             </p>
           </div>
-          <Button>
-            SEE FULL LINEUP
-          </Button>
+          <Button>SEE FULL LINEUP</Button>
         </div>
         <div className={classes.controlButtons}>
           <button onClick={scrollLeft}>
@@ -54,8 +58,13 @@ export function Speakers() {
         </div>
       </div>
       <div className={classes.carousel} ref={carouselRef}>
-        {demoSpeakers.concat(demoSpeakers).concat(demoSpeakers).map(speaker => <Speaker {...speaker} key={speaker.name} />)}
+        {demoSpeakers
+          .concat(demoSpeakers)
+          .concat(demoSpeakers)
+          .map((speaker) => (
+            <Speaker {...speaker} key={speaker.name} />
+          ))}
       </div>
     </section>
-  )
+  );
 }

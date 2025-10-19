@@ -20,7 +20,7 @@ const sponsorImages = [
   interswitch,
   patricia,
   paystack,
-]
+];
 
 export function Sponsor() {
   return (
@@ -33,12 +33,16 @@ export function Sponsor() {
         <div className={classes.logos}>
           {sponsorImages.concat(sponsorImages).map((image, index) => (
             <>
-              <Image src={image} alt={`sponsor-${index}`} className={classes.logo} />
+              <Image
+                src={image}
+                alt={`sponsor-${index}`}
+                className={classes.logo}
+              />
               <Image src={splitIcon} alt={`split-${index}`} />
             </>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
