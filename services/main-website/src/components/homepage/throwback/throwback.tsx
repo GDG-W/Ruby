@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./throwback.module.scss";
-import { Button } from "@/components/button/button";
 import Image from "next/image";
+import React from "react";
+import { Button } from "@/components/button/button";
+import styles from "./throwback.module.scss";
 
 const Throwback = () => {
   return (

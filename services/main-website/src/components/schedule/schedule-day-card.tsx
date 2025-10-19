@@ -1,7 +1,7 @@
-import styles from "./schedule-day-card.module.scss";
 import clsx from "clsx";
-import { ScheduleItemCard, type Speaker } from "./schedule-item-card";
 import { Button } from "../button/button";
+import styles from "./schedule-day-card.module.scss";
+import { ScheduleItemCard, type Speaker } from "./schedule-item-card";
 
 export interface ScheduleItem {
   id: string;

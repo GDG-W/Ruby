@@ -1,12 +1,12 @@
-import classes from "./tracks.module.scss";
-import webTrack from "@/assets/tracks-web.png";
-import promptsTrack from "@/assets/tracks-prompts.png";
-import productTrack from "@/assets/tracks-product.png";
-import prodTrack from "@/assets/tracks-prod.png";
-import docsTrack from "@/assets/tracks-docs.png";
-import designTrack from "@/assets/tracks-design.png";
-import cloudTrack from "@/assets/tracks-cloud.png";
 import Image from "next/image";
+import cloudTrack from "@/assets/tracks-cloud.png";
+import designTrack from "@/assets/tracks-design.png";
+import docsTrack from "@/assets/tracks-docs.png";
+import prodTrack from "@/assets/tracks-prod.png";
+import productTrack from "@/assets/tracks-product.png";
+import promptsTrack from "@/assets/tracks-prompts.png";
+import webTrack from "@/assets/tracks-web.png";
+import classes from "./tracks.module.scss";
 
 export function Tracks() {
   return (

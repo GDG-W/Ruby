@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import classes from "./page.module.scss";
 import clsx from "clsx";
-import { demoSpeakers } from "@/lib/speakers";
+import { useState } from "react";
 import { Speaker } from "@/components/speaker/speaker";
+import { demoSpeakers } from "@/lib/speakers";
+import classes from "./page.module.scss";
 
 type Day = "TUE" | "WED" | "THU" | "FRI" | "SAT";
 
