@@ -42,6 +42,7 @@ function CircleWithRings({
   const handleMouseLeave = () => setIsHovered(false);
 
   return (
+    // biome-ignore lint/a11y/useKeyWithClickEvents: interactive SVG for visual effect
     <svg
       width={size}
       height={size}
@@ -50,6 +51,8 @@ function CircleWithRings({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
+      role="img"
+      aria-label="Interactive circle"
       style={{
         cursor: "pointer",
         transform: `scale(${scale})`,
