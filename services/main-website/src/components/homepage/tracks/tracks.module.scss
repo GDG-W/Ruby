@@ -23,10 +23,17 @@
         color: $grey-100;
         text-align: center;
         max-width: 861px;
+        word-wrap: break-word;
+
+      .letter{
+        display: inline-flex;
+        white-space: pre;
+      }
 
         @include media("<=800px"){
             @include text-h4;
-            span{
+
+            .subText{
                 display: block;
                 color: $grey-20;
             }
