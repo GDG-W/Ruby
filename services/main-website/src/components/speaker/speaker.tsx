@@ -1,11 +1,11 @@
 "use client";
 
-import { animated, useSpring } from "@react-spring/web";
-import Image, { type StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
+import classes from "./speaker.module.scss";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { animated, useSpring } from "@react-spring/web";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import clsx from "clsx";
-import classes from "./speaker.module.scss";
 
 type SocialMedia = "twitter" | "linkedin" | "github" | "instagram";
 
@@ -13,7 +13,7 @@ const socialMediaIcons = {
   twitter: "/socials/x.svg",
   linkedin: "/socials/linkedin.svg",
   github: "/socials/facebook.svg",
-  instagram: "/socials/instagram.svg"
+  instagram: "/socials/instagram.svg",
 } as const;
 
 export type SpeakerProps = {
@@ -27,7 +27,7 @@ export type SpeakerProps = {
   }[];
   className?: string;
   reduceHeightOnMobile?: boolean;
-};
+}
 
 const colorCombos = [
   ["#CCF6C5", "#34A853"],
@@ -68,14 +68,17 @@ export function Speaker({
   const windowWidth = useWindowWidth();
 
   //P.S Used a ref instead of a state variable so that I can use the ref in the event listeners
-  const isOnMobileRef = useRef(windowWidth < MOBILE_BREAKPOINT);
+  const isOnMobileRef = useRef(windowWidth !== 0 && windowWidth < MOBILE_BREAKPOINT);
 
   useEffect(() => {
-    isOnMobileRef.current = windowWidth < MOBILE_BREAKPOINT;
+    if (windowWidth) {
+      isOnMobileRef.current = windowWidth < MOBILE_BREAKPOINT;
+    }
   }, [windowWidth]);
 
+
   const heights = useMemo(() => {
-    const isOnMobile = windowWidth < MOBILE_BREAKPOINT;
+    const isOnMobile = windowWidth !== 0 && windowWidth < MOBILE_BREAKPOINT;
 
     return {
       imageWrapper: {
@@ -114,10 +117,7 @@ export function Speaker({
   useEffect(() => {
     speakerDivRef.current?.addEventListener("mouseenter", () => {
       if (cardState.current === "image" && !isOnMobileRef.current) {
-        imageWrapperApi.start({
-          height: 300,
-          backgroundColor: hoverBackground,
-        });
+        imageWrapperApi.start({ height: 300, backgroundColor: hoverBackground });
         infoApi.start({ height: 112 });
       }
     });
@@ -156,6 +156,7 @@ export function Speaker({
       imageApi.start({ opacity: 1 });
       bioApi.start({ opacity: 0 });
 
+
       imageWrapperApi.update({ config: openConfig });
       infoApi.update({ config: openConfig });
     }
@@ -163,9 +164,7 @@ export function Speaker({
 
   return (
     <article
-      className={clsx(classes.speaker, className, {
-        [classes.reduceHeightOnMobile]: reduceHeightOnMobile,
-      })}
+      className={clsx(classes.speaker, className, { [classes.reduceHeightOnMobile]: reduceHeightOnMobile })}
       ref={speakerDivRef}
       onClick={onClickImageWrapper}
     >
