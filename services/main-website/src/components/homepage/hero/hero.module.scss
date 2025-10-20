@@ -32,6 +32,17 @@
             column-gap: 30px;
         }
 
+        .dLogo{
+            display: flex;
+            align-items: center;
+            column-gap: 3px;
+
+            img{
+                width: 77px;
+                height: auto;
+            }
+        }
+
         svg{
             width: 11vw;
         }
@@ -56,6 +67,11 @@
         right: 6.5%;
         bottom: 8%;
         @extend %header;
+        overflow: hidden;
+
+        span{
+            display: inline-flex;
+        }
 
         @include media("<=800px") {
             font-size: 4rem;
