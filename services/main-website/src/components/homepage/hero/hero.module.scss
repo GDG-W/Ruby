@@ -104,11 +104,14 @@
 }
 
 .callToAction{
-    display: flex;
-    align-items: center;
-    gap: 16px;
     padding: 38px 52px 56px;
     background: $background-dark;
+
+    .callToActionInner{
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
 
     @include media("<=800px") {
