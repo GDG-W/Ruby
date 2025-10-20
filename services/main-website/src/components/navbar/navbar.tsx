@@ -10,6 +10,7 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import styles from "./navbar.module.scss";
+import { motion } from "motion/react";
 
 const links = [
   {
@@ -33,38 +34,52 @@ const links = [
 export function Navbar() {
   const [navOpen, setNavOpen] = useState(false);
   const pathname = usePathname();
+  const isOnHomepage = pathname === "/";
 
   return (
     <>
-      <nav className={styles.navbar}>
-        <Link href="/" className={styles.logo}>
-          <Image src={navLogo} alt="DevFest Lagos" />
-        </Link>
-        <ul className={styles.links}>
-          {links.map((link) => (
-            <li key={link.link}>
-              <Link
-                href={link.link}
-                onClick={() => setNavOpen(false)}
-                className={clsx(styles.link, {
-                  [styles.active]: pathname === link.link,
-                })}
-              >
-                {link.text}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <Button size="sm" className={styles.buyTicket}>
-          BUY TICKETS
-        </Button>
-        <Button
-          className={styles.mobileNavButton}
-          onClick={() => setNavOpen(true)}
+      <div className={styles.navbarBackground}>
+        <motion.nav
+          className={styles.navbar}
+          initial={{
+            opacity: isOnHomepage ? 0 : 1,
+            y: isOnHomepage ? 23 : 0,
+          }}
+          animate={{
+            y: 0,
+            opacity: 1,
+          }}
+          transition={{ duration: 1, ease: [0, 0, 0, 1], delay: 0.6 }}
         >
-          <Image src={hamburgerIcon} alt="Open menu" />
-        </Button>
-      </nav>
+          <Link href="/" className={styles.logo}>
+            <Image src={navLogo} alt="DevFest Lagos" />
+          </Link>
+          <ul className={styles.links}>
+            {links.map((link) => (
+              <li key={link.link}>
+                <Link
+                  href={link.link}
+                  onClick={() => setNavOpen(false)}
+                  className={clsx(styles.link, {
+                    [styles.active]: pathname === link.link,
+                  })}
+                >
+                  {link.text}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Button size="sm" className={styles.buyTicket}>
+            BUY TICKETS
+          </Button>
+          <Button
+            className={styles.mobileNavButton}
+            onClick={() => setNavOpen(true)}
+          >
+            <Image src={hamburgerIcon} alt="Open menu" />
+          </Button>
+        </motion.nav>
+      </div>
       <aside className={clsx(styles.mobileNav, { [styles.open]: navOpen })}>
         <div className={styles.topRow}>
           <div className={styles.logo}>
