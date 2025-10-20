@@ -1,10 +1,10 @@
 "use client";
 
+import { motion, type Variants } from "motion/react";
 import Image from "next/image";
 import React from "react";
 import { Button } from "@/components/button/button";
 import FaqItem from "@/components/faq-item/faq-item";
-import { motion, Variants } from "motion/react";
 import styles from "./faqs.module.scss";
 
 const MotionImage = motion(Image);
@@ -13,7 +13,8 @@ const faqs = [
   {
     id: 1,
     question: "What is DevFest?",
-    answer: "Yes! This platform allows you to securely purchase tickets for the five days event",
+    answer:
+      "Yes! This platform allows you to securely purchase tickets for the five days event",
   },
   {
     id: 2,
@@ -108,21 +109,22 @@ const FAQs = () => {
             alt="'More Community, Less Ego' written above a group photo of DevFest Digital Working Group (2024)"
           />
           <div className={styles.inner}>
-            <motion.h2
-              variants={fadeVariants}
-              className={styles.title}
-            >
+            <motion.h2 variants={fadeVariants} className={styles.title}>
               Get your questions answered
             </motion.h2>
-            <motion.p
-              variants={fadeVariants}
-              className={styles.description}
-            >
-              From registration to what to expect on the day, our FAQs have all the info you need.
+            <motion.p variants={fadeVariants} className={styles.description}>
+              From registration to what to expect on the day, our FAQs have all
+              the info you need.
             </motion.p>
             <motion.ul variants={listVariants} className={styles.list}>
               {faqs.map(({ id, question, answer }, idx) => (
-                <FaqItem key={id} idx={idx} question={question} answer={answer} variants={listItemVariants} />
+                <FaqItem
+                  key={id}
+                  idx={idx}
+                  question={question}
+                  answer={answer}
+                  variants={listItemVariants}
+                />
               ))}
             </motion.ul>
             <motion.div variants={buttonVariants}>

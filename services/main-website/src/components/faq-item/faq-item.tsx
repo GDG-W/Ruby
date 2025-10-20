@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
-import styles from "./faq-item.module.scss";
 import { motion, type Variants } from "motion/react";
+import type React from "react";
+import styles from "./faq-item.module.scss";
 
 interface FaqItemProps {
   idx: number;
@@ -11,12 +11,14 @@ interface FaqItemProps {
   variants?: Variants;
 }
 
-const FaqItem: React.FC<FaqItemProps> = ({ idx, question, answer, variants }) => {
+const FaqItem: React.FC<FaqItemProps> = ({
+  idx,
+  question,
+  answer,
+  variants,
+}) => {
   return (
-    <motion.li
-    variants={variants}
-    className={styles.faq}
-    >
+    <motion.li variants={variants} className={styles.faq}>
       <details className={styles.detail} name="faqs" id={`faq-${idx}`}>
         <summary className={styles.summary}>
           <span className={styles.question}>
