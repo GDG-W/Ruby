@@ -31,6 +31,8 @@ const FaqItem: React.FC<FaqItemProps> = ({
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Toggle FAQ"
             >
               <path d="M13 6V18.6H11.2V6H13Z" fill="#171717" />
               <path d="M6 11H18.6V12.8H6V11Z" fill="#171717" />
@@ -46,6 +48,7 @@ const FaqItem: React.FC<FaqItemProps> = ({
         viewBox="0 0 44 33"
         className={styles.polygon}
         xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
       >
         <path
           fill="currentColor"

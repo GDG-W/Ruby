@@ -2,7 +2,6 @@
 
 import { motion, type Variants } from "motion/react";
 import Image from "next/image";
-import React from "react";
 import { Button } from "@/components/button/button";
 import FaqItem from "@/components/faq-item/faq-item";
 import styles from "./faqs.module.scss";

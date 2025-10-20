@@ -49,10 +49,10 @@ export function Speakers() {
           <Button>SEE FULL LINEUP</Button>
         </div>
         <div className={classes.controlButtons}>
-          <button onClick={scrollLeft}>
+          <button type="button" onClick={scrollLeft}>
             <CarouselLeft />
           </button>
-          <button onClick={scrollRight}>
+          <button type="button" onClick={scrollRight}>
             <CarouselRight />
           </button>
         </div>
