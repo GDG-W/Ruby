@@ -4,12 +4,12 @@ import { motion, type Variants } from "motion/react";
 import Image from "next/image";
 import { Button } from "@/components/button/button";
 import FaqItem from "@/components/faq-item/faq-item";
-import styles from "./faqs.module.scss";
 import { FAQ_DATA } from "@/data/faqs";
+import styles from "./faqs.module.scss";
 
 const MotionImage = motion(Image);
 
-const faqs = FAQ_DATA.general.slice(0, 4)
+const faqs = FAQ_DATA.general.slice(0, 4);
 
 const containerVariants: Variants = {
   hidden: {},

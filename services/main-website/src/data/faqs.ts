@@ -53,7 +53,8 @@ export const FAQ_DATA: Record<Tab, FAQ[]> = {
     },
     {
       id: 8,
-      question: "How can I get updates and announcements about DevFest Lagos 2025?",
+      question:
+        "How can I get updates and announcements about DevFest Lagos 2025?",
       answer:
         "Stay tuned for updates and announcements by following our official social media channels and checking the event website. You can also subscribe to our newsletter to receive the latest information about speakers, sessions, and event details.",
     },
@@ -65,13 +66,15 @@ export const FAQ_DATA: Record<Tab, FAQ[]> = {
     },
     {
       id: 11,
-      question: "I'm a non-technical person, can I still attend DevFest Lagos 2025?",
+      question:
+        "I'm a non-technical person, can I still attend DevFest Lagos 2025?",
       answer:
         "Yes you can. We have sessions which also cover the writing, product design and management aspect of tech.",
     },
     {
       id: 12,
-      question: "Can I still submit a proposal for a session or workshop (Call for Papers)?",
+      question:
+        "Can I still submit a proposal for a session or workshop (Call for Papers)?",
       answer:
         "No you can't. Call for papers for DevFest Lagos 2025 is officially closed.",
     },
@@ -109,19 +112,22 @@ export const FAQ_DATA: Record<Tab, FAQ[]> = {
     },
     {
       id: 6,
-      question: "What information do I need to provide when buying tickets for others?",
+      question:
+        "What information do I need to provide when buying tickets for others?",
       answer:
         "You will need to provide the email address for each person you are purchasing tickets for.",
     },
     {
       id: 7,
-      question: "Will the people I buy tickets for receive a confirmation email?",
+      question:
+        "Will the people I buy tickets for receive a confirmation email?",
       answer:
         "Yes, they will  receive a confirmation email with the tickets attached.  They will receive an email prompting them to register for the event, and upon successful registration, they will be able to claim their tickets.",
     },
     {
       id: 8,
-      question: "I want to purchase tickets for more than 10 people. What should I do?",
+      question:
+        "I want to purchase tickets for more than 10 people. What should I do?",
       answer:
         "For bulk ticket purchases (more than 10), please email us at team@gdglagos.com and we’ll help process your order.",
     },
@@ -147,7 +153,8 @@ export const FAQ_DATA: Record<Tab, FAQ[]> = {
     {
       id: 12,
       question: "Will I receive a new ticket ID after upgrading?",
-      answer: "No, your ticket ID remains the same after upgrading your ticket.",
+      answer:
+        "No, your ticket ID remains the same after upgrading your ticket.",
     },
     {
       id: 13,

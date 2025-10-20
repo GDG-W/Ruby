@@ -81,7 +81,11 @@ export function Footer() {
 
         <div className={styles.title}>
           <span>DevFest</span>
-          <Button type="link" href="https://tickets.devfestlagos.com" className={styles.cta}>
+          <Button
+            type="link"
+            href="https://tickets.devfestlagos.com"
+            className={styles.cta}
+          >
             Buy Tickets
           </Button>
           <br />
