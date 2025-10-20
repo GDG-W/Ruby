@@ -1,7 +1,7 @@
-import { ScheduleDayGroup } from "@/components/schedule/schedule-day-group";
-import styles from "./page.module.scss";
 import FiveDaysIcon from "@/assets/five-days.svg";
+import { ScheduleDayGroup } from "@/components/schedule/schedule-day-group";
 import { sampleScheduleData } from "@/lib/schedule";
+import styles from "./page.module.scss";
 
 export default function SchedulePage() {
   return (

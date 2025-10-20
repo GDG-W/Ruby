@@ -1,7 +1,7 @@
-import styles from "./schedule-item-card.module.scss";
 import clsx from "clsx";
 import BreakoutIcon from "@/assets/breakout.svg";
 import defaultAvatar from "@/assets/default-avatar.png";
+import styles from "./schedule-item-card.module.scss";
 
 export interface Speaker {
   name: string;

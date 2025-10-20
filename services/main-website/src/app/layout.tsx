@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { Inter } from "next/font/google";
 import clsx from "clsx";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "@/styles/global.scss";
-import { Navbar } from "@/components/navbar/navbar";
 import { Footer } from "@/components/footer/footer";
+import { Navbar } from "@/components/navbar/navbar";
 
 const akira = localFont({
   src: "../fonts/Akira.otf",

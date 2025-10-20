@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./gdg.module.scss";
 import Image from "next/image";
+import React from "react";
 import { Button } from "@/components/button/button";
+import styles from "./gdg.module.scss";
 
 const GDG = () => {
   return (

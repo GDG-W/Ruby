@@ -1,16 +1,15 @@
 "use client";
 
-import { StaticImageData } from "next/image";
-import classes from "./speaker.module.scss";
-import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
-import { useWindowWidth } from "@/hooks/useWindowWidth";
+import { animated, useSpring } from "@react-spring/web";
 import clsx from "clsx";
+import Image, { type StaticImageData } from "next/image";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Facebook from "@/assets/social-media/facebook.svg";
 import Instagram from "@/assets/social-media/instagram.svg";
 import LinkedIn from "@/assets/social-media/linkedin.svg";
 import Twitter from "@/assets/social-media/twitter.svg";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
+import classes from "./speaker.module.scss";
 
 type SocialMedia = "twitter" | "linkedin" | "github" | "instagram";
 

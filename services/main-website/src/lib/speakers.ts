@@ -2,7 +2,7 @@ import acekyd from "../assets/demo-speakers/acekyd.png";
 import adora from "../assets/demo-speakers/adora.png";
 import ayomide from "../assets/demo-speakers/ayomide.png";
 import idk from "../assets/demo-speakers/idk.png";
-import { SpeakerProps } from "../components/speaker/speaker";
+import type { SpeakerProps } from "../components/speaker/speaker";
 
 export const demoSpeakers: SpeakerProps[] = [
   {
