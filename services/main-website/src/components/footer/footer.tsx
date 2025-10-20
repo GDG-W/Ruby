@@ -1,7 +1,12 @@
+"use client";
+
+import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../button/button";
 import styles from "./footer.module.scss";
+
+const MotionImage = motion(Image);
 
 const footerLinks = {
   topLeft: [
@@ -59,12 +64,19 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <Image
+        <MotionImage
           width={177}
           height={177}
           className={styles.sticker}
           src="/stickers/world-class-energy-globe.svg"
           alt="'World Class Energy' written above a green globe"
+          initial={{ scale: 0.5, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.68, -0.55, 0.265, 1.55] as any,
+          }}
         />
 
         <div className={styles.title}>
