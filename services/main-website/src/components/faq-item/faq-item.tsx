@@ -1,18 +1,29 @@
+"use client";
+
+import { motion, type Variants } from "motion/react";
 import type React from "react";
 import styles from "./faq-item.module.scss";
 
 interface FaqItemProps {
-  id: number;
+  idx: number;
   question: string;
   answer: string;
+  variants?: Variants;
 }
 
-const FaqItem: React.FC<FaqItemProps> = ({ id, question, answer }) => {
+const FaqItem: React.FC<FaqItemProps> = ({
+  idx,
+  question,
+  answer,
+  variants,
+}) => {
   return (
-    <li className={styles.faq}>
-      <details className={styles.detail} name="faqs" id={`faq-${id}`}>
+    <motion.li variants={variants} className={styles.faq}>
+      <details className={styles.detail} name="faqs" id={`faq-${idx}`}>
         <summary className={styles.summary}>
-          <span className={styles.question}>{question}</span>
+          <span className={styles.question}>
+            {idx + 1}. {question}
+          </span>
           <div className={styles.toggle}>
             <svg
               width="24"
@@ -42,7 +53,7 @@ const FaqItem: React.FC<FaqItemProps> = ({ id, question, answer }) => {
         />
       </svg>
       <div className={styles.polygonCover} />
-    </li>
+    </motion.li>
   );
 };
 
