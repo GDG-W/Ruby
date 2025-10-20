@@ -108,7 +108,13 @@ export default function FAQPage() {
               ))}
             </motion.div>
 
-            <motion.ul variants={listVariants} className={styles.list}>
+            <motion.ul
+              key={activeTab}
+              initial="hidden"
+              animate="visible"
+              variants={listVariants}
+              className={styles.list}
+            >
               {faqs.map(({ id, question, answer }, idx) => (
                 <FaqItem
                   key={id}
