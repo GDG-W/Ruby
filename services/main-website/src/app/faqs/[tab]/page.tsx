@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
-import { FAQ_DATA, TABS, TAB_LABELS, type Tab } from "@/data/faqs";
-import FaqItem from "@/components/faq-item/faq-item";
-import styles from "./page.module.scss";
 import { Button } from "@/components/button/button";
+import FaqItem from "@/components/faq-item/faq-item";
+import { FAQ_DATA, TAB_LABELS, TABS, type Tab } from "@/data/faqs";
+import styles from "./page.module.scss";
 
 export const dynamic = "force-static";
 

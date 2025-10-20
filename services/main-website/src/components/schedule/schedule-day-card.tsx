@@ -1,7 +1,7 @@
-import styles from "./schedule-day-card.module.scss";
 import clsx from "clsx";
-import { ScheduleItemCard, type Speaker } from "./schedule-item-card";
 import { Button } from "../button/button";
+import styles from "./schedule-day-card.module.scss";
+import { ScheduleItemCard, type Speaker } from "./schedule-item-card";
 
 export interface ScheduleItem {
   id: string;
@@ -53,7 +53,7 @@ export function ScheduleDayCard({
         styles.scheduleDayCard,
         styles[`day${dayIndex}`],
         isFocused && styles.focused,
-        className
+        className,
       )}
       tabIndex={0}
       onFocus={handleCardFocus}
@@ -71,10 +71,7 @@ export function ScheduleDayCard({
             )}
 
             <div className={styles.dayActions}>
-              <Button
-                className={styles.rsvpButton}
-                onClick={handleRSVPClick}
-              >
+              <Button className={styles.rsvpButton} onClick={handleRSVPClick}>
                 RSVP
               </Button>
             </div>
@@ -98,7 +95,9 @@ export function ScheduleDayCard({
         ) : (
           <div className={styles.emptyState}>
             <h3>Coming Soon</h3>
-            <p>Schedule details for this day will be announced soon. Stay tuned!</p>
+            <p>
+              Schedule details for this day will be announced soon. Stay tuned!
+            </p>
           </div>
         )}
       </div>

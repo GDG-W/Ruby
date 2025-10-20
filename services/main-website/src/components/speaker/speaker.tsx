@@ -1,16 +1,15 @@
-"use client"
+"use client";
 
-import { StaticImageData } from "next/image"
-import classes from "./speaker.module.scss";
-import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
-import { useWindowWidth } from "@/hooks/useWindowWidth";
+import { animated, useSpring } from "@react-spring/web";
 import clsx from "clsx";
-import Facebook from "@/assets/social-media/facebook.svg"
-import Instagram from "@/assets/social-media/instagram.svg"
-import LinkedIn from "@/assets/social-media/linkedin.svg"
-import Twitter from "@/assets/social-media/twitter.svg"
+import Image, { type StaticImageData } from "next/image";
+import { useEffect, useMemo, useRef, useState } from "react";
+import Facebook from "@/assets/social-media/facebook.svg";
+import Instagram from "@/assets/social-media/instagram.svg";
+import LinkedIn from "@/assets/social-media/linkedin.svg";
+import Twitter from "@/assets/social-media/twitter.svg";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
+import classes from "./speaker.module.scss";
 
 type SocialMedia = "twitter" | "linkedin" | "github" | "instagram";
 
@@ -18,7 +17,7 @@ const socialMediaIcons = {
   twitter: Twitter,
   linkedin: LinkedIn,
   github: Facebook,
-  instagram: Instagram
+  instagram: Instagram,
 } as const;
 
 export type SpeakerProps = {
@@ -32,31 +31,41 @@ export type SpeakerProps = {
   }[];
   className?: string;
   reduceHeightOnMobile?: boolean;
-}
+};
 
 const colorCombos = [
   ["#CCF6C5", "#34A853"],
   ["#FFE7A5", "#F6B51E"],
   ["#C3ECF6", "#4285F4"],
-  ["#F8D8D8", "#EA4335"]
-]
+  ["#F8D8D8", "#EA4335"],
+];
 
 const closedConfig = {
   tension: 400,
   friction: 20,
-  mass: 0.3
-}
+  mass: 0.3,
+};
 
 const openConfig = {
   tension: 500,
   friction: 25,
-  mass: 0.4
-}
+  mass: 0.4,
+};
 
 const MOBILE_BREAKPOINT = 440;
 
-export function Speaker({ image, name, tagline, bio, socialMedia, className, reduceHeightOnMobile }: SpeakerProps) {
-  const [[background, hoverBackground]] = useState(colorCombos[Math.floor(Math.random() * colorCombos.length)]);
+export function Speaker({
+  image,
+  name,
+  tagline,
+  bio,
+  socialMedia,
+  className,
+  reduceHeightOnMobile,
+}: SpeakerProps) {
+  const [[background, hoverBackground]] = useState(
+    colorCombos[Math.floor(Math.random() * colorCombos.length)],
+  );
   const speakerDivRef = useRef<HTMLDivElement>(null);
   const cardState = useRef<"image" | "bio">("image");
 
@@ -78,44 +87,52 @@ export function Speaker({ image, name, tagline, bio, socialMedia, className, red
       },
       info: {
         open: isOnMobile ? 242 : 404,
-        minimized: isOnMobile ? 64 : 104
-      }
-    }
-  }, [windowWidth])
+        minimized: isOnMobile ? 64 : 104,
+      },
+    };
+  }, [windowWidth]);
 
   const [imageWrapperProps, imageWrapperApi] = useSpring(() => ({
-    from: { height: heights.imageWrapper.open, backgroundColor: background, borderBottomLeftRadius: 2, borderBottomRightRadius: 2 },
-    config: closedConfig
+    from: {
+      height: heights.imageWrapper.open,
+      backgroundColor: background,
+      borderBottomLeftRadius: 2,
+      borderBottomRightRadius: 2,
+    },
+    config: closedConfig,
   }));
 
   const [imageProps, imageApi] = useSpring(() => ({
-    from: { opacity: 1 }
-  }))
+    from: { opacity: 1 },
+  }));
 
   const [infoProps, infoApi] = useSpring(() => ({
     from: { height: heights.info.minimized },
-    config: openConfig
+    config: openConfig,
   }));
 
   const [bioProps, bioApi] = useSpring(() => ({
     from: { opacity: 0 },
-  }))
+  }));
 
   useEffect(() => {
     speakerDivRef.current?.addEventListener("mouseenter", () => {
       if (cardState.current === "image" && !isOnMobileRef.current) {
-        imageWrapperApi.start({ height: 300, backgroundColor: hoverBackground })
-        infoApi.start({ height: 112 })
+        imageWrapperApi.start({
+          height: 300,
+          backgroundColor: hoverBackground,
+        });
+        infoApi.start({ height: 112 });
       }
-    })
+    });
 
     speakerDivRef.current?.addEventListener("mouseleave", () => {
       if (cardState.current === "image" && !isOnMobileRef.current) {
-        imageWrapperApi.start({ height: 308, backgroundColor: background })
-        infoApi.start({ height: 104 })
+        imageWrapperApi.start({ height: 308, backgroundColor: background });
+        infoApi.start({ height: 104 });
       }
-    })
-  }, [imageWrapperApi, infoApi, background])
+    });
+  }, [imageWrapperApi, infoApi, background]);
 
   const onClickImageWrapper = () => {
     if (cardState.current === "image") {
@@ -124,29 +141,35 @@ export function Speaker({ image, name, tagline, bio, socialMedia, className, red
       imageWrapperApi.update({ config: closedConfig });
       infoApi.update({ config: closedConfig });
 
-      imageWrapperApi.start({ height: 8, borderBottomLeftRadius: 0, borderBottomRightRadius: 0, backgroundColor: hoverBackground })
-      infoApi.start({ height: heights.info.open })
+      imageWrapperApi.start({
+        height: 8,
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
+        backgroundColor: hoverBackground,
+      });
+      infoApi.start({ height: heights.info.open });
 
       imageApi.start({ opacity: 0 });
       bioApi.start({ opacity: 1 });
     } else {
       cardState.current = "image";
 
-      imageWrapperApi.start({ height: heights.imageWrapper.open })
-      infoApi.start({ height: heights.info.minimized })
+      imageWrapperApi.start({ height: heights.imageWrapper.open });
+      infoApi.start({ height: heights.info.minimized });
 
       imageApi.start({ opacity: 1 });
       bioApi.start({ opacity: 0 });
 
-
       imageWrapperApi.update({ config: openConfig });
       infoApi.update({ config: openConfig });
     }
-  }
+  };
 
   return (
     <article
-      className={clsx(classes.speaker, className, { [classes.reduceHeightOnMobile]: reduceHeightOnMobile })}
+      className={clsx(classes.speaker, className, {
+        [classes.reduceHeightOnMobile]: reduceHeightOnMobile,
+      })}
       ref={speakerDivRef}
       onClick={onClickImageWrapper}
     >
@@ -174,11 +197,11 @@ export function Speaker({ image, name, tagline, bio, socialMedia, className, red
                 >
                   <Icon />
                 </a>
-              )
+              );
             })}
           </div>
         </animated.div>
       </animated.div>
     </article>
-  )
+  );
 }

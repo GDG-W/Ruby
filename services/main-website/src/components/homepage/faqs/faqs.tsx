@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react";
-import styles from "./faqs.module.scss";
 import Image from "next/image";
+import React from "react";
 import { Button } from "@/components/button/button";
 import FaqItem from "@/components/faq-item/faq-item";
 import { motion, Variants } from "motion/react";
+import styles from "./faqs.module.scss";
 
 const MotionImage = motion(Image);
 

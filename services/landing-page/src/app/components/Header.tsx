@@ -26,12 +26,12 @@ export default function Header() {
             className="absolute -left-38 -z-10"
           />
           <div className="flex h-full">
-            <Link href="/earlybird">
+            <Link href="https://tickets.devfestlagos.com">
               <Button
                 variant="primary"
                 className="flex h-full items-center justify-center gap-2 bg-[#F6B51E] px-3 text-xs whitespace-nowrap transition-all hover:bg-[#E5A818] sm:px-4 sm:text-sm lg:px-6 lg:text-base"
               >
-                Get Early Bird Tickets
+                Get Tickets
                 <Image src="/vector.svg" alt="arrow icon" width={14} height={14} />
               </Button>
             </Link>

@@ -1,7 +1,7 @@
-import React from "react";
 import Image from "next/image";
-import styles from "./layout.module.scss";
+import type React from "react";
 import GDG from "@/components/homepage/gdg/gdg";
+import styles from "./layout.module.scss";
 
 export const metadata = { title: "FAQs" };
 
@@ -25,7 +25,8 @@ export default function FAQParentLayout({
           <span>Get your questions answered</span>
         </h2>
         <p className={styles.description}>
-          From registration to what to expect on the day, our FAQs have all the info you need.
+          From registration to what to expect on the day, our FAQs have all the
+          info you need.
         </p>
         {children}
       </div>
