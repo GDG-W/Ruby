@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/dp-generator"
+  to = "https://dflagos25-dp.netlify.app/"
+  status = 301
+  force = false
+  query = {path = ":path"} #  apply this rule for /old-path?path=example
