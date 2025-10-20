@@ -1,7 +1,7 @@
-import type React from "react";
-import styles from "./button.module.scss";
 import clsx from "clsx";
 import NextLink, { type LinkProps } from "next/link";
+import type React from "react";
+import styles from "./button.module.scss";
 
 type Variant = "primary" | "secondary" | "tertiary";
 

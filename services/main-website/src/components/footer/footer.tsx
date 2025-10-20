@@ -1,17 +1,22 @@
+"use client";
+
+import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./footer.module.scss";
 import { Button } from "../button/button";
+import styles from "./footer.module.scss";
+
+const MotionImage = motion(Image);
 
 const footerLinks = {
   topLeft: [
     { label: "Schedule", href: "/schedule" },
     { label: "Speakers", href: "/speakers" },
-    { label: "DP Generator", href: "/" },
+    // { label: "DP Generator", href: "/" },
   ],
   topRight: [
-    { label: "Map Venue", href: "/map" },
-    { label: "Claim Ticket", href: "/" },
+    // { label: "Map Venue", href: "/map" },
+    { label: "Claim Ticket", href: "https://tickets.devfestlagos.com/login" },
     {
       label: "Join the Community",
       href: "https://gdg.community.dev/gdg-lagos/",
@@ -59,17 +64,28 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <Image
+        <MotionImage
           width={177}
           height={177}
           className={styles.sticker}
           src="/stickers/world-class-energy-globe.svg"
           alt="'World Class Energy' written above a green globe"
+          initial={{ scale: 0.5, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.68, -0.55, 0.265, 1.55] as any,
+          }}
         />
 
         <div className={styles.title}>
           <span>DevFest</span>
-          <Button type="link" href="/" className={styles.cta}>
+          <Button
+            type="link"
+            href="https://tickets.devfestlagos.com"
+            className={styles.cta}
+          >
             Buy Tickets
           </Button>
           <br />
