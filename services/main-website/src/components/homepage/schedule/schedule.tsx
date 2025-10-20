@@ -1,8 +1,9 @@
-import FiveDays from "@/assets/five-days.svg";
-import NetworkIcon from "@/assets/network.svg";
+import classes from "./schedule.module.scss";
+import fiveDays from "@/assets/five-days.svg";
 import { ScheduleDayGroup } from "@/components/schedule/schedule-day-group";
 import { sampleScheduleData } from "@/lib/schedule";
-import classes from "./schedule.module.scss";
+import networkIcon from "@/assets/network.svg";
+import Image from "next/image";
 
 export function ScheduleSection() {
   return (
@@ -16,10 +17,10 @@ export function ScheduleSection() {
           field specific sessions that you don’t want to miss. Yes, we have
           something for everyone.
         </p>
-        <FiveDays className={classes.fiveDays} />
+        <Image src={fiveDays} alt="Five Days" className={classes.fiveDays} />
       </div>
       <ScheduleDayGroup hideDescription days={sampleScheduleData} />
-      <NetworkIcon className={classes.networkIcon} />
+      <Image src={networkIcon} alt="Network" className={classes.networkIcon} />
     </section>
   );
 }

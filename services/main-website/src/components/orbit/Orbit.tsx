@@ -8,7 +8,8 @@ import {
   useSpring,
 } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
-import DevFestLogo from "@/assets/devfest-logo.svg";
+import devfestLogo from "@/assets/devfest-logo.svg";
+import Image from "next/image"
 
 import CircleWithRings from "./CircleWithRings";
 import styles from "./orbit.module.scss";
@@ -208,7 +209,7 @@ function Orbit({ className }: { className: string }) {
 
         {/* Center logo */}
         <g transform={`translate(${CENTER_X - 56}, ${CENTER_Y - 31})`}>
-          <DevFestLogo width={112} height={62} />
+          <Image src={devfestLogo} alt="Devfest Logo" width={112} height={62} />
         </g>
 
         {/* Orbiting circles */}

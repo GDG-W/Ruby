@@ -1,6 +1,7 @@
 import clsx from "clsx";
-import BreakoutIcon from "@/assets/breakout.svg";
+import breakoutIcon from "@/assets/breakout.svg";
 import defaultAvatar from "@/assets/default-avatar.png";
+import Image from "next/image";
 import styles from "./schedule-item-card.module.scss";
 
 export interface Speaker {
@@ -41,7 +42,7 @@ export function ScheduleItemCard({
         <h3 className={styles.title}>{title}</h3>
         {isBreakoutSession && (
           <div className={clsx(styles.breakoutTag, styles[`room${room}`])}>
-            <BreakoutIcon className={styles.breakoutIcon} />
+            <Image src={breakoutIcon} alt="" className={styles.breakoutIcon} />
             <span className={styles.breakoutText}>Breakout session</span>
           </div>
         )}

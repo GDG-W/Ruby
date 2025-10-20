@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import CarouselLeft from "@/assets/carousel-left.svg";
-import CarouselRight from "@/assets/carousel-right.svg";
-import LearnListenRepeat from "@/assets/learn-listen-repeat.svg";
+import carouselLeft from "@/assets/carousel-left.svg";
+import carouselRight from "@/assets/carousel-right.svg";
+import learnListenRepeat from "@/assets/learn-listen-repeat.svg";
 import laptop from "@/assets/speakers-laptop.png";
 import { Button } from "@/components/button/button";
 import { Speaker } from "@/components/speaker/speaker";
@@ -35,7 +35,7 @@ export function Speakers() {
       />
       <div className={classes.header}>
         <div className={classes.content}>
-          <LearnListenRepeat className={classes.learnListenIcon} />
+          <Image src={learnListenRepeat} alt="Learn Listen Repeat" className={classes.learnListenIcon} />
           <div>
             <h2 className={classes.title}>
               20<sup>+</sup> speakers
@@ -50,10 +50,10 @@ export function Speakers() {
         </div>
         <div className={classes.controlButtons}>
           <button type="button" onClick={scrollLeft}>
-            <CarouselLeft />
+            <Image src={carouselLeft} alt="Scroll left" />
           </button>
           <button type="button" onClick={scrollRight}>
-            <CarouselRight />
+            <Image src={carouselRight} alt="Scroll right" />
           </button>
         </div>
       </div>

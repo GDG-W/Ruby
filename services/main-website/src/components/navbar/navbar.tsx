@@ -1,13 +1,14 @@
 "use client";
 
-import clsx from "clsx";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import CloseIcon from "@/assets/close.svg";
-import HamburgerIcon from "@/assets/hamburger.svg";
-import NavLogo from "@/assets/nav-logo.svg";
+import navLogo from "@/assets/nav-logo.svg";
 import { Button } from "../button/button";
+import hamburgerIcon from "@/assets/hamburger.svg";
+import closeIcon from "@/assets/close.svg";
+import { useState } from "react";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 import styles from "./navbar.module.scss";
 
 const links = [
@@ -37,7 +38,7 @@ export function Navbar() {
     <>
       <nav className={styles.navbar}>
         <Link href="/" className={styles.logo}>
-          <NavLogo />
+          <Image src={navLogo} alt="DevFest Lagos" />
         </Link>
         <ul className={styles.links}>
           {links.map((link) => (
@@ -61,19 +62,19 @@ export function Navbar() {
           className={styles.mobileNavButton}
           onClick={() => setNavOpen(true)}
         >
-          <HamburgerIcon />
+          <Image src={hamburgerIcon} alt="Open menu" />
         </Button>
       </nav>
       <aside className={clsx(styles.mobileNav, { [styles.open]: navOpen })}>
         <div className={styles.topRow}>
           <div className={styles.logo}>
-            <NavLogo />
+            <Image src={navLogo} alt="DevFest Lagos" />
           </div>
           <Button
             className={styles.mobileNavClose}
             onClick={() => setNavOpen(false)}
           >
-            <CloseIcon />
+            <Image src={closeIcon} alt="Close menu" />
           </Button>
         </div>
         <ul className={styles.links}>
