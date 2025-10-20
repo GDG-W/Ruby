@@ -1,13 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useAnimate } from "motion/react";
+import Image from "next/image";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-
-import styles from "./throwback.module.scss";
+import { Button } from "@/components/button/button";
 
 import { useIsTouchDevice } from "@/hooks/useIsTouchDevice";
-import { Button } from "@/components/button/button";
+import styles from "./throwback.module.scss";
 
 const MotionImage = motion(Image);
 
