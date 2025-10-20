@@ -1,16 +1,15 @@
 "use client";
 
-import styles from "./hero.module.scss";
-import dLogo from "@/assets/devfest-logo.svg";
+import Image from "next/image";
 import heroImage from "@/assets/hero-image.png";
 import heroImageMobile from "@/assets/hero-image-mobile.png";
-import Image from "next/image";
 import { Button } from "@/components/button/button";
 import dateAndLocationArrow from "@/assets/date-and-location-arrow.svg";
 import dateAndLocationMobileArrow from "@/assets/date-and-location-mobile-arrow.svg";
 import dLogoLeft from "@/assets/d-logo-left.png";
 import dLogoRight from "@/assets/d-logo-right.png";
 import { motion } from "motion/react";
+import styles from "./hero.module.scss";
 
 export function HomepageHero() {
   return (
@@ -75,8 +74,7 @@ export function HomepageHero() {
             </motion.span>
           </div>
         </div>
-        <h1 className={styles.yearText}>
-          {
+        <h1 className={styles.yearText}>{
             "2025".split("").map((letter, index) => (
               <motion.span
                 key={letter}
@@ -107,24 +105,16 @@ export function HomepageHero() {
           alt="Clipped illustration"
           style={{ width: "100%" }}
         />
-
       </div>
       <div className={styles.callToAction}>
-        <Button className={styles.buyButton}>
-          BUY TICKETS
-        </Button>
+        <Button className={styles.buyButton}>BUY TICKETS</Button>
         <div className={styles.dateAndLocation}>
-          <span>
-            18-22 november, 2025
-          </span>
+          <span>18-22 november, 2025</span>
           <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
           <Image src={dateAndLocationMobileArrow} alt="" className={styles.mobileArrow} />
-          <span>
-            The Zone, Gbagada, Lagos
-          </span>
+          <span>The Zone, Gbagada, Lagos</span>
         </div>
       </div>
-
     </section>
-  )
+  );
 }

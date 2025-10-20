@@ -51,3 +51,27 @@
     @include text-p4;
   }
 }
+
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6.9rem 0 5.7rem;
+  column-gap: 1.6rem;
+
+  @include media("<=desktop-sm") {
+    margin: 4rem 0;
+  }
+}
+
+.list {
+  max-width: 706px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.8rem;
+  margin: 0 auto;
+
+  @include media("<=desktop-sm") {
+    row-gap: 2.2rem;
+  }
+}

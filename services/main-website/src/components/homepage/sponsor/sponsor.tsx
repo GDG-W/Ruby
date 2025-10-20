@@ -1,3 +1,4 @@
+import Image from "next/image";
 import abeg from "@/assets/sponsors/abeg.png";
 import andela from "@/assets/sponsors/andela.png";
 import busha from "@/assets/sponsors/busha.png";
@@ -8,7 +9,6 @@ import patricia from "@/assets/sponsors/patricia.png";
 import paystack from "@/assets/sponsors/paystack.png";
 import splitIcon from "@/assets/sponsors/split.png";
 import classes from "./sponsor.module.scss";
-import Image from "next/image";
 import gdgBag from "@/assets/sponsors/gdg-bag.svg";
 
 const sponsorImages = [
@@ -20,7 +20,7 @@ const sponsorImages = [
   interswitch,
   patricia,
   paystack,
-]
+];
 
 export function Sponsor() {
   return (
@@ -33,12 +33,16 @@ export function Sponsor() {
         <div className={classes.logos}>
           {sponsorImages.concat(sponsorImages).map((image, index) => (
             <>
-              <Image src={image} alt={`sponsor-${index}`} className={classes.logo} />
+              <Image
+                src={image}
+                alt={`sponsor-${index}`}
+                className={classes.logo}
+              />
               <Image src={splitIcon} alt={`split-${index}`} />
             </>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

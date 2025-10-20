@@ -2,7 +2,7 @@ import acekyd from "../assets/demo-speakers/acekyd.png";
 import adora from "../assets/demo-speakers/adora.png";
 import ayomide from "../assets/demo-speakers/ayomide.png";
 import idk from "../assets/demo-speakers/idk.png";
-import { SpeakerProps } from "../components/speaker/speaker";
+import type { SpeakerProps } from "../components/speaker/speaker";
 
 export const demoSpeakers: SpeakerProps[] = [
   {
@@ -13,9 +13,9 @@ export const demoSpeakers: SpeakerProps[] = [
     socialMedia: [
       {
         type: "twitter",
-        url: "https://twitter.com/acekyd"
-      }
-    ]
+        url: "https://twitter.com/acekyd",
+      },
+    ],
   },
   {
     name: "Adora",
@@ -25,9 +25,9 @@ export const demoSpeakers: SpeakerProps[] = [
     socialMedia: [
       {
         type: "twitter",
-        url: "https://twitter.com/adorab"
-      }
-    ]
+        url: "https://twitter.com/adorab",
+      },
+    ],
   },
   {
     name: "Ayomide",
@@ -37,9 +37,9 @@ export const demoSpeakers: SpeakerProps[] = [
     socialMedia: [
       {
         type: "twitter",
-        url: "https://twitter.com/ayomide"
-      }
-    ]
+        url: "https://twitter.com/ayomide",
+      },
+    ],
   },
   {
     name: "Idk",
@@ -49,8 +49,8 @@ export const demoSpeakers: SpeakerProps[] = [
     socialMedia: [
       {
         type: "twitter",
-        url: "https://twitter.com/idk"
-      }
-    ]
-  }
-]
+        url: "https://twitter.com/idk",
+      },
+    ],
+  },
+];

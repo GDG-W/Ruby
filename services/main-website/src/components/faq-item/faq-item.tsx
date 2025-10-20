@@ -1,18 +1,29 @@
-import React from "react";
+"use client";
+
+import { motion, type Variants } from "motion/react";
+import type React from "react";
 import styles from "./faq-item.module.scss";
 
 interface FaqItemProps {
-  id: number;
+  idx: number;
   question: string;
   answer: string;
+  variants?: Variants;
 }
 
-const FaqItem: React.FC<FaqItemProps> = ({ id, question, answer }) => {
+const FaqItem: React.FC<FaqItemProps> = ({
+  idx,
+  question,
+  answer,
+  variants,
+}) => {
   return (
-    <li className={styles.faq}>
-      <details className={styles.detail} name="faqs" id={`faq-${id}`}>
+    <motion.li variants={variants} className={styles.faq}>
+      <details className={styles.detail} name="faqs" id={`faq-${idx}`}>
         <summary className={styles.summary}>
-          <span className={styles.question}>{question}</span>
+          <span className={styles.question}>
+            {idx + 1}. {question}
+          </span>
           <div className={styles.toggle}>
             <svg
               width="24"
@@ -20,6 +31,8 @@ const FaqItem: React.FC<FaqItemProps> = ({ id, question, answer }) => {
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Toggle FAQ"
             >
               <path d="M13 6V18.6H11.2V6H13Z" fill="#171717" />
               <path d="M6 11H18.6V12.8H6V11Z" fill="#171717" />
@@ -35,6 +48,7 @@ const FaqItem: React.FC<FaqItemProps> = ({ id, question, answer }) => {
         viewBox="0 0 44 33"
         className={styles.polygon}
         xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
       >
         <path
           fill="currentColor"
@@ -42,7 +56,7 @@ const FaqItem: React.FC<FaqItemProps> = ({ id, question, answer }) => {
         />
       </svg>
       <div className={styles.polygonCover} />
-    </li>
+    </motion.li>
   );
 };
 
