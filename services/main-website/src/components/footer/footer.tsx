@@ -12,11 +12,11 @@ const footerLinks = {
   topLeft: [
     { label: "Schedule", href: "/schedule" },
     { label: "Speakers", href: "/speakers" },
-    { label: "DP Generator", href: "/" },
+    // { label: "DP Generator", href: "/" },
   ],
   topRight: [
-    { label: "Map Venue", href: "/map" },
-    { label: "Claim Ticket", href: "/" },
+    // { label: "Map Venue", href: "/map" },
+    { label: "Claim Ticket", href: "https://tickets.devfestlagos.com/login" },
     {
       label: "Join the Community",
       href: "https://gdg.community.dev/gdg-lagos/",
@@ -81,7 +81,7 @@ export function Footer() {
 
         <div className={styles.title}>
           <span>DevFest</span>
-          <Button type="link" href="/" className={styles.cta}>
+          <Button type="link" href="https://tickets.devfestlagos.com" className={styles.cta}>
             Buy Tickets
           </Button>
           <br />
