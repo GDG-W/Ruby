@@ -1,10 +1,1 @@
-[[redirects]]
-  from = "/dp-generator"
-  to = "https://dflagos25-dp.netlify.app/"
-  status = 301
-  force = true
-[[redirects]]
-  from = "/dp-generator/*"
-  to = "https://dflagos25-dp.netlify.app/:splat"
-  status = 301
-  force = true
+# Intentionally left blank; using Next.js route for /dp-generator
