@@ -8,3 +8,13 @@
   to = "https://dflagos25-dp.netlify.app/:splat"
   status = 200
   force = true
+[[redirects]]
+  from = "/assets/*"
+  to = "https://dflagos25-dp.netlify.app/assets/:splat"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/manifest.json"
+  to = "https://dflagos25-dp.netlify.app/manifest.json"
+  status = 200
+  force = true
