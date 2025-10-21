@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/dp-generator/*"
-  to = "https://dflagos25-dp.netlify.app/:splat"
+  to = "https://dflagos25-dp.netlify.app"
   status = 200
