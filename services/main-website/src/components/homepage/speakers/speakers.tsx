@@ -10,6 +10,9 @@ import { Button } from "@/components/button/button";
 import { Speaker } from "@/components/speaker/speaker";
 import { demoSpeakers } from "@/lib/speakers";
 import classes from "./speakers.module.scss";
+import { motion } from "framer-motion";
+
+const MotionImage = motion(Image);
 
 export function Speakers() {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -28,12 +31,21 @@ export function Speakers() {
 
   return (
     <section className={classes.speakers}>
-      <Image
-        src={laptop}
-        alt="Speakers Laptop"
-        className={classes.speakerLaptop}
-      />
-      <div className={classes.header}>
+      <motion.div
+        className={classes.header}
+        initial={{
+          y: 75,
+          opacity: 0,
+        }}
+        whileInView={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{
+          duration: 0.4,
+          ease: [0, 0, 0, 1],
+        }}
+      >
         <div className={classes.content}>
           <Image src={learnListenRepeat} alt="Learn Listen Repeat" className={classes.learnListenIcon} />
           <div>
@@ -56,15 +68,43 @@ export function Speakers() {
             <Image src={carouselRight} alt="Scroll right" />
           </button>
         </div>
-      </div>
+      </motion.div>
       <div className={classes.carousel} ref={carouselRef}>
         {demoSpeakers
           .concat(demoSpeakers)
           .concat(demoSpeakers)
-          .map((speaker) => (
-            <Speaker {...speaker} key={speaker.name} />
+          .map((speaker, index) => (
+            <motion.div
+              initial={{
+                filter: "blur(20px)",
+                x: 160,
+                opacity: 0,
+              }}
+              viewport={{ once: true }}
+              whileInView={{
+                x: 0,
+                opacity: 1,
+                filter: "blur(0px)",
+              }}
+              transition={{
+                delay: 0.4 + index * 0.1,
+                duration: 0.8,
+                ease: [0, 0, 0, 1],
+              }}
+              key={speaker.name}
+            >
+              <Speaker {...speaker} />
+            </motion.div>
           ))}
       </div>
+      <MotionImage
+        src={laptop}
+        alt="Speakers Laptop"
+        className={classes.speakerLaptop}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+      />
     </section>
   );
 }

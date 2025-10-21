@@ -32,6 +32,17 @@
             column-gap: 30px;
         }
 
+        .dLogo{
+            display: flex;
+            align-items: center;
+            column-gap: 3px;
+
+            img{
+                width: 77px;
+                height: auto;
+            }
+        }
+
         svg{
             width: 11vw;
         }
@@ -56,6 +67,11 @@
         right: 6.5%;
         bottom: 8%;
         @extend %header;
+        overflow: hidden;
+
+        span{
+            display: inline-flex;
+        }
 
         @include media("<=800px") {
             font-size: 4rem;
@@ -88,11 +104,14 @@
 }
 
 .callToAction{
-    display: flex;
-    align-items: center;
-    gap: 16px;
     padding: 38px 52px 56px;
     background: $background-dark;
+
+    .callToActionInner{
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
 
     @include media("<=800px") {
