@@ -40,12 +40,32 @@
         }
     }
 
+    .baseImage{
+      position: absolute;
+    }
+
+    %track{
+      position: absolute;
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+
     .webTrack{
         position: absolute;
         bottom: calc(100% + 12px);
         left: 34%;
         width: 106px;
         height: auto;
+
+        @extend %track;
 
         @include media("<=800px"){
             width: 95px;
@@ -61,6 +81,8 @@
         width: 168px;
         height: auto;
 
+        @extend %track;
+
         @include media("<=800px"){
             width: 126px;
             right: 14px;
@@ -75,6 +97,8 @@
         right: -60px;
         width: 171px;
         height: auto;
+
+        @extend %track;
 
         @include media("<=800px"){
             width: 100px;
@@ -92,6 +116,8 @@
         width: 160px;
         height: auto;
 
+        @extend %track;
+
         @include media("<=800px"){
             width: 116px;
             right: 14px;
@@ -105,6 +131,8 @@
         top: 90%;
         width: 139px;
         height: auto;
+
+        @extend %track;
 
         @include media("<=800px"){
             width: 100px;
@@ -120,6 +148,8 @@
         width: 213px;
         height: auto;
 
+        @extend %track;
+
         @include media("<=800px"){
             width: 136px;
             bottom: -100px;
@@ -133,6 +163,8 @@
         left: -32px;
         width: 170px;
         height: auto;
+
+        @extend %track;
 
         @include media("<=800px"){
             width: 140px;
