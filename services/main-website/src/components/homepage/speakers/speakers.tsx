@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import carouselLeft from "@/assets/carousel-left.svg";
 import carouselRight from "@/assets/carousel-right.svg";
 import learnListenRepeat from "@/assets/learn-listen-repeat.svg";
@@ -11,11 +11,20 @@ import { Speaker } from "@/components/speaker/speaker";
 import { demoSpeakers } from "@/lib/speakers";
 import classes from "./speakers.module.scss";
 import { motion } from "framer-motion";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const MotionImage = motion(Image);
 
 export function Speakers() {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [carouselInView, setCarouselInView] = useState(false);
+
+  useIntersectionObserver(carouselRef, {
+    once: true,
+    onEnter: () => {
+      setCarouselInView(true)
+    }
+  })
 
   const scrollLeft = () => {
     if (carouselRef.current) {
@@ -75,16 +84,19 @@ export function Speakers() {
           .concat(demoSpeakers)
           .map((speaker, index) => (
             <motion.div
-              initial={{
-                filter: "blur(20px)",
-                x: 160,
-                opacity: 0,
-              }}
-              viewport={{ once: true }}
-              whileInView={{
-                x: 0,
-                opacity: 1,
-                filter: "blur(0px)",
+              initial={"hidden"}
+              animate={carouselInView ? "visible": " hidden"}
+              variants={{
+                hidden: {
+                  filter: "blur(20px)",
+                  x: 160,
+                  opacity: 0,
+                },
+                visible: {
+                  x: 0,
+                  opacity: 1,
+                  filter: "blur(0px)",
+                }
               }}
               transition={{
                 delay: 0.4 + index * 0.1,
