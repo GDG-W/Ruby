@@ -1,6 +1,6 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+// Removed Next.js Image import to use regular img tags
 import classes from "./speaker.module.scss";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { animated, useSpring } from "@react-spring/web";
@@ -17,11 +17,11 @@ const socialMediaIcons = {
 } as const;
 
 export type SpeakerProps = {
-  image: StaticImageData;
+  image: string;
   name: string;
   tagline: string;
   bio: string;
-  socialMedia: {
+  socialMedia?: {
     type: SocialMedia;
     url: string;
   }[];
@@ -173,7 +173,7 @@ export function Speaker({
         style={{ ...imageWrapperProps }}
       >
         <animated.div style={imageProps} className={classes.image}>
-          <Image src={image} alt={name} />
+          <img width="100%" src={image} alt={name} />
         </animated.div>
       </animated.div>
       <animated.div className={classes.info} style={infoProps}>
@@ -182,7 +182,7 @@ export function Speaker({
         <animated.div style={bioProps} className={classes.bioContent}>
           <p className={classes.description}>{bio}</p>
           <div className={classes.socialMedia}>
-            {socialMedia.map((media) => {
+            {socialMedia?.map((media) => {
               const iconSrc = socialMediaIcons[media.type];
               return (
                 <a
@@ -190,7 +190,7 @@ export function Speaker({
                   href={media.url}
                   className={classes.socialMediaLink}
                 >
-                  <Image src={iconSrc} alt={media.type} width={24} height={24} />
+                  <img src={iconSrc} alt={media.type} width={24} height={24} />
                 </a>
               );
             })}

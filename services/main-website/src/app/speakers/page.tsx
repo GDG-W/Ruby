@@ -1,65 +1,44 @@
-"use client";
+"use server";
 
-import clsx from "clsx";
-import { useState } from "react";
-import { Speaker } from "@/components/speaker/speaker";
-import { demoSpeakers } from "@/lib/speakers";
+import { fetchConferenceData } from "@/lib/actions";
+import { mapSpeakersToDays } from "@/lib/speakerUtils";
+import { SpeakersClient } from "./speakers-client";
 import classes from "./page.module.scss";
 
-type Day = "TUE" | "WED" | "THU" | "FRI" | "SAT";
+export default async function SpeakersPage() {
+  const conferenceData = await fetchConferenceData();
+  
+  if (!conferenceData) {
+    return (
+      <div className={classes.speakersPage}>
+        <h1 className={classes.title}>
+          Meet our 2025 <br /> Speakers
+        </h1>
+        <p>Unable to load speakers data</p>
+      </div>
+    );
+  }
 
-const tags: { day: Day; label: string }[] = [
-  { day: "TUE", label: "TUE 18" },
-  { day: "WED", label: "WED 19" },
-  { day: "THU", label: "THU 20" },
-  { day: "FRI", label: "FRI 21" },
-  { day: "SAT", label: "SAT 22" },
-];
+  // Map speakers to their presentation days
+  const speakersWithDays = mapSpeakersToDays(conferenceData);
 
-export default function SpeakersPage() {
-  const [activeTag, setActiveTag] = useState<Day | "All">(tags[0].day);
+  // Transform API speakers to match component props
+  const transformedSpeakers = speakersWithDays.map((speaker) => ({
+    name: speaker.speaker_name,
+    tagline: speaker.speaker_tagline,
+    bio: speaker.speaker_bio,
+    image: speaker.speaker_img,
+    twitter: speaker.speaker_twitter,
+    linkedin: speaker.speaker_linkedin,
+    days: speaker.days,
+  }));
 
   return (
     <div className={classes.speakersPage}>
       <h1 className={classes.title}>
         Meet our 2025 <br /> Speakers
       </h1>
-      <div className={classes.tags}>
-        <button
-          className={clsx(classes.tag, {
-            [classes.active]: activeTag === "All",
-          })}
-          onClick={() => setActiveTag("All")}
-          type="button"
-        >
-          All
-        </button>
-        {tags.map((tag) => (
-          <button
-            key={tag.day}
-            className={clsx(classes.tag, {
-              [classes.active]: tag.day === activeTag,
-            })}
-            onClick={() => setActiveTag(tag.day)}
-            type="button"
-          >
-            {tag.label}
-          </button>
-        ))}
-      </div>
-      <div className={classes.speakersGrid}>
-        {demoSpeakers
-          .concat(demoSpeakers)
-          .concat(demoSpeakers)
-          .map((speaker) => (
-            <Speaker
-              reduceHeightOnMobile
-              className={classes.speaker}
-              {...speaker}
-              key={speaker.name}
-            />
-          ))}
-      </div>
+      <SpeakersClient speakers={transformedSpeakers} />
     </div>
   );
 }
