@@ -1,110 +1,46 @@
-"use client";
-
-import Image from "next/image";
-import { useRef } from "react";
-import carouselLeft from "@/assets/carousel-left.svg";
-import carouselRight from "@/assets/carousel-right.svg";
-import learnListenRepeat from "@/assets/learn-listen-repeat.svg";
 import laptop from "@/assets/speakers-laptop.png";
-import { Button } from "@/components/button/button";
-import { Speaker } from "@/components/speaker/speaker";
+import type { Speaker as ApiSpeaker } from "@/types/api";
+import { fetchSpeakers } from "@/lib/actions";
 import { demoSpeakers } from "@/lib/speakers";
 import classes from "./speakers.module.scss";
-import { motion } from "framer-motion";
+import { SpeakersWrapper } from "./speakers-wrapper";
 
-const MotionImage = motion(Image);
+function transformApiSpeakerToSpeakerProps(apiSpeaker: ApiSpeaker) {
+  const socialMedia = [];
+  
+  if (apiSpeaker.speaker_twitter) {
+    socialMedia.push({
+      type: "twitter" as const,
+      url: apiSpeaker.speaker_twitter,
+    });
+  }
+  
+  if (apiSpeaker.speaker_linkedin) {
+    socialMedia.push({
+      type: "linkedin" as const,
+      url: apiSpeaker.speaker_linkedin,
+    });
+  }
 
-export function Speakers() {
-  const carouselRef = useRef<HTMLDivElement>(null);
-
-  const scrollLeft = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -352, behavior: "smooth" });
-    }
+  return {
+    name: apiSpeaker.speaker_name,
+    tagline: apiSpeaker.speaker_tagline,
+    bio: apiSpeaker.speaker_bio,
+    image: apiSpeaker.speaker_img,
+    socialMedia,
   };
+}
 
-  const scrollRight = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 352, behavior: "smooth" });
-    }
-  };
+export async function Speakers() {
+  const apiSpeakers = await fetchSpeakers();
+  
+  const speakers = apiSpeakers.length > 0 
+    ? apiSpeakers.map(transformApiSpeakerToSpeakerProps)
+    : demoSpeakers;
 
   return (
     <section className={classes.speakers}>
-      <motion.div
-        className={classes.header}
-        initial={{
-          y: 75,
-          opacity: 0,
-        }}
-        whileInView={{
-          y: 0,
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.4,
-          ease: [0, 0, 0, 1],
-        }}
-      >
-        <div className={classes.content}>
-          <Image src={learnListenRepeat} alt="Learn Listen Repeat" className={classes.learnListenIcon} />
-          <div>
-            <h2 className={classes.title}>
-              20<sup>+</sup> speakers
-            </h2>
-            <p className={classes.description}>
-              Meet the speakers for this year’s edition. From industry pros to
-              rising voices, they’re bringing real stories, hard-earned lessons,
-              and bold ideas to spark your next big move.
-            </p>
-          </div>
-          <Button>SEE FULL LINEUP</Button>
-        </div>
-        <div className={classes.controlButtons}>
-          <button type="button" onClick={scrollLeft}>
-            <Image src={carouselLeft} alt="Scroll left" />
-          </button>
-          <button type="button" onClick={scrollRight}>
-            <Image src={carouselRight} alt="Scroll right" />
-          </button>
-        </div>
-      </motion.div>
-      <div className={classes.carousel} ref={carouselRef}>
-        {demoSpeakers
-          .concat(demoSpeakers)
-          .concat(demoSpeakers)
-          .map((speaker, index) => (
-            <motion.div
-              initial={{
-                filter: "blur(20px)",
-                x: 160,
-                opacity: 0,
-              }}
-              viewport={{ once: true }}
-              whileInView={{
-                x: 0,
-                opacity: 1,
-                filter: "blur(0px)",
-              }}
-              transition={{
-                delay: 0.4 + index * 0.1,
-                duration: 0.8,
-                ease: [0, 0, 0, 1],
-              }}
-              key={speaker.name}
-            >
-              <Speaker {...speaker} />
-            </motion.div>
-          ))}
-      </div>
-      <MotionImage
-        src={laptop}
-        alt="Speakers Laptop"
-        className={classes.speakerLaptop}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
-      />
+      <SpeakersWrapper speakers={speakers} laptopImage={laptop} />
     </section>
   );
 }
