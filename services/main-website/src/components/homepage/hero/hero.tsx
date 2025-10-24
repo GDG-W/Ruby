@@ -77,7 +77,7 @@ export function HomepageHero() {
         <h1 className={styles.yearText}>{
           "2025".split("").map((letter, index) => (
             <motion.span
-              key={letter}
+              key={index}
               initial={{ y: "-100%" }}
               animate={{ y: 0 }}
               transition={{ delay: 1.26 + 0.052 * index, duration: 1.042, ease: [0, 0, 0.3, 1] }}
