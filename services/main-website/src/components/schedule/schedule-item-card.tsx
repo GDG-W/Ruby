@@ -3,6 +3,7 @@ import breakoutIcon from "@/assets/breakout.svg";
 import defaultAvatar from "@/assets/default-avatar.png";
 import Image from "next/image";
 import styles from "./schedule-item-card.module.scss";
+import { Session, Speaker as APISpeaker } from "@/types/api";
 
 export interface Speaker {
   name: string;
@@ -10,25 +11,64 @@ export interface Speaker {
 }
 
 export interface ScheduleItemCardProps {
-  title: string;
-  speakers: Speaker[];
-  room: number;
-  isBreakoutSession?: boolean;
-  sessionType?: "keynote" | "workshop" | "regular";
+  session: Session;
+  speakers: APISpeaker[];
   dayIndex?: number;
   className?: string;
 }
 
 export function ScheduleItemCard({
-  title,
+  session,
   speakers,
-  room,
-  isBreakoutSession = false,
-  sessionType = "regular",
   dayIndex = 0,
   className,
 }: ScheduleItemCardProps) {
-  const hasMultipleSpeakers = speakers.length > 1;
+  // Find speaker data for this session
+  const sessionSpeaker = speakers.find(speaker => 
+    speaker.speaker_name === session.speaker_id
+  );
+  
+  const sessionSpeakers: Speaker[] = sessionSpeaker ? [{
+    name: sessionSpeaker.speaker_name,
+    avatar: sessionSpeaker.speaker_img !== "NULL" ? sessionSpeaker.speaker_img : undefined,
+  }] : [];
+
+  const hasMultipleSpeakers = sessionSpeakers.length > 1;
+  
+  // Determine session type
+  const sessionType = session.session_type?.toLowerCase().includes("broadcast") ? "keynote" :
+                     session.session_type?.toLowerCase().includes("workshop") || 
+                     session.session_type?.toLowerCase().includes("codelab") ? "workshop" : "regular";
+  
+  const isBreakoutSession = false;
+  
+  // Room mapping to class numbers and display names
+  const ROOM_MAPPING = {
+    "RUBY": { class: "room1", name: "Ruby" },
+    "EMERALD": { class: "room2", name: "Emerald" },
+    "SAPPHIRE": { class: "room3", name: "Sapphire" },
+    "OPAL": { class: "room4", name: "Opal" },
+    "OUTSIDE": { class: "room5", name: "Outside" },
+  } as const;
+  
+  // Get room info from session
+  const roomType = session.room_type?.toUpperCase() as keyof typeof ROOM_MAPPING;
+  const roomInfo = ROOM_MAPPING[roomType] || { class: "room1", name: session.room_type || "TBD" };
+  
+  // Format time
+  function formatTime(timeString?: string): string {
+    if (!timeString) return "";
+    const date = new Date(timeString);
+    return date.toLocaleTimeString("en-US", { 
+      hour: "numeric", 
+      minute: "2-digit",
+      hour12: true 
+    });
+  }
+  
+  const startTime = formatTime(session.start_time);
+  const endTime = formatTime(session.end_time);
+  const timeRange = startTime && endTime ? `${startTime} - ${endTime}` : "";
 
   return (
     <div
@@ -39,9 +79,16 @@ export function ScheduleItemCard({
       )}
     >
       <div className={styles.cardHeader}>
-        <h3 className={styles.title}>{title}</h3>
+        <div className={styles.titleRow}>
+          <h3 className={styles.title}>{session.session_title}</h3>
+          {timeRange && (
+            <div className={styles.timeRange}>
+              {timeRange}
+            </div>
+          )}
+        </div>
         {isBreakoutSession && (
-          <div className={clsx(styles.breakoutTag, styles[`room${room}`])}>
+          <div className={clsx(styles.breakoutTag, styles[roomInfo.class])}>
             <Image src={breakoutIcon} alt="" className={styles.breakoutIcon} />
             <span className={styles.breakoutText}>Breakout session</span>
           </div>
@@ -55,7 +102,7 @@ export function ScheduleItemCard({
         )}
       >
         <div className={styles.speakerAvatars}>
-          {speakers.map((speaker, index) => (
+          {sessionSpeakers.map((speaker, index) => (
             <div
               key={index}
               className={styles.speakerAvatar}
@@ -72,18 +119,18 @@ export function ScheduleItemCard({
 
         <div className={styles.speakerInfo}>
           <div className={styles.speakerNames}>
-            {speakers.map((speaker, index) => (
+            {sessionSpeakers.map((speaker, index) => (
               <span key={index}>
                 <span className={styles.speakerName}>{speaker.name}</span>
-                {index < speakers.length - 1 && (
+                {index < sessionSpeakers.length - 1 && (
                   <div className={styles.separator}></div>
                 )}
               </span>
             ))}
           </div>
-          <div className={clsx(styles.separator, styles[`room${room}`])}></div>
-          <div className={clsx(styles.roomTag, styles[`room${room}`])}>
-            Room {room}
+          <div className={clsx(styles.separator, styles[roomInfo.class])}></div>
+          <div className={clsx(styles.roomTag, styles[roomInfo.class])}>
+            {roomInfo.name}
           </div>
         </div>
       </div>

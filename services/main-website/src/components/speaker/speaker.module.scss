@@ -18,14 +18,14 @@
         .image{
             position: absolute;
             bottom: 0;
-            width: auto;
-            height: 86%;
+            width: 100%;
+            height: 100%;
             margin: 0 auto;
-            object-fit: cover;
 
             img{
+                width: 100%;
                 height: 100%;
-                width: auto;
+                object-fit: cover;
             }
         }
     }

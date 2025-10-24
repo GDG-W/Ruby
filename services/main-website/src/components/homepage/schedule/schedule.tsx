@@ -19,7 +19,10 @@ export function ScheduleSection() {
         </p>
         <Image src={fiveDays} alt="Five Days" className={classes.fiveDays} />
       </div>
-      <ScheduleDayGroup hideDescription days={sampleScheduleData} />
+      {/* <ScheduleDayGroup hideDescription days={sampleScheduleData} /> */}
+      <div className={classes.schedulePreview}>
+        <p>Schedule details coming soon...</p>
+      </div>
       <Image src={networkIcon} alt="Network" className={classes.networkIcon} />
     </section>
   );

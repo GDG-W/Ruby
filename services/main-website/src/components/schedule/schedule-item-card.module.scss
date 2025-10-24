@@ -21,13 +21,20 @@
 
 .cardHeader {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   margin-bottom: 1rem;
 
   @include media(">tablet") {
     align-items: flex-start;
   }
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 .title {
@@ -38,6 +45,18 @@
 
   @include media(">tablet") {
     @include text-p0;
+  }
+}
+
+.timeRange {
+  @include text-l3;
+  color: $grey-60;
+  font-weight: 500;
+  margin-left: 1rem;
+  white-space: nowrap;
+
+  @include media(">tablet") {
+    @include text-l2;
   }
 }
 

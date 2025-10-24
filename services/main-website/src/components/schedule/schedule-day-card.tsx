@@ -1,22 +1,15 @@
 import clsx from "clsx";
 import { Button } from "../button/button";
 import styles from "./schedule-day-card.module.scss";
-import { ScheduleItemCard, type Speaker } from "./schedule-item-card";
-
-export interface ScheduleItem {
-  id: string;
-  title: string;
-  speakers: Speaker[];
-  room: number;
-  isBreakoutSession?: boolean;
-  sessionType?: "keynote" | "workshop" | "regular";
-}
+import { ScheduleItemCard } from "./schedule-item-card";
+import { Session, Speaker as APISpeaker } from "@/types/api";
 
 export interface ScheduleDayCardProps {
   dayIndex: number;
   title: string;
   description: string;
-  scheduleItems: ScheduleItem[];
+  sessions: Session[];
+  speakers: APISpeaker[];
   onRSVP?: () => void;
   className?: string;
   isFocused?: boolean;
@@ -28,7 +21,8 @@ export function ScheduleDayCard({
   dayIndex,
   title,
   description,
-  scheduleItems,
+  sessions,
+  speakers,
   onRSVP,
   className,
   isFocused,
@@ -80,15 +74,12 @@ export function ScheduleDayCard({
       </div>
 
       <div className={styles.scheduleItems}>
-        {scheduleItems.length > 0 ? (
-          scheduleItems.map((item) => (
+        {sessions.length > 0 ? (
+          sessions.map((session, index) => (
             <ScheduleItemCard
-              key={item.id}
-              title={item.title}
-              speakers={item.speakers}
-              room={item.room}
-              isBreakoutSession={item.isBreakoutSession}
-              sessionType={item.sessionType}
+              key={`${dayIndex}-${index}`}
+              session={session}
+              speakers={speakers}
               dayIndex={dayIndex}
             />
           ))
