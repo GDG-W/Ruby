@@ -1,13 +1,13 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 import carouselLeft from "@/assets/carousel-left.svg";
 import carouselRight from "@/assets/carousel-right.svg";
-import { Speaker } from "@/components/speaker/speaker";
 import type { SpeakerProps } from "@/components/speaker/speaker";
+import { Speaker } from "@/components/speaker/speaker";
 import classes from "./speakers.module.scss";
-import { motion } from "framer-motion";
 
 const MotionImage = motion(Image);
 

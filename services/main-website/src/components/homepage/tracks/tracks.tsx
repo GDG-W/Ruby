@@ -1,6 +1,8 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+import { motion } from "motion/react";
+import Image, { type StaticImageData } from "next/image";
+import { useState } from "react";
 import cloudTrack from "@/assets/tracks/cloud.png";
 import cloudTrackOutline from "@/assets/tracks/cloud-outline.png";
 import designTrack from "@/assets/tracks/design.png";
@@ -16,8 +18,6 @@ import promptsTrackOutline from "@/assets/tracks/prompts-outline.png";
 import webTrack from "@/assets/tracks/web.png";
 import webTrackOutline from "@/assets/tracks/web-outline.png";
 import classes from "./tracks.module.scss";
-import { motion } from "motion/react";
-import { useState } from "react";
 
 interface TrackImageProps {
   className: string;

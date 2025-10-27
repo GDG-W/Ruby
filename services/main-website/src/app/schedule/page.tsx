@@ -1,9 +1,9 @@
-import { ScheduleDayGroup } from "@/components/schedule/schedule-day-group";
-import styles from "./page.module.scss";
-import fiveDaysIcon from "@/assets/five-days.svg";
-import { fetchConferenceData } from "@/lib/actions";
-import { Session } from "@/types/api";
 import Image from "next/image";
+import fiveDaysIcon from "@/assets/five-days.svg";
+import { ScheduleDayGroup } from "@/components/schedule/schedule-day-group";
+import { fetchConferenceData } from "@/lib/actions";
+import type { Session } from "@/types/api";
+import styles from "./page.module.scss";
 
 const dayLabels = [
   { title: "TUE 18", shortLabel: "Day 1" },

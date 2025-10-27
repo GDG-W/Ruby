@@ -1,10 +1,10 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { SpeakersHeader } from "./speakers-header";
-import { SpeakersCarousel } from "./speakers-carousel";
 import type { SpeakerProps } from "@/components/speaker/speaker";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { SpeakersCarousel } from "./speakers-carousel";
+import { SpeakersHeader } from "./speakers-header";
 
 interface SpeakersWrapperProps {
   speakers: SpeakerProps[];

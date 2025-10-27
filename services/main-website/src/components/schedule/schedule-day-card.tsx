@@ -1,8 +1,8 @@
 import clsx from "clsx";
+import type { Speaker as APISpeaker, Session } from "@/types/api";
 import { Button } from "../button/button";
 import styles from "./schedule-day-card.module.scss";
 import { ScheduleItemCard } from "./schedule-item-card";
-import { Session, Speaker as APISpeaker } from "@/types/api";
 
 export interface ScheduleDayCardProps {
   dayIndex: number;

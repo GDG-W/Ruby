@@ -1,9 +1,9 @@
-import classes from "./schedule.module.scss";
+import Image from "next/image";
 import fiveDays from "@/assets/five-days.svg";
 import networkIcon from "@/assets/network.svg";
-import Image from "next/image";
 import { fetchAllSchedule } from "@/lib/actions";
 import type { Session } from "@/types/api";
+import classes from "./schedule.module.scss";
 import { ScheduleWrapper } from "./schedule-wrapper";
 
 function transformApiScheduleToScheduleData(

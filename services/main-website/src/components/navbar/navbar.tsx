@@ -1,16 +1,16 @@
 "use client";
 
+import clsx from "clsx";
+import { motion } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import closeIcon from "@/assets/close.svg";
+import hamburgerIcon from "@/assets/hamburger.svg";
 import navLogo from "@/assets/nav-logo.svg";
 import { Button } from "../button/button";
-import hamburgerIcon from "@/assets/hamburger.svg";
-import closeIcon from "@/assets/close.svg";
-import { useState } from "react";
-import clsx from "clsx";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
 import styles from "./navbar.module.scss";
-import { motion } from "motion/react";
 
 const links = [
   {

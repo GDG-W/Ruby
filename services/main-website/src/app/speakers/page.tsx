@@ -2,8 +2,8 @@
 
 import { fetchConferenceData } from "@/lib/actions";
 import { mapSpeakersToDays } from "@/lib/speakerUtils";
-import { SpeakersClient } from "./speakers-client";
 import classes from "./page.module.scss";
+import { SpeakersClient } from "./speakers-client";
 
 export default async function SpeakersPage() {
   const conferenceData = await fetchConferenceData();

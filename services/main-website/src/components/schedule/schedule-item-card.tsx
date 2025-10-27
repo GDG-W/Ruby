@@ -1,9 +1,9 @@
 import clsx from "clsx";
+import Image from "next/image";
 import breakoutIcon from "@/assets/breakout.svg";
 import defaultAvatar from "@/assets/default-avatar.png";
-import Image from "next/image";
+import type { Speaker as APISpeaker, Session } from "@/types/api";
 import styles from "./schedule-item-card.module.scss";
-import { Session, Speaker as APISpeaker } from "@/types/api";
 
 export interface Speaker {
   name: string;

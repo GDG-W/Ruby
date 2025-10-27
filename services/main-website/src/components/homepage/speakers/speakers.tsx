@@ -1,7 +1,7 @@
 import laptop from "@/assets/speakers-laptop.png";
-import type { Speaker as ApiSpeaker } from "@/types/api";
 import { fetchSpeakers } from "@/lib/actions";
 import { demoSpeakers } from "@/lib/speakers";
+import type { Speaker as ApiSpeaker } from "@/types/api";
 import classes from "./speakers.module.scss";
 import { SpeakersWrapper } from "./speakers-wrapper";
 

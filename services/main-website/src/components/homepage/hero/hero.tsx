@@ -1,14 +1,14 @@
 "use client";
 
+import { motion } from "motion/react";
 import Image from "next/image";
+import dLogoLeft from "@/assets/d-logo-left.png";
+import dLogoRight from "@/assets/d-logo-right.png";
+import dateAndLocationArrow from "@/assets/date-and-location-arrow.svg";
+import dateAndLocationMobileArrow from "@/assets/date-and-location-mobile-arrow.svg";
 import heroImage from "@/assets/hero-image.png";
 import heroImageMobile from "@/assets/hero-image-mobile.png";
 import { Button } from "@/components/button/button";
-import dateAndLocationArrow from "@/assets/date-and-location-arrow.svg";
-import dateAndLocationMobileArrow from "@/assets/date-and-location-mobile-arrow.svg";
-import dLogoLeft from "@/assets/d-logo-left.png";
-import dLogoRight from "@/assets/d-logo-right.png";
-import { motion } from "motion/react";
 import styles from "./hero.module.scss";
 
 export function HomepageHero() {

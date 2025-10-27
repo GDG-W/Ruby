@@ -1,4 +1,4 @@
-import type { ConferenceData, Speaker, Session } from "@/types/api";
+import type { ConferenceData, Session, Speaker } from "@/types/api";
 
 export type DayKey = "Day 1" | "Day 2" | "Day 3" | "Day 4";
 

@@ -1,7 +1,7 @@
 "use server";
 
 import { unstable_cache } from "next/cache";
-import { ConferenceData } from "@/types/api";
+import type { ConferenceData } from "@/types/api";
 
 const API_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbzm_bMJ2jUCF6Op7iDHioH5PzNCu7LL2FuLRLgNxmn0GPtM4ghJFrTKzVcufbNXD18a/exec";

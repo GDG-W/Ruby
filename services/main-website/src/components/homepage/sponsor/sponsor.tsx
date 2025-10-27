@@ -1,18 +1,18 @@
 "use client";
 
+import { motion } from "motion/react";
 import Image from "next/image";
 import abeg from "@/assets/sponsors/abeg.png";
 import andela from "@/assets/sponsors/andela.png";
 import busha from "@/assets/sponsors/busha.png";
 import fincra from "@/assets/sponsors/fincra.png";
+import gdgBag from "@/assets/sponsors/gdg-bag.svg";
 import google from "@/assets/sponsors/google.png";
 import interswitch from "@/assets/sponsors/interswitch.png";
 import patricia from "@/assets/sponsors/patricia.png";
 import paystack from "@/assets/sponsors/paystack.png";
 import splitIcon from "@/assets/sponsors/split.png";
 import classes from "./sponsor.module.scss";
-import gdgBag from "@/assets/sponsors/gdg-bag.svg";
-import { motion } from "motion/react";
 
 const sponsorImages = [
   abeg,

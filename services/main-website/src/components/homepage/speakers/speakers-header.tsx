@@ -1,14 +1,14 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState } from "react";
-import learnListenRepeat from "@/assets/learn-listen-repeat.svg";
 import carouselLeft from "@/assets/carousel-left.svg";
 import carouselRight from "@/assets/carousel-right.svg";
+import learnListenRepeat from "@/assets/learn-listen-repeat.svg";
 import { Button } from "@/components/button/button";
-import classes from "./speakers.module.scss";
-import { motion } from "framer-motion";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import classes from "./speakers.module.scss";
 
 interface SpeakersHeaderProps {
   speakerCount: number;

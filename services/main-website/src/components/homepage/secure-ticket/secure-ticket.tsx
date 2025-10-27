@@ -1,13 +1,14 @@
 "use client";
 
-import proTicket from "@/assets/pro-ticket.png";
+import { motion } from "motion/react";
 import Image from "next/image";
-import ticketArrow from "@/assets/ticket-arrow.svg";
-import techiesAssemble from "@/assets/techies-assemble.svg";
+import proTicket from "@/assets/pro-ticket.png";
 import standardTicket from "@/assets/standard-ticket.png";
+import techiesAssemble from "@/assets/techies-assemble.svg";
+import ticketArrow from "@/assets/ticket-arrow.svg";
 import { Button } from "@/components/button/button";
 import classes from "./secure-ticket.module.scss";
-import { motion } from "motion/react";
+
 // import { linear } from "motion";
 
 const MotionImage = motion(Image);
