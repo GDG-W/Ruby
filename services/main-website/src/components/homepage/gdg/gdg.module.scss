@@ -1,6 +1,10 @@
 .gdg {
   background-color: $background-dark;
   border-radius: 10rem 10rem 0 0;
+
+  @include media("<=desktop-sm") {
+    border-radius: 6rem 6rem 0 0;
+  }
 }
 
 .container {
@@ -15,7 +19,6 @@
   @include media("<=desktop-sm") {
     flex-direction: column;
     padding: 5.5rem 2.2rem 9.3rem;
-    border-radius: 6rem 6rem 0 0;
   }
 }
 
