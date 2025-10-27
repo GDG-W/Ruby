@@ -50,8 +50,40 @@
             color: $grey-100;
             border-radius: 40px;
 
-            &.active{
-                background-color: $pastel-blue;
+            &:hover {
+                &.schedule {
+                    background-color: rgba($pastel-yellow, 0.4);
+                }
+
+                &.speakers {
+                    background-color: rgba($pastel-blue, 0.4);
+                }
+
+                &.faqs {
+                    background-color: rgba($pastel-red, 0.4);
+                }
+
+                &.team {
+                    background-color: rgba($pastel-green, 0.4);
+                }
+            }
+
+            &.active {
+                &.schedule {
+                    background-color: $pastel-yellow;
+                }
+
+                &.speakers {
+                    background-color: $pastel-blue;
+                }
+
+                &.faqs {
+                    background-color: $pastel-red;
+                }
+
+                &.team {
+                    background-color: $pastel-green;
+                }
             }
         }
     }

@@ -60,9 +60,13 @@ export function Navbar() {
                 <Link
                   href={link.link}
                   onClick={() => setNavOpen(false)}
-                  className={clsx(styles.link, {
-                    [styles.active]: pathname === link.link,
-                  })}
+                  className={clsx(
+                    styles.link,
+                    styles[link.link.replace("/", "")],
+                    {
+                      [styles.active]: pathname === link.link,
+                    },
+                  )}
                 >
                   {link.text}
                 </Link>
