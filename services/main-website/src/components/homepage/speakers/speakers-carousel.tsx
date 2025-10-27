@@ -15,9 +15,10 @@ interface SpeakersCarouselProps {
   speakers: SpeakerProps[];
   laptopImage: any;
   carouselRef: React.RefObject<HTMLDivElement | null>;
+  carouselInView: boolean;
 }
 
-export function SpeakersCarousel({ speakers, laptopImage, carouselRef }: SpeakersCarouselProps) {
+export function SpeakersCarousel({ speakers, laptopImage, carouselRef, carouselInView }: SpeakersCarouselProps) {
 
   const displaySpeakers = speakers.concat(speakers).concat(speakers);
 
@@ -26,16 +27,19 @@ export function SpeakersCarousel({ speakers, laptopImage, carouselRef }: Speaker
       <div className={classes.carousel} ref={carouselRef}>
         {displaySpeakers.map((speaker, index) => (
           <motion.div
-            initial={{
-              filter: "blur(20px)",
-              x: 160,
-              opacity: 0,
-            }}
-            viewport={{ once: true }}
-            whileInView={{
-              x: 0,
-              opacity: 1,
-              filter: "blur(0px)",
+            initial="hidden"
+            animate={carouselInView ? "visible" : "hidden"}
+            variants={{
+              hidden: {
+                filter: "blur(20px)",
+                x: 160,
+                opacity: 0,
+              },
+              visible: {
+                x: 0,
+                opacity: 1,
+                filter: "blur(0px)",
+              }
             }}
             transition={{
               delay: 0.4 + index * 0.1,

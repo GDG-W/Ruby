@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { SpeakersHeader } from "./speakers-header";
 import { SpeakersCarousel } from "./speakers-carousel";
 import type { SpeakerProps } from "@/components/speaker/speaker";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 interface SpeakersWrapperProps {
   speakers: SpeakerProps[];
@@ -12,6 +13,14 @@ interface SpeakersWrapperProps {
 
 export function SpeakersWrapper({ speakers, laptopImage }: SpeakersWrapperProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [carouselInView, setCarouselInView] = useState(false);
+
+  useIntersectionObserver(carouselRef, {
+    once: true,
+    onEnter: () => {
+      setCarouselInView(true);
+    }
+  });
 
   const scrollLeft = () => {
     if (carouselRef.current) {
@@ -36,6 +45,7 @@ export function SpeakersWrapper({ speakers, laptopImage }: SpeakersWrapperProps)
         speakers={speakers} 
         laptopImage={laptopImage}
         carouselRef={carouselRef}
+        carouselInView={carouselInView}
       />
     </>
   );

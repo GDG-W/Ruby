@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import { useRef, useState } from "react";
 import learnListenRepeat from "@/assets/learn-listen-repeat.svg";
 import carouselLeft from "@/assets/carousel-left.svg";
 import carouselRight from "@/assets/carousel-right.svg";
 import { Button } from "@/components/button/button";
 import classes from "./speakers.module.scss";
 import { motion } from "framer-motion";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 interface SpeakersHeaderProps {
   speakerCount: number;
@@ -15,16 +17,31 @@ interface SpeakersHeaderProps {
 }
 
 export function SpeakersHeader({ speakerCount, onScrollLeft, onScrollRight }: SpeakersHeaderProps) {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [headerInView, setHeaderInView] = useState(false);
+
+  useIntersectionObserver(headerRef, {
+    once: true,
+    onEnter: () => {
+      setHeaderInView(true);
+    }
+  });
+
   return (
     <motion.div
+      ref={headerRef}
       className={classes.header}
-      initial={{
-        y: 75,
-        opacity: 0,
-      }}
-      whileInView={{
-        y: 0,
-        opacity: 1,
+      initial="hidden"
+      animate={headerInView ? "visible" : "hidden"}
+      variants={{
+        hidden: {
+          y: 75,
+          opacity: 0,
+        },
+        visible: {
+          y: 0,
+          opacity: 1,
+        }
       }}
       transition={{
         duration: 0.4,
