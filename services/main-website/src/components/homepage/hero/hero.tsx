@@ -41,7 +41,11 @@ export function HomepageHero() {
               <motion.div
                 initial={{ x: -32, opacity: 0, filter: "blur(20px)" }}
                 animate={{ x: 0, opacity: 1, filter: "blur(0)" }}
-                transition={{ duration: 0.3, delay: 0.2, ease: [0.5, 0, 0.5, 1] }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.2,
+                  ease: [0.5, 0, 0.5, 1],
+                }}
               >
                 <Image src={dLogoLeft} alt="DevFest Logo Left Side" />
               </motion.div>
@@ -74,18 +78,21 @@ export function HomepageHero() {
             </motion.span>
           </div>
         </div>
-        <h1 className={styles.yearText}>{
-          "2025".split("").map((letter, index) => (
+        <h1 className={styles.yearText}>
+          {"2025".split("").map((letter, index) => (
             <motion.span
               key={index}
               initial={{ y: "-100%" }}
               animate={{ y: 0 }}
-              transition={{ delay: 1.26 + 0.052 * index, duration: 1.042, ease: [0, 0, 0.3, 1] }}
+              transition={{
+                delay: 1.26 + 0.052 * index,
+                duration: 1.042,
+                ease: [0, 0, 0.3, 1],
+              }}
             >
               {letter}
             </motion.span>
-          ))
-        }
+          ))}
         </h1>
         <motion.div
           initial={{ opacity: 0, scale: 1.03 }}
@@ -119,7 +126,7 @@ export function HomepageHero() {
           }}
           viewport={{
             once: true,
-            margin: "-100px"
+            margin: "-100px",
           }}
           className={styles.callToActionInner}
         >
@@ -127,7 +134,11 @@ export function HomepageHero() {
           <div className={styles.dateAndLocation}>
             <span>18-22 november, 2025</span>
             <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
-            <Image src={dateAndLocationMobileArrow} alt="" className={styles.mobileArrow} />
+            <Image
+              src={dateAndLocationMobileArrow}
+              alt=""
+              className={styles.mobileArrow}
+            />
             <span>The Zone, Gbagada, Lagos</span>
           </div>
         </motion.div>

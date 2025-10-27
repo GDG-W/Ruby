@@ -7,14 +7,14 @@ import { SpeakersWrapper } from "./speakers-wrapper";
 
 function transformApiSpeakerToSpeakerProps(apiSpeaker: ApiSpeaker) {
   const socialMedia = [];
-  
+
   if (apiSpeaker.speaker_twitter) {
     socialMedia.push({
       type: "twitter" as const,
       url: apiSpeaker.speaker_twitter,
     });
   }
-  
+
   if (apiSpeaker.speaker_linkedin) {
     socialMedia.push({
       type: "linkedin" as const,
@@ -33,10 +33,11 @@ function transformApiSpeakerToSpeakerProps(apiSpeaker: ApiSpeaker) {
 
 export async function Speakers() {
   const apiSpeakers = await fetchSpeakers();
-  
-  const speakers = apiSpeakers.length > 0 
-    ? apiSpeakers.map(transformApiSpeakerToSpeakerProps)
-    : demoSpeakers;
+
+  const speakers =
+    apiSpeakers.length > 0
+      ? apiSpeakers.map(transformApiSpeakerToSpeakerProps)
+      : demoSpeakers;
 
   return (
     <section className={classes.speakers}>

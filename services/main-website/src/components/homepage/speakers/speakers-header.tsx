@@ -16,7 +16,11 @@ interface SpeakersHeaderProps {
   onScrollRight: () => void;
 }
 
-export function SpeakersHeader({ speakerCount, onScrollLeft, onScrollRight }: SpeakersHeaderProps) {
+export function SpeakersHeader({
+  speakerCount,
+  onScrollLeft,
+  onScrollRight,
+}: SpeakersHeaderProps) {
   const headerRef = useRef<HTMLDivElement>(null);
   const [headerInView, setHeaderInView] = useState(false);
 
@@ -24,7 +28,7 @@ export function SpeakersHeader({ speakerCount, onScrollLeft, onScrollRight }: Sp
     once: true,
     onEnter: () => {
       setHeaderInView(true);
-    }
+    },
   });
 
   return (
@@ -41,7 +45,7 @@ export function SpeakersHeader({ speakerCount, onScrollLeft, onScrollRight }: Sp
         visible: {
           y: 0,
           opacity: 1,
-        }
+        },
       }}
       transition={{
         duration: 0.4,
@@ -49,10 +53,15 @@ export function SpeakersHeader({ speakerCount, onScrollLeft, onScrollRight }: Sp
       }}
     >
       <div className={classes.content}>
-        <Image src={learnListenRepeat} alt="Learn Listen Repeat" className={classes.learnListenIcon} />
+        <Image
+          src={learnListenRepeat}
+          alt="Learn Listen Repeat"
+          className={classes.learnListenIcon}
+        />
         <div>
           <h2 className={classes.title}>
-            {speakerCount}<sup>+</sup> speakers
+            {speakerCount}
+            <sup>+</sup> speakers
           </h2>
           <p className={classes.description}>
             Meet the speakers for this year's edition. From industry pros to

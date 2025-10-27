@@ -33,12 +33,13 @@ export function SpeakersClient({ speakers }: SpeakersClientProps) {
   const [activeTag, setActiveTag] = useState<Day | "All">("All");
 
   // Filter speakers based on selected day
-  const filteredSpeakers = activeTag === "All" 
-    ? speakers 
-    : speakers.filter(speaker => {
-        const selectedTag = tags.find(tag => tag.day === activeTag);
-        return selectedTag && speaker.days.includes(selectedTag.dayNumber);
-      });
+  const filteredSpeakers =
+    activeTag === "All"
+      ? speakers
+      : speakers.filter((speaker) => {
+          const selectedTag = tags.find((tag) => tag.day === activeTag);
+          return selectedTag && speaker.days.includes(selectedTag.dayNumber);
+        });
 
   return (
     <>
@@ -75,8 +76,12 @@ export function SpeakersClient({ speakers }: SpeakersClientProps) {
             tagline={speaker.tagline}
             bio={speaker.bio}
             socialMedia={[
-              ...(speaker.twitter ? [{ type: "twitter" as const, url: speaker.twitter }] : []),
-              ...(speaker.linkedin ? [{ type: "linkedin" as const, url: speaker.linkedin }] : []),
+              ...(speaker.twitter
+                ? [{ type: "twitter" as const, url: speaker.twitter }]
+                : []),
+              ...(speaker.linkedin
+                ? [{ type: "linkedin" as const, url: speaker.linkedin }]
+                : []),
             ]}
             key={`${speaker.name}-${index}`}
           />

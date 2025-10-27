@@ -39,7 +39,7 @@ export function Sponsor() {
       }}
       viewport={{
         once: true,
-        margin: "-100px"
+        margin: "-100px",
       }}
     >
       <div className={classes.sponsoredBy}>

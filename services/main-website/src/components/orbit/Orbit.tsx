@@ -9,7 +9,7 @@ import {
 } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 import devfestLogo from "@/assets/devfest-logo.svg";
-import Image from "next/image"
+import Image from "next/image";
 
 import CircleWithRings from "./CircleWithRings";
 import styles from "./orbit.module.scss";

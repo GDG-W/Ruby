@@ -7,7 +7,7 @@ import classes from "./page.module.scss";
 
 export default async function SpeakersPage() {
   const conferenceData = await fetchConferenceData();
-  
+
   if (!conferenceData) {
     return (
       <div className={classes.speakersPage}>

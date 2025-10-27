@@ -24,48 +24,62 @@ export function ScheduleItemCard({
   className,
 }: ScheduleItemCardProps) {
   // Find speaker data for this session
-  const sessionSpeaker = speakers.find(speaker => 
-    speaker.speaker_name === session.speaker_id
+  const sessionSpeaker = speakers.find(
+    (speaker) => speaker.speaker_name === session.speaker_id,
   );
-  
-  const sessionSpeakers: Speaker[] = sessionSpeaker ? [{
-    name: sessionSpeaker.speaker_name,
-    avatar: sessionSpeaker.speaker_img !== "NULL" ? sessionSpeaker.speaker_img : undefined,
-  }] : [];
+
+  const sessionSpeakers: Speaker[] = sessionSpeaker
+    ? [
+        {
+          name: sessionSpeaker.speaker_name,
+          avatar:
+            sessionSpeaker.speaker_img !== "NULL"
+              ? sessionSpeaker.speaker_img
+              : undefined,
+        },
+      ]
+    : [];
 
   const hasMultipleSpeakers = sessionSpeakers.length > 1;
-  
+
   // Determine session type
-  const sessionType = session.session_type?.toLowerCase().includes("broadcast") ? "keynote" :
-                     session.session_type?.toLowerCase().includes("workshop") || 
-                     session.session_type?.toLowerCase().includes("codelab") ? "workshop" : "regular";
-  
+  const sessionType = session.session_type?.toLowerCase().includes("broadcast")
+    ? "keynote"
+    : session.session_type?.toLowerCase().includes("workshop") ||
+        session.session_type?.toLowerCase().includes("codelab")
+      ? "workshop"
+      : "regular";
+
   const isBreakoutSession = false;
-  
+
   // Room mapping to class numbers and display names
   const ROOM_MAPPING = {
-    "RUBY": { class: "room1", name: "Ruby" },
-    "EMERALD": { class: "room2", name: "Emerald" },
-    "SAPPHIRE": { class: "room3", name: "Sapphire" },
-    "OPAL": { class: "room4", name: "Opal" },
-    "OUTSIDE": { class: "room5", name: "Outside" },
+    RUBY: { class: "room1", name: "Ruby" },
+    EMERALD: { class: "room2", name: "Emerald" },
+    SAPPHIRE: { class: "room3", name: "Sapphire" },
+    OPAL: { class: "room4", name: "Opal" },
+    OUTSIDE: { class: "room5", name: "Outside" },
   } as const;
-  
+
   // Get room info from session
-  const roomType = session.room_type?.toUpperCase() as keyof typeof ROOM_MAPPING;
-  const roomInfo = ROOM_MAPPING[roomType] || { class: "room1", name: session.room_type || "TBD" };
-  
+  const roomType =
+    session.room_type?.toUpperCase() as keyof typeof ROOM_MAPPING;
+  const roomInfo = ROOM_MAPPING[roomType] || {
+    class: "room1",
+    name: session.room_type || "TBD",
+  };
+
   // Format time
   function formatTime(timeString?: string): string {
     if (!timeString) return "";
     const date = new Date(timeString);
-    return date.toLocaleTimeString("en-US", { 
-      hour: "numeric", 
+    return date.toLocaleTimeString("en-US", {
+      hour: "numeric",
       minute: "2-digit",
-      hour12: true 
+      hour12: true,
     });
   }
-  
+
   const startTime = formatTime(session.start_time);
   const endTime = formatTime(session.end_time);
   const timeRange = startTime && endTime ? `${startTime} - ${endTime}` : "";
@@ -81,11 +95,7 @@ export function ScheduleItemCard({
       <div className={styles.cardHeader}>
         <div className={styles.titleRow}>
           <h3 className={styles.title}>{session.session_title}</h3>
-          {timeRange && (
-            <div className={styles.timeRange}>
-              {timeRange}
-            </div>
-          )}
+          {timeRange && <div className={styles.timeRange}>{timeRange}</div>}
         </div>
         {isBreakoutSession && (
           <div className={clsx(styles.breakoutTag, styles[roomInfo.class])}>

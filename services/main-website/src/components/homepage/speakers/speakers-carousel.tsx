@@ -18,8 +18,12 @@ interface SpeakersCarouselProps {
   carouselInView: boolean;
 }
 
-export function SpeakersCarousel({ speakers, laptopImage, carouselRef, carouselInView }: SpeakersCarouselProps) {
-
+export function SpeakersCarousel({
+  speakers,
+  laptopImage,
+  carouselRef,
+  carouselInView,
+}: SpeakersCarouselProps) {
   const displaySpeakers = speakers.concat(speakers).concat(speakers);
 
   return (
@@ -39,7 +43,7 @@ export function SpeakersCarousel({ speakers, laptopImage, carouselRef, carouselI
                 x: 0,
                 opacity: 1,
                 filter: "blur(0px)",
-              }
+              },
             }}
             transition={{
               delay: 0.4 + index * 0.1,

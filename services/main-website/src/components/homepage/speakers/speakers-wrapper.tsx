@@ -11,7 +11,10 @@ interface SpeakersWrapperProps {
   laptopImage: any;
 }
 
-export function SpeakersWrapper({ speakers, laptopImage }: SpeakersWrapperProps) {
+export function SpeakersWrapper({
+  speakers,
+  laptopImage,
+}: SpeakersWrapperProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [carouselInView, setCarouselInView] = useState(false);
 
@@ -19,7 +22,7 @@ export function SpeakersWrapper({ speakers, laptopImage }: SpeakersWrapperProps)
     once: true,
     onEnter: () => {
       setCarouselInView(true);
-    }
+    },
   });
 
   const scrollLeft = () => {
@@ -36,13 +39,13 @@ export function SpeakersWrapper({ speakers, laptopImage }: SpeakersWrapperProps)
 
   return (
     <>
-      <SpeakersHeader 
-        speakerCount={speakers.length} 
+      <SpeakersHeader
+        speakerCount={speakers.length}
         onScrollLeft={scrollLeft}
         onScrollRight={scrollRight}
       />
-      <SpeakersCarousel 
-        speakers={speakers} 
+      <SpeakersCarousel
+        speakers={speakers}
         laptopImage={laptopImage}
         carouselRef={carouselRef}
         carouselInView={carouselInView}

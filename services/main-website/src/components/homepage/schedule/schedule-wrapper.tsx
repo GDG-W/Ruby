@@ -9,7 +9,7 @@ interface ScheduleWrapperProps {
 export function ScheduleWrapper({ scheduleData }: ScheduleWrapperProps) {
   if (scheduleData.length === 0) {
     return (
-      <div style={{ textAlign: 'center', padding: '2rem' }}>
+      <div style={{ textAlign: "center", padding: "2rem" }}>
         <p>Schedule details coming soon...</p>
       </div>
     );

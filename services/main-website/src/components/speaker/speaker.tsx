@@ -27,7 +27,7 @@ export type SpeakerProps = {
   }[];
   className?: string;
   reduceHeightOnMobile?: boolean;
-}
+};
 
 const colorCombos = [
   ["#CCF6C5", "#34A853"],
@@ -68,14 +68,15 @@ export function Speaker({
   const windowWidth = useWindowWidth();
 
   //P.S Used a ref instead of a state variable so that I can use the ref in the event listeners
-  const isOnMobileRef = useRef(windowWidth !== 0 && windowWidth < MOBILE_BREAKPOINT);
+  const isOnMobileRef = useRef(
+    windowWidth !== 0 && windowWidth < MOBILE_BREAKPOINT,
+  );
 
   useEffect(() => {
     if (windowWidth) {
       isOnMobileRef.current = windowWidth < MOBILE_BREAKPOINT;
     }
   }, [windowWidth]);
-
 
   const heights = useMemo(() => {
     const isOnMobile = windowWidth !== 0 && windowWidth < MOBILE_BREAKPOINT;
@@ -117,7 +118,10 @@ export function Speaker({
   useEffect(() => {
     speakerDivRef.current?.addEventListener("mouseenter", () => {
       if (cardState.current === "image" && !isOnMobileRef.current) {
-        imageWrapperApi.start({ height: 300, backgroundColor: hoverBackground });
+        imageWrapperApi.start({
+          height: 300,
+          backgroundColor: hoverBackground,
+        });
         infoApi.start({ height: 112 });
       }
     });
@@ -156,7 +160,6 @@ export function Speaker({
       imageApi.start({ opacity: 1 });
       bioApi.start({ opacity: 0 });
 
-
       imageWrapperApi.update({ config: openConfig });
       infoApi.update({ config: openConfig });
     }
@@ -164,7 +167,9 @@ export function Speaker({
 
   return (
     <article
-      className={clsx(classes.speaker, className, { [classes.reduceHeightOnMobile]: reduceHeightOnMobile })}
+      className={clsx(classes.speaker, className, {
+        [classes.reduceHeightOnMobile]: reduceHeightOnMobile,
+      })}
       ref={speakerDivRef}
       onClick={onClickImageWrapper}
     >
