@@ -45,7 +45,8 @@ export function SecureTicket() {
           transition={{
             ease: "circInOut",
             duration: 0.8,
-            type: "spring", mass: 0.5,
+            type: "spring",
+            mass: 0.5,
           }}
         />
         <motion.p
@@ -74,7 +75,8 @@ export function SecureTicket() {
           transition: { delay: 0.1, duration: 0.5, ease: [0, 0, 0, 1] },
         }}
         viewport={{ once: true }}
-        className={classes.description}>
+        className={classes.description}
+      >
         Word on the street is that the last edition was a banger — and you bet
         we’re making this year’s DevFest even bigger and better. Select the
         ticket that works best for you:
@@ -83,7 +85,11 @@ export function SecureTicket() {
         <motion.div
           className={`${classes.ticket} ${classes.standard}`}
           initial={{ opacity: 0, y: 75 }}
-          whileInView={{ opacity: 1, y: 0, transition: { delay: 0.2, duration: 0.2, ease: [0, 0, 0, 1] } }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 0.2, duration: 0.2, ease: [0, 0, 0, 1] },
+          }}
           viewport={{ once: true }}
         >
           <Image
@@ -110,7 +116,11 @@ export function SecureTicket() {
         <motion.div
           className={`${classes.ticket} ${classes.pro}`}
           initial={{ opacity: 0, y: 75 }}
-          whileInView={{ opacity: 1, y: 0, transition: { delay: 0.4, duration: 0.2, ease: [0, 0, 0, 1] } }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 0.4, duration: 0.2, ease: [0, 0, 0, 1] },
+          }}
           viewport={{ once: true }}
         >
           <Image src={proTicket} alt="Pro Ticket" className={classes.logo} />

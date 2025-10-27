@@ -36,7 +36,7 @@ function TrackImage({
   baseImage,
   baseAlt,
 }: TrackImageProps) {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState<boolean>(false);
 
   return (
     <div className={className} onClick={() => setVisible(true)}>
@@ -56,7 +56,7 @@ function TrackImage({
           damping: 15,
           mass: 1,
           visualDuration: 0.15,
-          type: "spring"
+          type: "spring",
         }}
       />
     </div>
@@ -68,32 +68,60 @@ export function Tracks() {
     <section className={classes.tracks}>
       <div className={classes.textWrapper}>
         <h2 className={classes.text}>
-          {"Whatever you’re into, there's a track at".split(" ").map((word, index) => (
-            <motion.span
-              key={word}
-              initial={{ translateY: "50%", opacity: 0, filter: "blurRadius(10px)" }}
-              whileInView={{ translateY: 0, opacity: 1, filter: "blurRadius(0px)" }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05, ease: [0, 0, 0, 1] }}
-              className={classes.letter}
-            >
-              {word}{" "}
-            </motion.span>
-          ))}
-          <span className={classes.subText}>
-            {"DevFest Lagos made just for you.".split(" ").map((word, index) => (
+          {"Whatever you’re into, there's a track at"
+            .split(" ")
+            .map((word, index) => (
               <motion.span
                 key={word}
-                initial={{ translateY: "50%", opacity: 0, filter: "blurRadius(10px)" }}
-                whileInView={{ translateY: 0, opacity: 1, filter: "blurRadius(0px)" }}
+                initial={{
+                  translateY: "50%",
+                  opacity: 0,
+                  filter: "blurRadius(10px)",
+                }}
+                whileInView={{
+                  translateY: 0,
+                  opacity: 1,
+                  filter: "blurRadius(0px)",
+                }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.35 + index * 0.05, ease: [0, 0, 0, 1] }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.05,
+                  ease: [0, 0, 0, 1],
+                }}
                 className={classes.letter}
               >
                 {word}{" "}
               </motion.span>
             ))}
-            </span>
+          <span className={classes.subText}>
+            {"DevFest Lagos made just for you."
+              .split(" ")
+              .map((word, index) => (
+                <motion.span
+                  key={word}
+                  initial={{
+                    translateY: "50%",
+                    opacity: 0,
+                    filter: "blurRadius(10px)",
+                  }}
+                  whileInView={{
+                    translateY: 0,
+                    opacity: 1,
+                    filter: "blurRadius(0px)",
+                  }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.35 + index * 0.05,
+                    ease: [0, 0, 0, 1],
+                  }}
+                  className={classes.letter}
+                >
+                  {word}{" "}
+                </motion.span>
+              ))}
+          </span>
         </h2>
         <TrackImage
           className={classes.webTrack}

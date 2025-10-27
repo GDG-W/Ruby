@@ -8,7 +8,7 @@ export const demoSpeakers: SpeakerProps[] = [
   {
     name: "Ace Kyd",
     tagline: "Software Engineer, Google",
-    image: acekyd,
+    image: acekyd.src,
     bio: "With over five years of experience in Quality Assurance, penetration testing, and automation, Oluwaseyi brings a thorough and meticulous approach to software testing.",
     socialMedia: [
       {
@@ -20,7 +20,7 @@ export const demoSpeakers: SpeakerProps[] = [
   {
     name: "Adora",
     tagline: "Software Engineer, Microsoft",
-    image: adora,
+    image: adora.src,
     bio: "With over five years of experience in Quality Assurance, penetration testing, and automation, Oluwaseyi brings a thorough and meticulous approach to software testing.",
     socialMedia: [
       {
@@ -32,7 +32,7 @@ export const demoSpeakers: SpeakerProps[] = [
   {
     name: "Ayomide",
     tagline: "Software Engineer, Facebook",
-    image: ayomide,
+    image: ayomide.src,
     bio: "With over five years of experience in Quality Assurance, penetration testing, and automation, Oluwaseyi brings a thorough and meticulous approach to software testing.",
     socialMedia: [
       {
@@ -44,7 +44,7 @@ export const demoSpeakers: SpeakerProps[] = [
   {
     name: "Idk",
     tagline: "Software Engineer, Amazon",
-    image: idk,
+    image: idk.src,
     bio: "With over five years of experience in Quality Assurance, penetration testing, and automation, Oluwaseyi brings a thorough and meticulous approach to software testing.",
     socialMedia: [
       {

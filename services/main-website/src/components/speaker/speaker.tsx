@@ -1,6 +1,6 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+// Removed Next.js Image import to use regular img tags
 import classes from "./speaker.module.scss";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { animated, useSpring } from "@react-spring/web";
@@ -17,17 +17,17 @@ const socialMediaIcons = {
 } as const;
 
 export type SpeakerProps = {
-  image: StaticImageData;
+  image: string;
   name: string;
   tagline: string;
   bio: string;
-  socialMedia: {
+  socialMedia?: {
     type: SocialMedia;
     url: string;
   }[];
   className?: string;
   reduceHeightOnMobile?: boolean;
-}
+};
 
 const colorCombos = [
   ["#CCF6C5", "#34A853"],
@@ -68,14 +68,15 @@ export function Speaker({
   const windowWidth = useWindowWidth();
 
   //P.S Used a ref instead of a state variable so that I can use the ref in the event listeners
-  const isOnMobileRef = useRef(windowWidth !== 0 && windowWidth < MOBILE_BREAKPOINT);
+  const isOnMobileRef = useRef(
+    windowWidth !== 0 && windowWidth < MOBILE_BREAKPOINT,
+  );
 
   useEffect(() => {
     if (windowWidth) {
       isOnMobileRef.current = windowWidth < MOBILE_BREAKPOINT;
     }
   }, [windowWidth]);
-
 
   const heights = useMemo(() => {
     const isOnMobile = windowWidth !== 0 && windowWidth < MOBILE_BREAKPOINT;
@@ -117,7 +118,10 @@ export function Speaker({
   useEffect(() => {
     speakerDivRef.current?.addEventListener("mouseenter", () => {
       if (cardState.current === "image" && !isOnMobileRef.current) {
-        imageWrapperApi.start({ height: 300, backgroundColor: hoverBackground });
+        imageWrapperApi.start({
+          height: 300,
+          backgroundColor: hoverBackground,
+        });
         infoApi.start({ height: 112 });
       }
     });
@@ -156,7 +160,6 @@ export function Speaker({
       imageApi.start({ opacity: 1 });
       bioApi.start({ opacity: 0 });
 
-
       imageWrapperApi.update({ config: openConfig });
       infoApi.update({ config: openConfig });
     }
@@ -164,7 +167,9 @@ export function Speaker({
 
   return (
     <article
-      className={clsx(classes.speaker, className, { [classes.reduceHeightOnMobile]: reduceHeightOnMobile })}
+      className={clsx(classes.speaker, className, {
+        [classes.reduceHeightOnMobile]: reduceHeightOnMobile,
+      })}
       ref={speakerDivRef}
       onClick={onClickImageWrapper}
     >
@@ -173,7 +178,7 @@ export function Speaker({
         style={{ ...imageWrapperProps }}
       >
         <animated.div style={imageProps} className={classes.image}>
-          <Image src={image} alt={name} />
+          <img width="100%" src={image} alt={name} />
         </animated.div>
       </animated.div>
       <animated.div className={classes.info} style={infoProps}>
@@ -182,7 +187,7 @@ export function Speaker({
         <animated.div style={bioProps} className={classes.bioContent}>
           <p className={classes.description}>{bio}</p>
           <div className={classes.socialMedia}>
-            {socialMedia.map((media) => {
+            {socialMedia?.map((media) => {
               const iconSrc = socialMediaIcons[media.type];
               return (
                 <a
@@ -190,7 +195,7 @@ export function Speaker({
                   href={media.url}
                   className={classes.socialMediaLink}
                 >
-                  <Image src={iconSrc} alt={media.type} width={24} height={24} />
+                  <img src={iconSrc} alt={media.type} width={24} height={24} />
                 </a>
               );
             })}
