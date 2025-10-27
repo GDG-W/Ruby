@@ -14,7 +14,7 @@ const MotionImage = motion(Image);
 interface SpeakersCarouselProps {
   speakers: SpeakerProps[];
   laptopImage: any;
-  carouselRef: React.RefObject<HTMLDivElement>;
+  carouselRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export function SpeakersCarousel({ speakers, laptopImage, carouselRef }: SpeakersCarouselProps) {

@@ -36,7 +36,7 @@ function TrackImage({
   baseImage,
   baseAlt,
 }: TrackImageProps) {
-  const [visible, setVisible] = useState();
+  const [visible, setVisible] = useState<boolean>();
 
   return (
     <div className={className} onClick={() => setVisible(true)}>

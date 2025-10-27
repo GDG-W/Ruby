@@ -55,7 +55,7 @@ function transformApiScheduleToScheduleData(allSchedule: Record<string, Session[
 export async function ScheduleSection() {
   const allSchedule = await fetchAllSchedule();
   
-  const transformedSchedule = transformApiScheduleToScheduleData(allSchedule);
+  const transformedSchedule = transformApiScheduleToScheduleData(allSchedule as Record<string, Session[]>);
   const totalSessions = Object.values(allSchedule).reduce((total, sessions) => total + sessions.length, 0);
   const totalDays = Object.keys(allSchedule).length || 5;
 
