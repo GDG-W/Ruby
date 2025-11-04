@@ -70,6 +70,7 @@ const FAQs = () => {
     <motion.div
       initial="hidden"
       whileInView="visible"
+      className={styles.faqs}
       variants={containerVariants}
       viewport={{ once: true, amount: 0.35 }}
     >

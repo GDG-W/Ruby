@@ -1,14 +1,19 @@
+.faqs {
+  border-radius: 0 0 10rem 10rem;
+  background-color: $background-dark;
+
+  @include media("<=desktop-sm") {
+    border-radius: 0 0 6rem 6rem;
+  }
+}
 
 .container {
   max-width: 1512px;
   margin: 0 auto;
   padding: 6.7rem 0 8rem;
-  border-radius: 0 0 10rem 10rem;
-  background-color: $background-dark;
 
   @include media("<=desktop-sm") {
     padding: 7.2rem 2rem;
-    border-radius: 0 0 6rem 6rem;
   }
 }
 
