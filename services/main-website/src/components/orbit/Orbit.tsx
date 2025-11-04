@@ -7,7 +7,6 @@ import {
   useMotionValueEvent,
   useSpring,
 } from "motion/react";
-import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import devfestLogo from "@/assets/devfest-logo.svg";
 
@@ -208,9 +207,13 @@ function Orbit({ className }: { className: string }) {
         )}
 
         {/* Center logo */}
-        <g transform={`translate(${CENTER_X - 56}, ${CENTER_Y - 31})`}>
-          <Image src={devfestLogo} alt="Devfest Logo" width={112} height={62} />
-        </g>
+            <image
+              href={devfestLogo.src}
+              x={CENTER_X - 56}
+              y={CENTER_Y - 31}
+              width={112}
+              height={62}
+            />
 
         {/* Orbiting circles */}
         {CIRCLES_CONFIG.map((cfg, idx) => {
