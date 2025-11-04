@@ -13,11 +13,11 @@ const footerLinks = {
   topLeft: [
     { label: "Schedule", href: "/schedule" },
     { label: "Speakers", href: "/speakers" },
-    // { label: "DP Generator", href: "/" },
+    { label: "DP Generator", href: "/dp-generator" },
   ],
   topRight: [
     // { label: "Map Venue", href: "/map" },
-    { label: "Claim Ticket", href: "https://tickets.devfestlagos.com/login" },
+    { label: "Login", href: "https://tickets.devfestlagos.com/login" },
     {
       label: "Join the Community",
       href: "https://gdg.community.dev/gdg-lagos/",
