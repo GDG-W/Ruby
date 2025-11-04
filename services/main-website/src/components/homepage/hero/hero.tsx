@@ -139,7 +139,7 @@ export function HomepageHero() {
               alt=""
               className={styles.mobileArrow}
             />
-            <span>The Zone, Gbagada, Lagos</span>
+            <span>5 Days, 2 Venues 🚀</span>
           </div>
         </motion.div>
       </motion.div>
