@@ -5,7 +5,10 @@ type Props = {
   className?: string;
 };
 
-export function LinkedinIcon({ size = 50, className }: Props): React.JSX.Element {
+export function LinkedinIcon({
+  size = 50,
+  className,
+}: Props): React.JSX.Element {
   return (
     <svg
       width={size}
@@ -27,5 +30,3 @@ export function LinkedinIcon({ size = 50, className }: Props): React.JSX.Element
     </svg>
   );
 }
-
-

@@ -4,9 +4,9 @@ import { animated, useSpring } from "@react-spring/web";
 import clsx from "clsx";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
+import { SocialIcon } from "../socials/SocialIcon";
 // Removed Next.js Image import to use regular img tags
 import classes from "./speaker.module.scss";
-import { SocialIcon } from "../socials/SocialIcon";
 
 type SocialMedia = "twitter" | "linkedin" | "github" | "instagram";
 

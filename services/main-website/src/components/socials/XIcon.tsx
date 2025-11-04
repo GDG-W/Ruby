@@ -25,5 +25,3 @@ export function XIcon({ size = 50, className }: Props): React.JSX.Element {
     </svg>
   );
 }
-
-

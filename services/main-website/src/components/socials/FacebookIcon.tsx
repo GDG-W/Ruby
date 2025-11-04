@@ -5,7 +5,10 @@ type Props = {
   className?: string;
 };
 
-export function FacebookIcon({ size = 50, className }: Props): React.JSX.Element {
+export function FacebookIcon({
+  size = 50,
+  className,
+}: Props): React.JSX.Element {
   return (
     <svg
       width={size}
@@ -28,5 +31,3 @@ export function FacebookIcon({ size = 50, className }: Props): React.JSX.Element
     </svg>
   );
 }
-
-

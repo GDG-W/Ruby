@@ -3,9 +3,9 @@ import type React from "react";
 import { FacebookIcon } from "./FacebookIcon";
 import { InstagramIcon } from "./InstagramIcon";
 import { LinkedinIcon } from "./LinkedinIcon";
+import styles from "./social-icon.module.scss";
 import { XIcon } from "./XIcon";
 import { YoutubeIcon } from "./YoutubeIcon";
-import styles from "./social-icon.module.scss";
 
 export type SocialIconName =
   | "twitter"
@@ -21,7 +21,11 @@ type Props = {
   className?: string;
 };
 
-export function SocialIcon({ name, size = 50, className }: Props): React.JSX.Element | null {
+export function SocialIcon({
+  name,
+  size = 50,
+  className,
+}: Props): React.JSX.Element | null {
   const key = String(name).toLowerCase();
 
   const iconClassName = clsx(styles.icon, className);
@@ -45,5 +49,3 @@ export function SocialIcon({ name, size = 50, className }: Props): React.JSX.Ele
       return null;
   }
 }
-
-

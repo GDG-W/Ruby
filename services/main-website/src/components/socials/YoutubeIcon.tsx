@@ -5,7 +5,10 @@ type Props = {
   className?: string;
 };
 
-export function YoutubeIcon({ size = 50, className }: Props): React.JSX.Element {
+export function YoutubeIcon({
+  size = 50,
+  className,
+}: Props): React.JSX.Element {
   return (
     <svg
       width={size}
@@ -25,5 +28,3 @@ export function YoutubeIcon({ size = 50, className }: Props): React.JSX.Element 
     </svg>
   );
 }
-
-

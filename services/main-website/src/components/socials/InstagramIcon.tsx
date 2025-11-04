@@ -5,7 +5,10 @@ type Props = {
   className?: string;
 };
 
-export function InstagramIcon({ size = 50, className }: Props): React.JSX.Element {
+export function InstagramIcon({
+  size = 50,
+  className,
+}: Props): React.JSX.Element {
   return (
     <svg
       width={size}
@@ -34,11 +37,14 @@ export function InstagramIcon({ size = 50, className }: Props): React.JSX.Elemen
       </g>
       <defs>
         <clipPath id="clip0">
-          <rect width="20" height="20" fill="white" transform="translate(15 15)" />
+          <rect
+            width="20"
+            height="20"
+            fill="white"
+            transform="translate(15 15)"
+          />
         </clipPath>
       </defs>
     </svg>
   );
 }
-
-

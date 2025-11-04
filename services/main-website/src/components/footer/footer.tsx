@@ -4,8 +4,8 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../button/button";
-import styles from "./footer.module.scss";
 import { SocialIcon } from "../socials/SocialIcon";
+import styles from "./footer.module.scss";
 
 const MotionImage = motion(Image);
 
@@ -55,7 +55,6 @@ const socialLinks = [
     href: "https://www.linkedin.com/company/gdg-lagos",
   },
 ];
-
 
 export function Footer() {
   return (
