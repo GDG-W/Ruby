@@ -150,6 +150,14 @@
 .socialLink {
   width: 5rem;
   height: 5rem;
+  display: inline-flex;
+  color: $background-cream; // icon fill/stroke via currentColor
+  --icon-bg: #{$background-dark};
+
+  &:hover {
+    color: $background-dark; // icon turns dark
+    --icon-bg: #{$pastel-yellow}; // circle bg turns pastel yellow
+  }
 }
 
 .right {

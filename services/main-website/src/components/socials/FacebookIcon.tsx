@@ -1,0 +1,32 @@
+import type React from "react";
+
+type Props = {
+  size?: number;
+  className?: string;
+};
+
+export function FacebookIcon({ size = 50, className }: Props): React.JSX.Element {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 50 50"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden
+      focusable="false"
+    >
+      <rect width="50" height="50" rx="25" fill="var(--icon-bg, #1E1E1E)" />
+      <path
+        d="M30.5 15H27.5C26.1739 15 24.9021 15.5268 23.9645 16.4645C23.0268 17.4021 22.5 18.6739 22.5 20V23H19.5V27H22.5V35H26.5V27H29.5L30.5 23H26.5V20C26.5 19.7348 26.6054 19.4804 26.7929 19.2929C26.9804 19.1054 27.2348 19 27.5 19H30.5V15Z"
+        stroke="currentColor"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+

@@ -1,0 +1,8 @@
+.icon {
+  display: inline-flex;
+
+  rect,
+  path {
+    transition: fill 200ms ease-in-out, stroke 200ms ease-in-out;
+  }
+}

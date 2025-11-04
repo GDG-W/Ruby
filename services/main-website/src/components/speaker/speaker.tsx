@@ -6,15 +6,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 // Removed Next.js Image import to use regular img tags
 import classes from "./speaker.module.scss";
+import { SocialIcon } from "../socials/SocialIcon";
 
 type SocialMedia = "twitter" | "linkedin" | "github" | "instagram";
-
-const socialMediaIcons = {
-  twitter: "/socials/x.svg",
-  linkedin: "/socials/linkedin.svg",
-  github: "/socials/facebook.svg",
-  instagram: "/socials/instagram.svg",
-} as const;
 
 export type SpeakerProps = {
   image: string;
@@ -187,18 +181,16 @@ export function Speaker({
         <animated.div style={bioProps} className={classes.bioContent}>
           <p className={classes.description}>{bio}</p>
           <div className={classes.socialMedia}>
-            {socialMedia?.map((media) => {
-              const iconSrc = socialMediaIcons[media.type];
-              return (
-                <a
-                  key={media.type}
-                  href={media.url}
-                  className={classes.socialMediaLink}
-                >
-                  <img src={iconSrc} alt={media.type} width={24} height={24} />
-                </a>
-              );
-            })}
+            {socialMedia?.map((media) => (
+              <a
+                key={media.type}
+                href={media.url}
+                aria-label={media.type}
+                className={classes.socialMediaLink}
+              >
+                <SocialIcon name={media.type} size={24} />
+              </a>
+            ))}
           </div>
         </animated.div>
       </animated.div>

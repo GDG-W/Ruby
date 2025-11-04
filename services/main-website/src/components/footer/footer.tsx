@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../button/button";
 import styles from "./footer.module.scss";
+import { SocialIcon } from "../socials/SocialIcon";
 
 const MotionImage = motion(Image);
 
@@ -35,30 +36,26 @@ const footerLinks = {
 const socialLinks = [
   {
     name: "Twitter",
-    icon: "/socials/x.svg",
     href: "https://x.com/gdglagos",
   },
   {
     name: "Instagram",
-    icon: "/socials/instagram.svg",
     href: "https://www.instagram.com/gdglagos/",
   },
   {
     name: "Facebook",
-    icon: "/socials/facebook.svg",
     href: "https://web.facebook.com/people/Google-Developers-Group-Lagos/100075612535619/",
   },
   {
     name: "YouTube",
-    icon: "/socials/youtube.svg",
     href: "https://www.youtube.com/@GDGLagos",
   },
   {
     name: "LinkedIn",
-    icon: "/socials/linkedin.svg",
     href: "https://www.linkedin.com/company/gdg-lagos",
   },
 ];
+
 
 export function Footer() {
   return (
@@ -127,12 +124,7 @@ export function Footer() {
                     className={styles.socialLink}
                     aria-label={`Follow us on ${social.name}`}
                   >
-                    <Image
-                      src={social.icon}
-                      width={50}
-                      height={50}
-                      alt={social.name}
-                    />
+                    <SocialIcon name={social.name.toLowerCase()} size={50} />
                   </a>
                 ))}
               </div>

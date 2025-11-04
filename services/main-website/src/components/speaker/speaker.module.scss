@@ -65,7 +65,7 @@
             color: $grey-90;
         }
 
-        .socialMediaLinks{
+        .socialMediaLinks {
             display: flex;
             column-gap: 16px;
             align-items: center;
@@ -79,6 +79,15 @@
             justify-content: center;
             background-color: $background-dark;
             border-radius: 6px;
+            transition: background-color 200ms ease-in-out;
+            color: $background-cream; // icon color via currentColor
+            --icon-bg: #{$background-dark}; // icon bg via CSS var
+
+            &:hover {
+                background-color: $pastel-yellow;
+                color: $background-dark;
+                --icon-bg: #{$pastel-yellow};
+            }
         }
     }
 
