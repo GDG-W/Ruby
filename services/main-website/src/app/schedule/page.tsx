@@ -4,6 +4,9 @@ import { ScheduleDayGroup } from "@/components/schedule/schedule-day-group";
 import { fetchConferenceData } from "@/lib/actions";
 import type { Session } from "@/types/api";
 import styles from "./page.module.scss";
+import dateAndLocationArrow from "@/assets/date-and-location-arrow.svg";
+import dateAndLocationMobileArrow from "@/assets/date-and-location-mobile-arrow.svg";
+import { clsx } from "clsx";
 
 const dayLabels = [
   { title: "TUE 18", shortLabel: "Day 1" },
@@ -95,7 +98,28 @@ export default async function SchedulePage() {
           className={styles.fiveDaysIcon}
         />
       </div>
-
+      <div className={styles.flex}>
+          <div className={clsx(styles.dateAndLocation, styles.first)}>
+            <span>18-21 Nov, 2025</span>
+            <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
+            <Image
+              src={dateAndLocationMobileArrow}
+              alt=""
+              className={styles.mobileArrow}
+            />
+            <span>The Zone, Gbagada</span>
+          </div>
+          <div className={clsx(styles.dateAndLocation, styles.second)}>
+            <span>22 Nov, 2025</span>
+            <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
+            <Image
+              src={dateAndLocationMobileArrow}
+              alt=""
+              className={styles.mobileArrow}
+            />
+            <span>National Theatre, Iganmu</span>
+          </div>
+      </div>
       <ScheduleDayGroup days={scheduleData} />
     </div>
   );

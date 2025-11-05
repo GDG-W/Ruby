@@ -96,16 +96,17 @@
     &.reduceHeightOnMobile{
         @include media("<=phone"){
             .info{
-                padding: 12px;
+                padding: 10px 12px;
 
                 .name{
                     font-size: 10px;
                     margin-bottom: 2px;
-                    line-height: 1.5;
+                    line-height: 1;
                 }
 
                 .tagline{
                     font-size: 9px;
+                    line-height: 12px;
                     margin-bottom: 12px;
                 }
 

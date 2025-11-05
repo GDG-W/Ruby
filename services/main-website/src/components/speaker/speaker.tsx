@@ -63,25 +63,28 @@ export function Speaker({
 
   //P.S Used a ref instead of a state variable so that I can use the ref in the event listeners
   const isOnMobileRef = useRef(
-    windowWidth !== 0 && windowWidth < MOBILE_BREAKPOINT,
+    typeof window !== 'undefined' ? window.innerWidth < MOBILE_BREAKPOINT : false,
   );
 
   useEffect(() => {
-    if (windowWidth) {
-      isOnMobileRef.current = windowWidth < MOBILE_BREAKPOINT;
+    const currentWidth = typeof window !== 'undefined' ? window.innerWidth : windowWidth;
+    if (currentWidth > 0) {
+      isOnMobileRef.current = currentWidth < MOBILE_BREAKPOINT;
     }
   }, [windowWidth]);
 
   const heights = useMemo(() => {
-    const isOnMobile = windowWidth !== 0 && windowWidth < MOBILE_BREAKPOINT;
+    // Use window.innerWidth for immediate check, fallback to windowWidth hook
+    const currentWidth = typeof window !== 'undefined' ? window.innerWidth : windowWidth;
+    const isOnMobile = currentWidth > 0 && currentWidth < MOBILE_BREAKPOINT;
 
     return {
       imageWrapper: {
-        open: isOnMobile ? 186 : 308,
+        open: isOnMobile && reduceHeightOnMobile ? 186 : 308,
       },
       info: {
-        open: isOnMobile ? 242 : 404,
-        minimized: isOnMobile ? 64 : 104,
+        open: isOnMobile && reduceHeightOnMobile ? 188 : 404, // Reduced from 242 to 188 to fit max 252px total (186 + 64 + 4 margin = 254px, so 188 + 64 = 252px)
+        minimized: 104
       },
     };
   }, [windowWidth]);
@@ -180,7 +183,7 @@ export function Speaker({
         <p className={classes.tagline}>{tagline}</p>
         <animated.div style={bioProps} className={classes.bioContent}>
           <p className={classes.description}>{bio}</p>
-          <div className={classes.socialMedia}>
+          <div className={classes.socialMediaLinks}>
             {socialMedia?.map((media) => (
               <a
                 key={media.type}
