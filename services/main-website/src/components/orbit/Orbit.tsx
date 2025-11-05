@@ -207,13 +207,13 @@ function Orbit({ className }: { className: string }) {
         )}
 
         {/* Center logo */}
-            <image
-              href={devfestLogo.src}
-              x={CENTER_X - 56}
-              y={CENTER_Y - 31}
-              width={112}
-              height={62}
-            />
+        <image
+          href={devfestLogo.src}
+          x={CENTER_X - 56}
+          y={CENTER_Y - 31}
+          width={112}
+          height={62}
+        />
 
         {/* Orbiting circles */}
         {CIRCLES_CONFIG.map((cfg, idx) => {
