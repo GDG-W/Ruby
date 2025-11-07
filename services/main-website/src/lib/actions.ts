@@ -2,6 +2,7 @@
 
 import { unstable_cache } from "next/cache";
 import type { ConferenceData } from "@/types/api";
+import { console } from "inspector";
 
 const API_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbzm_bMJ2jUCF6Op7iDHioH5PzNCu7LL2FuLRLgNxmn0GPtM4ghJFrTKzVcufbNXD18a/exec";
@@ -35,11 +36,12 @@ const fetchConferenceDataUncached =
 export const fetchConferenceData = unstable_cache(
   fetchConferenceDataUncached,
   ["conference-data"],
-  { revalidate: 600 },
+  { revalidate: false },
 );
 
 export async function fetchSpeakers() {
   const data = await fetchConferenceData();
+  console.log("Fetched conference data for speakers:", data);
   return data?.Speakers || [];
 }
 

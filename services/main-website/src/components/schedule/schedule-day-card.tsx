@@ -3,6 +3,7 @@ import type { Speaker as APISpeaker, Session } from "@/types/api";
 import { Button } from "../button/button";
 import styles from "./schedule-day-card.module.scss";
 import { ScheduleItemCard } from "./schedule-item-card";
+import Link from "next/link";
 
 export interface ScheduleDayCardProps {
   dayIndex: number;
@@ -64,10 +65,12 @@ export function ScheduleDayCard({
               <p className={styles.dayDescription}>{description}</p>
             )}
 
-            <div className={styles.dayActions}>
-              <Button className={styles.rsvpButton} onClick={handleRSVPClick}>
-                RSVP
-              </Button>
+            <div className={clsx(styles.dayActions, hideDescription && styles.onlyRSVP)}>
+              <Link href={hideDescription ? "/schedule" : "https://tickets.devfestlagos.com"} target={hideDescription ? "_self" : "_blank"}>
+                <Button className={styles.rsvpButton}>
+                  {hideDescription ? "View Full Schedule" : "RSVP Now"}
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

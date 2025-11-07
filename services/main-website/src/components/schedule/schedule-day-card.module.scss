@@ -161,6 +161,10 @@
   display: flex;
   gap: 1rem;
 
+  &.onlyRSVP {
+    justify-content: flex-end;
+  }
+
   @include media(">tablet") {
     flex-shrink: 0;
   }

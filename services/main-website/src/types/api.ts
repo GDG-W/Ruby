@@ -43,6 +43,7 @@ export interface ConferenceData {
   "Day 2": Session[];
   "Day 3": Session[];
   "Day 4": Session[];
+  "Day 5": Session[];
 }
 
 export interface ApiResponse {

@@ -64,13 +64,8 @@ export default async function SchedulePage() {
     // Ensure we're working with Session arrays
     const sessions = Array.isArray(dayData) ? (dayData as Session[]) : [];
 
-    // Filter sessions with speakers
-    const sessionsWithSpeakers = sessions.filter(
-      (session) =>
-        session.speaker_id &&
-        session.speaker_id !== "NULL" &&
-        session.speaker_id.trim() !== "",
-    );
+    // Include all sessions (don't filter by speaker presence)
+    const allSessions = sessions;
 
     scheduleData.push({
       title: dayTitles[dayIndex - 1] || `DAY ${dayIndex}`,
@@ -79,7 +74,7 @@ export default async function SchedulePage() {
         `Day ${dayIndex} activities and sessions.`,
       date: dayLabels[dayIndex - 1]?.title || `Day ${dayIndex}`,
       shortLabel: dayLabels[dayIndex - 1]?.shortLabel || `Day ${dayIndex}`,
-      sessions: sessionsWithSpeakers,
+      sessions: allSessions,
       speakers: conferenceData.Speakers,
     });
   }
