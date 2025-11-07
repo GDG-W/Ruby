@@ -103,6 +103,7 @@
 
 .polaroid {
     box-shadow: 0px 0px 32px -8px rgba(246, 181, 30, 0.8);
+    z-index: 1;
 
     @include media("<=desktop-sm") {
       width: 160px;
