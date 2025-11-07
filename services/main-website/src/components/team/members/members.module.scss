@@ -1,0 +1,179 @@
+.members {
+  position: relative;
+  background-color: $background-dark;
+  height: calc(427px * 2.2);
+  z-index: 2;
+  padding: 0 96px;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 96px;
+}
+
+.title {
+  font-family: $font-akira;
+  font-weight: 800;
+  font-size: 88px;
+  line-height: 101px;
+  letter-spacing: -0.02em;
+  color: $grey-0;
+}
+
+.lineBreak {
+  @include media("<=phone") {
+    display: none;
+  }
+}
+
+.sticker {
+  position: absolute;
+
+  &1 {
+    @extend .sticker;
+    bottom: 24px;
+    left: 24px;
+    filter: drop-shadow(4.32432px 4.32432px 10.8108px rgba(0, 0, 0, 0.2));
+    transform: matrix(0.94, 0.35, -0.3, 0.95, 0, 0);
+
+  }
+
+  &2 {
+    @extend .sticker;
+    bottom: 8px;
+    right: 16px;
+    transform: matrix(0.98, 0.19, -0.16, 0.99, 0, 0);
+  }
+}
+
+.emblaViewport {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 192px); // Account for section padding
+  z-index: 5;
+  overflow: hidden;
+  height: calc(427px * 2.2); // Match .members height
+}
+
+.emblaContainer {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.emblaSlide {
+  flex: 0 0 427px;
+  min-height: 0;
+  height: 427px;
+}
+
+.largeItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 427px;
+}
+
+.info {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.name {
+  font-family: $font-akira;
+  font-weight: 800;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: $grey-0;
+}
+
+.firstName {
+  @extend .name;
+  font-size: 24px;
+  margin-bottom: 1.8rem;
+}
+
+.lastName {
+  @extend .name;
+  font-size: 48px;
+  margin-bottom: 1.6rem;
+}
+
+.role {
+  @include text-p3;
+  color: $grey-20;
+  margin-bottom: 1.6rem;
+}
+
+.social {
+  display: flex;
+  gap: 2.4rem;
+}
+
+.socialLink {
+  display: inline-flex;
+  color: $background-cream; // icon fill/stroke via currentColor
+  --icon-bg: #{$grey-80};
+
+  &:hover {
+    color: $background-dark; // icon turns dark
+    --icon-bg: #{$pastel-yellow}; // circle bg turns pastel yellow
+  }
+}
+
+.image {
+  border: 6px solid transparent;
+  border-radius: 6px;
+  transition: border-color 0.8s ease-out;
+
+  &.active {
+    border-color: $grey-0;
+    transition: border-color 0.8s ease-in;
+  }
+}
+
+.other {
+
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.question {
+  @include text-p4;
+  color: $grey-20;
+  margin-bottom: 8px;
+}
+
+.answer {
+  @include text-p3;
+  color: $grey-0;
+  text-align: right;
+}
+
+.music {
+  @include text-p4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $grey-40;
+  text-transform: uppercase;
+  margin-top: 16px;
+}
+
+.song {
+  text-transform: capitalize;
+  color: $grey-0;
+}
