@@ -73,9 +73,11 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          <Button size="sm" className={styles.buyTicket}>
-            BUY TICKETS
-          </Button>
+          <Link href="https://tickets.devfestlagos.com" target="_blank">
+            <Button size="sm" className={styles.buyTicket}>
+             BUY TICKETS
+            </Button>
+          </Link>
           <Button
             className={styles.mobileNavButton}
             onClick={() => setNavOpen(true)}
