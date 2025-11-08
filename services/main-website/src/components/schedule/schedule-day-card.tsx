@@ -74,7 +74,7 @@ export function ScheduleDayCard({
                 href={
                   hideDescription
                     ? "/schedule"
-                    : "https://tickets.devfestlagos.com"
+                    : "https://tickets.devfestlagos.com/buy"
                 }
                 target={hideDescription ? "_self" : "_blank"}
               >
