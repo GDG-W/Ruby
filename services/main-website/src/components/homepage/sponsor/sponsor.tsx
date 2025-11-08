@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
+import google from "@/assets/sponsors/google.png";
 import threemtt from "@/assets/sponsors/3mtt.png";
 import alat from "@/assets/sponsors/alat.png";
 import bitnob from "@/assets/sponsors/bitnob.png";
@@ -14,6 +15,7 @@ import splitIcon from "@/assets/sponsors/split.png";
 import classes from "./sponsor.module.scss";
 
 const sponsorImages = [
+  google,
   bitnob,
   cleva,
   alat,
