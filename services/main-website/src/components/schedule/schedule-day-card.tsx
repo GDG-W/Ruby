@@ -65,8 +65,20 @@ export function ScheduleDayCard({
               <p className={styles.dayDescription}>{description}</p>
             )}
 
-            <div className={clsx(styles.dayActions, hideDescription && styles.onlyRSVP)}>
-              <Link href={hideDescription ? "/schedule" : "https://tickets.devfestlagos.com"} target={hideDescription ? "_self" : "_blank"}>
+            <div
+              className={clsx(
+                styles.dayActions,
+                hideDescription && styles.onlyRSVP,
+              )}
+            >
+              <Link
+                href={
+                  hideDescription
+                    ? "/schedule"
+                    : "https://tickets.devfestlagos.com"
+                }
+                target={hideDescription ? "_self" : "_blank"}
+              >
                 <Button className={styles.rsvpButton}>
                   {hideDescription ? "See Full Schedule" : "RSVP Now"}
                 </Button>

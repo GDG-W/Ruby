@@ -94,26 +94,26 @@ export default async function SchedulePage() {
         />
       </div>
       <div className={styles.dateAndLocationWrapper}>
-          <div className={clsx(styles.dateAndLocation, styles.first)}>
-            <span>18-21 Nov, 2025</span>
-            <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
-            <Image
-              src={dateAndLocationMobileArrow}
-              alt=""
-              className={styles.mobileArrow}
-            />
-            <span>The Zone, Gbagada</span>
-          </div>
-          <div className={clsx(styles.dateAndLocation, styles.second)}>
-            <span>22 Nov, 2025</span>
-            <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
-            <Image
-              src={dateAndLocationMobileArrow}
-              alt=""
-              className={styles.mobileArrow}
-            />
-            <span>National Theatre, Iganmu</span>
-          </div>
+        <div className={clsx(styles.dateAndLocation, styles.first)}>
+          <span>18-21 Nov, 2025</span>
+          <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
+          <Image
+            src={dateAndLocationMobileArrow}
+            alt=""
+            className={styles.mobileArrow}
+          />
+          <span>The Zone, Gbagada</span>
+        </div>
+        <div className={clsx(styles.dateAndLocation, styles.second)}>
+          <span>22 Nov, 2025</span>
+          <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
+          <Image
+            src={dateAndLocationMobileArrow}
+            alt=""
+            className={styles.mobileArrow}
+          />
+          <span>National Theatre, Iganmu</span>
+        </div>
       </div>
       <ScheduleDayGroup days={scheduleData} />
     </div>

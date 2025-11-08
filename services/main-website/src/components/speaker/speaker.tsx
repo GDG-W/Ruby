@@ -73,11 +73,14 @@ export function Speaker({
 
   //P.S Used a ref instead of a state variable so that I can use the ref in the event listeners
   const isOnMobileRef = useRef(
-    typeof window !== 'undefined' ? window.innerWidth < MOBILE_BREAKPOINT : false,
+    typeof window !== "undefined"
+      ? window.innerWidth < MOBILE_BREAKPOINT
+      : false,
   );
 
   useEffect(() => {
-    const currentWidth = typeof window !== 'undefined' ? window.innerWidth : windowWidth;
+    const currentWidth =
+      typeof window !== "undefined" ? window.innerWidth : windowWidth;
     if (currentWidth > 0) {
       isOnMobileRef.current = currentWidth < MOBILE_BREAKPOINT;
     }
@@ -85,7 +88,8 @@ export function Speaker({
 
   const heights = useMemo(() => {
     // Use window.innerWidth for immediate check, fallback to windowWidth hook
-    const currentWidth = typeof window !== 'undefined' ? window.innerWidth : windowWidth;
+    const currentWidth =
+      typeof window !== "undefined" ? window.innerWidth : windowWidth;
     const isOnMobile = currentWidth > 0 && currentWidth < MOBILE_BREAKPOINT;
     const isMobileAndReducedHeight = isOnMobile && reduceHeightOnMobile;
 
@@ -95,7 +99,7 @@ export function Speaker({
       },
       info: {
         open: isMobileAndReducedHeight ? 242 : 404,
-        minimized: isMobileAndReducedHeight ? 64 : 104
+        minimized: isMobileAndReducedHeight ? 64 : 104,
       },
     };
   }, [windowWidth]);

@@ -72,17 +72,17 @@ export function ScheduleItemCard({
   // Format time
   function formatTime(timeString?: string): string {
     if (!timeString || timeString === "NULL") return "";
-    
+
     // Handle different time formats that might come from the API
-    
+
     // If it's already in 12-hour format (e.g., "2:30 PM"), return as is
     if (/^\d{1,2}:\d{2}\s?(AM|PM)$/i.test(timeString.trim())) {
       return timeString.trim();
     }
-    
+
     // If it's in 24-hour format (e.g., "14:30" or "14:30:00")
     if (/^\d{1,2}:\d{2}(:\d{2})?$/.test(timeString)) {
-      const [hours, minutes] = timeString.split(':').map(Number);
+      const [hours, minutes] = timeString.split(":").map(Number);
       const date = new Date();
       date.setHours(hours, minutes, 0, 0);
       return date.toLocaleTimeString("en-US", {
@@ -91,7 +91,7 @@ export function ScheduleItemCard({
         hour12: true,
       });
     }
-    
+
     // Handle ISO datetime strings from Google Sheets (Excel epoch: 1899-12-30)
     if (timeString.includes("1899-12-30T")) {
       // Extract just the time part and treat as local time
@@ -107,16 +107,16 @@ export function ScheduleItemCard({
         });
       }
     }
-    
+
     // Try to parse as a full date/datetime string
     const date = new Date(timeString);
-    
+
     // Check if the date is valid
     if (isNaN(date.getTime())) {
       // If parsing fails, return the original string as a fallback
       return timeString;
     }
-    
+
     return date.toLocaleTimeString("en-US", {
       hour: "numeric",
       minute: "2-digit",
