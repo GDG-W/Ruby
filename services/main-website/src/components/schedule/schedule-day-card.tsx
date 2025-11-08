@@ -68,7 +68,7 @@ export function ScheduleDayCard({
             <div className={clsx(styles.dayActions, hideDescription && styles.onlyRSVP)}>
               <Link href={hideDescription ? "/schedule" : "https://tickets.devfestlagos.com"} target={hideDescription ? "_self" : "_blank"}>
                 <Button className={styles.rsvpButton}>
-                  {hideDescription ? "View Full Schedule" : "RSVP Now"}
+                  {hideDescription ? "See Full Schedule" : "RSVP Now"}
                 </Button>
               </Link>
             </div>
