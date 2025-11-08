@@ -72,9 +72,8 @@ export default function FAQPage() {
     <>
       <motion.div
         initial="hidden"
-        whileInView="visible"
+        animate="visible"
         variants={containerVariants}
-        viewport={{ once: true, amount: 0.35 }}
       >
         <div className={styles.faqs}>
           <div className={styles.container}>
@@ -83,7 +82,7 @@ export default function FAQPage() {
                 width={200}
                 height={161}
                 className={styles.sticker}
-                src="/stickers/more-community-less-ego-dwg-group-picture.svg"
+                src="/stickers/more-community.png"
                 alt="'More Community, Less Ego' written above a group photo of DevFest Digital Working Group (2024)"
                 priority
                 variants={stickerVariants}
