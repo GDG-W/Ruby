@@ -43,7 +43,7 @@ export function ScheduleItemCard({
   const hasMultipleSpeakers = sessionSpeakers.length > 1;
 
   // Determine session type
-  const sessionType = session.session_type?.toLowerCase().includes("broadcast")
+  const _sessionType = session.session_type?.toLowerCase().includes("broadcast")
     ? "keynote"
     : session.session_type?.toLowerCase().includes("workshop") ||
         session.session_type?.toLowerCase().includes("codelab")
@@ -112,7 +112,7 @@ export function ScheduleItemCard({
     const date = new Date(timeString);
 
     // Check if the date is valid
-    if (isNaN(date.getTime())) {
+    if (Number.isNaN(date.getTime())) {
       // If parsing fails, return the original string as a fallback
       return timeString;
     }

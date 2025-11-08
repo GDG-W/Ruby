@@ -1,4 +1,3 @@
-import laptop from "@/assets/speakers-laptop.png";
 import { fetchSpeakers } from "@/lib/actions";
 import { demoSpeakers } from "@/lib/speakers";
 import type { Speaker as ApiSpeaker } from "@/types/api";
@@ -41,7 +40,7 @@ export async function Speakers() {
 
   return (
     <section className={classes.speakers}>
-      <SpeakersWrapper speakers={speakers} laptopImage={laptop} />
+      <SpeakersWrapper speakers={speakers} />
     </section>
   );
 }

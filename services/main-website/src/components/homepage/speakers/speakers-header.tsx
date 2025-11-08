@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import carouselLeft from "@/assets/carousel-left.svg";
 import carouselRight from "@/assets/carousel-right.svg";
@@ -9,7 +10,6 @@ import learnListenRepeat from "@/assets/learn-listen-repeat.svg";
 import { Button } from "@/components/button/button";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import classes from "./speakers.module.scss";
-import Link from "next/link";
 
 interface SpeakersHeaderProps {
   speakerCount: number;

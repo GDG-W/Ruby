@@ -1,12 +1,12 @@
+import { clsx } from "clsx";
 import Image from "next/image";
+import dateAndLocationArrow from "@/assets/date-and-location-arrow.svg";
+import dateAndLocationMobileArrow from "@/assets/date-and-location-mobile-arrow.svg";
 import fiveDaysIcon from "@/assets/five-days.svg";
 import { ScheduleDayGroup } from "@/components/schedule/schedule-day-group";
 import { fetchConferenceData } from "@/lib/actions";
 import type { Session } from "@/types/api";
 import styles from "./page.module.scss";
-import dateAndLocationArrow from "@/assets/date-and-location-arrow.svg";
-import dateAndLocationMobileArrow from "@/assets/date-and-location-mobile-arrow.svg";
-import { clsx } from "clsx";
 
 const dayLabels = [
   { title: "TUE 18", shortLabel: "Day 1" },

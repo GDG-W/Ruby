@@ -6,6 +6,16 @@ import type { Session } from "@/types/api";
 import classes from "./schedule.module.scss";
 import { ScheduleWrapper } from "./schedule-wrapper";
 
+type Speaker = {
+  speaker_id: string;
+  speaker_name: string;
+  speaker_tagline: string;
+  speaker_bio: string;
+  speaker_img: string;
+  speaker_twitter: string;
+  speaker_linkedin: string;
+};
+
 function transformApiScheduleToScheduleData(
   allSchedule: Record<string, Session[]>,
 ) {
@@ -41,7 +51,7 @@ function transformApiScheduleToScheduleData(
     .filter(([_, sessions]) => sessions.length > 0)
     .map(([day, sessions]) => {
       const dayInfo = dayMappings[day as keyof typeof dayMappings] || {
-        title: day.toUpperCase() + " DAY",
+        title: `${day.toUpperCase()} DAY`,
         date: day,
         shortLabel: day,
       };
@@ -56,7 +66,9 @@ function transformApiScheduleToScheduleData(
             !acc.some((speaker) => speaker.speaker_id === session.speaker_id)
           ) {
             acc.push({
+              // biome-ignore lint/style/noNonNullAssertion: We're certain the value will be defined
               speaker_id: session.speaker_id!,
+              // biome-ignore lint/style/noNonNullAssertion: We're certain the value will be defined
               speaker_name: session.speaker_name!,
               speaker_tagline: "",
               speaker_bio: "",
@@ -66,7 +78,7 @@ function transformApiScheduleToScheduleData(
             });
           }
           return acc;
-        }, [] as any[]);
+        }, [] as Speaker[]);
 
       return {
         ...dayInfo,
@@ -83,7 +95,7 @@ export async function ScheduleSection() {
   const transformedSchedule = transformApiScheduleToScheduleData(
     allSchedule as Record<string, Session[]>,
   );
-  const totalSessions = Object.values(allSchedule).reduce(
+  const _totalSessions = Object.values(allSchedule).reduce(
     (total, sessions) => total + sessions.length,
     0,
   );

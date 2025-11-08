@@ -71,7 +71,7 @@ export function Footer() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{
             duration: 0.8,
-            ease: [0.68, -0.55, 0.265, 1.55] as any,
+            ease: [0.68, -0.55, 0.265, 1.55],
           }}
         />
 

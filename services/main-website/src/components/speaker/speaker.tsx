@@ -102,7 +102,7 @@ export function Speaker({
         minimized: isMobileAndReducedHeight ? 64 : 104,
       },
     };
-  }, [windowWidth]);
+  }, [windowWidth, reduceHeightOnMobile]);
 
   const [imageWrapperProps, imageWrapperApi] = useSpring(() => ({
     from: {

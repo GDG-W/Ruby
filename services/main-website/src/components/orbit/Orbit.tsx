@@ -7,7 +7,7 @@ import {
   useMotionValueEvent,
   useSpring,
 } from "motion/react";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import devfestLogo from "@/assets/devfest-logo.svg";
 
 import CircleWithRings from "./CircleWithRings";
@@ -157,7 +157,13 @@ function Orbit({ className }: { className: string }) {
       circleRefs[idx].animatedX.set(x - CIRCLE_SIZE / 2);
       circleRefs[idx].animatedY.set(y - CIRCLE_SIZE / 2);
     });
-  }, [angle, expandedCircleId]);
+  }, [
+    angle,
+    expandedCircleId,
+    circleRefs[idx].animatedX.set,
+    circleRefs[idx].animatedY.set,
+    settlingFlags[idx],
+  ]);
 
   // Handle expand/collapse
   useEffect(() => {
@@ -177,7 +183,15 @@ function Orbit({ className }: { className: string }) {
         circleRefs[idx].animatedY.set(y - CIRCLE_SIZE / 2);
       });
     }
-  }, [expandedCircleId, expandedSize]);
+  }, [
+    expandedCircleId,
+    expandedSize,
+    angle,
+    circleRefs[idx].animatedSize.set,
+    circleRefs[idx].animatedX.set,
+    circleRefs[idx].animatedY.set,
+    settlingFlags,
+  ]);
 
   const handleCircleClick = (id: CircleId) =>
     setExpandedCircleId((prev) => (prev === id ? null : id));

@@ -57,7 +57,6 @@ export function ScheduleDayGroup({
     <div
       className={clsx(styles.scheduleDayGroup, className)}
       ref={containerRef}
-      tabIndex={0}
     >
       <div className={styles.dayTabs}>
         {days.map((day, index) => (

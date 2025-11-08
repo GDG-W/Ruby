@@ -2,9 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
-import carouselLeft from "@/assets/carousel-left.svg";
-import carouselRight from "@/assets/carousel-right.svg";
+import laptopImage from "@/assets/speakers-laptop.png";
 import type { SpeakerProps } from "@/components/speaker/speaker";
 import { Speaker } from "@/components/speaker/speaker";
 import classes from "./speakers.module.scss";
@@ -13,14 +11,12 @@ const MotionImage = motion(Image);
 
 interface SpeakersCarouselProps {
   speakers: SpeakerProps[];
-  laptopImage: any;
   carouselRef: React.RefObject<HTMLDivElement | null>;
   carouselInView: boolean;
 }
 
 export function SpeakersCarousel({
   speakers,
-  laptopImage,
   carouselRef,
   carouselInView,
 }: SpeakersCarouselProps) {

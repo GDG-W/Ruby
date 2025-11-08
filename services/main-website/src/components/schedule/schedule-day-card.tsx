@@ -1,9 +1,9 @@
 import clsx from "clsx";
+import Link from "next/link";
 import type { Speaker as APISpeaker, Session } from "@/types/api";
 import { Button } from "../button/button";
 import styles from "./schedule-day-card.module.scss";
 import { ScheduleItemCard } from "./schedule-item-card";
-import Link from "next/link";
 
 export interface ScheduleDayCardProps {
   dayIndex: number;
@@ -30,7 +30,7 @@ export function ScheduleDayCard({
   onFocus,
   hideDescription = false,
 }: ScheduleDayCardProps) {
-  const handleRSVPClick = () => {
+  const _handleRSVPClick = () => {
     if (onRSVP) {
       onRSVP();
     }
@@ -50,7 +50,6 @@ export function ScheduleDayCard({
         isFocused && styles.focused,
         className,
       )}
-      tabIndex={0}
       onFocus={handleCardFocus}
       onMouseEnter={handleCardFocus}
     >

@@ -1,8 +1,8 @@
 "use server";
 
+import { console } from "node:inspector";
 import { unstable_cache } from "next/cache";
 import type { ConferenceData } from "@/types/api";
-import { console } from "inspector";
 
 const API_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbzm_bMJ2jUCF6Op7iDHioH5PzNCu7LL2FuLRLgNxmn0GPtM4ghJFrTKzVcufbNXD18a/exec";
