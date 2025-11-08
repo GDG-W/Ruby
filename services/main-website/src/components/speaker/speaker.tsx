@@ -87,14 +87,15 @@ export function Speaker({
     // Use window.innerWidth for immediate check, fallback to windowWidth hook
     const currentWidth = typeof window !== 'undefined' ? window.innerWidth : windowWidth;
     const isOnMobile = currentWidth > 0 && currentWidth < MOBILE_BREAKPOINT;
+    const isMobileAndReducedHeight = isOnMobile && reduceHeightOnMobile;
 
     return {
       imageWrapper: {
-        open: isOnMobile && reduceHeightOnMobile ? 186 : 308,
+        open: isMobileAndReducedHeight ? 186 : 308,
       },
       info: {
-        open: isOnMobile && reduceHeightOnMobile ? 188 : 404, // Reduced from 242 to 188 to fit max 252px total (186 + 64 + 4 margin = 254px, so 188 + 64 = 252px)
-        minimized: 104
+        open: isMobileAndReducedHeight ? 242 : 404,
+        minimized: isMobileAndReducedHeight ? 64 : 104
       },
     };
   }, [windowWidth]);
@@ -200,6 +201,7 @@ export function Speaker({
                 href={media.url}
                 aria-label={media.type}
                 className={classes.socialMediaLink}
+                target="_blank"
               >
                 <SocialIcon name={media.type} size={24} />
               </a>
