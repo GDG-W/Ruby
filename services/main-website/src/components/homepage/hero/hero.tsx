@@ -10,6 +10,7 @@ import heroImage from "@/assets/hero-image.png";
 import heroImageMobile from "@/assets/hero-image-mobile.png";
 import { Button } from "@/components/button/button";
 import styles from "./hero.module.scss";
+import Link from "next/link";
 
 export function HomepageHero() {
   return (
@@ -130,7 +131,11 @@ export function HomepageHero() {
           }}
           className={styles.callToActionInner}
         >
-          <Button className={styles.buyButton}>BUY TICKETS</Button>
+          <Button className={styles.buyButton}>
+            <Link href="https://tickets.devfestlagos.com" target="_blank">
+              BUY TICKETS
+            </Link>
+          </Button>
           <div className={styles.dateAndLocation}>
             <span>18-22 november, 2025</span>
             <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
