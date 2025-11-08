@@ -11,27 +11,27 @@ function transformApiScheduleToScheduleData(
 ) {
   const dayMappings = {
     "Day 1": {
-      title: "OPENING DAY",
+      title: "STUDENT DAY",
       date: "Tue 18",
       shortLabel: "Day 1",
     },
     "Day 2": {
-      title: "DESIGN & AI DAY",
+      title: "DESIGN & PRODUCT DAY",
       date: "Wed 19",
       shortLabel: "Day 2",
     },
     "Day 3": {
-      title: "WEB3 & BLOCKCHAIN DAY",
+      title: "WEB3, OPEN SOURCE & PRO DAY",
       date: "Thu 20",
       shortLabel: "Day 3",
     },
     "Day 4": {
-      title: "DEVELOPMENT DAY",
+      title: "ENGINEERING & SECURITY",
       date: "Fri 21",
       shortLabel: "Day 4",
     },
     "Day 5": {
-      title: "NETWORKING DAY",
+      title: "AI & CLOUD",
       date: "Sat 22",
       shortLabel: "Day 5",
     },
