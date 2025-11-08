@@ -60,14 +60,14 @@
   }
 }
 
-.flex{
+.dateAndLocationWrapper{
   display: flex;
   gap: 1rem;
   margin-top: 1.5rem;
   flex-direction: column;
-  max-width: 75%;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 22px;
 
   @include media(">tablet") {
     gap: 2rem;
@@ -76,6 +76,7 @@
     max-width: 95%;
     margin-left: auto;
     margin-right: auto;
+    padding: 0;
   }
 
   @include media(">desktop") {
@@ -124,8 +125,9 @@
         }
 
     &.first{
-           background-color: $pastel-blue; 
+           background-color: $pastel-blue;
         }
+
         &.second{
            background-color: $pastel-yellow;
         }

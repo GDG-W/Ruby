@@ -93,7 +93,7 @@ export default async function SchedulePage() {
           className={styles.fiveDaysIcon}
         />
       </div>
-      <div className={styles.flex}>
+      <div className={styles.dateAndLocationWrapper}>
           <div className={clsx(styles.dateAndLocation, styles.first)}>
             <span>18-21 Nov, 2025</span>
             <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
