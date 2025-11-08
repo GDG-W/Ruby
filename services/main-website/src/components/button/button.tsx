@@ -19,7 +19,7 @@ type NextLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   type: "a";
   to: string;
 };
-type ExternalLinkProps = LinkProps & { type: "link" };
+type ExternalLinkProps = LinkProps & { type: "link"; target?: string };
 
 type Props = BaseProps & (ButtonProps | NextLinkProps | ExternalLinkProps);
 

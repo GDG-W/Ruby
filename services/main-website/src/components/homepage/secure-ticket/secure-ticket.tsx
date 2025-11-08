@@ -8,7 +8,6 @@ import techiesAssemble from "@/assets/techies-assemble.svg";
 import ticketArrow from "@/assets/ticket-arrow.svg";
 import { Button } from "@/components/button/button";
 import classes from "./secure-ticket.module.scss";
-import Link from "next/link";
 
 // import { linear } from "motion";
 
@@ -113,9 +112,14 @@ export function SecureTicket() {
               </li>
             ))}
           </ul>
-          <Link href="https://tickets.devfestlagos.com" target="_blank">
-            <Button className={classes.buyButton}>BUY TICKETS</Button>
-          </Link>
+          <Button
+            className={classes.buyButton}
+            href="https://tickets.devfestlagos.com/buy"
+            target="_blank"
+            type="link"
+          >
+            BUY TICKETS
+          </Button>
         </motion.div>
         <motion.div
           className={`${classes.ticket} ${classes.pro}`}
@@ -142,9 +146,14 @@ export function SecureTicket() {
               </li>
             ))}
           </ul>
-          <Link href="https://tickets.devfestlagos.com" target="_blank">
-            <Button className={classes.buyButton}>BUY TICKETS</Button>
-          </Link>
+          <Button
+            className={classes.buyButton}
+            href="https://tickets.devfestlagos.com/buy#pro"
+            target="_blank"
+            type="link"
+          >
+            BUY TICKETS
+          </Button>
         </motion.div>
       </div>
     </div>
