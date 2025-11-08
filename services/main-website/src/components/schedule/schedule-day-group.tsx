@@ -70,7 +70,7 @@ export function ScheduleDayGroup({
             )}
             onClick={() => handleTabClick(index)}
           >
-            <span className={styles.tabLabel}>{day.shortLabel}</span>
+            <span className={styles.tabLabel}>{day.date}</span>
           </button>
         ))}
       </div>
