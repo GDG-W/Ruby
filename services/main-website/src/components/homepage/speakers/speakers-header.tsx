@@ -9,6 +9,7 @@ import learnListenRepeat from "@/assets/learn-listen-repeat.svg";
 import { Button } from "@/components/button/button";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import classes from "./speakers.module.scss";
+import Link from "next/link";
 
 interface SpeakersHeaderProps {
   speakerCount: number;
@@ -69,7 +70,9 @@ export function SpeakersHeader({
             and bold ideas to spark your next big move.
           </p>
         </div>
-        <Button>SEE FULL LINEUP</Button>
+        <Link href="/speakers">
+          <Button>SEE FULL LINEUP</Button>
+        </Link>
       </div>
       <div className={classes.controlButtons}>
         <button type="button" onClick={onScrollLeft}>
