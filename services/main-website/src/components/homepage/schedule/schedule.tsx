@@ -16,9 +16,17 @@ type Speaker = {
   speaker_linkedin: string;
 };
 
+export type ScheduleData = {
+  title: string;
+  date: string;
+  shortLabel: string;
+  description: string;
+  sessions: Session[];
+  speakers: Speaker[];
+};
 function transformApiScheduleToScheduleData(
   allSchedule: Record<string, Session[]>,
-) {
+): ScheduleData[] {
   const dayMappings = {
     "Day 1": {
       title: "STUDENT DAY",

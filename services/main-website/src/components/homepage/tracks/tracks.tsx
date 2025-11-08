@@ -39,7 +39,11 @@ function TrackImage({
   const [visible, setVisible] = useState<boolean>(false);
 
   return (
-    <div className={className} onClick={() => setVisible(true)}>
+    <button
+      type="button"
+      className={className}
+      onClick={() => setVisible(true)}
+    >
       <Image src={outlineImage} alt={outlineAlt} />
       <MotionImage
         src={baseImage}
@@ -59,7 +63,7 @@ function TrackImage({
           type: "spring",
         }}
       />
-    </div>
+    </button>
   );
 }
 
