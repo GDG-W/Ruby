@@ -79,7 +79,7 @@ export function ScheduleDayCard({
                 target={hideDescription ? "_self" : "_blank"}
               >
                 <Button className={styles.rsvpButton}>
-                  {hideDescription ? "See Full Schedule" : "RSVP Now"}
+                  {hideDescription ? "See Full Schedule" : "BUY TICKET"}
                 </Button>
               </Link>
             </div>
