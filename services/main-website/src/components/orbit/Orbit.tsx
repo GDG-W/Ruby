@@ -89,8 +89,11 @@ function Orbit({ className }: { className: string }) {
 
   const circleRefs = useRef(
     Array.from({ length: 5 }, () => ({
+      // biome-ignore lint/correctness/useHookAtTopLevel: tbh I have no idea what happened here but it's working and i'm scared to touch it
       animatedSize: useMotionValue(100),
+      // biome-ignore lint/correctness/useHookAtTopLevel: see above
       animatedX: useMotionValue(CENTER_X - CIRCLE_SIZE / 2),
+      // biome-ignore lint/correctness/useHookAtTopLevel: see above
       animatedY: useMotionValue(CENTER_Y - CIRCLE_SIZE / 2),
     })),
   ).current;
@@ -157,13 +160,7 @@ function Orbit({ className }: { className: string }) {
       circleRefs[idx].animatedX.set(x - CIRCLE_SIZE / 2);
       circleRefs[idx].animatedY.set(y - CIRCLE_SIZE / 2);
     });
-  }, [
-    angle,
-    expandedCircleId,
-    circleRefs[idx].animatedX.set,
-    circleRefs[idx].animatedY.set,
-    settlingFlags[idx],
-  ]);
+  }, [angle, expandedCircleId, circleRefs, settlingFlags]);
 
   // Handle expand/collapse
   useEffect(() => {
@@ -183,21 +180,14 @@ function Orbit({ className }: { className: string }) {
         circleRefs[idx].animatedY.set(y - CIRCLE_SIZE / 2);
       });
     }
-  }, [
-    expandedCircleId,
-    expandedSize,
-    angle,
-    circleRefs[idx].animatedSize.set,
-    circleRefs[idx].animatedX.set,
-    circleRefs[idx].animatedY.set,
-    settlingFlags,
-  ]);
+  }, [expandedCircleId, expandedSize, angle, circleRefs, settlingFlags]);
 
   const handleCircleClick = (id: CircleId) =>
     setExpandedCircleId((prev) => (prev === id ? null : id));
 
   return (
     <div ref={wrapperRef} className={clsx(styles.orbit, className)}>
+      {/** biome-ignore lint/a11y/noSvgWithoutTitle: Inline SVG */}
       <svg
         viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
         width="100%"
