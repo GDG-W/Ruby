@@ -1,15 +1,34 @@
+export type Member = {
+  readonly firstName: string;
+  readonly lastName: string;
+  readonly role: string;
+  readonly image: string;
+  readonly music: {
+    readonly artist: string;
+    readonly song: string;
+    readonly link: string;
+  };
+  readonly question: string;
+  readonly answer: string;
+  readonly socialMedia: ReadonlyArray<{
+    readonly type: string;
+    readonly url: string;
+  }>;
+};
+
 export const members = [
   {
     firstName: "Isreal",
     lastName: "Aluko",
     role: "Engineering",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
       link: "https://music.youtube.com/watch?v=dZxe2T7-3QQ&si=SbzBznfKp3AoD4Np",
     },
-    question: "What's something people are usually surprised to learn about you?",
+    question:
+      "What's something people are usually surprised to learn about you?",
     answer:
       "People are usually surprised to learn that I started out studying Geophysics, not Computer Science. My path into tech came from curiosity — automating small tasks, breaking things, and learning to fix them again. That background taught me to think analytically and find patterns, which I now apply daily as a software engineer.",
     socialMedia: [
@@ -31,7 +50,7 @@ export const members = [
     firstName: "Daniel",
     lastName: "Umoren",
     role: "QA",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -58,7 +77,7 @@ export const members = [
     firstName: "Aliyyah",
     lastName: "Kalejaye",
     role: "Marketing",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -85,7 +104,7 @@ export const members = [
     firstName: "Florence",
     lastName: "Ogunbore",
     role: "Product Management",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -112,7 +131,7 @@ export const members = [
     firstName: "Moyomade",
     lastName: "Adegbite",
     role: "Engineering",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -135,7 +154,7 @@ export const members = [
     firstName: "Treasure",
     lastName: "Ajefu",
     role: "Content",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -163,13 +182,14 @@ export const members = [
     firstName: "Sebastine",
     lastName: "Odeh",
     role: "Engineering",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
       link: "https://music.youtube.com/watch?v=whbczRUgYQw&si=PhJEsIOtqPGvH8C8",
     },
-    question: "What's something people are usually surprised to learn about you?",
+    question:
+      "What's something people are usually surprised to learn about you?",
     answer: "Being the first of four children",
     socialMedia: [
       {
@@ -186,7 +206,7 @@ export const members = [
     firstName: "Faisal",
     lastName: "Adams Omokugbo",
     role: "Content",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -214,7 +234,7 @@ export const members = [
     firstName: "Durosinlohun",
     lastName: "Uthman Olalekan",
     role: "Engineering",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -237,7 +257,7 @@ export const members = [
     firstName: "Efe",
     lastName: "Akhigbe",
     role: "Design",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -265,7 +285,7 @@ export const members = [
     firstName: "Emmanuel",
     lastName: "Olubiyi",
     role: "Engineering",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -292,14 +312,15 @@ export const members = [
     firstName: "Faith",
     lastName: "Onasanya",
     role: "Design",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
       link: "https://music.youtube.com/watch?v=6F_0p1T2Lgc&si=XbKf_4PBVrzBAqOg",
     },
     question: "What's a quote you live by?",
-    answer: '"Do the best you can until you know better. Then when you know better , do better "- Maya Angelou',
+    answer:
+      '"Do the best you can until you know better. Then when you know better , do better "- Maya Angelou',
     socialMedia: [
       {
         type: "linkedin",
@@ -319,14 +340,15 @@ export const members = [
     firstName: "Khadijah",
     lastName: "Abdulkabir",
     role: "Design",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
       link: "https://music.youtube.com/watch?v=-0BDGSeAn1w&si=j0qxsgKV1-oW7QZw",
     },
     question: "What's a quote you live by?",
-    answer: 'Wa ma tawfiqi illa billah translates to "And verily my success is only by Allah"',
+    answer:
+      'Wa ma tawfiqi illa billah translates to "And verily my success is only by Allah"',
     socialMedia: [
       {
         type: "linkedin",
@@ -342,7 +364,7 @@ export const members = [
     firstName: "Rebecca",
     lastName: "Adegbesan",
     role: "Design",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -369,7 +391,7 @@ export const members = [
     firstName: "TemiTope",
     lastName: "Aiyegbusi",
     role: "Design",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -392,7 +414,7 @@ export const members = [
     firstName: "Motunrayo",
     lastName: "Sanni",
     role: "QA",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -419,7 +441,7 @@ export const members = [
     firstName: "Ijeoma",
     lastName: "Odiaka",
     role: "Design",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -442,7 +464,7 @@ export const members = [
     firstName: "Malik",
     lastName: "Temitope Usamot",
     role: "Content",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -469,7 +491,7 @@ export const members = [
     firstName: "Tolulope",
     lastName: "Johnson",
     role: "Design",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -496,7 +518,7 @@ export const members = [
     firstName: "Timilehin",
     lastName: "Omolana",
     role: "Engineering",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -516,7 +538,7 @@ export const members = [
     firstName: "Favour",
     lastName: "Attah",
     role: "Content",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -535,7 +557,7 @@ export const members = [
     firstName: "Gabriel",
     lastName: "Shoyombo",
     role: "Engineering",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
@@ -562,14 +584,15 @@ export const members = [
     firstName: "Samuel",
     lastName: "Abada",
     role: "Engineering",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
       link: "https://music.youtube.com/watch?v=YE6jg1_RSec&si=Ev_CsC947rUCKwoF",
     },
     question: "What's a quote you live by?",
-    answer: "if you gaze long into an abyss, the abyss also gazes into you. Be careful not to blink",
+    answer:
+      "if you gaze long into an abyss, the abyss also gazes into you. Be careful not to blink",
     socialMedia: [
       {
         type: "linkedin",
@@ -589,13 +612,14 @@ export const members = [
     firstName: "Okunoye",
     lastName: "David",
     role: "Engineering",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
       link: "https://music.youtube.com/watch?v=1rMFPDMiMVg&list=PLzgUv3CnsSzU4-SanCOzdY4xjUubVd-uv",
     },
-    question: "What's something people are usually surprised to learn about you?",
+    question:
+      "What's something people are usually surprised to learn about you?",
     answer: "I'm an instrumentalist",
     socialMedia: [
       {
@@ -612,14 +636,15 @@ export const members = [
     firstName: "Oyeyemi",
     lastName: "Ifeoluwa",
     role: "Engineering",
-    image: "",
+    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
       artist: "",
       song: "",
       link: "https://music.youtube.com/watch?v=2MHsDNV9lgY",
     },
     question: "What's your comfort activity when you need a mental reset?",
-    answer: "When I need a mental reset, I get a bottle of wine, cake and a book.",
+    answer:
+      "When I need a mental reset, I get a bottle of wine, cake and a book.",
     socialMedia: [
       {
         type: "twitter",
@@ -724,4 +749,3 @@ export const members = [
     ],
   },
 ] as const;
-
