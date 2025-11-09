@@ -518,7 +518,8 @@ export const members = [
     firstName: "Timilehin",
     lastName: "Omolana",
     role: "Engineering",
-    image: "https://i.ibb.co/1J2xBNdk/AP1-Gcz-MX8-Pg-Mnake-Via6-Deqr-Jc-ZYHS8-O1znk-BCVe1uen-2-Lk6-Kwc0a-Gq-Me-OVb-WHmqp-XN-ZMYq-WKT1f-W5s.jpg",
+    image:
+      "https://i.ibb.co/1J2xBNdk/AP1-Gcz-MX8-Pg-Mnake-Via6-Deqr-Jc-ZYHS8-O1znk-BCVe1uen-2-Lk6-Kwc0a-Gq-Me-OVb-WHmqp-XN-ZMYq-WKT1f-W5s.jpg",
     music: {
       artist: "Dunsin Oyekan",
       song: "Spirit (Live)",
@@ -557,7 +558,8 @@ export const members = [
     firstName: "Gabriel",
     lastName: "Shoyombo",
     role: "Engineering",
-    image: "https://i.ibb.co/yF0jDZgL/Whats-App-Image-2025-06-17-at-8-03-55-PM.jpg",
+    image:
+      "https://i.ibb.co/yF0jDZgL/Whats-App-Image-2025-06-17-at-8-03-55-PM.jpg",
     music: {
       artist: "Nathaniel Bassey",
       song: "Yahweh Sabaoth",
@@ -836,14 +838,16 @@ export const members = [
     firstName: "Oluwatobiju",
     lastName: "Judah",
     role: "Engineering",
-    image: "https://i.ibb.co/9m569vWJ/PXL-20250603-125954356-LS-exported-572-1762722779350-2.webp",
+    image:
+      "https://i.ibb.co/9m569vWJ/PXL-20250603-125954356-LS-exported-572-1762722779350-2.webp",
     music: {
       artist: "Searows",
       song: "End Of The World",
       link: "https://music.youtube.com/watch?v=RWHc_Pwb-5M&si=SRUrHKjcKrPC90Xp",
     },
     question: "What’s your comfort activity when you need a mental reset?",
-    answer: "Beach House music. Destroying my body at the gym. Cleaning, arranging & organising.",
+    answer:
+      "Beach House music. Destroying my body at the gym. Cleaning, arranging & organising.",
     socialMedia: [
       {
         type: "linkedin",

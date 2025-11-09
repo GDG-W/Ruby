@@ -110,10 +110,13 @@ export const MembersCarousel = ({ members }: MembersCarouselProps) => {
                 />
                 <div className={styles.other}>
                   <p className={sharedStyles.question}>{member.question}</p>
-                  <p className={sharedStyles.answer}>
-                    '{member.answer}'
-                  </p>
-                  <a href={member.music.link} target="_blank" rel="noopener noreferrer" className={sharedStyles.music}>
+                  <p className={sharedStyles.answer}>'{member.answer}'</p>
+                  <a
+                    href={member.music.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={sharedStyles.music}
+                  >
                     <Image
                       width={20}
                       height={20}
