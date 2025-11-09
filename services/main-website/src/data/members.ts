@@ -52,8 +52,8 @@ export const members = [
     role: "QA",
     image: "https://i.ibb.co/FqjrHVvr/IMG-2267.jpg",
     music: {
-      artist: "Ahmed Spins",
-      song: "Sawa (feat. Idd Aziz)",
+      artist: "Ahmed Spins ft. Idd Aziz",
+      song: "Sawa",
       link: "https://music.youtube.com/watch?v=dzLu7elxnJI&si=WHLadbSstAt_028v",
     },
     question: "What's a quote you live by?",
@@ -154,10 +154,10 @@ export const members = [
     firstName: "Treasure",
     lastName: "Ajefu",
     role: "Content",
-    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
+    image: "https://i.ibb.co/MDtXTW4m/2875fa98-896e-4e97-a4f5-3f0e016eabc2.jpg",
     music: {
-      artist: "",
-      song: "",
+      artist: "Hugh Jackman & The Greatest Showman Ensemble",
+      song: "From Now On",
       link: "https://music.youtube.com/watch?v=25MqD0hHo14&si=uYByL156sHl4YqWS",
     },
     question: "What's a quote you live by?",
@@ -182,10 +182,10 @@ export const members = [
     firstName: "Sebastine",
     lastName: "Odeh",
     role: "Engineering",
-    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
+    image: "https://i.ibb.co/JWzw45HH/Headshot.jpg",
     music: {
-      artist: "",
-      song: "",
+      artist: "Don Toliver ft. Doja Cat",
+      song: "Lose My Mind",
       link: "https://music.youtube.com/watch?v=whbczRUgYQw&si=PhJEsIOtqPGvH8C8",
     },
     question:
