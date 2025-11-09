@@ -1,0 +1,100 @@
+.emblaViewport {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 192px); // Account for section padding
+  z-index: 5;
+  overflow: hidden;
+  height: calc(427px * 2.2); // Match .members height
+
+  @include media("<=desktop-sm") {
+  height: 100%;
+  width: calc(100% - 48px);
+  }
+}
+
+.emblaContainer {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+
+  @include media("<=desktop-sm") {
+    row-gap: 3.2rem;
+  }
+}
+
+.emblaSlide {
+  flex: 0 0 427px;
+  min-height: 0;
+  height: 427px;
+
+  @include media("<=desktop-sm") {
+    flex: 0 0 auto;
+    height: auto;
+  }
+}
+
+.largeItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 427px;
+
+  @include media("<=desktop-sm") {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }
+}
+
+.info {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include media("<=desktop-sm") {
+    width: 100%;
+    order: 3;
+    margin-top: 3.2rem;
+  }
+}
+
+.image {
+  border: 6px solid transparent;
+  border-radius: 6px;
+  transition: border-color 0.8s ease-out;
+  object-fit: cover;
+
+  &.active {
+    border-color: $grey-0;
+    transition: border-color 0.8s ease-in;
+  }
+
+  @include media("<=desktop-sm") {
+    order: 1;
+    max-width: 100%;
+    width: 392px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+.other {
+  width: 26%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 4%;
+  // align-items: flex-end;
+
+  @include media("<=desktop-sm") {
+    width: 100%;
+    order: 2;
+    align-items: flex-start;
+  }
+
+}

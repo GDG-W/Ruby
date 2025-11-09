@@ -1,116 +1,117 @@
 "use client";
 
+import clsx from "clsx";
 import Image from "next/image";
-import React, { useCallback, useEffect, useState } from "react";
-import { motion } from "motion/react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import { SocialIcon } from "@/components/socials/SocialIcon";
+import React, { useMemo, useState } from "react";
 import { members } from "@/data/members";
 import styles from "./members.module.scss";
+import { MembersCarousel } from "./members-carousel";
+import { MembersList } from "./members-list";
 
-const CAROUSEL_INTERVAL = 5000; // 5 seconds
+type ViewMode = "carousel" | "list";
+
+const ROLES = [
+  "All",
+  "Organizer",
+  "Design",
+  "Engineering",
+  "Product",
+  "Marketing",
+  "QA",
+  "Content",
+] as const;
 
 const Members = () => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [viewMode, setViewMode] = useState<ViewMode>("list");
+  const [selectedRole, setSelectedRole] = useState<string>("All");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      axis: "y",
-      loop: true,
-      align: (viewSize) => viewSize * 0.375,
-      duration: 25, // Smooth transition speed (embla uses spring physics)
-    },
-    [Autoplay({ delay: CAROUSEL_INTERVAL, stopOnInteraction: false })],
-  );
+  const filteredMembers = useMemo(() => {
+    if (selectedRole === "All") return members;
+    return members.filter(
+      (member) => member.role.toLowerCase() === selectedRole.toLowerCase(),
+    );
+  }, [selectedRole]);
 
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-    return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
-    };
-  }, [emblaApi, onSelect]);
+  const handleRoleSelect = (role: string) => {
+    setSelectedRole(role);
+    setIsModalOpen(false);
+  };
 
   return (
     <section className={styles.members}>
       <div className={styles.content}>
         <h2 className={styles.title}>
-          The <br className={styles.lineBreak} /> Team
+          The <br className={styles.break} /> Team
         </h2>
-      </div>
-      <div className={styles.emblaViewport} ref={emblaRef}>
-        <ul className={styles.emblaContainer}>
-          {members.map((member, index) => {
-            const isActive = index === selectedIndex;
 
-            return (
-              <motion.li
-                className={styles.emblaSlide}
-                key={`${member.firstName}-${index}`}
-                animate={{ opacity: isActive ? 1 : 0.1 }}
-                transition={{
-                  duration: 0.8,
-                  ease: !isActive ? "easeOut" : "easeIn",
-                }}
-              >
-                <div className={styles.largeItem}>
-                  <div className={styles.info}>
-                    <p className={styles.firstName}>{member.firstName}</p>
-                    <p className={styles.lastName}>{member.lastName}</p>
-                    <p className={styles.role}>did {member.role}</p>
-                    <div className={styles.social}>
-                      {member.socialMedia.map((social) => (
-                        <a
-                          target="_blank"
-                          href={social.url}
-                          key={social.type}
-                          rel="noopener noreferrer"
-                          className={styles.socialLink}
-                        >
-                          <SocialIcon name={social.type.toLowerCase()} size={50} />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                  <Image
-                    width={320}
-                    height={427}
-                    src={member.image}
-                    alt={member.firstName}
-                    className={`${styles.image} ${isActive ? styles.active : ''}`}
-                  />
-                  <div className={styles.other}>
-                    <p className={styles.question}>{member.question}</p>
-                    <p className={styles.answer}>"{member.answer}"</p>
-                    <div className={styles.music}>
-                      <Image
-                        width={16}
-                        height={16}
-                        src="/yt-music.svg"
-                        alt="YouTube Music"
-                        className={styles.youtubeMusic}
-                      />
-                      <p>Listening to </p>
-                      <p className={styles.song}>
-                        {member.music.song} - {member.music.artist}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.li>
-            );
-          })}
-        </ul>
+        <div className={styles.inner}>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className={styles.dropdown}
+          >
+            {selectedRole}
+          </button>
+          <div className={styles.toggle}>
+          <button
+            aria-label="Carousel view"
+            onClick={() => setViewMode("carousel")}
+            className={clsx(
+              styles.button,
+              viewMode === "carousel" && styles.active,
+            )}
+          >
+            <Image
+              alt=""
+              width={16}
+              height={16}
+              src="/carousel.svg"
+              className={styles.icon}
+            />
+          </button>
+          <button
+            aria-label="List view"
+            onClick={() => setViewMode("list")}
+            className={clsx(
+              styles.button,
+              viewMode === "list" && styles.active,
+            )}
+          >
+            <Image
+              alt=""
+              width={16}
+              height={11}
+              src="/list.svg"
+              className={styles.icon}
+            />
+          </button>
+          <span className={styles.label}>Layout</span>
+        </div>
+        </div>
       </div>
+
+      {viewMode === "list" && (
+        <div className={styles.filters}>
+          <div className={styles.pills}>
+            {ROLES.map((role) => (
+              <button
+                key={role}
+                className={`${styles.pill} ${selectedRole === role ? styles.active : ""}`}
+                onClick={() => setSelectedRole(role)}
+              >
+                {role}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {viewMode === "carousel" ? (
+        <MembersCarousel members={filteredMembers} />
+      ) : (
+        <MembersList members={filteredMembers} />
+      )}
+
       <Image
         src="/stickers/al:ml-prompt-like-a-pro.svg"
         alt="AI/ML Prompt Like a Pro"
@@ -125,6 +126,37 @@ const Members = () => {
         height={172}
         className={styles.sticker2}
       />
+
+      {isModalOpen && (
+        <div
+          className={styles.overlay}
+          onClick={() => setIsModalOpen(false)}
+        >
+          <div
+            className={styles.modal}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className={styles.close}
+              onClick={() => setIsModalOpen(false)}
+            >
+              CLOSE
+            </button>
+              {ROLES.map((role) => (
+                <button
+                  key={role}
+                  className={clsx(
+                    styles.option,
+                    selectedRole === role && styles.active,
+                  )}
+                  onClick={() => handleRoleSelect(role)}
+                >
+                  {role}
+                </button>
+              ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
