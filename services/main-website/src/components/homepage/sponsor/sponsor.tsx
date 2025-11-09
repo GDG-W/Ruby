@@ -2,16 +2,16 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import google from "@/assets/sponsors/google.png";
 import threemtt from "@/assets/sponsors/3mtt.png";
 import alat from "@/assets/sponsors/alat.png";
 import bitnob from "@/assets/sponsors/bitnob.png";
 import cadana from "@/assets/sponsors/cadana.png";
 import cleva from "@/assets/sponsors/cleva.png";
 import gdgBag from "@/assets/sponsors/gdg-bag.svg";
+import google from "@/assets/sponsors/google.png";
 import shecodeafrica from "@/assets/sponsors/shecodeafrica.png";
-import techcabal from "@/assets/sponsors/techcabal.png";
 import splitIcon from "@/assets/sponsors/split.png";
+import techcabal from "@/assets/sponsors/techcabal.png";
 import classes from "./sponsor.module.scss";
 
 const sponsorImages = [
@@ -48,16 +48,20 @@ export function Sponsor() {
       </div>
       <div className={classes.logosContainer}>
         <div className={classes.logos}>
-          {sponsorImages.concat(sponsorImages).concat(sponsorImages).concat(sponsorImages).map((image, index) => (
-            <>
-              <Image
-                src={image}
-                alt={`sponsor-${index}`}
-                className={classes.logo}
-              />
-              <Image src={splitIcon} alt={`split-${index}`} />
-            </>
-          ))}
+          {sponsorImages
+            .concat(sponsorImages)
+            .concat(sponsorImages)
+            .concat(sponsorImages)
+            .map((image, index) => (
+              <>
+                <Image
+                  src={image}
+                  alt={`sponsor-${index}`}
+                  className={classes.logo}
+                />
+                <Image src={splitIcon} alt={`split-${index}`} />
+              </>
+            ))}
         </div>
       </div>
     </motion.section>
