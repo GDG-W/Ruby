@@ -146,7 +146,7 @@ export function HomepageHero() {
               alt=""
               className={styles.mobileArrow}
             />
-            <span>5 Days, 2 Venues 🚀</span>
+            <span>National Theatre, Iganmu</span>
           </div>
         </motion.div>
       </motion.div>
