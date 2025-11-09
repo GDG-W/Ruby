@@ -31,7 +31,6 @@ const FADE_DURATION = 135;
 const ORBIT_SPEED = 0.0025;
 
 const TARGET_FRAME_TIME = 16.67; // 1000ms / 60fps
-const COLLAPSE_REORBIT_DELAY = 120;
 
 const CIRCLES_CONFIG = [
   {
@@ -160,27 +159,14 @@ function Orbit({ className }: { className: string }) {
     <div 
       ref={wrapperRef} 
       className={clsx(styles.orbit, className)}
-      style={{ 
-        minHeight: '600px',
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}
     >
       {/** biome-ignore lint/a11y/noSvgWithoutTitle: Inline SVG */}
       <svg
-        viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
         width="100%"
         height="100%"
-        style={{ 
-          maxWidth: '600px',
-          maxHeight: '600px',
-          width: '100%',
-          height: 'auto'
-        }}
-        preserveAspectRatio="xMidYMid meet"
         className={styles.svg}
+        preserveAspectRatio="xMidYMid meet"
+        viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
       >
         {/* Concentric guide rings */}
         {[INNER_GUIDE_RADIUS, MIDDLE_ORBIT_RADIUS, OUTER_ORBIT_RADIUS].map(
