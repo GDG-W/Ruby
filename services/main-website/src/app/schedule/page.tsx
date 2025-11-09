@@ -60,7 +60,7 @@ export default async function SchedulePage() {
     const allSessions = sessions;
 
     // Get day title from API Days data
-    const dayInfo = conferenceData.Days?.find(d => d.day === dayIndex);
+    const dayInfo = conferenceData.Days?.find((d) => d.day === dayIndex);
     const dayTitle = dayInfo?.day_title || `DAY ${dayIndex}`;
 
     scheduleData.push({

@@ -1,9 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import {
-  useInView,
-} from "motion/react";
+import { useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import devfestLogo from "@/assets/devfest-logo.svg";
 
@@ -88,7 +86,7 @@ function Orbit({ className }: { className: string }) {
         y: initialCenterY,
         size: CIRCLE_SIZE,
       };
-    })
+    }),
   );
 
   // Expanded size memo
@@ -156,10 +154,7 @@ function Orbit({ className }: { className: string }) {
     setExpandedCircleId((prev) => (prev === id ? null : id));
 
   return (
-    <div 
-      ref={wrapperRef} 
-      className={clsx(styles.orbit, className)}
-    >
+    <div ref={wrapperRef} className={clsx(styles.orbit, className)}>
       {/** biome-ignore lint/a11y/noSvgWithoutTitle: Inline SVG */}
       <svg
         width="100%"
@@ -212,20 +207,20 @@ function Orbit({ className }: { className: string }) {
                   isVisible && isInitialDelayComplete ? "auto" : "none",
               }}
             >
-              <g 
+              <g
                 transform={`translate(${position.x}, ${position.y})`}
                 style={{
-                  transition: isExpanded 
-                    ? 'transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)' 
-                    : 'none',
+                  transition: isExpanded
+                    ? "transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)"
+                    : "none",
                 }}
               >
-                <g 
+                <g
                   transform={`scale(${scale})`}
                   style={{
-                    transition: isExpanded 
-                      ? 'transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)' 
-                      : 'none',
+                    transition: isExpanded
+                      ? "transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)"
+                      : "none",
                   }}
                 >
                   <CircleWithRings
@@ -247,4 +242,3 @@ function Orbit({ className }: { className: string }) {
 
 // Export the shared constant for sibling components
 export { Orbit as default, OUTER_RING_RATIO };
-

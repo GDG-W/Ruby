@@ -107,7 +107,7 @@ export async function ScheduleSection() {
     (total, sessions) => total + sessions.length,
     0,
   );
-  const totalDays = Object.keys(allSchedule).length || 5;
+  const _totalDays = Object.keys(allSchedule).length || 5;
 
   return (
     <section className={classes.schedule}>
@@ -116,8 +116,9 @@ export async function ScheduleSection() {
           ALL INCLUSIVE <br /> SESSIONS
         </h2>
         <p className={classes.description}>
-          We promised to go bigger this year, and we're delivering.{" "} 
-          Five days of field-specific sessions that you don't want to miss! Yes, we have something for everyone.
+          We promised to go bigger this year, and we're delivering. Five days of
+          field-specific sessions that you don't want to miss! Yes, we have
+          something for everyone.
         </p>
         <Image src={fiveDays} alt="Five Days" className={classes.fiveDays} />
       </div>

@@ -74,13 +74,13 @@ export function ScheduleItemCard({
     if (!timeString || timeString === "NULL") return "";
 
     // Debug: Log the actual time string received
-    console.log('Raw time from API:', timeString, 'Type:', typeof timeString);
+    console.log("Raw time from API:", timeString, "Type:", typeof timeString);
 
     // Handle different time formats that might come from the API
 
     // If it's already in 12-hour format (e.g., "2:30 PM"), return as is
     if (/^\d{1,2}:\d{2}\s?(AM|PM)$/i.test(timeString.trim())) {
-      console.log('Matched 12-hour format');
+      console.log("Matched 12-hour format");
       return timeString.trim();
     }
 
@@ -102,12 +102,12 @@ export function ScheduleItemCard({
       const timeMatch = timeString.match(/T(\d{2}):(\d{2}):(\d{2})/);
       if (timeMatch) {
         const [, hours, minutes] = timeMatch;
-        
+
         // Create a date representing this time in Lagos timezone (UTC+1)
         // We'll use a known conference date (Nov 22, 2025 for Day 5)
-        const lagosTime = new Date('2025-11-22T00:00:00+01:00');
+        const lagosTime = new Date("2025-11-22T00:00:00+01:00");
         lagosTime.setHours(parseInt(hours, 10), parseInt(minutes, 10), 0, 0);
-        
+
         // Now convert to user's timezone by formatting the Lagos time for local display
         return lagosTime.toLocaleTimeString(undefined, {
           hour: "numeric",

@@ -47,7 +47,6 @@ function CircleWithRings({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
-      role="img"
       aria-label="Interactive circle"
       transform={`scale(${scale})`}
       // biome-ignore lint/a11y/useAriaPropsForRole: cursor needs to be on SVG element
