@@ -3,9 +3,6 @@
 import clsx from "clsx";
 import {
   useInView,
-  useMotionValue,
-  useMotionValueEvent,
-  useSpring,
 } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import devfestLogo from "@/assets/devfest-logo.svg";
@@ -32,10 +29,9 @@ const STROKE_WIDTH = 2;
 const EXPAND_GAP = 10;
 const FADE_DURATION = 135;
 const ORBIT_SPEED = 0.0025;
-const SPRING_CONFIG = { stiffness: 400, damping: 30, mass: 1 };
 
 const TARGET_FRAME_TIME = 16.67; // 1000ms / 60fps
-const SETTLING_VELOCITY_THRESHOLD = 50;
+const COLLAPSE_REORBIT_DELAY = 120;
 
 const CIRCLES_CONFIG = [
   {
@@ -82,40 +78,19 @@ function Orbit({ className }: { className: string }) {
     null,
   );
 
-  // Track settling flags outside of React state to avoid re-renders
-  const settlingFlags = useRef<boolean[]>(
-    CIRCLES_CONFIG.map(() => false),
-  ).current;
-
-  const circleRefs = useRef(
-    Array.from({ length: 5 }, () => ({
-      // biome-ignore lint/correctness/useHookAtTopLevel: tbh I have no idea what happened here but it's working and i'm scared to touch it
-      animatedSize: useMotionValue(100),
-      // biome-ignore lint/correctness/useHookAtTopLevel: see above
-      animatedX: useMotionValue(CENTER_X - CIRCLE_SIZE / 2),
-      // biome-ignore lint/correctness/useHookAtTopLevel: see above
-      animatedY: useMotionValue(CENTER_Y - CIRCLE_SIZE / 2),
-    })),
-  ).current;
-
-  const springs = useRef(
-    circleRefs.map((c) => ({
-      springX: useSpring(c.animatedX, SPRING_CONFIG),
-      springY: useSpring(c.animatedY, SPRING_CONFIG),
-      springSize: useSpring(c.animatedSize, SPRING_CONFIG),
-    })),
-  ).current;
-
-  springs.forEach((spr, idx) => {
-    // settling detection on X updates only
-    useMotionValueEvent(spr.springX, "change", () => {
-      if (!settlingFlags[idx]) return;
-      const vx = spr.springX.getVelocity();
-      const vy = spr.springY.getVelocity();
-      const totalV = Math.sqrt(vx * vx + vy * vy);
-      if (totalV < SETTLING_VELOCITY_THRESHOLD) settlingFlags[idx] = false;
-    });
-  });
+  // State to track circle positions for rendering
+  const [circlePositions, setCirclePositions] = useState(() =>
+    CIRCLES_CONFIG.map((cfg) => {
+      const initialAngle = cfg.angleOffset;
+      const initialCenterX = CENTER_X + cfg.radius * Math.cos(initialAngle);
+      const initialCenterY = CENTER_Y + cfg.radius * Math.sin(initialAngle);
+      return {
+        x: initialCenterX,
+        y: initialCenterY,
+        size: CIRCLE_SIZE,
+      };
+    })
+  );
 
   // Expanded size memo
   const expandedSize = (OUTER_ORBIT_RADIUS - EXPAND_GAP) / OUTER_RING_RATIO;
@@ -149,49 +124,61 @@ function Orbit({ className }: { className: string }) {
     return () => cancelAnimationFrame(raf);
   }, [isInView, pageVisible]);
 
-  // Orbiting update on angle change
+  // Update positions based on angle
   useEffect(() => {
-    CIRCLES_CONFIG.forEach((cfg, idx) => {
-      const isExpanded = expandedCircleId === cfg.id;
-      if (isExpanded || settlingFlags[idx]) return;
-      const a = angle + cfg.angleOffset;
-      const x = CENTER_X + cfg.radius * Math.cos(a);
-      const y = CENTER_Y + cfg.radius * Math.sin(a);
-      circleRefs[idx].animatedX.set(x - CIRCLE_SIZE / 2);
-      circleRefs[idx].animatedY.set(y - CIRCLE_SIZE / 2);
-    });
-  }, [angle, expandedCircleId, circleRefs, settlingFlags]);
-
-  // Handle expand/collapse
-  useEffect(() => {
-    if (expandedCircleId !== null) {
-      const idx = CIRCLES_CONFIG.findIndex((c) => c.id === expandedCircleId);
-      circleRefs[idx].animatedSize.set(expandedSize);
-      circleRefs[idx].animatedX.set(CENTER_X - expandedSize / 2);
-      circleRefs[idx].animatedY.set(CENTER_Y - expandedSize / 2);
-    } else {
+    setCirclePositions((prev) => {
+      const newPositions = [...prev];
       CIRCLES_CONFIG.forEach((cfg, idx) => {
-        settlingFlags[idx] = true;
-        circleRefs[idx].animatedSize.set(CIRCLE_SIZE);
-        const a = angle + cfg.angleOffset;
-        const x = CENTER_X + cfg.radius * Math.cos(a);
-        const y = CENTER_Y + cfg.radius * Math.sin(a);
-        circleRefs[idx].animatedX.set(x - CIRCLE_SIZE / 2);
-        circleRefs[idx].animatedY.set(y - CIRCLE_SIZE / 2);
+        const isExpanded = expandedCircleId === cfg.id;
+        if (isExpanded) {
+          // Expanded circle stays centered
+          newPositions[idx] = {
+            x: CENTER_X,
+            y: CENTER_Y,
+            size: expandedSize,
+          };
+        } else {
+          // Orbiting circles
+          const a = angle + cfg.angleOffset;
+          const x = CENTER_X + cfg.radius * Math.cos(a);
+          const y = CENTER_Y + cfg.radius * Math.sin(a);
+          newPositions[idx] = {
+            x,
+            y,
+            size: CIRCLE_SIZE,
+          };
+        }
       });
-    }
-  }, [expandedCircleId, expandedSize, angle, circleRefs, settlingFlags]);
+      return newPositions;
+    });
+  }, [angle, expandedCircleId, expandedSize]);
 
   const handleCircleClick = (id: CircleId) =>
     setExpandedCircleId((prev) => (prev === id ? null : id));
 
   return (
-    <div ref={wrapperRef} className={clsx(styles.orbit, className)}>
+    <div 
+      ref={wrapperRef} 
+      className={clsx(styles.orbit, className)}
+      style={{ 
+        minHeight: '600px',
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
       {/** biome-ignore lint/a11y/noSvgWithoutTitle: Inline SVG */}
       <svg
         viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
         width="100%"
-        height="auto"
+        height="100%"
+        style={{ 
+          maxWidth: '600px',
+          maxHeight: '600px',
+          width: '100%',
+          height: 'auto'
+        }}
         preserveAspectRatio="xMidYMid meet"
         className={styles.svg}
       >
@@ -221,48 +208,50 @@ function Orbit({ className }: { className: string }) {
 
         {/* Orbiting circles */}
         {CIRCLES_CONFIG.map((cfg, idx) => {
-          const size = springs[idx].springSize.get();
-          const xPos = springs[idx].springX.get();
-          const yPos = springs[idx].springY.get();
-          const scale = size / CIRCLE_SIZE;
+          const position = circlePositions[idx];
           const isExpanded = expandedCircleId === cfg.id;
           const isVisible = expandedCircleId === null || isExpanded;
+          const scale = position.size / CIRCLE_SIZE;
           const effStrokeWidth = isExpanded
-            ? STROKE_WIDTH / scale
+            ? STROKE_WIDTH
             : (CIRCLE_SIZE * 0.025) / scale;
 
           return (
-            <foreignObject
+            <g
               key={cfg.id}
-              x={xPos}
-              y={yPos}
-              width={size}
-              height={size}
               style={{
-                overflow: "visible",
                 opacity: isVisible && isInitialDelayComplete ? 1 : 0,
                 transition: `opacity ${FADE_DURATION}ms ${isVisible ? "ease-out" : "ease-in"}`,
                 pointerEvents:
                   isVisible && isInitialDelayComplete ? "auto" : "none",
               }}
             >
-              <div
+              <g 
+                transform={`translate(${position.x}, ${position.y})`}
                 style={{
-                  width: CIRCLE_SIZE,
-                  height: CIRCLE_SIZE,
-                  transform: `scale(${scale})`,
-                  transformOrigin: "top left",
+                  transition: isExpanded 
+                    ? 'transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)' 
+                    : 'none',
                 }}
               >
-                <CircleWithRings
-                  size={CIRCLE_SIZE}
-                  fillImage={cfg.image}
-                  isExpanded={isExpanded}
-                  strokeWidth={effStrokeWidth}
-                  onClick={() => handleCircleClick(cfg.id)}
-                />
-              </div>
-            </foreignObject>
+                <g 
+                  transform={`scale(${scale})`}
+                  style={{
+                    transition: isExpanded 
+                      ? 'transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)' 
+                      : 'none',
+                  }}
+                >
+                  <CircleWithRings
+                    size={CIRCLE_SIZE}
+                    fillImage={cfg.image}
+                    isExpanded={isExpanded}
+                    strokeWidth={effStrokeWidth}
+                    onClick={() => handleCircleClick(cfg.id)}
+                  />
+                </g>
+              </g>
+            </g>
           );
         })}
       </svg>
@@ -272,3 +261,4 @@ function Orbit({ className }: { className: string }) {
 
 // Export the shared constant for sibling components
 export { Orbit as default, OUTER_RING_RATIO };
+
