@@ -133,8 +133,8 @@ export const members = [
     role: "Engineering",
     image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
     music: {
-      artist: "",
-      song: "",
+      artist: "Dave",
+      song: "Heart Attack",
       link: "https://music.youtube.com/watch?v=2uQM-n_y-Hs&si=NSvcDQPqMxI0tsfG",
     },
     question: "What's a quote you live by?",
