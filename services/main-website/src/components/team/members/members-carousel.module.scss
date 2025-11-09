@@ -9,8 +9,8 @@
   height: calc(427px * 2.2); // Match .members height
 
   @include media("<=desktop-sm") {
-  height: 100%;
-  width: calc(100% - 48px);
+    height: 100%;
+    width: calc(100% - 48px);
   }
 }
 
