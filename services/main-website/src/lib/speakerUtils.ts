@@ -1,6 +1,6 @@
 import type { ConferenceData, Session, Speaker } from "@/types/api";
 
-export type DayKey = "Day 1" | "Day 2" | "Day 3" | "Day 4";
+export type DayKey = "Day 1" | "Day 2" | "Day 3" | "Day 4" | "Day 5";
 
 export interface SpeakerWithDays extends Speaker {
   days: number[];
@@ -13,7 +13,7 @@ export function mapSpeakersToDays(
   conferenceData: ConferenceData,
 ): SpeakerWithDays[] {
   const speakers = conferenceData.Speakers;
-  const dayKeys: DayKey[] = ["Day 1", "Day 2", "Day 3", "Day 4"];
+  const dayKeys: DayKey[] = ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5"];
 
   return speakers.map((speaker) => {
     const speakerDays: number[] = [];

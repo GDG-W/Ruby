@@ -5,7 +5,7 @@ import { unstable_cache } from "next/cache";
 import type { ConferenceData } from "@/types/api";
 
 const API_ENDPOINT =
-  "https://script.google.com/macros/s/AKfycbzm_bMJ2jUCF6Op7iDHioH5PzNCu7LL2FuLRLgNxmn0GPtM4ghJFrTKzVcufbNXD18a/exec";
+  "https://script.google.com/macros/s/AKfycbwyajQgADe0U4lxxamAWEDMLscHCRMys-N4TaTkR2jOysacusdOKuILsXZJStoftqL2/exec";
 
 const fetchConferenceDataUncached =
   async (): Promise<ConferenceData | null> => {
@@ -36,7 +36,7 @@ const fetchConferenceDataUncached =
 export const fetchConferenceData = unstable_cache(
   fetchConferenceDataUncached,
   ["conference-data"],
-  { revalidate: false },
+  { revalidate: 1 },
 );
 
 export async function fetchSpeakers() {
