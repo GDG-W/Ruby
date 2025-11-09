@@ -162,7 +162,7 @@ export const members = [
     },
     question: "What's a quote you live by?",
     answer:
-      '"whatever happens, happens". anything that is going to happen will happen, and if no amount of anxiety or unrest will change the outcome then i try not no worry about it.',
+      '"whatever happens, happens". anything that is going to happen will happen, and if no amount of anxiety or unrest will change the outcome then i try not to worry about it.',
     socialMedia: [
       {
         type: "linkedin",
@@ -214,7 +214,7 @@ export const members = [
     },
     question: "What's a quote you live by?",
     answer:
-      "When I get anxious opening my laptop to code or start a new project, I read this quote aloud: The idea of an Imposter syndrome is great, it means you are doing something worth wile. Use it to motivate yourself. Its normal to fail, Fail several times till you get it. You will get it eventually and finally, You become what you believe.",
+      "When I get anxious opening my laptop to code or start a new project, I read this quote aloud: The idea of an Imposter syndrome is great, it means you are doing something worthwile. Use it to motivate yourself. It's normal to fail, Fail several times till you get it. You will get it eventually and finally, You become what you believe.",
     socialMedia: [
       {
         type: "linkedin",
