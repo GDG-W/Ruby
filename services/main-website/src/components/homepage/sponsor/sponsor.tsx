@@ -20,9 +20,9 @@ const sponsorImages = [
   cleva,
   alat,
   cadana,
-  techcabal,
-  shecodeafrica,
-  threemtt,
+  // techcabal,
+  // shecodeafrica,
+  // threemtt,
 ];
 
 export function Sponsor() {
