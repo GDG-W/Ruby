@@ -7,7 +7,7 @@
 
   @include media("<=desktop-sm") {
     padding: 0 24px;
-    min-height: 120vh;
+    min-height: 130vh;
   }
 }
 
@@ -155,8 +155,10 @@
     transform: matrix(0.94, 0.35, -0.3, 0.95, 0, 0);
 
     @include media("<=desktop-sm") {
-      width: 113px;
-      height: 105px;
+      bottom: 16px;
+      left: 16px;
+      width: 85.6px;
+      height: 79.5px;
     }
   }
 
@@ -167,6 +169,8 @@
     transform: matrix(0.98, 0.19, -0.16, 0.99, 0, 0);
 
     @include media("<=desktop-sm") {
+      bottom: 2px;
+      right: 8px;
       width: 67px;
       height: 114px;
     }
