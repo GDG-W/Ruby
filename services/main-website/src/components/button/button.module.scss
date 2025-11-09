@@ -23,10 +23,13 @@
         @include text-h7
     }
 
-  &:hover {
-    background-color: $background-dark;
-    color: $secondary-yellow;
-    border-color: $secondary-yellow;
+
+  &.primary {
+    &:hover {
+      background-color: $background-dark;
+      color: $secondary-yellow;
+      border-color: $secondary-yellow;
+    }
   }
 
   &.secondary {
@@ -41,12 +44,11 @@
   }
 
   &.tertiary {
-    background-color: $background-white;
-    border-color: $background-white;
+    background-color: transparent;
+    border-color: $background-dark;
 
     &:hover {
       background-color: $secondary-yellow;
-      border-color: $secondary-yellow;
     }
   }
 }

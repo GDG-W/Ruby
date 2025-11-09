@@ -1,0 +1,385 @@
+.members {
+  position: relative;
+  background-color: $background-dark;
+  min-height: calc(427px * 2.2);
+  z-index: 2;
+  padding: 0 96px;
+
+  @include media("<=desktop-sm") {
+    padding: 0 24px;
+    min-height: 130vh;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 96px;
+
+  @include media("<=desktop-sm") {
+    flex-direction: column-reverse;
+    row-gap: 28px;
+    padding-top: 64px;
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include media("<=desktop-sm") {
+    width: 100%;
+  }
+}
+
+.title {
+  font-family: $font-akira;
+  font-weight: 800;
+  font-size: 88px;
+  line-height: 101px;
+  letter-spacing: -0.02em;
+  color: $grey-0;
+
+  @include media("<=desktop-sm") {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+
+.break {
+  @include media("<=phone") {
+    display: none;
+  }
+}
+
+.toggle {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 8px;
+  background: $background-dark;
+  border: 4px solid $grey-0;
+  border-radius: 100px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  box-sizing: border-box;
+  height: 48px;
+  border-radius: 36px;
+  background: $background-dark;
+  box-shadow: 0 0 0 4px rgba($grey-0, 0);
+  transition: background-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
+
+  &.active {
+    background: $secondary-yellow;
+    box-shadow: 0 0 0 4px rgba($grey-0, 0.1);
+  }
+
+  &:hover:not(.active) {
+    opacity: 0.7;
+  }
+
+  @include media("<=desktop-sm") {
+    height: 32px;
+  }
+}
+
+.icon {
+  transition: filter 200ms ease-in-out;
+
+  .button.active & {
+    filter: brightness(0);
+  }
+
+  .button:not(.active) & {
+    filter: brightness(0) invert(1);
+  }
+}
+
+.label {
+  @include text-p5;
+  color: $grey-0;
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include media("<=desktop-sm") {
+    display: none;
+  }
+}
+
+.dropdown {
+  width: fit-content;
+  max-width: fit-content;
+  display: none;
+  padding-left: 24px;
+  border-radius: 100px;
+  background: $secondary-yellow;
+  color: $background-dark;
+  font-family: $font-akira;
+  font-size: 18px;
+  height: 56px;
+  border: 4px solid $grey-0;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+
+  @include media("<=desktop-sm") {
+    display: block;
+  }
+}
+
+.sticker {
+  position: absolute;
+
+  &1 {
+    @extend .sticker;
+    bottom: 24px;
+    left: 24px;
+    filter: drop-shadow(4.32432px 4.32432px 10.8108px rgba(0, 0, 0, 0.2));
+    transform: matrix(0.94, 0.35, -0.3, 0.95, 0, 0);
+
+    @include media("<=desktop-sm") {
+      bottom: 16px;
+      left: 16px;
+      width: 85.6px;
+      height: 79.5px;
+    }
+  }
+
+  &2 {
+    @extend .sticker;
+    bottom: 8px;
+    right: 16px;
+    transform: matrix(0.98, 0.19, -0.16, 0.99, 0, 0);
+
+    @include media("<=desktop-sm") {
+      bottom: 2px;
+      right: 8px;
+      width: 67px;
+      height: 114px;
+    }
+  }
+}
+
+.filters {
+  position: relative;
+  z-index: 10;
+  padding: 24px 0;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.pills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  @include media("<=phone") {
+    display: none;
+  }
+}
+
+.pill {
+  padding: 12px 24px;
+  border: 2px solid $grey-0;
+  border-radius: 100px;
+  background: transparent;
+  color: $grey-0;
+  font-family: $font-akira;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+
+  &.active {
+    background: $secondary-yellow;
+    color: $background-dark;
+  }
+
+  &:hover:not(.active) {
+    opacity: 0.7;
+  }
+}
+
+
+.name {
+  font-family: $font-akira;
+  font-weight: 800;
+  line-height: 80%;
+  letter-spacing: -0.02em;
+  color: $grey-0;
+}
+
+.firstName {
+  @extend .name;
+  font-size: 24px;
+  margin-bottom: 1.8rem;
+
+  @include media("<=desktop-sm") {
+    font-size: 18px;
+  }
+}
+
+.lastName {
+  @extend .name;
+  font-size: 48px;
+  margin-bottom: 1.6rem;
+
+  @include media("<=desktop-sm") {
+    font-size: 28px;
+  }
+}
+
+.role {
+  @include text-p3;
+  color: $grey-20;
+  margin-bottom: 1.6rem;
+}
+
+.question {
+  @include text-p4;
+  color: $grey-20;
+  margin-bottom: 8px;
+
+  @include media("<=desktop-sm") {
+    @include text-p5;
+    order: 2;
+    margin-bottom: 4px;
+  }
+}
+
+.answer {
+  @include text-p3;
+  color: $grey-0;
+  // text-align: right;
+
+  @include media("<=desktop-sm") {
+    @include text-p4;
+    text-align: left;
+    order: 3;
+  }
+}
+
+.music {
+  @include text-p4;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: $grey-40;
+  margin-top: 16px;
+
+  @include media("<=desktop-sm") {
+    order: 1;
+    margin-bottom: 8px;
+  }
+}
+
+.listeningTo {
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.song {
+  color: $grey-0;
+}
+
+.social {
+  display: flex;
+  gap: 2.4rem;
+}
+
+.socialLink {
+  display: inline-flex;
+  color: $background-cream; // icon fill/stroke via currentColor
+  --icon-bg: #{$grey-80};
+
+  &:hover {
+    color: $background-dark; // icon turns dark
+    --icon-bg: #{$pastel-yellow}; // circle bg turns pastel yellow
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #00000080;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease-in-out;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  background: $grey-0;
+  border-radius: 40px;
+  padding: 32px;
+  width: calc(100% - 48px);
+  max-width: 400px;
+  position: relative;
+  margin: 0 auto;
+  animation: fadeIn 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.option {
+  font-family: $font-akira;
+  font-weight: 800;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: $grey-100;
+  width: fit-content;
+    padding: 12px 24px;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &.active {
+    background: $secondary-yellow;
+    color: $background-dark;
+    border-radius: 100px;
+  }
+}
+
+.close {
+  @extend .option;
+  font-size: 14px;
+  margin-left: auto;
+  text-decoration: underline;
+  padding: 0;
+}
