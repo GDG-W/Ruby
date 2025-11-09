@@ -21,10 +21,10 @@ export const members = [
     firstName: "Isreal",
     lastName: "Aluko",
     role: "Engineering",
-    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
+    image: "https://i.ibb.co/tMN1yjs7/20250629-133702.jpg",
     music: {
-      artist: "",
-      song: "",
+      artist: "Dai Verse",
+      song: "Salt",
       link: "https://music.youtube.com/watch?v=dZxe2T7-3QQ&si=SbzBznfKp3AoD4Np",
     },
     question:
@@ -50,10 +50,10 @@ export const members = [
     firstName: "Daniel",
     lastName: "Umoren",
     role: "QA",
-    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
+    image: "https://i.ibb.co/FqjrHVvr/IMG-2267.jpg",
     music: {
-      artist: "",
-      song: "",
+      artist: "Ahmed Spins",
+      song: "Sawa (feat. Idd Aziz)",
       link: "https://music.youtube.com/watch?v=dzLu7elxnJI&si=WHLadbSstAt_028v",
     },
     question: "What's a quote you live by?",
@@ -61,7 +61,7 @@ export const members = [
     socialMedia: [
       {
         type: "linkedin",
-        url: "https://www.linkedin.com/in/daniel-umoren?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        url: "https://www.linkedin.com/in/daniel-umoren",
       },
       {
         type: "twitter",
@@ -77,10 +77,10 @@ export const members = [
     firstName: "Aliyyah",
     lastName: "Kalejaye",
     role: "Marketing",
-    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
+    image: "https://i.ibb.co/sdLJJJW8/Headshot2.jpg",
     music: {
-      artist: "",
-      song: "",
+      artist: "Adekunle Gold",
+      song: "Many People",
       link: "https://youtu.be/IjtDozgr7mo?si=G5bG50sWywdE155o",
     },
     question: "What's a quote you live by?",
@@ -104,10 +104,10 @@ export const members = [
     firstName: "Florence",
     lastName: "Ogunbore",
     role: "Product Management",
-    image: "https://i.ibb.co/nqjSvPxR/IMG-1705-3.png",
+    image: "https://i.ibb.co/3ypPbZ4R/DSC-5605.jpg",
     music: {
-      artist: "",
-      song: "",
+      artist: "Tevin Campbell",
+      song: "Can We Talk",
       link: "https://music.youtube.com/watch?v=jRS9JPt5sdU&si=BjcOOSxojVcFSeEB",
     },
     question: "What's your comfort activity when you need a mental reset?",
@@ -115,15 +115,15 @@ export const members = [
     socialMedia: [
       {
         type: "linkedin",
-        url: "https://www.linkedin.com/in/florence-ogunbore?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        url: "https://www.linkedin.com/in/florence-ogunbore",
       },
       {
         type: "twitter",
-        url: "https://x.com/the_florencee?s=21&t=9vReL_Slk-5olU_sSybLOA",
+        url: "https://x.com/the_florencee",
       },
       {
         type: "instagram",
-        url: "https://www.instagram.com/the_florencee?igsh=cjh2ZXh6bTYwdGo1&utm_source=qr",
+        url: "https://www.instagram.com/the_florencee",
       },
     ],
   },
