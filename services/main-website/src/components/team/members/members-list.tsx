@@ -38,7 +38,7 @@ export const MembersList = ({ members }: MembersListProps) => {
 
           <div className={styles.content}>
             <p className={sharedStyles.question}>{member.question}</p>
-            <p className={sharedStyles.answer}>"{member.answer}"</p>
+            <p className={sharedStyles.answer}>'{member.answer}'</p>
             <a href={member.music.link} target="_blank" rel="noopener noreferrer" className={sharedStyles.music}>
               <Image
                 width={16}
@@ -47,7 +47,7 @@ export const MembersList = ({ members }: MembersListProps) => {
                 alt="YouTube Music"
                 className={sharedStyles.youtubeMusic}
               />
-              <p>Listening to</p>
+              <p className={sharedStyles.listeningTo}>Listening to</p>
               <p className={sharedStyles.song}>
                 {member.music.song} - {member.music.artist}
               </p>

@@ -109,7 +109,7 @@ export const MembersCarousel = ({ members }: MembersCarouselProps) => {
                 <div className={styles.other}>
                   <p className={sharedStyles.question}>{member.question}</p>
                   <p className={sharedStyles.answer}>
-                    &quot;{member.answer}&quot;
+                    '{member.answer}'
                   </p>
                   <a href={member.music.link} target="_blank" rel="noopener noreferrer" className={sharedStyles.music}>
                     <Image
