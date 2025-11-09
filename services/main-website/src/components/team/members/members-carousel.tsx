@@ -29,6 +29,7 @@ export const MembersCarousel = ({ members }: MembersCarouselProps) => {
       align: (viewSize: number) =>
         isMobile ? viewSize * 0.225 : viewSize * 0.375,
       duration: 25,
+      watchDrag: !isMobile,
     },
     [Autoplay({ delay: CAROUSEL_INTERVAL, stopOnInteraction: false })],
   );
@@ -57,6 +58,7 @@ export const MembersCarousel = ({ members }: MembersCarouselProps) => {
       align: (viewSize: number) =>
         isMobile ? viewSize * 0.225 : viewSize * 0.375,
       duration: 25,
+      watchDrag: !isMobile,
     });
   }, [isMobile, emblaApi]);
 
