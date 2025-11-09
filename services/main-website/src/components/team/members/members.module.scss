@@ -27,10 +27,13 @@
 }
 
 .inner {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include media("<=desktop-sm") {
+    width: 100%;
+  }
 }
 
 .title {
@@ -275,7 +278,6 @@
   align-items: flex-start;
   gap: 8px;
   color: $grey-40;
-  text-transform: uppercase;
   margin-top: 16px;
 
   @include media("<=desktop-sm") {
@@ -286,10 +288,10 @@
 
 .listeningTo {
   white-space: nowrap;
+  text-transform: uppercase;
 }
 
 .song {
-  text-transform: capitalize;
   color: $grey-0;
 }
 

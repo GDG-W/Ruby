@@ -113,13 +113,13 @@ export const MembersCarousel = ({ members }: MembersCarouselProps) => {
                   </p>
                   <a href={member.music.link} target="_blank" rel="noopener noreferrer" className={sharedStyles.music}>
                     <Image
-                      width={16}
-                      height={16}
+                      width={20}
+                      height={20}
                       src="/yt-music.svg"
                       alt="YouTube Music"
                       className={sharedStyles.youtubeMusic}
                     />
-                    <p>Listening to </p>
+                    <p className={sharedStyles.listeningTo}>Listening to </p>
                     <p className={sharedStyles.song}>
                       {member.music.song} - {member.music.artist}
                     </p>
