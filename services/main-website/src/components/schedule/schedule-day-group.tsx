@@ -57,7 +57,6 @@ export function ScheduleDayGroup({
     <div
       className={clsx(styles.scheduleDayGroup, className)}
       ref={containerRef}
-      tabIndex={0}
     >
       <div className={styles.dayTabs}>
         {days.map((day, index) => (
@@ -70,7 +69,7 @@ export function ScheduleDayGroup({
             )}
             onClick={() => handleTabClick(index)}
           >
-            <span className={styles.tabLabel}>{day.shortLabel}</span>
+            <span className={styles.tabLabel}>{day.date}</span>
           </button>
         ))}
       </div>

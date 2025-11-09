@@ -1,9 +1,10 @@
 "use client";
 
+import type { ScheduleData } from "@/components/homepage/schedule/schedule";
 import { ScheduleDayGroup } from "@/components/schedule/schedule-day-group";
 
 interface ScheduleWrapperProps {
-  scheduleData: any[];
+  scheduleData: ScheduleData[];
 }
 
 export function ScheduleWrapper({ scheduleData }: ScheduleWrapperProps) {

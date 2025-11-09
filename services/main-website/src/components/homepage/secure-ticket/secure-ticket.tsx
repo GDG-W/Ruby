@@ -112,7 +112,14 @@ export function SecureTicket() {
               </li>
             ))}
           </ul>
-          <Button className={classes.buyButton}>BUY TICKETS</Button>
+          <Button
+            className={classes.buyButton}
+            href="https://tickets.devfestlagos.com/buy"
+            target="_blank"
+            type="link"
+          >
+            BUY TICKETS
+          </Button>
         </motion.div>
         <motion.div
           className={`${classes.ticket} ${classes.pro}`}
@@ -139,7 +146,14 @@ export function SecureTicket() {
               </li>
             ))}
           </ul>
-          <Button className={classes.buyButton}>BUY TICKETS</Button>
+          <Button
+            className={classes.buyButton}
+            href="https://tickets.devfestlagos.com/buy#pro"
+            target="_blank"
+            type="link"
+          >
+            BUY TICKETS
+          </Button>
         </motion.div>
       </div>
     </div>

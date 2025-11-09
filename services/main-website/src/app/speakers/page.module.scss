@@ -52,7 +52,8 @@ html{
 
         @include media("<=tablet"){
             height: 52px;
-            width: 120px;
+            width: 90px;
+            @include text-h7;
         }
 
         &.active{

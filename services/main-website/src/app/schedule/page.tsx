@@ -1,4 +1,7 @@
+import { clsx } from "clsx";
 import Image from "next/image";
+import dateAndLocationArrow from "@/assets/date-and-location-arrow.svg";
+import dateAndLocationMobileArrow from "@/assets/date-and-location-mobile-arrow.svg";
 import fiveDaysIcon from "@/assets/five-days.svg";
 import { ScheduleDayGroup } from "@/components/schedule/schedule-day-group";
 import { fetchConferenceData } from "@/lib/actions";
@@ -61,13 +64,8 @@ export default async function SchedulePage() {
     // Ensure we're working with Session arrays
     const sessions = Array.isArray(dayData) ? (dayData as Session[]) : [];
 
-    // Filter sessions with speakers
-    const sessionsWithSpeakers = sessions.filter(
-      (session) =>
-        session.speaker_id &&
-        session.speaker_id !== "NULL" &&
-        session.speaker_id.trim() !== "",
-    );
+    // Include all sessions (don't filter by speaker presence)
+    const allSessions = sessions;
 
     scheduleData.push({
       title: dayTitles[dayIndex - 1] || `DAY ${dayIndex}`,
@@ -76,7 +74,7 @@ export default async function SchedulePage() {
         `Day ${dayIndex} activities and sessions.`,
       date: dayLabels[dayIndex - 1]?.title || `Day ${dayIndex}`,
       shortLabel: dayLabels[dayIndex - 1]?.shortLabel || `Day ${dayIndex}`,
-      sessions: sessionsWithSpeakers,
+      sessions: allSessions,
       speakers: conferenceData.Speakers,
     });
   }
@@ -95,7 +93,28 @@ export default async function SchedulePage() {
           className={styles.fiveDaysIcon}
         />
       </div>
-
+      <div className={styles.dateAndLocationWrapper}>
+        <div className={clsx(styles.dateAndLocation, styles.first)}>
+          <span>18-21 Nov, 2025</span>
+          <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
+          <Image
+            src={dateAndLocationMobileArrow}
+            alt=""
+            className={styles.mobileArrow}
+          />
+          <span>The Zone, Gbagada</span>
+        </div>
+        <div className={clsx(styles.dateAndLocation, styles.second)}>
+          <span>22 Nov, 2025</span>
+          <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
+          <Image
+            src={dateAndLocationMobileArrow}
+            alt=""
+            className={styles.mobileArrow}
+          />
+          <span>National Theatre, Iganmu</span>
+        </div>
+      </div>
       <ScheduleDayGroup days={scheduleData} />
     </div>
   );

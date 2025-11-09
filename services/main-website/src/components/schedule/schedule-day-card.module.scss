@@ -161,8 +161,16 @@
   display: flex;
   gap: 1rem;
 
+  &.onlyRSVP {
+    justify-content: flex-start;
+  }
+
   @include media(">tablet") {
     flex-shrink: 0;
+
+    &.onlyRSVP {
+      justify-content: flex-end;
+    }
   }
 }
 

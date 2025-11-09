@@ -2,7 +2,7 @@
 
 import { motion, type Variants } from "motion/react";
 import Image from "next/image";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/button/button";
 import FaqItem from "@/components/faq-item/faq-item";
 import GDG from "@/components/homepage/gdg/gdg";
@@ -69,66 +69,59 @@ export default function FAQPage() {
   const faqs = FAQ_DATA[activeTab];
 
   return (
-    <>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={containerVariants}
-        viewport={{ once: true, amount: 0.35 }}
-      >
-        <div className={styles.faqs}>
-          <div className={styles.container}>
-            <motion.h2 variants={fadeVariants} className={styles.title}>
-              <MotionImage
-                width={200}
-                height={161}
-                className={styles.sticker}
-                src="/stickers/more-community-less-ego-dwg-group-picture.svg"
-                alt="'More Community, Less Ego' written above a group photo of DevFest Digital Working Group (2024)"
-                priority
-                variants={stickerVariants}
+    <motion.div initial="hidden" animate="visible" variants={containerVariants}>
+      <div className={styles.faqs}>
+        <div className={styles.container}>
+          <motion.h2 variants={fadeVariants} className={styles.title}>
+            <MotionImage
+              width={200}
+              height={161}
+              className={styles.sticker}
+              src="/stickers/more-community.png"
+              alt="'More Community, Less Ego' written above a group photo of DevFest Digital Working Group (2024)"
+              priority
+              variants={stickerVariants}
+            />
+            <span>Get your questions answered</span>
+          </motion.h2>
+          <motion.p variants={fadeVariants} className={styles.description}>
+            From registration to what to expect on the day, our FAQs have all
+            the info you need.
+          </motion.p>
+
+          <motion.div variants={tabsVariants} className={styles.tabs}>
+            {TABS.map((tab) => (
+              <Button
+                key={tab}
+                type="button"
+                onClick={() => setActiveTab(tab)}
+                variant={tab === activeTab ? "primary" : "tertiary"}
+              >
+                {TAB_LABELS[tab]}
+              </Button>
+            ))}
+          </motion.div>
+
+          <motion.ul
+            key={activeTab}
+            initial="hidden"
+            animate="visible"
+            variants={listVariants}
+            className={styles.list}
+          >
+            {faqs.map(({ id, question, answer }, idx) => (
+              <FaqItem
+                key={id}
+                idx={idx}
+                question={question}
+                answer={answer}
+                variants={listItemVariants}
               />
-              <span>Get your questions answered</span>
-            </motion.h2>
-            <motion.p variants={fadeVariants} className={styles.description}>
-              From registration to what to expect on the day, our FAQs have all
-              the info you need.
-            </motion.p>
-
-            <motion.div variants={tabsVariants} className={styles.tabs}>
-              {TABS.map((tab) => (
-                <Button
-                  key={tab}
-                  type="button"
-                  onClick={() => setActiveTab(tab)}
-                  variant={tab === activeTab ? "primary" : "tertiary"}
-                >
-                  {TAB_LABELS[tab]}
-                </Button>
-              ))}
-            </motion.div>
-
-            <motion.ul
-              key={activeTab}
-              initial="hidden"
-              animate="visible"
-              variants={listVariants}
-              className={styles.list}
-            >
-              {faqs.map(({ id, question, answer }, idx) => (
-                <FaqItem
-                  key={id}
-                  idx={idx}
-                  question={question}
-                  answer={answer}
-                  variants={listItemVariants}
-                />
-              ))}
-            </motion.ul>
-          </div>
-          <GDG />
+            ))}
+          </motion.ul>
         </div>
-      </motion.div>
-    </>
+        <GDG />
+      </div>
+    </motion.div>
   );
 }

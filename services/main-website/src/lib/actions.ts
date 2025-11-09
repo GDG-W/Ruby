@@ -1,5 +1,6 @@
 "use server";
 
+import { console } from "node:inspector";
 import { unstable_cache } from "next/cache";
 import type { ConferenceData } from "@/types/api";
 
@@ -35,11 +36,12 @@ const fetchConferenceDataUncached =
 export const fetchConferenceData = unstable_cache(
   fetchConferenceDataUncached,
   ["conference-data"],
-  { revalidate: 600 },
+  { revalidate: false },
 );
 
 export async function fetchSpeakers() {
   const data = await fetchConferenceData();
+  console.log("Fetched conference data for speakers:", data);
   return data?.Speakers || [];
 }
 
@@ -54,7 +56,7 @@ export async function fetchSessionTypes() {
 }
 
 export async function fetchScheduleByDay(
-  day: "Day 1" | "Day 2" | "Day 3" | "Day 4",
+  day: "Day 1" | "Day 2" | "Day 3" | "Day 4" | "Day 5",
 ) {
   const data = await fetchConferenceData();
   return data?.[day] || [];
@@ -69,5 +71,6 @@ export async function fetchAllSchedule() {
     "Day 2": data["Day 2"] || [],
     "Day 3": data["Day 3"] || [],
     "Day 4": data["Day 4"] || [],
+    "Day 5": data["Day 5"] || [],
   };
 }

@@ -6,25 +6,52 @@ import type { Session } from "@/types/api";
 import classes from "./schedule.module.scss";
 import { ScheduleWrapper } from "./schedule-wrapper";
 
+type Speaker = {
+  speaker_id: string;
+  speaker_name: string;
+  speaker_tagline: string;
+  speaker_bio: string;
+  speaker_img: string;
+  speaker_twitter: string;
+  speaker_linkedin: string;
+};
+
+export type ScheduleData = {
+  title: string;
+  date: string;
+  shortLabel: string;
+  description: string;
+  sessions: Session[];
+  speakers: Speaker[];
+};
 function transformApiScheduleToScheduleData(
   allSchedule: Record<string, Session[]>,
-) {
+): ScheduleData[] {
   const dayMappings = {
     "Day 1": {
-      title: "WEB3 AND BLOCKCHAIN, OPEN SOURCE DAY",
-      date: "Thu 20",
+      title: "STUDENT DAY",
+      date: "Tue 18",
       shortLabel: "Day 1",
     },
     "Day 2": {
-      title: "DESIGN AND PRODUCT DAY",
-      date: "Fri 21",
+      title: "DESIGN & PRODUCT DAY",
+      date: "Wed 19",
       shortLabel: "Day 2",
     },
-    "Day 3": { title: "DEVELOPMENT DAY", date: "Sat 22", shortLabel: "Day 3" },
+    "Day 3": {
+      title: "WEB3, OPEN SOURCE & PRO DAY",
+      date: "Thu 20",
+      shortLabel: "Day 3",
+    },
     "Day 4": {
-      title: "AI AND MACHINE LEARNING DAY",
-      date: "Sun 23",
+      title: "ENGINEERING & SECURITY",
+      date: "Fri 21",
       shortLabel: "Day 4",
+    },
+    "Day 5": {
+      title: "AI & CLOUD",
+      date: "Sat 22",
+      shortLabel: "Day 5",
     },
   };
 
@@ -32,7 +59,7 @@ function transformApiScheduleToScheduleData(
     .filter(([_, sessions]) => sessions.length > 0)
     .map(([day, sessions]) => {
       const dayInfo = dayMappings[day as keyof typeof dayMappings] || {
-        title: day.toUpperCase() + " DAY",
+        title: `${day.toUpperCase()} DAY`,
         date: day,
         shortLabel: day,
       };
@@ -47,7 +74,9 @@ function transformApiScheduleToScheduleData(
             !acc.some((speaker) => speaker.speaker_id === session.speaker_id)
           ) {
             acc.push({
+              // biome-ignore lint/style/noNonNullAssertion: We're certain the value will be defined
               speaker_id: session.speaker_id!,
+              // biome-ignore lint/style/noNonNullAssertion: We're certain the value will be defined
               speaker_name: session.speaker_name!,
               speaker_tagline: "",
               speaker_bio: "",
@@ -57,7 +86,7 @@ function transformApiScheduleToScheduleData(
             });
           }
           return acc;
-        }, [] as any[]);
+        }, [] as Speaker[]);
 
       return {
         ...dayInfo,
@@ -74,7 +103,7 @@ export async function ScheduleSection() {
   const transformedSchedule = transformApiScheduleToScheduleData(
     allSchedule as Record<string, Session[]>,
   );
-  const totalSessions = Object.values(allSchedule).reduce(
+  const _totalSessions = Object.values(allSchedule).reduce(
     (total, sessions) => total + sessions.length,
     0,
   );

@@ -16,6 +16,7 @@ const GDG = () => {
             type="link"
             className={styles.button}
             href="https://gdg.community.dev/gdg-lagos/"
+            target="_blank"
           >
             Join the community
           </Button>

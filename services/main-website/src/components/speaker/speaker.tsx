@@ -30,6 +30,16 @@ const colorCombos = [
   ["#F8D8D8", "#EA4335"],
 ];
 
+const hashString = (str: string): number => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash; // Convert to 32bit integer
+  }
+  return Math.abs(hash);
+};
+
 const closedConfig = {
   tension: 400,
   friction: 20,
@@ -54,7 +64,7 @@ export function Speaker({
   reduceHeightOnMobile,
 }: SpeakerProps) {
   const [[background, hoverBackground]] = useState(
-    colorCombos[Math.floor(Math.random() * colorCombos.length)],
+    colorCombos[hashString(name) % colorCombos.length],
   );
   const speakerDivRef = useRef<HTMLDivElement>(null);
   const cardState = useRef<"image" | "bio">("image");
@@ -63,28 +73,36 @@ export function Speaker({
 
   //P.S Used a ref instead of a state variable so that I can use the ref in the event listeners
   const isOnMobileRef = useRef(
-    windowWidth !== 0 && windowWidth < MOBILE_BREAKPOINT,
+    typeof window !== "undefined"
+      ? window.innerWidth < MOBILE_BREAKPOINT
+      : false,
   );
 
   useEffect(() => {
-    if (windowWidth) {
-      isOnMobileRef.current = windowWidth < MOBILE_BREAKPOINT;
+    const currentWidth =
+      typeof window !== "undefined" ? window.innerWidth : windowWidth;
+    if (currentWidth > 0) {
+      isOnMobileRef.current = currentWidth < MOBILE_BREAKPOINT;
     }
   }, [windowWidth]);
 
   const heights = useMemo(() => {
-    const isOnMobile = windowWidth !== 0 && windowWidth < MOBILE_BREAKPOINT;
+    // Use window.innerWidth for immediate check, fallback to windowWidth hook
+    const currentWidth =
+      typeof window !== "undefined" ? window.innerWidth : windowWidth;
+    const isOnMobile = currentWidth > 0 && currentWidth < MOBILE_BREAKPOINT;
+    const isMobileAndReducedHeight = isOnMobile && reduceHeightOnMobile;
 
     return {
       imageWrapper: {
-        open: isOnMobile ? 186 : 308,
+        open: isMobileAndReducedHeight ? 186 : 308,
       },
       info: {
-        open: isOnMobile ? 242 : 404,
-        minimized: isOnMobile ? 64 : 104,
+        open: isMobileAndReducedHeight ? 242 : 404,
+        minimized: isMobileAndReducedHeight ? 64 : 104,
       },
     };
-  }, [windowWidth]);
+  }, [windowWidth, reduceHeightOnMobile]);
 
   const [imageWrapperProps, imageWrapperApi] = useSpring(() => ({
     from: {
@@ -180,13 +198,14 @@ export function Speaker({
         <p className={classes.tagline}>{tagline}</p>
         <animated.div style={bioProps} className={classes.bioContent}>
           <p className={classes.description}>{bio}</p>
-          <div className={classes.socialMedia}>
+          <div className={classes.socialMediaLinks}>
             {socialMedia?.map((media) => (
               <a
                 key={media.type}
                 href={media.url}
                 aria-label={media.type}
                 className={classes.socialMediaLink}
+                target="_blank"
               >
                 <SocialIcon name={media.type} size={24} />
               </a>

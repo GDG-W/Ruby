@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import carouselLeft from "@/assets/carousel-left.svg";
 import carouselRight from "@/assets/carousel-right.svg";
@@ -69,7 +70,9 @@ export function SpeakersHeader({
             and bold ideas to spark your next big move.
           </p>
         </div>
-        <Button>SEE FULL LINEUP</Button>
+        <Link href="/speakers">
+          <Button>SEE FULL LINEUP</Button>
+        </Link>
       </div>
       <div className={classes.controlButtons}>
         <button type="button" onClick={onScrollLeft}>

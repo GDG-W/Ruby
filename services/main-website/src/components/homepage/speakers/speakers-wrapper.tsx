@@ -8,13 +8,9 @@ import { SpeakersHeader } from "./speakers-header";
 
 interface SpeakersWrapperProps {
   speakers: SpeakerProps[];
-  laptopImage: any;
 }
 
-export function SpeakersWrapper({
-  speakers,
-  laptopImage,
-}: SpeakersWrapperProps) {
+export function SpeakersWrapper({ speakers }: SpeakersWrapperProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [carouselInView, setCarouselInView] = useState(false);
 
@@ -46,7 +42,6 @@ export function SpeakersWrapper({
       />
       <SpeakersCarousel
         speakers={speakers}
-        laptopImage={laptopImage}
         carouselRef={carouselRef}
         carouselInView={carouselInView}
       />

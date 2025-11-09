@@ -81,7 +81,7 @@ export function HomepageHero() {
         <h1 className={styles.yearText}>
           {"2025".split("").map((letter, index) => (
             <motion.span
-              key={index}
+              key={letter}
               initial={{ y: "-100%" }}
               animate={{ y: 0 }}
               transition={{
@@ -130,7 +130,14 @@ export function HomepageHero() {
           }}
           className={styles.callToActionInner}
         >
-          <Button className={styles.buyButton}>BUY TICKETS</Button>
+          <Button
+            type="link"
+            target="_blank"
+            href="https://tickets.devfestlagos.com/buy"
+            className={styles.buyButton}
+          >
+            BUY TICKETS
+          </Button>
           <div className={styles.dateAndLocation}>
             <span>18-22 november, 2025</span>
             <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />

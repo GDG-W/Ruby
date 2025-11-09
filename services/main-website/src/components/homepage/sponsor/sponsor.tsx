@@ -2,27 +2,27 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import abeg from "@/assets/sponsors/abeg.png";
-import andela from "@/assets/sponsors/andela.png";
-import busha from "@/assets/sponsors/busha.png";
-import fincra from "@/assets/sponsors/fincra.png";
-import gdgBag from "@/assets/sponsors/gdg-bag.svg";
 import google from "@/assets/sponsors/google.png";
-import interswitch from "@/assets/sponsors/interswitch.png";
-import patricia from "@/assets/sponsors/patricia.png";
-import paystack from "@/assets/sponsors/paystack.png";
+import threemtt from "@/assets/sponsors/3mtt.png";
+import alat from "@/assets/sponsors/alat.png";
+import bitnob from "@/assets/sponsors/bitnob.png";
+import cadana from "@/assets/sponsors/cadana.png";
+import cleva from "@/assets/sponsors/cleva.png";
+import gdgBag from "@/assets/sponsors/gdg-bag.svg";
+import shecodeafrica from "@/assets/sponsors/shecodeafrica.png";
+import techcabal from "@/assets/sponsors/techcabal.png";
 import splitIcon from "@/assets/sponsors/split.png";
 import classes from "./sponsor.module.scss";
 
 const sponsorImages = [
-  abeg,
-  andela,
-  busha,
-  fincra,
   google,
-  interswitch,
-  patricia,
-  paystack,
+  bitnob,
+  cleva,
+  alat,
+  cadana,
+  techcabal,
+  shecodeafrica,
+  threemtt,
 ];
 
 export function Sponsor() {
@@ -48,7 +48,7 @@ export function Sponsor() {
       </div>
       <div className={classes.logosContainer}>
         <div className={classes.logos}>
-          {sponsorImages.concat(sponsorImages).map((image, index) => (
+          {sponsorImages.concat(sponsorImages).concat(sponsorImages).concat(sponsorImages).map((image, index) => (
             <>
               <Image
                 src={image}

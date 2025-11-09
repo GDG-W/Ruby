@@ -73,7 +73,13 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          <Button size="sm" className={styles.buyTicket}>
+          <Button
+            href="https://tickets.devfestlagos.com/buy"
+            target="_blank"
+            type="link"
+            size="sm"
+            className={styles.buyTicket}
+          >
             BUY TICKETS
           </Button>
           <Button
@@ -111,7 +117,14 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <Button className={styles.buyTicket}>BUY TICKETS</Button>
+        <Button
+          className={styles.buyTicket}
+          href="https://tickets.devfestlagos.com/buy"
+          target="_blank"
+          type="link"
+        >
+          BUY TICKETS
+        </Button>
       </aside>
     </>
   );

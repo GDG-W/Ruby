@@ -13,7 +13,7 @@ const footerLinks = {
   topLeft: [
     { label: "Schedule", href: "/schedule" },
     { label: "Speakers", href: "/speakers" },
-    { label: "DP Generator", href: "/dp-generator" },
+    { label: "DP Generator", href: "https://devfestlagos.com/dp-generator" },
   ],
   topRight: [
     // { label: "Map Venue", href: "/map" },
@@ -71,7 +71,7 @@ export function Footer() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{
             duration: 0.8,
-            ease: [0.68, -0.55, 0.265, 1.55] as any,
+            ease: [0.68, -0.55, 0.265, 1.55],
           }}
         />
 
@@ -79,8 +79,9 @@ export function Footer() {
           <span>DevFest</span>
           <Button
             type="link"
-            href="https://tickets.devfestlagos.com"
+            href="https://tickets.devfestlagos.com/buy"
             className={styles.cta}
+            target="_blank"
           >
             Buy Tickets
           </Button>
@@ -93,21 +94,51 @@ export function Footer() {
             <ul className={styles.links}>
               {footerLinks.topLeft.map((link) => (
                 <li key={link.href} className={styles.link}>
-                  <Link href={link.href}>{link.label}</Link>
+                  {link.href.startsWith("/") ? (
+                    <Link href={link.href}>{link.label}</Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
             <ul className={styles.links}>
               {footerLinks.topRight.map((link) => (
                 <li key={link.href} className={styles.link}>
-                  <Link href={link.href}>{link.label}</Link>
+                  {link.href.startsWith("/") ? (
+                    <Link href={link.href}>{link.label}</Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
             <ul className={styles.links}>
               {footerLinks.bottomLeft.map((link) => (
                 <li key={link.href} className={styles.link}>
-                  <Link href={link.href}>{link.label}</Link>
+                  {link.href.startsWith("/") ? (
+                    <Link href={link.href}>{link.label}</Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -135,7 +166,8 @@ export function Footer() {
             <Button
               size="sm"
               type="link"
-              href="/buy"
+              href="https://tickets.devfestlagos.com/buy"
+              target="_blank"
               className={styles.mobileCta}
             >
               Buy Tickets
@@ -160,7 +192,7 @@ export function Footer() {
         </div>
 
         <p className={styles.copyright}>
-          © 2025 DevFest Lagos. All Rights Reserved.
+          © {new Date().getFullYear()} DevFest Lagos. All Rights Reserved.
         </p>
       </div>
     </footer>

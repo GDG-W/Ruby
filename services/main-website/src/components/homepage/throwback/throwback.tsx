@@ -2,7 +2,7 @@
 
 import { motion, useAnimate } from "motion/react";
 import Image from "next/image";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/button/button";
 
 import { useIsTouchDevice } from "@/hooks/useIsTouchDevice";
@@ -205,7 +205,7 @@ const Throwback = () => {
           />
           {memories.map((memory, idx) => (
             <MemoryItem
-              key={idx}
+              key={memory.src}
               idx={idx}
               memory={memory}
               isPaused={isPaused}
