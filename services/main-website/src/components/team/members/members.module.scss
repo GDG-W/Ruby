@@ -272,7 +272,7 @@
 .music {
   @include text-p4;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   color: $grey-40;
   text-transform: uppercase;
@@ -282,6 +282,10 @@
     order: 1;
     margin-bottom: 8px;
   }
+}
+
+.listeningTo {
+  white-space: nowrap;
 }
 
 .song {
