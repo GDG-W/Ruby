@@ -90,7 +90,7 @@ export default async function SchedulePage() {
         />
       </div>
       <div className={styles.dateAndLocationWrapper}>
-        <div className={clsx(styles.dateAndLocation, styles.first)}>
+        {/* <div className={clsx(styles.dateAndLocation, styles.first)}>
           <span>18-21 Nov, 2025</span>
           <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
           <Image
@@ -99,9 +99,9 @@ export default async function SchedulePage() {
             className={styles.mobileArrow}
           />
           <span>The Zone, Gbagada</span>
-        </div>
-        <div className={clsx(styles.dateAndLocation, styles.second)}>
-          <span>22 Nov, 2025</span>
+        </div> */}
+        <div className={clsx(styles.dateAndLocation, styles.first)}>
+          <span>18-22 november, 2025</span>
           <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
           <Image
             src={dateAndLocationMobileArrow}
