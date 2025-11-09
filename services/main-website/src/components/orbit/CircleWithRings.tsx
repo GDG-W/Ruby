@@ -43,28 +43,21 @@ function CircleWithRings({
 
   return (
     // biome-ignore lint/a11y/useKeyWithClickEvents: interactive SVG for visual effect
-    <svg
-      width={size}
-      height={size}
-      viewBox={`0 0 ${size} ${size}`}
-      className="drop-shadow-lg"
+    <g
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
       role="img"
       aria-label="Interactive circle"
-      style={{
-        cursor: "pointer",
-        transform: `scale(${scale})`,
-        transformOrigin: "center",
-        transition: "transform 100ms cubic-bezier(0, 0, 0.58, 1)",
-      }}
+      transform={`scale(${scale})`}
+      // biome-ignore lint/a11y/useAriaPropsForRole: cursor needs to be on SVG element
+      style={{ cursor: "pointer" }}
     >
       <defs>
         <clipPath id={clipPathId}>
           <circle
-            cx={size / 2}
-            cy={size / 2}
+            cx={0}
+            cy={0}
             r={currentRadius}
             style={{
               transition: isExpanded
@@ -77,8 +70,8 @@ function CircleWithRings({
 
       {/* Outer decorative ring */}
       <circle
-        cx={size / 2}
-        cy={size / 2}
+        cx={0}
+        cy={0}
         r={outerStrokeRadius}
         fill="none"
         stroke="#D4AF74"
@@ -89,8 +82,8 @@ function CircleWithRings({
       <g clipPath={`url(#${clipPathId})`}>
         <image
           href={fillImage}
-          x={size / 2 - currentRadius}
-          y={size / 2 - currentRadius}
+          x={-currentRadius}
+          y={-currentRadius}
           width={currentRadius * 2}
           height={currentRadius * 2}
           preserveAspectRatio="xMidYMid slice"
@@ -104,8 +97,8 @@ function CircleWithRings({
 
       {/* Inner stroke overlay for crisp edge */}
       <circle
-        cx={size / 2}
-        cy={size / 2}
+        cx={0}
+        cy={0}
         r={currentRadius}
         fill="none"
         stroke="#D4AF74"
@@ -116,7 +109,7 @@ function CircleWithRings({
             : "r 100ms cubic-bezier(0, 0, 0.58, 1)",
         }}
       />
-    </svg>
+    </g>
   );
 }
 
