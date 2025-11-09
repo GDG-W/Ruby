@@ -99,7 +99,7 @@ export function SecureTicket() {
             alt="Standard Ticket"
           />
           <span className={classes.line} />
-          <h3 className={classes.header}>Standard Ticket (₦10,000 PER day)</h3>
+          <h3 className={classes.header}>Standard Ticket (₦7,000 PER day)</h3>
           <p className={classes.ticketDescription}>
             Open to everyone — whether you're just starting out or deep in the
             industry
