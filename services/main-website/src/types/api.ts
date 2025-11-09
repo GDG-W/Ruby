@@ -35,10 +35,16 @@ export interface Session {
   track_id?: string;
 }
 
+export interface Day {
+  day: number;
+  day_title: string;
+}
+
 export interface ConferenceData {
   Rooms: Room[];
   "Session Tyoe": SessionType[]; // Note: keeping the typo as it appears in the API
   Speakers: Speaker[];
+  Days: Day[];
   "Day 1": Session[];
   "Day 2": Session[];
   "Day 3": Session[];

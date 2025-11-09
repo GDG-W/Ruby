@@ -16,15 +16,7 @@ const dayLabels = [
   { title: "SAT 22", shortLabel: "Day 5" },
 ];
 
-const dayTitles = [
-  "OPENING DAY",
-  "DESIGN & AI DAY",
-  "WEB3 & BLOCKCHAIN DAY",
-  "DEVELOPMENT DAY",
-  "NETWORKING DAY",
-];
-
-const dayDescriptions = [
+const defaultDayDescriptions = [
   "Kick off DevFest Lagos 2025 with inspiring keynotes, networking, and community building.",
   "Explore the intersection of design and artificial intelligence with hands-on sessions and expert insights.",
   "Dive deep into Web3 technologies, blockchain development, and decentralized applications.",
@@ -67,10 +59,14 @@ export default async function SchedulePage() {
     // Include all sessions (don't filter by speaker presence)
     const allSessions = sessions;
 
+    // Get day title from API Days data
+    const dayInfo = conferenceData.Days?.find(d => d.day === dayIndex);
+    const dayTitle = dayInfo?.day_title || `DAY ${dayIndex}`;
+
     scheduleData.push({
-      title: dayTitles[dayIndex - 1] || `DAY ${dayIndex}`,
+      title: dayTitle.toUpperCase(),
       description:
-        dayDescriptions[dayIndex - 1] ||
+        defaultDayDescriptions[dayIndex - 1] ||
         `Day ${dayIndex} activities and sessions.`,
       date: dayLabels[dayIndex - 1]?.title || `Day ${dayIndex}`,
       shortLabel: dayLabels[dayIndex - 1]?.shortLabel || `Day ${dayIndex}`,
