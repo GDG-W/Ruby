@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { members } from "@/data/members";
 import styles from "./members.module.scss";
 import { MembersCarousel } from "./members-carousel";
@@ -21,6 +21,15 @@ const ROLES = [
   "Content",
 ] as const;
 
+const shuffle = <T,>(list: readonly T[]) => {
+  const a = [...list];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+
 const Members = () => {
   const [viewMode, setViewMode] = useState<ViewMode>("carousel");
   const [selectedRole, setSelectedRole] = useState<string>("All");
@@ -32,6 +41,12 @@ const Members = () => {
       (member) => member.role.toLowerCase() === selectedRole.toLowerCase(),
     );
   }, [selectedRole]);
+
+  const [shuffledMembers, setShuffledMembers] = useState(filteredMembers);
+
+  useEffect(() => {
+    setShuffledMembers(shuffle(filteredMembers));
+  }, [filteredMembers]);
 
   const handleRoleSelect = (role: string) => {
     setSelectedRole(role);
@@ -107,9 +122,9 @@ const Members = () => {
       )}
 
       {viewMode === "carousel" ? (
-        <MembersCarousel members={filteredMembers} />
+        <MembersCarousel members={shuffledMembers} />
       ) : (
-        <MembersList members={filteredMembers} />
+        <MembersList members={shuffledMembers} />
       )}
 
       <Image
