@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import Image from "next/image";
-import React from "react";
 import { SocialIcon } from "@/components/socials/SocialIcon";
 import type { Member } from "@/data/members";
 import sharedStyles from "./members.module.scss";

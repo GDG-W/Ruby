@@ -7,7 +7,7 @@
 
   @include media("<=desktop-sm") {
     padding: 0 24px;
-    min-height: 120vh
+    min-height: 120vh;
   }
 }
 
@@ -45,8 +45,6 @@
     font-size: 40px;
     line-height: 48px;
   }
-
-  ;
 }
 
 .break {

@@ -4,7 +4,7 @@ import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { SocialIcon } from "@/components/socials/SocialIcon";
 import type { Member } from "@/data/members";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
@@ -26,10 +26,8 @@ export const MembersCarousel = ({ members }: MembersCarouselProps) => {
     {
       axis: "y",
       loop: true,
-      align: (viewSize: number) => {
-        console.log(viewSize, width);
-        return isMobile ? viewSize * 0.225 : viewSize * 0.375;
-      },
+      align: (viewSize: number) =>
+        isMobile ? viewSize * 0.225 : viewSize * 0.375,
       duration: 25,
     },
     [Autoplay({ delay: CAROUSEL_INTERVAL, stopOnInteraction: false })],
@@ -56,10 +54,8 @@ export const MembersCarousel = ({ members }: MembersCarouselProps) => {
     emblaApi.reInit({
       axis: "y",
       loop: true,
-      align: (viewSize: number) => {
-        console.log(viewSize, width);
-        return isMobile ? viewSize * 0.225 : viewSize * 0.375;
-      },
+      align: (viewSize: number) =>
+        isMobile ? viewSize * 0.225 : viewSize * 0.375,
       duration: 25,
     });
   }, [isMobile, emblaApi]);

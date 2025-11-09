@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import Image from "next/image";
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { members } from "@/data/members";
 import styles from "./members.module.scss";
 import { MembersCarousel } from "./members-carousel";
@@ -53,40 +53,40 @@ const Members = () => {
             {selectedRole}
           </button>
           <div className={styles.toggle}>
-          <button
-            aria-label="Carousel view"
-            onClick={() => setViewMode("carousel")}
-            className={clsx(
-              styles.button,
-              viewMode === "carousel" && styles.active,
-            )}
-          >
-            <Image
-              alt=""
-              width={16}
-              height={16}
-              src="/carousel.svg"
-              className={styles.icon}
-            />
-          </button>
-          <button
-            aria-label="List view"
-            onClick={() => setViewMode("list")}
-            className={clsx(
-              styles.button,
-              viewMode === "list" && styles.active,
-            )}
-          >
-            <Image
-              alt=""
-              width={16}
-              height={11}
-              src="/list.svg"
-              className={styles.icon}
-            />
-          </button>
-          <span className={styles.label}>Layout</span>
-        </div>
+            <button
+              aria-label="Carousel view"
+              onClick={() => setViewMode("carousel")}
+              className={clsx(
+                styles.button,
+                viewMode === "carousel" && styles.active,
+              )}
+            >
+              <Image
+                alt=""
+                width={16}
+                height={16}
+                src="/carousel.svg"
+                className={styles.icon}
+              />
+            </button>
+            <button
+              aria-label="List view"
+              onClick={() => setViewMode("list")}
+              className={clsx(
+                styles.button,
+                viewMode === "list" && styles.active,
+              )}
+            >
+              <Image
+                alt=""
+                width={16}
+                height={11}
+                src="/list.svg"
+                className={styles.icon}
+              />
+            </button>
+            <span className={styles.label}>Layout</span>
+          </div>
         </div>
       </div>
 
@@ -128,32 +128,26 @@ const Members = () => {
       />
 
       {isModalOpen && (
-        <div
-          className={styles.overlay}
-          onClick={() => setIsModalOpen(false)}
-        >
-          <div
-            className={styles.modal}
-            onClick={(e) => e.stopPropagation()}
-          >
+        <div className={styles.overlay} onClick={() => setIsModalOpen(false)}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <button
               className={styles.close}
               onClick={() => setIsModalOpen(false)}
             >
               CLOSE
             </button>
-              {ROLES.map((role) => (
-                <button
-                  key={role}
-                  className={clsx(
-                    styles.option,
-                    selectedRole === role && styles.active,
-                  )}
-                  onClick={() => handleRoleSelect(role)}
-                >
-                  {role}
-                </button>
-              ))}
+            {ROLES.map((role) => (
+              <button
+                key={role}
+                className={clsx(
+                  styles.option,
+                  selectedRole === role && styles.active,
+                )}
+                onClick={() => handleRoleSelect(role)}
+              >
+                {role}
+              </button>
+            ))}
           </div>
         </div>
       )}
