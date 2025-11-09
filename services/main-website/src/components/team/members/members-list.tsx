@@ -39,7 +39,7 @@ export const MembersList = ({ members }: MembersListProps) => {
           <div className={styles.content}>
             <p className={sharedStyles.question}>{member.question}</p>
             <p className={sharedStyles.answer}>"{member.answer}"</p>
-            <div className={sharedStyles.music}>
+            <a href={member.music.link} target="_blank" rel="noopener noreferrer" className={sharedStyles.music}>
               <Image
                 width={16}
                 height={16}
@@ -51,7 +51,7 @@ export const MembersList = ({ members }: MembersListProps) => {
               <p className={sharedStyles.song}>
                 {member.music.song} - {member.music.artist}
               </p>
-            </div>
+            </a>
           </div>
           <div className={clsx(sharedStyles.social, styles.social)}>
             {member.socialMedia.map((social) => (
