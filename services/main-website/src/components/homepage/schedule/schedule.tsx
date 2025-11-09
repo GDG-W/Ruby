@@ -116,9 +116,8 @@ export async function ScheduleSection() {
           ALL INCLUSIVE <br /> SESSIONS
         </h2>
         <p className={classes.description}>
-          We promised to go bigger this year and we are delivering. {totalDays}{" "}
-          days of field specific sessions that you don't want to miss. Yes, we
-          have something for everyone.
+          We promised to go bigger this year, and we're delivering.{" "} 
+          {totalDays}{" "} days of field-specific sessions that you don't want to miss! Yes, we have something for everyone.’
         </p>
         <Image src={fiveDays} alt="Five Days" className={classes.fiveDays} />
       </div>
