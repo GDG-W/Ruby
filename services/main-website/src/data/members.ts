@@ -843,7 +843,7 @@ export const members = [
       link: "https://music.youtube.com/watch?v=RWHc_Pwb-5M&si=SRUrHKjcKrPC90Xp",
     },
     question: "What’s your comfort activity when you need a mental reset?",
-    answer: "Beach House music. Destroying my body at the gym, Cleaning, arranging & organising.",
+    answer: "Beach House music. Destroying my body at the gym. Cleaning, arranging & organising.",
     socialMedia: [
       {
         type: "linkedin",
