@@ -22,7 +22,7 @@ const ROLES = [
 ] as const;
 
 const Members = () => {
-  const [viewMode, setViewMode] = useState<ViewMode>("list");
+  const [viewMode, setViewMode] = useState<ViewMode>("carousel");
   const [selectedRole, setSelectedRole] = useState<string>("All");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
