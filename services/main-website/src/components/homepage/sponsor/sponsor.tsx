@@ -40,7 +40,7 @@ export function Sponsor() {
       }}
     >
       <div className={classes.sponsoredBy}>
-        PROUDLY <br /> SPONSORED BY
+        OUR 2025 <br /> PARTNERS
         <Image src={gdgBag} alt="GDG Bag" className={classes.gdgBag} />
       </div>
       <div className={classes.logosContainer}>
