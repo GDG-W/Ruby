@@ -35,6 +35,8 @@
   
   @include media("<=desktop-sm") {
     column-gap: 24px;
+    max-width: 100%;
+    flex-basis: 100%;
     align-items: center;
   }
 }
