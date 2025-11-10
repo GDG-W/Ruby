@@ -97,7 +97,15 @@ export default function Hero() {
               ease: [0.22, 0.61, 0.36, 1],
             }}
           >
-            <Button className={styles.button} variant="tertiary">
+            <Button
+              variant="tertiary"
+              className={styles.button}
+              onClick={() => {
+                const el = document.getElementById("team-members");
+                if (!el) return;
+                el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+            >
               See All
             </Button>
           </motion.div>
