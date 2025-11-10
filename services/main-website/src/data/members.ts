@@ -551,7 +551,7 @@ export const members = [
       {
         type: "twitter",
         url: "https://x.com/chide_attah",
-      }
+      },
     ],
   },
   {
@@ -895,8 +895,7 @@ export const members = [
     firstName: "Oluwaseyi",
     lastName: "Francis Ayodele",
     role: "Organizing",
-    image:
-      "https://drive.google.com/u/0/drive-viewer/AKGpihbfjUiOxgAGm9_muUhBqVokZuUQnZIqaUjxNDL2idRbnFVk-IEmeiLlHr45RR1Dsdk8XJ5j3HDIr16F1_QSnTkBeiG8Z8TuD_4=s1600-rw-v1",
+    image: "https://i.ibb.co/tTGVJj2w/Seyi-Profile-Photo.webp",
     music: {
       artist: "Adekunle Gold",
       song: "Many People",
