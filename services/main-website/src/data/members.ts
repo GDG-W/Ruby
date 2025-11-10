@@ -38,7 +38,7 @@ export const members = [
       },
       {
         type: "twitter",
-        url: "https://www.x.com/eazyisreal",
+        url: "https://x.com/eazyisreal_dev",
       },
       {
         type: "instagram",
