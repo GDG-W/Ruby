@@ -31,7 +31,7 @@ export const MembersList = ({ members }: MembersListProps) => {
               <p className={clsx(sharedStyles.firstName, styles.firstName)}>
                 {member.firstName}
               </p>
-              <p className={clsx(sharedStyles.lastName, styles.lastName)}>{member.lastName}</p>
+              <p className={sharedStyles.lastName}>{member.lastName}</p>
               <p className={sharedStyles.role}>did {member.role}</p>
             </div>
           </div>

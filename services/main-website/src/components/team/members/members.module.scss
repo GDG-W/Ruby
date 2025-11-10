@@ -241,7 +241,7 @@
   font-size: 48px;
   margin-bottom: 1.6rem;
 
-  @include media("<=desktop-sm") {
+  @include media("<=desktop-md") {
     font-size: 28px;
   }
 }

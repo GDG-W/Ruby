@@ -45,14 +45,6 @@
   }
 }
 
-.lastName {
-  word-break: break-all;
-  @include media("<=desktop-md") {
-    font-size: 28px;
-  }
-
-}
-
 .inner {
   display: flex;
   flex-direction: column;
