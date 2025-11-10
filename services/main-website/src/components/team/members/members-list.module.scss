@@ -31,7 +31,7 @@
   flex-basis: 40%;
   max-width: 40%;
   display: flex;
-  column-gap: 48px;
+  column-gap: 4%;
   
   @include media("<=desktop-sm") {
     column-gap: 24px;
@@ -39,10 +39,18 @@
   }
 }
 
-.name {
+.firstName {
   @include media("<=desktop-sm") {
     margin-bottom: 1rem;
   }
+}
+
+.lastName {
+  word-break: break-all;
+  @include media("<=desktop-md") {
+    font-size: 28px;
+  }
+
 }
 
 .inner {
