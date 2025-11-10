@@ -549,9 +549,9 @@ export const members = [
     answer: "Sleeping 😂",
     socialMedia: [
       {
-        type: "linkedin",
-        url: "http://linkedin.com/in/favourattah",
-      },
+        type: "twitter",
+        url: "https://x.com/chide_attah",
+      }
     ],
   },
   {
