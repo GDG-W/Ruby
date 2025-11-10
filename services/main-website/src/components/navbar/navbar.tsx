@@ -92,9 +92,9 @@ export function Navbar() {
       </div>
       <aside className={clsx(styles.mobileNav, { [styles.open]: navOpen })}>
         <div className={styles.topRow}>
-          <div className={styles.logo}>
+          <Link href="/" className={styles.logo}>
             <Image src={navLogo} alt="DevFest Lagos" />
-          </div>
+          </Link>
           <Button
             className={styles.mobileNavClose}
             onClick={() => setNavOpen(false)}
