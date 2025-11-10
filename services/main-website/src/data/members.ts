@@ -103,7 +103,7 @@ export const members = [
   {
     firstName: "Florence",
     lastName: "Ogunbore",
-    role: "Product Management",
+    role: "Product",
     image: "https://i.ibb.co/3ypPbZ4R/DSC-5605.jpg",
     music: {
       artist: "Tevin Campbell",
