@@ -1,7 +1,4 @@
-import { clsx } from "clsx";
 import Image from "next/image";
-import dateAndLocationArrow from "@/assets/date-and-location-arrow.svg";
-import dateAndLocationMobileArrow from "@/assets/date-and-location-mobile-arrow.svg";
 import fiveDaysIcon from "@/assets/five-days.svg";
 import { ScheduleDayGroup } from "@/components/schedule/schedule-day-group";
 import { fetchConferenceData } from "@/lib/actions";
