@@ -678,17 +678,18 @@ export const members = [
     ],
   },
   {
-    firstName: "Kruse",
+    firstName: "Chukwuemeka",
     lastName: "Chukwurah",
-    role: "Engineering",
-    image: "https://i.ibb.co/zhVfspRm/PXL-20251031-124953749.jpg",
+    role: "Organizing",
+    image: "https://i.ibb.co/SDQdQxzt/IMG-0760.jpg",
     music: {
       artist: "Savy Henry",
       song: "LOML",
       link: "https://music.youtube.com/watch?v=J2ZxdqNYROY&si=-lBY-ol55nVVNcKH",
     },
-    question: "What's your comfort activity when you need a mental reset?",
-    answer: "Listening to Music",
+    question:
+      "What's something people are usually surprised to learn about you?",
+    answer: "I don’t like milk, and I’m not allergic to it",
     socialMedia: [
       {
         type: "linkedin",
@@ -860,6 +861,174 @@ export const members = [
       {
         type: "instagram",
         url: "https://www.instagram.com/tobijudah",
+      },
+    ],
+  },
+  {
+    firstName: "Maryann",
+    lastName: "Onuoha",
+    role: "Organizing",
+    image: "https://i.ibb.co/bj8N8sPx/IMG-9272.jpg",
+    music: {
+      artist: "Taylor Swift ft. Sabrina Carpenter",
+      song: "The Life of a Showgirl",
+      link: "https://music.youtube.com/watch?v=WXAoY9PpFEo&si=LUKiZkLWD1YLdoEf",
+    },
+    question: "What's a quote you live by?",
+    answer: "Life is a spoon, and I’m a fork.",
+    socialMedia: [
+      {
+        type: "linkedin",
+        url: "https://www.linkedin.com/in/maryann-onuoha-555210198",
+      },
+      {
+        type: "twitter",
+        url: "https://x.com/OhHiMaryann",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/maryanneonuoha/",
+      },
+    ],
+  },
+  {
+    firstName: "Oluwaseyi",
+    lastName: "Francis Ayodele",
+    role: "Organizing",
+    image:
+      "https://drive.google.com/u/0/drive-viewer/AKGpihbfjUiOxgAGm9_muUhBqVokZuUQnZIqaUjxNDL2idRbnFVk-IEmeiLlHr45RR1Dsdk8XJ5j3HDIr16F1_QSnTkBeiG8Z8TuD_4=s1600-rw-v1",
+    music: {
+      artist: "Adekunle Gold",
+      song: "Many People",
+      link: "https://music.youtube.com/watch?v=JUyaw8zrsBg",
+    },
+    question: "What's your comfort activity when you need a mental reset?",
+    answer: "Swimming & Sleep",
+    socialMedia: [
+      {
+        type: "linkedin",
+        url: "https://www.linkedin.com/in/oluwaseyiayodele/",
+      },
+      {
+        type: "twitter",
+        url: "https://x.com/fransunisoft",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/fransunisoft",
+      },
+    ],
+  },
+  {
+    firstName: "Oluwaseyi",
+    lastName: "Ajadi",
+    role: "Organizing",
+    image: "https://i.ibb.co/9345VR5B/lascotstudios-292.jpg",
+    music: {
+      artist: "Hillsong Young & Free, Aodhán King",
+      song: "Highs & Lows",
+      link: "https://music.youtube.com/watch?v=71AwhGQMb1Q&si=eCisLIS5B504avU3",
+    },
+    question: "What's a quote you live by?",
+    answer:
+      "What will be, will ( Que sera sera ). Wherever you are now, Is where you are meant to be. Trust God.",
+    socialMedia: [
+      {
+        type: "linkedin",
+        url: "https://www.linkedin.com/in/seyiQSE",
+      },
+      {
+        type: "twitter",
+        url: "https://x.com/OluwaseyiAjadi4",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/script_pz",
+      },
+    ],
+  },
+  {
+    firstName: "Mileke",
+    lastName: "Kolawole",
+    role: "Organizing",
+    image:
+      "https://lh3.googleusercontent.com/pw/AP1GczMa1qufXNgMohGjgiB_DIQ35VrT_K4bHELTn8de5dyIlEE3C84KErr74mGr3nHxW5ygJVfFRQLymy5FQ5P9RQ0TOF4QEUNW4lLdfiDO22YIafnchP2DM-ojpwmIWdvHcNXd3_YrjiL62kaskX7fLigpHA=w1478-h1914-s-no-gm?authuser=0",
+    music: {
+      artist: "J4v1nny",
+      song: "War In Ba Sing Se",
+      link: "https://music.youtube.com/watch?v=GfKmLnQhqBU&si=Y62rO66Z_BzWWw0e",
+    },
+    question: "What's a quote you live by?",
+    answer: "'Ise kekere, owo n'la'",
+    socialMedia: [
+      {
+        type: "linkedin",
+        url: "https://linkedin.com/in/mileke-kolawole",
+      },
+      {
+        type: "twitter",
+        url: "https://x.com/milekekolawole",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/milekekolawole",
+      },
+    ],
+  },
+  {
+    firstName: "Precious",
+    lastName: "Omonzejele",
+    role: "Organizing",
+    image: "https://i.ibb.co/cXCCBFnK/IMG-6006.jpg",
+    music: {
+      artist: "NW Auto",
+      song: "F82 BMW M4 Stock Exhaust Sound",
+      link: "https://youtu.be/-zcRt1ZmcJ4?si=UbccrzbXo5GNmggr",
+    },
+    question: "What's a quote you live by?",
+    answer:
+      "You can just do things. You may suffer oo, but yeah, you can just do things. 🫵🏼",
+    socialMedia: [
+      {
+        type: "linkedin",
+        url: "https://linkedin.com/in/preciousomonze",
+      },
+      {
+        type: "twitter",
+        url: "https://x.com/Preciousomonze",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/Preciousomonze",
+      },
+    ],
+  },
+  {
+    firstName: "Olushola",
+    lastName: "Oladeji",
+    role: "Organizing",
+    image:
+      "https://i.ibb.co/ksM1v9sy/Whats-App-Image-2025-07-15-at-2-48-21-PM.jpg",
+    music: {
+      artist: "Eugy Official",
+      song: "Winners Side",
+      link: "https://music.youtube.com/watch?v=68ov_OfIK4g&si=hCl0D_owSZLsYJ1x",
+    },
+    question: "What's a quote you live by?",
+    answer:
+      "The reasonable man adapts himself to the world; the unreasonable one persists in trying to adapt the world to himself. Therefore all progress depends on the unreasonable man - George Bernard Shaw",
+    socialMedia: [
+      {
+        type: "linkedin",
+        url: "https://www.linkedin.com/in/sholadeji/",
+      },
+      {
+        type: "twitter",
+        url: "https://x.com/sholadeji",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/shola_deji",
       },
     ],
   },
