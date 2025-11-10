@@ -11,7 +11,10 @@ interface SpeakersWrapperProps {
 }
 
 export function SpeakersWrapper({ speakers }: SpeakersWrapperProps) {
-  const carouselRef = useRef<{ scrollPrev: () => void; scrollNext: () => void } | null>(null);
+  const carouselRef = useRef<{
+    scrollPrev: () => void;
+    scrollNext: () => void;
+  } | null>(null);
   const [carouselInView, setCarouselInView] = useState(false);
   const observerRef = useRef<HTMLDivElement>(null);
 

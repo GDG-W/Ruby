@@ -16,7 +16,10 @@ const CAROUSEL_INTERVAL = 3000;
 
 interface SpeakersCarouselProps {
   speakers: SpeakerProps[];
-  carouselRef: React.RefObject<{ scrollPrev: () => void; scrollNext: () => void } | null>;
+  carouselRef: React.RefObject<{
+    scrollPrev: () => void;
+    scrollNext: () => void;
+  } | null>;
   carouselInView: boolean;
 }
 
