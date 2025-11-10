@@ -44,7 +44,7 @@ function transformApiScheduleToScheduleData(
       shortLabel: "Day 3",
     },
     "Day 4": {
-      title: "ENGINEERING & SECURITY",
+      title: "ENGINEERING & CYBERSECURITY",
       date: "Fri 21",
       shortLabel: "Day 4",
     },
