@@ -240,6 +240,11 @@
   @extend .name;
   font-size: 48px;
   margin-bottom: 1.6rem;
+  word-break: break-word;
+
+  @include media("<=desktop") {
+    font-size: 40px;
+  }
 
   @include media("<=desktop-md") {
     font-size: 28px;
