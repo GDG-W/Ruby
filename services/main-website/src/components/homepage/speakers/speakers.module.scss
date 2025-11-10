@@ -79,13 +79,21 @@
         }
     }
 
+    .emblaViewport{
+        overflow: hidden;
+    }
+
     .carousel{
         display: flex;
         align-items: center;
         flex-wrap: nowrap;
         column-gap: 32px;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
+        touch-action: pan-y pinch-zoom;
+    }
+
+    .emblaSlide{
+        flex: 0 0 auto;
+        min-width: 0;
     }
 
     .speakerLaptop{

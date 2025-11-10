@@ -11,10 +11,11 @@ interface SpeakersWrapperProps {
 }
 
 export function SpeakersWrapper({ speakers }: SpeakersWrapperProps) {
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<{ scrollPrev: () => void; scrollNext: () => void } | null>(null);
   const [carouselInView, setCarouselInView] = useState(false);
+  const observerRef = useRef<HTMLDivElement>(null);
 
-  useIntersectionObserver(carouselRef, {
+  useIntersectionObserver(observerRef, {
     once: true,
     onEnter: () => {
       setCarouselInView(true);
@@ -22,19 +23,15 @@ export function SpeakersWrapper({ speakers }: SpeakersWrapperProps) {
   });
 
   const scrollLeft = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -352, behavior: "smooth" });
-    }
+    carouselRef.current?.scrollPrev();
   };
 
   const scrollRight = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 352, behavior: "smooth" });
-    }
+    carouselRef.current?.scrollNext();
   };
 
   return (
-    <>
+    <div ref={observerRef}>
       <SpeakersHeader
         speakerCount={speakers.length}
         onScrollLeft={scrollLeft}
@@ -45,6 +42,6 @@ export function SpeakersWrapper({ speakers }: SpeakersWrapperProps) {
         carouselRef={carouselRef}
         carouselInView={carouselInView}
       />
-    </>
+    </div>
   );
 }
