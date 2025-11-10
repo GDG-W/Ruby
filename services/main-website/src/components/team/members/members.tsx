@@ -12,7 +12,7 @@ type ViewMode = "carousel" | "list";
 
 const ROLES = [
   "All",
-  "Organizer",
+  "Organizing",
   "Design",
   "Engineering",
   "Product",
