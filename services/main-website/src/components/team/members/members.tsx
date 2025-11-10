@@ -54,7 +54,7 @@ const Members = () => {
   };
 
   return (
-    <section className={styles.members}>
+    <section id="team-members" className={styles.members}>
       <div className={styles.content}>
         <h2 className={styles.title}>
           The <br className={styles.break} /> Team
