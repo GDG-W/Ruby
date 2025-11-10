@@ -25,7 +25,7 @@ export const FAQ_DATA: Record<Tab, FAQ[]> = {
       id: 3,
       question: "When & where will DevFest Lagos 2025 take place?",
       answer:
-        "DevFest Lagos 2025 will be held between 18th to 22nd of November 2025, with each day's session kickstarting by 9:00 AM prompt at the The Zone, Gbagada, Lagos.",
+        "DevFest Lagos 2025 will be held between 18th to 22nd of November 2025, with each day's session kickstarting by 9:00 AM prompt at the National Theatre, Iganmu, Lagos.",
     },
     {
       id: 4,
