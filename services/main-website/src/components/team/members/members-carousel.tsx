@@ -84,22 +84,24 @@ export const MembersCarousel = ({ members }: MembersCarouselProps) => {
                   <p className={sharedStyles.firstName}>{member.firstName}</p>
                   <p className={sharedStyles.lastName}>{member.lastName}</p>
                   <p className={sharedStyles.role}>did {member.role}</p>
-                  <div className={sharedStyles.social}>
-                    {member.socialMedia.map((social) => (
-                      <a
-                        target="_blank"
-                        href={social.url}
-                        key={social.type}
-                        rel="noopener noreferrer"
-                        className={sharedStyles.socialLink}
-                      >
-                        <SocialIcon
-                          name={social.type.toLowerCase()}
-                          size={50}
-                        />
-                      </a>
-                    ))}
-                  </div>
+                  {member.socialMedia && (
+                    <div className={sharedStyles.social}>
+                      {member.socialMedia.map((social) => (
+                        <a
+                          target="_blank"
+                          href={social.url}
+                          key={social.type}
+                          rel="noopener noreferrer"
+                          className={sharedStyles.socialLink}
+                        >
+                          <SocialIcon
+                            name={social.type.toLowerCase()}
+                            size={50}
+                          />
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <Image
                   width={320}
@@ -111,24 +113,26 @@ export const MembersCarousel = ({ members }: MembersCarouselProps) => {
                 <div className={styles.other}>
                   <p className={sharedStyles.question}>{member.question}</p>
                   <p className={sharedStyles.answer}>'{member.answer}'</p>
-                  <a
-                    href={member.music.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={sharedStyles.music}
-                  >
-                    <Image
-                      width={20}
-                      height={20}
-                      src="/yt-music.svg"
-                      alt="YouTube Music"
-                      className={sharedStyles.youtubeMusic}
-                    />
-                    <p className={sharedStyles.listeningTo}>Listening to </p>
-                    <p className={sharedStyles.song}>
-                      {member.music.song} - {member.music.artist}
-                    </p>
-                  </a>
+                  {member.music?.link && (
+                    <a
+                      href={member.music.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={sharedStyles.music}
+                    >
+                      <Image
+                        width={20}
+                        height={20}
+                        src="/yt-music.svg"
+                        alt="YouTube Music"
+                        className={sharedStyles.youtubeMusic}
+                      />
+                      <p className={sharedStyles.listeningTo}>Listening to </p>
+                      <p className={sharedStyles.song}>
+                        {member.music.song} - {member.music.artist}
+                      </p>
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.li>
