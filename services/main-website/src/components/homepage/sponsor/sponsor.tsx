@@ -9,6 +9,7 @@ import cleva from "@/assets/sponsors/cleva.png";
 import gdgBag from "@/assets/sponsors/gdg-bag.svg";
 import google from "@/assets/sponsors/google.png";
 import splitIcon from "@/assets/sponsors/split.png";
+import btrust from "@/assets/sponsors/btrust.png";
 import classes from "./sponsor.module.scss";
 
 const sponsorImages = [
@@ -17,6 +18,7 @@ const sponsorImages = [
   cleva,
   alat,
   cadana,
+  btrust,
   // techcabal,
   // shecodeafrica,
   // threemtt,
