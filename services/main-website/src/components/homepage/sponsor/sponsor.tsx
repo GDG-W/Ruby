@@ -4,12 +4,12 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import alat from "@/assets/sponsors/alat.png";
 import bitnob from "@/assets/sponsors/bitnob.png";
+import btrust from "@/assets/sponsors/btrust.svg";
 import cadana from "@/assets/sponsors/cadana.png";
 import cleva from "@/assets/sponsors/cleva.png";
 import gdgBag from "@/assets/sponsors/gdg-bag.svg";
 import google from "@/assets/sponsors/google.png";
 import splitIcon from "@/assets/sponsors/split.png";
-import btrust from "@/assets/sponsors/btrust.svg";
 import classes from "./sponsor.module.scss";
 
 const sponsorImages = [
