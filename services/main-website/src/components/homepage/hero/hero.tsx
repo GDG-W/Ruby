@@ -139,7 +139,7 @@ export function HomepageHero() {
             BUY TICKETS
           </Button>
           <div className={styles.dateAndLocation}>
-            <span>18-22 november, 2025</span>
+            <span>18-22 November, 2025</span>
             <Image src={dateAndLocationArrow} alt="" className={styles.arrow} />
             <Image
               src={dateAndLocationMobileArrow}
