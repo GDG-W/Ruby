@@ -3,14 +3,14 @@ export type Member = {
   readonly lastName: string;
   readonly role: string;
   readonly image: string;
-  readonly music: {
+  readonly music?: {
     readonly artist: string;
     readonly song: string;
     readonly link: string;
   };
   readonly question: string;
   readonly answer: string;
-  readonly socialMedia: ReadonlyArray<{
+  readonly socialMedia?: ReadonlyArray<{
     readonly type: string;
     readonly url: string;
   }>;
