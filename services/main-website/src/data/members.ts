@@ -340,7 +340,8 @@ export const members = [
     firstName: "Khadijah",
     lastName: "Abdulkabir",
     role: "Design",
-    image: "https://storage.googleapis.com/devfestlagos2025/Ruby/Approved%20Speaker%20photos%20/Placeholder%20image.png",
+    image:
+      "https://storage.googleapis.com/devfestlagos2025/Ruby/Approved%20Speaker%20photos%20/Placeholder%20image.png",
     music: {
       artist: "Maher Zain",
       song: "Good Day",
@@ -1121,7 +1122,8 @@ export const members = [
     firstName: "Olamide",
     lastName: "Kehinde",
     role: "Organizing",
-    image: "https://storage.googleapis.com/devfestlagos2025/Ruby/Approved%20Speaker%20photos%20/Placeholder%20image.png",
+    image:
+      "https://storage.googleapis.com/devfestlagos2025/Ruby/Approved%20Speaker%20photos%20/Placeholder%20image.png",
     question: "What's a quote you live by?",
     answer: "If ever you're in doubt, always do the KIND thing.",
   },
