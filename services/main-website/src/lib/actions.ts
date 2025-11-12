@@ -36,12 +36,11 @@ const fetchConferenceDataUncached =
 export const fetchConferenceData = unstable_cache(
   fetchConferenceDataUncached,
   ["conference-data"],
-  { revalidate: 1 },
+  { revalidate: 60 },
 );
 
 export async function fetchSpeakers() {
   const data = await fetchConferenceData();
-  console.log("Fetched conference data for speakers:", data);
   return data?.Speakers || [];
 }
 
