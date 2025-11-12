@@ -194,6 +194,12 @@
   border-radius: 50%;
   background-color: $grey-60;
   flex-shrink: 0;
+  margin: 0 0.5rem;
+
+  // Grayed out variant for speaker separators
+  &.grayedOut {
+    background-color: $grey-10;
+  }
 
   // Room color variants for separator
   &.room1 {

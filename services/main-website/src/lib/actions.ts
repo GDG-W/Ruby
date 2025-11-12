@@ -41,7 +41,6 @@ export const fetchConferenceData = unstable_cache(
 
 export async function fetchSpeakers() {
   const data = await fetchConferenceData();
-  console.log("Fetched conference data for speakers:", data);
   return data?.Speakers || [];
 }
 

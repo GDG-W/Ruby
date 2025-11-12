@@ -68,22 +68,23 @@ function transformApiScheduleToScheduleData(
 
       // Get unique speakers from the sessions
       const uniqueSpeakers = limitedSessions
-        .filter((session) => session.speaker_name && session.speaker_id)
+        .filter((session) => session.speaker_id && session.speaker_id !== "NULL")
         .reduce((acc, session) => {
-          if (
-            !acc.some((speaker) => speaker.speaker_id === session.speaker_id)
-          ) {
-            acc.push({
-              // biome-ignore lint/style/noNonNullAssertion: We're certain the value will be defined
-              speaker_id: session.speaker_id!,
-              // biome-ignore lint/style/noNonNullAssertion: We're certain the value will be defined
-              speaker_name: session.speaker_name!,
-              speaker_tagline: "",
-              speaker_bio: "",
-              speaker_img: "",
-              speaker_twitter: "",
-              speaker_linkedin: "",
-            });
+          // Handle comma-separated speaker names
+          const speakerNames = session.speaker_id!.split(',').map(name => name.trim());
+          
+          for (const speakerName of speakerNames) {
+            if (speakerName && speakerName !== "NULL" && !acc.some((speaker) => speaker.speaker_name === speakerName)) {
+              acc.push({
+                speaker_id: speakerName, // Use name as ID for now since we don't have actual speaker IDs
+                speaker_name: speakerName,
+                speaker_tagline: "",
+                speaker_bio: "",
+                speaker_img: "",
+                speaker_twitter: "",
+                speaker_linkedin: "",
+              });
+            }
           }
           return acc;
         }, [] as Speaker[]);
@@ -103,6 +104,8 @@ export async function ScheduleSection() {
   const transformedSchedule = transformApiScheduleToScheduleData(
     allSchedule as Record<string, Session[]>,
   );
+
+
   const _totalSessions = Object.values(allSchedule).reduce(
     (total, sessions) => total + sessions.length,
     0,

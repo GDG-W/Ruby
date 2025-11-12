@@ -24,21 +24,29 @@ export function ScheduleItemCard({
   className,
 }: ScheduleItemCardProps) {
   // Find speaker data for this session
-  const sessionSpeaker = speakers.find(
-    (speaker) => speaker.speaker_name === session.speaker_id,
-  );
-
-  const sessionSpeakers: Speaker[] = sessionSpeaker
-    ? [
-        {
-          name: sessionSpeaker.speaker_name,
+  const sessionSpeakers: Speaker[] = [];
+  
+  if (session.speaker_id && session.speaker_id !== "NULL") {
+    // Handle comma-separated speaker names in speaker_id field
+    const speakerNames = session.speaker_id.split(',').map(name => name.trim());
+    
+    for (const speakerName of speakerNames) {
+      // Skip empty names or "NULL" values
+      if (speakerName && speakerName !== "NULL") {
+        const speakerData = speakers.find(
+          (speaker) => speaker.speaker_name === speakerName,
+        );
+        
+        sessionSpeakers.push({
+          name: speakerName,
           avatar:
-            sessionSpeaker.speaker_img !== "NULL"
-              ? sessionSpeaker.speaker_img
+            speakerData && speakerData.speaker_img !== "NULL"
+              ? speakerData.speaker_img
               : undefined,
-        },
-      ]
-    : [];
+        });
+      }
+    }
+  }
 
   const hasMultipleSpeakers = sessionSpeakers.length > 1;
 
@@ -73,14 +81,11 @@ export function ScheduleItemCard({
   function formatTime(timeString?: string): string {
     if (!timeString || timeString === "NULL") return "";
 
-    // Debug: Log the actual time string received
-    console.log("Raw time from API:", timeString, "Type:", typeof timeString);
 
     // Handle different time formats that might come from the API
 
     // If it's already in 12-hour format (e.g., "2:30 PM"), return as is
     if (/^\d{1,2}:\d{2}\s?(AM|PM)$/i.test(timeString.trim())) {
-      console.log("Matched 12-hour format");
       return timeString.trim();
     }
 
@@ -164,38 +169,51 @@ export function ScheduleItemCard({
           hasMultipleSpeakers && styles.multipleSpeakers,
         )}
       >
-        <div className={styles.speakerAvatars}>
-          {sessionSpeakers.map((speaker, index) => (
-            <div
-              key={index}
-              className={styles.speakerAvatar}
-              style={{ zIndex: index + 1 }}
-            >
-              <img
-                src={speaker.avatar || defaultAvatar.src}
-                alt={`${speaker.name} avatar`}
-                loading="lazy"
-              />
+        {sessionSpeakers.length > 0 && (
+          <>
+            <div className={styles.speakerAvatars}>
+              {sessionSpeakers.map((speaker, index) => (
+                <div
+                  key={index}
+                  className={styles.speakerAvatar}
+                  style={{ zIndex: index + 1 }}
+                >
+                  <img
+                    src={speaker.avatar || defaultAvatar.src}
+                    alt={`${speaker.name} avatar`}
+                    loading="lazy"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <div className={styles.speakerInfo}>
-          <div className={styles.speakerNames}>
-            {sessionSpeakers.map((speaker, index) => (
-              <span key={index}>
-                <span className={styles.speakerName}>{speaker.name}</span>
-                {index < sessionSpeakers.length - 1 && (
-                  <div className={styles.separator}></div>
-                )}
-              </span>
-            ))}
+            <div className={styles.speakerInfo}>
+              <div className={styles.speakerNames}>
+                {sessionSpeakers.map((speaker, index) => (
+                  <span key={index}>
+                    <span className={styles.speakerName}>{speaker.name}</span>
+                    {index < sessionSpeakers.length - 1 && (
+                      <div className={clsx(styles.separator, styles.grayedOut)}></div>
+                    )}
+                  </span>
+                ))}
+              </div>
+              <div className={clsx(styles.separator, styles[roomInfo.class])}></div>
+              <div className={clsx(styles.roomTag, styles[roomInfo.class])}>
+                {roomInfo.name}
+              </div>
+            </div>
+          </>
+        )}
+        
+        {sessionSpeakers.length === 0 && (
+          <div className={styles.speakerInfo}>
+            <div className={clsx(styles.separator, styles[roomInfo.class])}></div>
+            <div className={clsx(styles.roomTag, styles[roomInfo.class])}>
+              {roomInfo.name}
+            </div>
           </div>
-          <div className={clsx(styles.separator, styles[roomInfo.class])}></div>
-          <div className={clsx(styles.roomTag, styles[roomInfo.class])}>
-            {roomInfo.name}
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
