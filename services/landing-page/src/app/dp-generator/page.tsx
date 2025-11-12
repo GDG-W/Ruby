@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "DP Generator",
-  description: "DP Generator embedded app",
+  description: "DevFest Lagos 2025 DP Generator",
   robots: {
     index: false,
   },
