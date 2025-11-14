@@ -5,6 +5,8 @@ import defaultAvatar from "@/assets/default-avatar.png";
 import type { Speaker as APISpeaker, Session } from "@/types/api";
 import styles from "./schedule-item-card.module.scss";
 
+const defaultAvatarUrl = "https://storage.googleapis.com/devfestlagos2025/Ruby/Approved%20Speaker%20photos%20/Placeholder%20image.png"
+
 export interface Speaker {
   name: string;
   avatar?: string;
@@ -62,17 +64,35 @@ export function ScheduleItemCard({
 
   // Room mapping to class numbers and display names
   const ROOM_MAPPING = {
-    RUBY: { class: "room1", name: "Ruby" },
-    EMERALD: { class: "room2", name: "Emerald" },
-    SAPPHIRE: { class: "room3", name: "Sapphire" },
-    OPAL: { class: "room4", name: "Opal" },
-    OUTSIDE: { class: "room5", name: "Outside" },
+    "EXHIBITION HALL": { class: "room1", name: "Exhibition Hall" },
+    "CINEMA HALL 1": { class: "room2", name: "Cinema Hall 1" },
+    "CINEMA HALL 2": { class: "room3", name: "Cinema Hall 2" },
+    "CINEMA HALL 3": { class: "room4", name: "Cinema Hall 3" },
+    "CINEMA HALL 4": { class: "room5", name: "Cinema Hall 4" },
+    "BANQUET HALL": { class: "room6", name: "Banquet Hall" },
+    OUTSIDE: { class: "room7", name: "Outside" },
   } as const;
 
-  // Get room info from session
-  const roomType =
-    session.room_type?.toUpperCase() as keyof typeof ROOM_MAPPING;
-  const roomInfo = ROOM_MAPPING[roomType] || {
+  // Parse multiple rooms from session
+  const parseRooms = (roomType?: string) => {
+    if (!roomType || roomType === "NULL") return [];
+    
+    // Split by comma and process each room
+    const roomNames = roomType.split(',').map(name => name.trim().toUpperCase());
+    
+    return roomNames.map(name => {
+      const mappedRoom = ROOM_MAPPING[name as keyof typeof ROOM_MAPPING];
+      return mappedRoom || {
+        class: "room1",
+        name: name.toLowerCase().replace(/\b\w/g, l => l.toUpperCase()),
+      };
+    });
+  };
+
+  const roomInfos = parseRooms(session.room_type);
+  
+  // Fallback for backward compatibility
+  const roomInfo = roomInfos.length > 0 ? roomInfos[0] : {
     class: "room1",
     name: session.room_type || "TBD",
   };
@@ -179,7 +199,7 @@ export function ScheduleItemCard({
                   style={{ zIndex: index + 1 }}
                 >
                   <img
-                    src={speaker.avatar || defaultAvatar.src}
+                    src={speaker.avatar || defaultAvatarUrl}
                     alt={`${speaker.name} avatar`}
                     loading="lazy"
                   />
@@ -199,8 +219,17 @@ export function ScheduleItemCard({
                 ))}
               </div>
               <div className={clsx(styles.separator, styles[roomInfo.class])}></div>
-              <div className={clsx(styles.roomTag, styles[roomInfo.class])}>
-                {roomInfo.name}
+              <div className={styles.roomTags}>
+                {roomInfos.map((room, index) => (
+                  <span key={index}>
+                    <span className={clsx(styles.roomTag, styles[room.class])}>
+                      {room.name}
+                    </span>
+                    {index < roomInfos.length - 1 && (
+                      <span className={styles.roomSeparator}>, </span>
+                    )}
+                  </span>
+                ))}
               </div>
             </div>
           </>
@@ -209,8 +238,17 @@ export function ScheduleItemCard({
         {sessionSpeakers.length === 0 && (
           <div className={styles.speakerInfo}>
             <div className={clsx(styles.separator, styles[roomInfo.class])}></div>
-            <div className={clsx(styles.roomTag, styles[roomInfo.class])}>
-              {roomInfo.name}
+            <div className={styles.roomTags}>
+              {roomInfos.map((room, index) => (
+                <span key={index}>
+                  <span className={clsx(styles.roomTag, styles[room.class])}>
+                    {room.name}
+                  </span>
+                  {index < roomInfos.length - 1 && (
+                    <span className={styles.roomSeparator}>, </span>
+                  )}
+                </span>
+              ))}
             </div>
           </div>
         )}
