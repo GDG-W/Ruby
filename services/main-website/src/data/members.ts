@@ -1127,4 +1127,58 @@ export const members = [
     question: "What's a quote you live by?",
     answer: "If ever you're in doubt, always do the KIND thing.",
   },
+  {
+    firstName: "Biyi-Ayetoso",
+    lastName: "Tomisin",
+    role: "Content",
+    image: "https://i.ibb.co/F4RmfJY8/Headshot.jpg",
+    music: {
+      artist: "EmmaOMG",
+      song: "E Ti Tobi to Jesu",
+      link: "https://music.youtube.com/watch?v=kKPO4R29G5M&si=19FnLN0Q7KuUTFxo",
+    },
+    question: "What's a quote you live by?",
+    answer: "I’m building a life that reflects my ambition, not my fears and every day, I choose to create, grow, and show up louder than yesterday.",
+    socialMedia: [
+      {
+        type: "linkedin",
+        url: "https://www.linkedin.com/in/oluwatomisin-biyi-ayetoso-b83980372",
+      },
+      {
+        type: "twitter",
+        url: "https://x.com/_tomisin_01",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/_tomi.sin_",
+      },
+    ],
+  },
+  {
+    firstName: "Sodiq",
+    lastName: "Akinjobi",
+    role: "Product",
+    image: "https://i.ibb.co/39x3q7WF/DSC-7589.jpg",
+    music: {
+      artist: "Pelumi Deborah",
+      song: "Gbogbonise",
+      link: "https://music.youtube.com/watch?v=yxsYNF498F0",
+    },
+    question: "What's a quote you live by?",
+    answer: "You can just do things.",
+    socialMedia: [
+      {
+        type: "linkedin",
+        url: "https://linkedin.com/in/geektutor",
+      },
+      {
+        type: "twitter",
+        url: "https://x.com/geektutor",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/geektutor",
+      },
+    ],
+  },
 ] as const;
