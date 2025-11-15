@@ -5,6 +5,8 @@ import defaultAvatar from "@/assets/default-avatar.png";
 import type { Speaker as APISpeaker, Session } from "@/types/api";
 import styles from "./schedule-item-card.module.scss";
 
+const defaultAvatarUrl = "https://storage.googleapis.com/devfestlagos2025/Ruby/Approved%20Speaker%20photos%20/Placeholder%20image.png"
+
 export interface Speaker {
   name: string;
   avatar?: string;
@@ -24,21 +26,29 @@ export function ScheduleItemCard({
   className,
 }: ScheduleItemCardProps) {
   // Find speaker data for this session
-  const sessionSpeaker = speakers.find(
-    (speaker) => speaker.speaker_name === session.speaker_id,
-  );
-
-  const sessionSpeakers: Speaker[] = sessionSpeaker
-    ? [
-        {
-          name: sessionSpeaker.speaker_name,
+  const sessionSpeakers: Speaker[] = [];
+  
+  if (session.speaker_id && session.speaker_id !== "NULL") {
+    // Handle comma-separated speaker names in speaker_id field
+    const speakerNames = session.speaker_id.split(',').map(name => name.trim());
+    
+    for (const speakerName of speakerNames) {
+      // Skip empty names or "NULL" values
+      if (speakerName && speakerName !== "NULL") {
+        const speakerData = speakers.find(
+          (speaker) => speaker.speaker_name === speakerName,
+        );
+        
+        sessionSpeakers.push({
+          name: speakerName,
           avatar:
-            sessionSpeaker.speaker_img !== "NULL"
-              ? sessionSpeaker.speaker_img
+            speakerData && speakerData.speaker_img !== "NULL"
+              ? speakerData.speaker_img
               : undefined,
-        },
-      ]
-    : [];
+        });
+      }
+    }
+  }
 
   const hasMultipleSpeakers = sessionSpeakers.length > 1;
 
@@ -54,17 +64,35 @@ export function ScheduleItemCard({
 
   // Room mapping to class numbers and display names
   const ROOM_MAPPING = {
-    RUBY: { class: "room1", name: "Ruby" },
-    EMERALD: { class: "room2", name: "Emerald" },
-    SAPPHIRE: { class: "room3", name: "Sapphire" },
-    OPAL: { class: "room4", name: "Opal" },
-    OUTSIDE: { class: "room5", name: "Outside" },
+    "EXHIBITION HALL": { class: "room1", name: "Exhibition Hall" },
+    "CINEMA HALL 1": { class: "room2", name: "Cinema Hall 1" },
+    "CINEMA HALL 2": { class: "room3", name: "Cinema Hall 2" },
+    "CINEMA HALL 3": { class: "room4", name: "Cinema Hall 3" },
+    "CINEMA HALL 4": { class: "room5", name: "Cinema Hall 4" },
+    "BANQUET HALL": { class: "room6", name: "Banquet Hall" },
+    OUTSIDE: { class: "room7", name: "Outside" },
   } as const;
 
-  // Get room info from session
-  const roomType =
-    session.room_type?.toUpperCase() as keyof typeof ROOM_MAPPING;
-  const roomInfo = ROOM_MAPPING[roomType] || {
+  // Parse multiple rooms from session
+  const parseRooms = (roomType?: string) => {
+    if (!roomType || roomType === "NULL") return [];
+    
+    // Split by comma and process each room
+    const roomNames = roomType.split(',').map(name => name.trim().toUpperCase());
+    
+    return roomNames.map(name => {
+      const mappedRoom = ROOM_MAPPING[name as keyof typeof ROOM_MAPPING];
+      return mappedRoom || {
+        class: "room1",
+        name: name.toLowerCase().replace(/\b\w/g, l => l.toUpperCase()),
+      };
+    });
+  };
+
+  const roomInfos = parseRooms(session.room_type);
+  
+  // Fallback for backward compatibility
+  const roomInfo = roomInfos.length > 0 ? roomInfos[0] : {
     class: "room1",
     name: session.room_type || "TBD",
   };
@@ -73,14 +101,11 @@ export function ScheduleItemCard({
   function formatTime(timeString?: string): string {
     if (!timeString || timeString === "NULL") return "";
 
-    // Debug: Log the actual time string received
-    console.log("Raw time from API:", timeString, "Type:", typeof timeString);
 
     // Handle different time formats that might come from the API
 
     // If it's already in 12-hour format (e.g., "2:30 PM"), return as is
     if (/^\d{1,2}:\d{2}\s?(AM|PM)$/i.test(timeString.trim())) {
-      console.log("Matched 12-hour format");
       return timeString.trim();
     }
 
@@ -164,38 +189,69 @@ export function ScheduleItemCard({
           hasMultipleSpeakers && styles.multipleSpeakers,
         )}
       >
-        <div className={styles.speakerAvatars}>
-          {sessionSpeakers.map((speaker, index) => (
-            <div
-              key={index}
-              className={styles.speakerAvatar}
-              style={{ zIndex: index + 1 }}
-            >
-              <img
-                src={speaker.avatar || defaultAvatar.src}
-                alt={`${speaker.name} avatar`}
-                loading="lazy"
-              />
+        {sessionSpeakers.length > 0 && (
+          <>
+            <div className={styles.speakerAvatars}>
+              {sessionSpeakers.map((speaker, index) => (
+                <div
+                  key={index}
+                  className={styles.speakerAvatar}
+                  style={{ zIndex: index + 1 }}
+                >
+                  <img
+                    src={speaker.avatar || defaultAvatarUrl}
+                    alt={`${speaker.name} avatar`}
+                    loading="lazy"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <div className={styles.speakerInfo}>
-          <div className={styles.speakerNames}>
-            {sessionSpeakers.map((speaker, index) => (
-              <span key={index}>
-                <span className={styles.speakerName}>{speaker.name}</span>
-                {index < sessionSpeakers.length - 1 && (
-                  <div className={styles.separator}></div>
-                )}
-              </span>
-            ))}
+            <div className={styles.speakerInfo}>
+              <div className={styles.speakerNames}>
+                {sessionSpeakers.map((speaker, index) => (
+                  <span key={index}>
+                    <span className={styles.speakerName}>{speaker.name}</span>
+                    {index < sessionSpeakers.length - 1 && (
+                      <div className={clsx(styles.separator, styles.grayedOut)}></div>
+                    )}
+                  </span>
+                ))}
+              </div>
+              <div className={clsx(styles.separator, styles[roomInfo.class])}></div>
+              <div className={styles.roomTags}>
+                {roomInfos.map((room, index) => (
+                  <span key={index}>
+                    <span className={clsx(styles.roomTag, styles[room.class])}>
+                      {room.name}
+                    </span>
+                    {index < roomInfos.length - 1 && (
+                      <span className={styles.roomSeparator}>, </span>
+                    )}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
+        
+        {sessionSpeakers.length === 0 && (
+          <div className={styles.speakerInfo}>
+            <div className={clsx(styles.separator, styles[roomInfo.class])}></div>
+            <div className={styles.roomTags}>
+              {roomInfos.map((room, index) => (
+                <span key={index}>
+                  <span className={clsx(styles.roomTag, styles[room.class])}>
+                    {room.name}
+                  </span>
+                  {index < roomInfos.length - 1 && (
+                    <span className={styles.roomSeparator}>, </span>
+                  )}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className={clsx(styles.separator, styles[roomInfo.class])}></div>
-          <div className={clsx(styles.roomTag, styles[roomInfo.class])}>
-            {roomInfo.name}
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

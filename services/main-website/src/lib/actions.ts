@@ -10,6 +10,7 @@ const API_ENDPOINT =
 const fetchConferenceDataUncached =
   async (): Promise<ConferenceData | null> => {
     try {
+      console.log("Fetching conference data from API...");
       const response = await fetch(API_ENDPOINT, {
         method: "GET",
         headers: {
@@ -36,12 +37,11 @@ const fetchConferenceDataUncached =
 export const fetchConferenceData = unstable_cache(
   fetchConferenceDataUncached,
   ["conference-data"],
-  { revalidate: 1 },
+  { revalidate: 60 },
 );
 
 export async function fetchSpeakers() {
   const data = await fetchConferenceData();
-  console.log("Fetched conference data for speakers:", data);
   return data?.Speakers || [];
 }
 

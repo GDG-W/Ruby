@@ -154,6 +154,13 @@
 }
 
 
+.roomTags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+}
+
 .roomTag {
   @include text-l4;
 
@@ -163,7 +170,7 @@
   
   // Room color variants
   &.room1 {
-    color: $secondary-yellow;
+    color: $secondary-red;
   }
 
   &.room2 {
@@ -175,16 +182,29 @@
   }
 
   &.room4 {
-    color: $secondary-red;
+    color: $secondary-yellow;
   }
 
-  // Fallback for additional rooms
   &.room5 {
-    color: $secondary-blue;
+    color: $secondary-yellow;
   }
 
   &.room6 {
+    color: $secondary-blue;
+  }
+
+  &.room7 {
     color: $secondary-green;
+  }
+}
+
+.roomSeparator {
+  @include text-l4;
+  color: $grey-60;
+  margin: 0 0.25rem;
+
+  @include media(">tablet") {
+    @include text-l3;
   }
 }
 
@@ -194,10 +214,16 @@
   border-radius: 50%;
   background-color: $grey-60;
   flex-shrink: 0;
+  margin: 0 0.5rem;
+
+  // Grayed out variant for speaker separators
+  &.grayedOut {
+    background-color: $grey-10;
+  }
 
   // Room color variants for separator
   &.room1 {
-    background-color: $secondary-yellow;
+    background-color: $secondary-red;
   }
 
   &.room2 {
@@ -209,14 +235,18 @@
   }
 
   &.room4 {
-    background-color: $secondary-red;
+    background-color: $secondary-yellow;
   }
 
   &.room5 {
-    background-color: $secondary-blue;
+    background-color: $secondary-yellow;
   }
 
   &.room6 {
+    background-color: $secondary-blue;
+  }
+
+  &.room7 {
     background-color: $secondary-green;
   }
 }
@@ -246,15 +276,15 @@
 
   // Room color variants for breakout tag
   &.room1 {
-    background: rgba($secondary-yellow, 0.1);
-    border-color: rgba($secondary-yellow, 0.3);
+    background: rgba($secondary-red, 0.1);
+    border-color: rgba($secondary-red, 0.3);
     
     .breakoutIcon {
-      color: $secondary-yellow;
+      color: $secondary-red;
     }
     
     .breakoutText {
-      color: $secondary-yellow;
+      color: $secondary-red;
     }
   }
 
@@ -285,19 +315,32 @@
   }
 
   &.room4 {
-    background: rgba($secondary-red, 0.1);
-    border-color: rgba($secondary-red, 0.3);
+    background: rgba($secondary-yellow, 0.1);
+    border-color: rgba($secondary-yellow, 0.3);
     
     .breakoutIcon {
-      color: $secondary-red;
+      color: $secondary-yellow;
     }
     
     .breakoutText {
-      color: $secondary-red;
+      color: $secondary-yellow;
     }
   }
 
   &.room5 {
+    background: rgba($secondary-yellow, 0.1);
+    border-color: rgba($secondary-yellow, 0.3);
+    
+    .breakoutIcon {
+      color: $secondary-yellow;
+    }
+    
+    .breakoutText {
+      color: $secondary-yellow;
+    }
+  }
+
+  &.room6 {
     background: rgba($secondary-blue, 0.1);
     border-color: rgba($secondary-blue, 0.3);
     
@@ -310,7 +353,7 @@
     }
   }
 
-  &.room6 {
+  &.room7 {
     background: rgba($secondary-green, 0.1);
     border-color: rgba($secondary-green, 0.3);
     

@@ -70,7 +70,10 @@ export default async function SchedulePage() {
       sessions: allSessions,
       speakers: conferenceData.Speakers,
     });
+
+
   }
+
 
   return (
     <div className={styles.schedulePage}>

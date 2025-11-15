@@ -27,7 +27,6 @@ export interface Session {
   duration_minutes: number;
   session_title: string;
   speaker_id?: string;
-  speaker_name?: string;
   room_type?: string;
   room_name?: string;
   room_size?: number;
