@@ -2,15 +2,23 @@
 
 import { usePathname, useSearchParams } from "next/navigation";
 
-export default function Component() {
+import { Suspense } from 'react'
+ 
+function Handler() {
+  const searchParams = useSearchParams()
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-
   const fullUrl = pathname + "?" + searchParams.toString();
-
   if(pathname === "/claim"){
     location.href = "https://tickets.devfestlagos.com"+fullUrl
   }
-
-  location.href = "/"
+  return <></>
+}
+ 
+export default function NotFound() {
+  return (
+    // You could have a loading skeleton as the `fallback` too
+    <Suspense>
+      <Handler />
+    </Suspense>
+  )
 }
