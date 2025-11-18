@@ -1,20 +1,10 @@
 import Image from "next/image";
 import fiveDays from "@/assets/five-days.svg";
 import networkIcon from "@/assets/network.svg";
-import { fetchAllSchedule } from "@/lib/actions";
-import type { Session } from "@/types/api";
+import { fetchAllSchedule, fetchConferenceData } from "@/lib/actions";
+import type { Session, Speaker as APISpeaker } from "@/types/api";
 import classes from "./schedule.module.scss";
 import { ScheduleWrapper } from "./schedule-wrapper";
-
-type Speaker = {
-  speaker_id: string;
-  speaker_name: string;
-  speaker_tagline: string;
-  speaker_bio: string;
-  speaker_img: string;
-  speaker_twitter: string;
-  speaker_linkedin: string;
-};
 
 export type ScheduleData = {
   title: string;
@@ -22,10 +12,11 @@ export type ScheduleData = {
   shortLabel: string;
   description: string;
   sessions: Session[];
-  speakers: Speaker[];
+  speakers: APISpeaker[];
 };
 function transformApiScheduleToScheduleData(
   allSchedule: Record<string, Session[]>,
+  allSpeakers: APISpeaker[],
 ): ScheduleData[] {
   const dayMappings = {
     "Day 1": {
@@ -44,12 +35,12 @@ function transformApiScheduleToScheduleData(
       shortLabel: "Day 3",
     },
     "Day 4": {
-      title: "ENGINEERING & CYBERSECURITY",
+      title: "ENGINEERING & CYBERSECURITY DAY",
       date: "Fri 21",
       shortLabel: "Day 4",
     },
     "Day 5": {
-      title: "AI & CLOUD",
+      title: "AI & CLOUD DAY",
       date: "Sat 22",
       shortLabel: "Day 5",
     },
@@ -66,43 +57,24 @@ function transformApiScheduleToScheduleData(
 
       const limitedSessions = sessions.slice(0, 3);
 
-      // Get unique speakers from the sessions
-      const uniqueSpeakers = limitedSessions
-        .filter((session) => session.speaker_id && session.speaker_id !== "NULL")
-        .reduce((acc, session) => {
-          // Handle comma-separated speaker names
-          const speakerNames = session.speaker_id!.split(',').map(name => name.trim());
-          
-          for (const speakerName of speakerNames) {
-            if (speakerName && speakerName !== "NULL" && !acc.some((speaker) => speaker.speaker_name === speakerName)) {
-              acc.push({
-                speaker_id: speakerName, // Use name as ID for now since we don't have actual speaker IDs
-                speaker_name: speakerName,
-                speaker_tagline: "",
-                speaker_bio: "",
-                speaker_img: "",
-                speaker_twitter: "",
-                speaker_linkedin: "",
-              });
-            }
-          }
-          return acc;
-        }, [] as Speaker[]);
-
       return {
         ...dayInfo,
         description: `Join us for a full day of ${dayInfo.title.toLowerCase()} sessions. From concept to execution, this track guides you through impactful practices and real-world innovation.`,
         sessions: limitedSessions,
-        speakers: uniqueSpeakers,
+        speakers: allSpeakers, // Use the full speakers data from the API
       };
     });
 }
 
 export async function ScheduleSection() {
-  const allSchedule = await fetchAllSchedule();
+  const [allSchedule, conferenceData] = await Promise.all([
+    fetchAllSchedule(),
+    fetchConferenceData(),
+  ]);
 
   const transformedSchedule = transformApiScheduleToScheduleData(
     allSchedule as Record<string, Session[]>,
+    conferenceData?.Speakers || [],
   );
 
 
