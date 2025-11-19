@@ -56,7 +56,7 @@ export async function fetchSessionTypes() {
 }
 
 export async function fetchScheduleByDay(
-  day: "Day 1" | "Day 2" | "Day 3" | "Day 4" | "Day 5",
+  day: "Day 1" | "Day 2" | "Day 3" | "Day 3 Pro" | "Day 4" | "Day 5",
 ) {
   const data = await fetchConferenceData();
   return data?.[day] || [];
@@ -70,6 +70,7 @@ export async function fetchAllSchedule() {
     "Day 1": data["Day 1"] || [],
     "Day 2": data["Day 2"] || [],
     "Day 3": data["Day 3"] || [],
+    "Day 3 Pro": data["Day 3 Pro"] || [],
     "Day 4": data["Day 4"] || [],
     "Day 5": data["Day 5"] || [],
   };

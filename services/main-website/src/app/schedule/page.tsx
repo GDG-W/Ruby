@@ -21,6 +21,10 @@ const defaultDayDescriptions = [
   "Connect with industry leaders, explore career opportunities, and build meaningful professional relationships.",
 ];
 
+const day3ProTitle = "PRO DAY";
+const day3ProDescription =
+  "Get an exclusive pass to deep-dive sessions on scaling, leadership, and disruptive technology, led by successful Founders and executives from global companies.";
+
 export default async function SchedulePage() {
   const conferenceData = await fetchConferenceData();
 
@@ -60,6 +64,12 @@ export default async function SchedulePage() {
     const dayInfo = conferenceData.Days?.find((d) => d.day === dayIndex);
     const dayTitle = dayInfo?.day_title || `DAY ${dayIndex}`;
 
+    // For Day 3, also fetch Day 3 Pro sessions
+    const proSessions: Session[] =
+      dayIndex === 3 && Array.isArray(conferenceData["Day 3 Pro"])
+        ? (conferenceData["Day 3 Pro"] as Session[])
+        : [];
+
     scheduleData.push({
       title: dayTitle.toUpperCase(),
       description:
@@ -69,6 +79,9 @@ export default async function SchedulePage() {
       shortLabel: dayLabels[dayIndex - 1]?.shortLabel || `Day ${dayIndex}`,
       sessions: allSessions,
       speakers: conferenceData.Speakers,
+      proSessions,
+      ...(dayIndex === 3 && { proTitle: day3ProTitle }),
+      ...(dayIndex === 3 && { proDescription: day3ProDescription }),
     });
 
 

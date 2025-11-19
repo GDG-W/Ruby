@@ -13,6 +13,9 @@ export type ScheduleData = {
   description: string;
   sessions: Session[];
   speakers: APISpeaker[];
+  proSessions: Session[]; 
+  proTitle?: string; 
+  proDescription?: string;
 };
 function transformApiScheduleToScheduleData(
   allSchedule: Record<string, Session[]>,
@@ -47,7 +50,11 @@ function transformApiScheduleToScheduleData(
   };
 
   return Object.entries(allSchedule)
-    .filter(([_, sessions]) => sessions.length > 0)
+    .filter(([day, sessions]) => {
+      // Filter out "Day 3 Pro" as it will be included with Day 3
+      if (day === "Day 3 Pro") return false;
+      return sessions.length > 0;
+    })
     .map(([day, sessions]) => {
       const dayInfo = dayMappings[day as keyof typeof dayMappings] || {
         title: `${day.toUpperCase()} DAY`,
@@ -57,11 +64,19 @@ function transformApiScheduleToScheduleData(
 
       const limitedSessions = sessions.slice(0, 3);
 
+      // For Day 3, also include Day 3 Pro sessions
+      const proSessions: Session[] =
+        day === "Day 3" && allSchedule["Day 3 Pro"]
+          ? allSchedule["Day 3 Pro"].slice(0, 3)
+          : [];
+
       return {
         ...dayInfo,
         description: `Join us for a full day of ${dayInfo.title.toLowerCase()} sessions. From concept to execution, this track guides you through impactful practices and real-world innovation.`,
         sessions: limitedSessions,
         speakers: allSpeakers, // Use the full speakers data from the API
+        proSessions,
+        ...(day === "Day 3" && { proTitle: "PRO DAY" }),
       };
     });
 }

@@ -47,6 +47,7 @@ export interface ConferenceData {
   "Day 1": Session[];
   "Day 2": Session[];
   "Day 3": Session[];
+  "Day 3 Pro": Session[];
   "Day 4": Session[];
   "Day 5": Session[];
 }

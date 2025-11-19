@@ -1,9 +1,13 @@
+"use client";
+
 import clsx from "clsx";
 import Link from "next/link";
+import { useState } from "react";
 import type { Speaker as APISpeaker, Session } from "@/types/api";
 import { Button } from "../button/button";
 import styles from "./schedule-day-card.module.scss";
 import { ScheduleItemCard } from "./schedule-item-card";
+import { ScheduleTypeTabs } from "./schedule-type-tabs";
 
 export interface ScheduleDayCardProps {
   dayIndex: number;
@@ -16,6 +20,9 @@ export interface ScheduleDayCardProps {
   isFocused?: boolean;
   onFocus?: () => void;
   hideDescription?: boolean;
+  proSessions: Session[];
+  proTitle?: string;
+  proDescription?: string;
 }
 
 export function ScheduleDayCard({
@@ -29,7 +36,12 @@ export function ScheduleDayCard({
   isFocused,
   onFocus,
   hideDescription = false,
+  proSessions,
+  proTitle,
+  proDescription,
 }: ScheduleDayCardProps) {
+  const [activeTab, setActiveTab] = useState<"standard" | "pro">("standard");
+
   const _handleRSVPClick = () => {
     if (onRSVP) {
       onRSVP();
@@ -42,6 +54,14 @@ export function ScheduleDayCard({
     }
   };
 
+  // Check if this is Day 3 with Pro sessions
+  const hasProSchedule = proSessions.length > 0;
+
+  // Determine active content based on tab
+  const activeTitle = hasProSchedule && activeTab === "pro" && proTitle ? proTitle : title;
+  const activeDescription = hasProSchedule && activeTab === "pro" && proDescription ? proDescription : description;
+  const activeSessions = hasProSchedule && activeTab === "pro" ? proSessions : sessions;
+
   return (
     <div
       className={clsx(
@@ -53,15 +73,22 @@ export function ScheduleDayCard({
       onFocus={handleCardFocus}
       onMouseEnter={handleCardFocus}
     >
+      {hasProSchedule && (
+        <ScheduleTypeTabs
+          activeTab={activeTab}
+          onTabChange={setActiveTab}
+        />
+      )}
+
       <div className={styles.dayHeader}>
         <div className={styles.titleColumn}>
-          <h2 className={styles.dayTitle}>{title}</h2>
+          <h2 className={styles.dayTitle}>{activeTitle}</h2>
         </div>
 
         <div className={styles.contentColumn}>
           <div className={styles.contentWrapper}>
             {!hideDescription && (
-              <p className={styles.dayDescription}>{description}</p>
+              <p className={styles.dayDescription}>{activeDescription}</p>
             )}
 
             <div
@@ -88,10 +115,10 @@ export function ScheduleDayCard({
       </div>
 
       <div className={styles.scheduleItems}>
-        {sessions.length > 0 ? (
-          sessions.map((session, index) => (
+        {activeSessions.length > 0 ? (
+          activeSessions.map((session, index) => (
             <ScheduleItemCard
-              key={`${dayIndex}-${index}`}
+              key={`${dayIndex}-${activeTab}-${index}`}
               session={session}
               speakers={speakers}
               dayIndex={dayIndex}

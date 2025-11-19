@@ -1,0 +1,33 @@
+.tabs {
+  max-width: min(844px, calc(100% - 18px));
+  display: flex;
+  gap: 5.6rem;
+  padding: 0.5rem 0.8rem;
+  margin: 5.6rem auto 0;
+  border-radius: 999px;
+  
+  background-color: $grey-0;
+
+  @include media("<=tablet") {
+    gap: 2.4rem;
+  }
+}
+
+.tab {
+  @include text-h7;
+  width: 100%;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  transition: all 0.2s ease;
+  color: $grey-100;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    background: $pastel-yellow;
+    color: $grey-100;
+  }
+}
