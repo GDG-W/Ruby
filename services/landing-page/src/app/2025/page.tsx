@@ -12,6 +12,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Lanyard image - only shows on homepage */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         alt="Lanyard"
         width={300}

@@ -58,6 +58,7 @@ export default function DevFestLagos2026() {
         {/* Navbar */}
         <header className="w-full px-6 py-5 md:px-12 flex justify-between items-center border-b border-white/5 backdrop-blur-md bg-black/10">
           <div className="flex items-center gap-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/Logo.svg" alt="DevFest Lagos" className="h-8 md:h-10 filter brightness-0 invert" />
           </div>
           <div className="flex items-center gap-4">
