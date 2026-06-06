@@ -58,9 +58,14 @@ export function ScheduleDayCard({
   const hasProSchedule = proSessions.length > 0;
 
   // Determine active content based on tab
-  const activeTitle = hasProSchedule && activeTab === "pro" && proTitle ? proTitle : title;
-  const activeDescription = hasProSchedule && activeTab === "pro" && proDescription ? proDescription : description;
-  const activeSessions = hasProSchedule && activeTab === "pro" ? proSessions : sessions;
+  const activeTitle =
+    hasProSchedule && activeTab === "pro" && proTitle ? proTitle : title;
+  const activeDescription =
+    hasProSchedule && activeTab === "pro" && proDescription
+      ? proDescription
+      : description;
+  const activeSessions =
+    hasProSchedule && activeTab === "pro" ? proSessions : sessions;
 
   return (
     <div
@@ -74,10 +79,7 @@ export function ScheduleDayCard({
       onMouseEnter={handleCardFocus}
     >
       {hasProSchedule && (
-        <ScheduleTypeTabs
-          activeTab={activeTab}
-          onTabChange={setActiveTab}
-        />
+        <ScheduleTypeTabs activeTab={activeTab} onTabChange={setActiveTab} />
       )}
 
       <div className={styles.dayHeader}>

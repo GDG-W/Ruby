@@ -1138,7 +1138,8 @@ export const members = [
       link: "https://music.youtube.com/watch?v=kKPO4R29G5M&si=19FnLN0Q7KuUTFxo",
     },
     question: "What's a quote you live by?",
-    answer: "I’m building a life that reflects my ambition, not my fears and every day, I choose to create, grow, and show up louder than yesterday.",
+    answer:
+      "I’m building a life that reflects my ambition, not my fears and every day, I choose to create, grow, and show up louder than yesterday.",
     socialMedia: [
       {
         type: "linkedin",

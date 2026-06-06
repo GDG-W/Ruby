@@ -2,7 +2,7 @@ import Image from "next/image";
 import fiveDays from "@/assets/five-days.svg";
 import networkIcon from "@/assets/network.svg";
 import { fetchAllSchedule, fetchConferenceData } from "@/lib/actions";
-import type { Session, Speaker as APISpeaker } from "@/types/api";
+import type { Speaker as APISpeaker, Session } from "@/types/api";
 import classes from "./schedule.module.scss";
 import { ScheduleWrapper } from "./schedule-wrapper";
 
@@ -13,8 +13,8 @@ export type ScheduleData = {
   description: string;
   sessions: Session[];
   speakers: APISpeaker[];
-  proSessions: Session[]; 
-  proTitle?: string; 
+  proSessions: Session[];
+  proTitle?: string;
   proDescription?: string;
 };
 function transformApiScheduleToScheduleData(
@@ -91,7 +91,6 @@ export async function ScheduleSection() {
     allSchedule as Record<string, Session[]>,
     conferenceData?.Speakers || [],
   );
-
 
   const _totalSessions = Object.values(allSchedule).reduce(
     (total, sessions) => total + sessions.length,

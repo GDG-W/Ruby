@@ -42,14 +42,12 @@ function CircleWithRings({
   const handleMouseLeave = () => setIsHovered(false);
 
   return (
-    // biome-ignore lint/a11y/useKeyWithClickEvents: interactive SVG for visual effect
     <g
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
       aria-label="Interactive circle"
       transform={`scale(${scale})`}
-      // biome-ignore lint/a11y/useAriaPropsForRole: cursor needs to be on SVG element
       style={{ cursor: "pointer" }}
     >
       <defs>

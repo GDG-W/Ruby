@@ -20,6 +20,7 @@ export function LinkedinIcon({
       aria-hidden
       focusable="false"
     >
+      <title>LinkedIn</title>
       <rect width="50" height="50" rx="25" fill="var(--icon-bg, #1E1E1E)" />
       <path
         fillRule="evenodd"

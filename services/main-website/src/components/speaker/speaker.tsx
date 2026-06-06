@@ -144,7 +144,7 @@ export function Speaker({
         infoApi.start({ height: 104 });
       }
     });
-  }, [imageWrapperApi, infoApi, background]);
+  }, [imageWrapperApi, infoApi, background, hoverBackground]);
 
   const onClickImageWrapper = () => {
     if (cardState.current === "image") {
@@ -206,6 +206,7 @@ export function Speaker({
                 aria-label={media.type}
                 className={classes.socialMediaLink}
                 target="_blank"
+                rel="noopener"
               >
                 <SocialIcon name={media.type} size={24} />
               </a>

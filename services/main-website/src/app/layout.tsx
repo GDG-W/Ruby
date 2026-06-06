@@ -9,7 +9,7 @@ import { Navbar } from "@/components/navbar/navbar";
 const akira = localFont({
   src: "../fonts/Akira.otf",
   adjustFontFallback: false,
-  fallback: ['Arial', 'Helvetica', 'sans-serif'],
+  fallback: ["Arial", "Helvetica", "sans-serif"],
   variable: "--font-akira",
 });
 
