@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useEffect,useState } from "react";
 
 export default function DevFestLagos2026() {
@@ -36,243 +37,462 @@ export default function DevFestLagos2026() {
     return () => clearInterval(interval);
   }, []);
 
-  const getTicketUrl = () => {
-    return selectedTicket === "standard"
-      ? "https://tickets.devfestlagos.com/buy#standard"
-      : "https://tickets.devfestlagos.com/buy#pro";
-  };
-
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#0a0a0c] text-white selection:bg-[#EA4335] selection:text-white">
-      {/* Background Gradients & Mesh */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#4285F4]/10 blur-[120px]" />
-        <div className="absolute top-[20%] right-[-10%] w-[45%] h-[45%] rounded-full bg-[#EA4335]/10 blur-[120px]" />
-        <div className="absolute bottom-[-10%] left-[20%] w-[50%] h-[50%] rounded-full bg-[#FBBC05]/10 blur-[120px]" />
-        <div className="absolute bottom-[20%] right-[10%] w-[35%] h-[35%] rounded-full bg-[#34A853]/10 blur-[120px]" />
-        {/* Subtle grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
+    <div className="min-h-screen bg-[#f0f0f0] text-[#1e1e1e] font-inter selection:bg-[#ea4335] selection:text-white relative">
+      {/* Editorial grid lines background pattern */}
+      <div 
+        className="pointer-events-none absolute inset-0 opacity-[0.05]"
+        style={{ 
+          backgroundImage: "radial-gradient(circle at 1px 1px, #1e1e1e 1.5px, transparent 0)", 
+          backgroundSize: "24px 24px" 
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Top Banner / Announcement ticker */}
+      <div className="bg-[#1e1e1e] text-[#ffe7a5] text-[11px] sm:text-xs font-mono py-2.5 px-4 text-center border-b border-[#1e1e1e] uppercase tracking-widest flex items-center justify-center gap-4 overflow-hidden">
+        <span className="flex items-center gap-1.5 shrink-0">
+          <span className="w-1.5 h-1.5 bg-[#5cdb6d] rounded-full inline-block" />
+          Early bird passes are live!
+        </span>
+        <span className="hidden md:inline-block shrink-0 opacity-40">|</span>
+        <span className="hidden md:inline-block shrink-0">
+          13–14 November 2026 · 14th Edition
+        </span>
+        <span className="hidden md:inline-block shrink-0 opacity-40">|</span>
+        <span className="flex items-center gap-1.5 shrink-0">
+          <span className="w-1.5 h-1.5 bg-[#ff7daf] rounded-full inline-block animate-pulse" />
+          Call for Proposals (CfP) is now open
+        </span>
       </div>
 
-      <div className="relative z-10 flex flex-col min-h-screen">
-        {/* Navbar */}
-        <header className="w-full px-6 py-5 md:px-12 flex justify-between items-center border-b border-white/5 backdrop-blur-md bg-black/10">
-          <div className="flex items-center gap-3">
+      {/* Navbar */}
+      <header className="sticky top-0 z-50 bg-[#f0f0f0] border-b-2 border-[#1e1e1e] backdrop-blur-md bg-opacity-95">
+        <div className="max-w-7xl mx-auto px-5 lg:px-12 py-5 flex justify-between items-center gap-8">
+          <Link href="/" className="flex items-center gap-3 no-underline group" aria-label="DevFest Lagos Home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/Logo.svg" alt="DevFest Lagos" className="h-8 md:h-10 filter brightness-0 invert" />
-          </div>
-          <div className="flex items-center gap-4">
+            <img src="/Logo.svg" alt="DevFest Lagos" className="h-7 sm:h-9" />
+            <span className="font-space font-bold text-xl sm:text-2xl text-[#ea4335] tracking-tight group-hover:rotate-6 transition-transform inline-block">
+              2026
+            </span>
+          </Link>
+          
+          <nav className="flex items-center gap-6">
+            <a 
+              href="#cfp" 
+              className="text-xs sm:text-sm font-bold text-[#1e1e1e] hover:text-[#ea4335] transition-colors uppercase tracking-wider"
+            >
+              CFP
+            </a>
             <a 
               href="https://2025.devfestlagos.com" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200"
+              className="text-xs sm:text-sm font-bold text-[#1e1e1e]/70 hover:text-[#34a853] transition-colors uppercase tracking-wider"
             >
-              2025 Edition
+              2025 site
             </a>
-            <span className="h-4 w-px bg-white/20" />
-            <span className="px-3 py-1 text-xs font-semibold bg-[#4285F4]/10 text-[#4285F4] border border-[#4285F4]/20 rounded-full">
-              Nov 13-14, 2026
-            </span>
-          </div>
-        </header>
+            <a 
+              href="#tickets" 
+              className="font-space text-xs sm:text-sm font-bold bg-[#1e1e1e] text-[#f0f0f0] px-4 py-2 border-2 border-[#1e1e1e] hover:bg-[#ffe7a5] hover:text-[#1e1e1e] transition-all shadow-[3px_3px_0px_#1e1e1e]"
+            >
+              Buy Ticket
+            </a>
+          </nav>
+        </div>
+      </header>
 
-        {/* Hero & Main Content */}
-        <main className="flex-1 flex flex-col lg:flex-row items-center justify-between px-6 py-12 md:px-12 lg:py-20 max-w-7xl mx-auto w-full gap-12 lg:gap-8">
-          {/* Left Hero Section */}
-          <div className="flex-1 text-left flex flex-col gap-6 lg:max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 w-fit">
-              <span className="w-2 h-2 rounded-full bg-[#34A853] animate-pulse" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-gray-300">DevFest Lagos Returns</span>
-            </div>
-
-            <h1 className="font-akira text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-none bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent">
-              THE BIGGEST <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4285F4] via-[#EA4335] to-[#FBBC05]">
-                TECH EVENT
-              </span> <br />
-              IN LAGOS
-            </h1>
-
-            <p className="text-gray-400 text-base md:text-lg max-w-lg leading-relaxed">
-              DevFest Lagos is officially back for 2026. Join thousands of developers, designers, entrepreneurs, and tech enthusiasts for two days of learning, networking, and futuristic innovation.
-            </p>
-
-            {/* Date Badge Info */}
-            <div className="flex flex-wrap gap-4 py-2">
-              <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-3 rounded-2xl backdrop-blur-md">
-                <div className="p-2 rounded-xl bg-[#4285F4]/10 text-[#4285F4]">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider">Date</div>
-                  <div className="font-semibold text-white">November 13 & 14, 2026</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-3 rounded-2xl backdrop-blur-md">
-                <div className="p-2 rounded-xl bg-[#EA4335]/10 text-[#EA4335]">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider">Venue</div>
-                  <div className="font-semibold text-white">Lagos, Nigeria</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Countdown Section */}
-            <div className="flex flex-col gap-3 pt-4">
-              <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest">Countdown to the launch</span>
-              <div className="flex gap-2 sm:gap-4">
-                {[
-                  { value: countdown.days, label: "Days", color: "#4285F4" },
-                  { value: countdown.hours, label: "Hrs", color: "#EA4335" },
-                  { value: countdown.minutes, label: "Mins", color: "#FBBC05" },
-                  { value: countdown.seconds, label: "Secs", color: "#34A853" }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex flex-col items-center bg-white/5 border border-white/10 rounded-2xl px-3 py-2 sm:px-5 sm:py-3 w-16 sm:w-20 backdrop-blur-md">
-                    <span className="text-xl sm:text-2xl font-bold font-mono" style={{ color: item.color }}>
-                      {String(item.value).padStart(2, "0")}
-                    </span>
-                    <span className="text-[10px] sm:text-xs text-gray-400 uppercase font-semibold mt-0.5">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Ticket Section */}
-          <div className="w-full lg:w-[450px] relative">
-            <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-[#4285F4] via-[#EA4335] to-[#FBBC05] opacity-20 blur-xl group-hover:opacity-30 transition duration-1000" />
+      {/* Editorial Hero Layout */}
+      <section className="relative py-16 lg:py-24 border-b-2 border-[#1e1e1e]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="grid lg:grid-cols-[1.3fr_1fr] gap-12 lg:gap-16 items-start">
             
-            <div className="relative bg-[#111115] border border-white/10 rounded-[2rem] p-6 sm:p-8 backdrop-blur-xl flex flex-col gap-6">
-              <div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                  Get Your Early Bird Ticket
-                </h3>
-                <p className="text-gray-400 text-sm mt-1">
-                  Secure your spot at the most anticipated tech gathering of the year. Standard prices rise soon.
-                </p>
+            {/* Left Content Area */}
+            <div>
+              <div className="flex flex-wrap gap-2.5 mb-6">
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#1e1e1e] bg-[#ffe7a5] border-2 border-[#1e1e1e] px-3.5 py-1">
+                  Lagos, Nigeria
+                </span>
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#f0f0f0] bg-[#ea4335] border-2 border-[#1e1e1e] px-3.5 py-1">
+                  13–14 Nov 2026
+                </span>
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#1e1e1e] bg-[#57caff] border-2 border-[#1e1e1e] px-3.5 py-1">
+                  In-Person
+                </span>
               </div>
 
-              {/* Ticket Type Toggle */}
-              <div className="grid grid-cols-2 p-1 bg-white/5 rounded-xl border border-white/10">
-                <button
-                  type="button"
-                  onClick={() => setSelectedTicket("standard")}
-                  className={`py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 ${
-                    selectedTicket === "standard"
-                      ? "bg-white/10 text-white shadow-lg"
-                      : "text-gray-400 hover:text-white"
-                  }`}
-                >
-                  Standard Ticket
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setSelectedTicket("vip")}
-                  className={`py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 ${
-                    selectedTicket === "vip"
-                      ? "bg-white/10 text-white shadow-lg"
-                      : "text-gray-400 hover:text-white"
-                  }`}
-                >
-                  Full Experience
-                </button>
-              </div>
+              <h1 className="font-space font-bold text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tight mb-8 text-[#1e1e1e]">
+                DEVFEST <br />
+                LAGOS <span className="text-[#ea4335]">2026.</span>
+              </h1>
 
-              {/* Dynamic Ticket Details */}
-              <div className="p-5 rounded-2xl bg-white/5 border border-white/10 flex flex-col gap-4">
-                <div className="flex flex-col gap-1">
-                  <span className="text-xs uppercase tracking-wider text-[#4285F4] font-bold">
-                    {selectedTicket === "standard" ? "Standard Ticket" : "Full Experience Ticket"}
-                  </span>
-                  <span className="text-2xl font-black text-white mt-1">
-                    {selectedTicket === "standard" ? "₦8,000" : "₦15,000"}{" "}
-                    <span className="text-sm font-normal text-gray-400">
-                      {selectedTicket === "standard" ? "per day" : "BOTH DAYS"}
-                    </span>
-                  </span>
+              {/* Grid-based coordinates badge block */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 border-2 border-[#1e1e1e] bg-[#f0f0f0]">
+                <div className="p-4 border-r border-[#1e1e1e] border-b sm:border-b-0">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#1e1e1e]/60 block mb-1">Target Year</span>
+                  <span className="font-space font-bold text-base text-[#1e1e1e]">2026 Edition</span>
                 </div>
+                <div className="p-4 sm:border-r border-[#1e1e1e] border-b sm:border-b-0">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#1e1e1e]/60 block mb-1">Chapters</span>
+                  <span className="font-space font-bold text-base text-[#1e1e1e]">GDG Lagos</span>
+                </div>
+                <div className="p-4 border-r border-[#1e1e1e]">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#1e1e1e]/60 block mb-1">Physical Scale</span>
+                  <span className="font-space font-bold text-base text-[#1e1e1e]">5,000+ Expected</span>
+                </div>
+                <div className="p-4">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#1e1e1e]/60 block mb-1">Community</span>
+                  <span className="font-space font-bold text-base text-[#ea4335]">14th Edition</span>
+                </div>
+              </div>
+            </div>
 
-                <p className="text-sm text-gray-400 italic">
-                  {selectedTicket === "standard"
-                    ? "Open to everyone — whether you're just starting out or deep in the industry"
-                    : "For those who want more access and a more focused, premium experience across both days"}
+            {/* Right Side: Retro Editorial Information Panel */}
+            <div className="w-full flex flex-col gap-6">
+              {/* Retro Ticket Announcement Box */}
+              <div className="bg-[#ffe7a5] border-2 border-[#1e1e1e] p-6 sm:p-8 shadow-[6px_6px_0px_#1e1e1e] relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-[#ea4335] text-white font-mono text-[10px] font-bold px-3 py-1 uppercase border-b-2 border-l-2 border-[#1e1e1e]">
+                  Milestone
+                </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-[#ea4335] animate-ping" />
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#ea4335] font-bold">Registration Alert</span>
+                </div>
+                <h3 className="font-space font-bold text-2xl sm:text-3xl text-[#1e1e1e] mt-2 mb-4">Early Bird Active</h3>
+                <p className="text-sm text-[#1e1e1e]/80 leading-relaxed mb-6 font-medium">
+                  Secure your standard or full experience pass today with earlybird pricing.
                 </p>
-
-                <hr className="border-white/10" />
-
-                <ul className="flex flex-col gap-2.5 text-sm text-gray-300">
-                  {selectedTicket === "standard" ? (
-                    <>
-                      <li className="flex items-center gap-2">
-                        <span className="text-[#34A853]">✓</span> Access to all talks and sessions
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="text-[#34A853]">✓</span> Access to one day
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="text-[#34A853]">✓</span> Access to sponsor booths
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="text-[#34A853]">✓</span> Entry to the networking area
-                      </li>
-                    </>
-                  ) : (
-                    <>
-                      <li className="flex items-center gap-2">
-                        <span className="text-[#34A853]">✓</span> Access to all talks and sessions
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="text-[#34A853]">✓</span> Access to both days
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="text-[#34A853]">✓</span> Access to sponsor booths
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="text-[#34A853]">✓</span> Entry to the networking area
-                      </li>
-                    </>
-                  )}
-                </ul>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a 
+                    href="#tickets" 
+                    className="font-space text-center text-xs font-bold bg-[#1e1e1e] text-[#f0f0f0] px-5 py-3 border-2 border-[#1e1e1e] hover:bg-[#f0f0f0] hover:text-[#1e1e1e] transition-all uppercase tracking-wider shadow-[3px_3px_0px_#1e1e1e] hover:shadow-none"
+                  >
+                    View Ticket Tiers
+                  </a>
+                </div>
               </div>
 
-              {/* Purchase Action Button */}
-              <a
-                href={getTicketUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full relative group overflow-hidden rounded-xl bg-gradient-to-r from-[#4285F4] via-[#EA4335] to-[#FBBC05] p-[1px] focus:outline-none transition-all block text-center"
-              >
-                <div className="relative flex justify-center items-center gap-2 px-6 py-4 rounded-xl bg-[#111115] text-white hover:bg-transparent transition-all font-semibold text-sm">
-                  <span>Buy Ticket</span>
-                  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
+              {/* Countdown Ticker Box */}
+              <div className="bg-[#c3ecf6] border-2 border-[#1e1e1e] p-6 shadow-[6px_6px_0px_#1e1e1e] flex flex-col justify-between">
+                <div>
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-[#1e1e1e]/70 font-bold block mb-3">Countdown to DevFest Lagos 2026</span>
+                  <div className="grid grid-cols-4 gap-2 text-center font-mono">
+                    <div className="bg-[#f0f0f0] border-2 border-[#1e1e1e] py-2">
+                      <span className="text-xl sm:text-2xl font-bold block text-[#1e1e1e]">{countdown.days}</span>
+                      <span className="text-[9px] uppercase tracking-wider block text-[#1e1e1e]/60">Days</span>
+                    </div>
+                    <div className="bg-[#f0f0f0] border-2 border-[#1e1e1e] py-2">
+                      <span className="text-xl sm:text-2xl font-bold block text-[#1e1e1e]">{countdown.hours}</span>
+                      <span className="text-[9px] uppercase tracking-wider block text-[#1e1e1e]/60">Hours</span>
+                    </div>
+                    <div className="bg-[#f0f0f0] border-2 border-[#1e1e1e] py-2">
+                      <span className="text-xl sm:text-2xl font-bold block text-[#1e1e1e]">{countdown.minutes}</span>
+                      <span className="text-[9px] uppercase tracking-wider block text-[#1e1e1e]/60">Mins</span>
+                    </div>
+                    <div className="bg-[#f0f0f0] border-2 border-[#1e1e1e] py-2">
+                      <span className="text-xl sm:text-2xl font-bold block text-[#1e1e1e]">{countdown.seconds}</span>
+                      <span className="text-[9px] uppercase tracking-wider block text-[#1e1e1e]/60">Secs</span>
+                    </div>
+                  </div>
                 </div>
-              </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Flat Editorial Metric Stripe */}
+      <section className="bg-[#f0f0f0] border-b-2 border-[#1e1e1e]" aria-label="DevFest highlights">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+            <div className="p-8 border-b-2 sm:border-b-0 sm:border-r-2 border-[#1e1e1e] flex flex-col justify-center">
+              <span className="font-space font-bold text-5xl text-[#ea4335] leading-none mb-1">2 DAYS</span>
+              <span className="font-mono text-xs uppercase tracking-wider text-[#1e1e1e]/70">13 & 14 November 2026</span>
+            </div>
+            <div className="p-8 border-b-2 sm:border-b-0 md:border-r-2 border-[#1e1e1e] flex flex-col justify-center">
+              <span className="font-space font-bold text-5xl text-[#4285f4] leading-none mb-1">4+ TRACKS</span>
+              <span className="font-mono text-xs uppercase tracking-wider text-[#1e1e1e]/70">Specialized technical disciplines</span>
+            </div>
+            <div className="p-8 border-b-2 sm:border-b-0 sm:border-r-2 border-[#1e1e1e] flex flex-col justify-center">
+              <span className="font-space font-bold text-5xl text-[#34a853] leading-none mb-1">5,000+</span>
+              <span className="font-mono text-xs uppercase tracking-wider text-[#1e1e1e]/70">Attendees physically</span>
+            </div>
+            <div className="p-8 flex flex-col justify-center">
+              <span className="font-space font-bold text-5xl text-[#f9ab00] leading-none mb-1">14 YEARS</span>
+              <span className="font-mono text-xs uppercase tracking-wider text-[#1e1e1e]/70">Lagos tech community legacy</span>
             </div>
           </div>
-        </main>
+        </div>
+      </section>
 
-        {/* Footer */}
-        <footer className="w-full py-8 border-t border-white/5 bg-black/20 text-center text-xs text-gray-500 flex flex-col md:flex-row justify-between items-center px-6 md:px-12 gap-4">
-          <div>
-            &copy; 2026 GDG Lagos.
+      {/* Call for Proposals (CfP) Section */}
+      <section className="py-20 border-b-2 border-[#1e1e1e] bg-[#f8d8d8] relative overflow-hidden" id="cfp">
+        {/* Editorial pattern lines only inside this section */}
+        <div 
+          className="pointer-events-none absolute inset-0 opacity-[0.03]"
+          style={{ 
+            backgroundImage: "repeating-linear-gradient(45deg, #1e1e1e, #1e1e1e 1px, transparent 1px, transparent 10px)", 
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
+          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-start">
+            
+            {/* Left Column: Info & Copy */}
+            <div>
+              <span className="font-mono text-xs uppercase tracking-widest text-[#ea4335] bg-[#f0f0f0] border border-[#1e1e1e] px-3 py-1 font-bold inline-block mb-4">
+                Call For Speakers
+              </span>
+              <h2 className="font-space font-bold text-3xl sm:text-5xl text-[#1e1e1e] leading-tight mb-6">
+               Inspire the Community.
+              </h2>
+              <div className="space-y-4 text-[#1e1e1e]/80 text-sm sm:text-base leading-relaxed mb-8 font-medium">
+                <p>
+                  We are looking for passionate and experienced speakers to share insights, lead sessions, and drive meaningful conversations that will shape the future of technology in Africa. If you have an insightful topic, the experience, or a vision that aligns with our mission, we want to hear from you.
+                </p>
+                <p className="text-xs text-[#1e1e1e]/75 italic bg-[#f0f0f0]/40 p-3.5 border-l-2 border-[#ea4335]">
+                  We’re also spotlighting career development, startups, women in tech, and ecosystem growth through hands-on workshops, bootcamps, hackathons, masterclasses, and community-driven sessions.
+                </p>
+              </div>
+
+              <div className="flex">
+                <a 
+                  href="http://tinyurl.com/cfp-devfestlagos26" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-space font-bold bg-[#1e1e1e] text-[#f0f0f0] px-6 py-4 border-2 border-[#1e1e1e] hover:bg-[#f0f0f0] hover:text-[#1e1e1e] transition-all uppercase tracking-wider text-sm shadow-[4px_4px_0px_#1e1e1e]"
+                >
+                  Submit Proposal
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: Timeline Box */}
+            <div className="bg-[#f0f0f0] border-2 border-[#1e1e1e] p-6 sm:p-8 shadow-[6px_6px_0px_#1e1e1e]">
+              <h3 className="font-space font-bold text-2xl text-[#1e1e1e] mb-6 pb-4 border-b border-[#1e1e1e]">
+                CfP Timeline
+              </h3>
+              
+              <ol className="relative border-l border-[#1e1e1e]/30 pl-4 sm:pl-6 ml-2 space-y-6 text-left">
+                {/* Milestone 1 */}
+                <li className="relative">
+                  <span className="absolute -left-[21px] sm:-left-[29px] top-1.5 flex h-3 w-3 sm:h-4 sm:w-4 items-center justify-center rounded-full bg-[#34a853] border border-[#1e1e1e]" />
+                  <span className="font-mono text-[10px] uppercase font-bold text-[#34a853] tracking-widest block">May 2026</span>
+                  <h4 className="font-space font-bold text-lg text-[#1e1e1e] mt-0.5 mb-1">Submissions Open</h4>
+                  <p className="text-xs text-[#1e1e1e]/70 leading-relaxed font-medium">Portal opens globally. Review tracks and start registering outline abstracts.</p>
+                </li>
+
+                {/* Milestone 2 */}
+                <li className="relative">
+                  <span className="absolute -left-[21px] sm:-left-[29px] top-1.5 flex h-3 w-3 sm:h-4 sm:w-4 items-center justify-center rounded-full bg-[#ea4335] border border-[#1e1e1e]" />
+                  <span className="font-mono text-[10px] uppercase font-bold text-[#ea4335] tracking-widest block">June 30, 2026</span>
+                  <h4 className="font-space font-bold text-lg text-[#1e1e1e] mt-0.5 mb-1">CfP Closes</h4>
+                  <p className="text-xs text-[#1e1e1e]/70 leading-relaxed font-medium">The absolute final deadline to register speaker proposals. No extensions.</p>
+                </li>
+
+                {/* Milestone 3 */}
+                <li className="relative">
+                  <span className="absolute -left-[21px] sm:-left-[29px] top-1.5 flex h-3 w-3 sm:h-4 sm:w-4 items-center justify-center rounded-full bg-[#f9ab00] border border-[#1e1e1e]" />
+                  <span className="font-mono text-[10px] uppercase font-bold text-[#f9ab00] tracking-widest block">From July 15, 2026</span>
+                  <h4 className="font-space font-bold text-lg text-[#1e1e1e] mt-0.5 mb-1">Speaker Announcement</h4>
+                  <p className="text-xs text-[#1e1e1e]/70 leading-relaxed font-medium">Core review panel processes drafts and announces selected talk sessions.</p>
+                </li>
+              </ol>
+
+              {/* Repositioned Speaker Tracks Container */}
+              <div className="border-t border-[#1e1e1e] pt-6 mt-8">
+                <h4 className="font-space font-bold text-xs uppercase tracking-wider text-[#1e1e1e] mb-3">Preferred Speaker Tracks</h4>
+                <div className="flex flex-wrap gap-2">
+                  <span className="font-mono text-[10px] bg-[#ccf6c5] border border-[#1e1e1e] px-2.5 py-1 text-[#1e1e1e] font-bold">AI/ML</span>
+                  <span className="font-mono text-[10px] bg-[#c3ecf6] border border-[#1e1e1e] px-2.5 py-1 text-[#1e1e1e] font-bold">Cloud & DevOps</span>
+                  <span className="font-mono text-[10px] bg-[#ffe7a5] border border-[#1e1e1e] px-2.5 py-1 text-[#1e1e1e] font-bold">Web Technologies</span>
+                  <span className="font-mono text-[10px] bg-[#f0f0f0] border border-[#1e1e1e] px-2.5 py-1 text-[#1e1e1e] font-bold">Mobile Development</span>
+                  <span className="font-mono text-[10px] bg-[#f8d8d8] border border-[#1e1e1e] px-2.5 py-1 text-[#1e1e1e] font-bold">Design & UX</span>
+                  <span className="font-mono text-[10px] bg-[#ffe7a5] border border-[#1e1e1e] px-2.5 py-1 text-[#1e1e1e] font-bold">Product Management</span>
+                  <span className="font-mono text-[10px] bg-[#ccf6c5] border border-[#1e1e1e] px-2.5 py-1 text-[#1e1e1e] font-bold">Technical Writing</span>
+                  <span className="font-mono text-[10px] bg-[#c3ecf6] border border-[#1e1e1e] px-2.5 py-1 text-[#1e1e1e] font-bold">Data Engineering</span>
+                  <span className="font-mono text-[10px] bg-[#f0f0f0] border border-[#1e1e1e] px-2.5 py-1 text-[#1e1e1e] font-bold">Web3</span>
+                  <span className="font-mono text-[10px] bg-[#f8d8d8] border border-[#1e1e1e] px-2.5 py-1 text-[#1e1e1e] font-bold">Cybersecurity</span>
+                  <span className="font-mono text-[10px] bg-[#ffe7a5] border border-[#1e1e1e] px-2.5 py-1 text-[#1e1e1e] font-bold">Agentic Experience</span>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div className="flex gap-4">
-            <a href="https://twitter.com/gdglagos" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Twitter / X</a>
-            <a href="https://instagram.com/gdglagos" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
+        </div>
+      </section>
+
+      {/* Tickets Section */}
+      <section className="py-20 border-b-2 border-[#1e1e1e] bg-[#f0f0f0]" id="tickets">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="max-w-xl mx-auto">
+            
+            {/* Center Ticket Selector & Details Column */}
+            <div className="relative">
+              <div className="bg-white border-2 border-[#1e1e1e] p-6 sm:p-8 flex flex-col gap-6 relative shadow-[6px_6px_0px_#1e1e1e]">
+                
+                {/* Custom Ticket Selector */}
+                <div className="grid grid-cols-2 p-1.5 bg-[#f0f0f0] border-2 border-[#1e1e1e]">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedTicket("standard")}
+                    className={`py-2 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all border-2 ${
+                      selectedTicket === "standard"
+                        ? "bg-[#1e1e1e] text-white border-[#1e1e1e]"
+                        : "bg-transparent text-[#1e1e1e]/60 border-transparent hover:text-[#1e1e1e]"
+                    }`}
+                  >
+                    Standard Tier
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedTicket("vip")}
+                    className={`py-2 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all border-2 ${
+                      selectedTicket === "vip"
+                        ? "bg-[#1e1e1e] text-white border-[#1e1e1e]"
+                        : "bg-transparent text-[#1e1e1e]/60 border-transparent hover:text-[#1e1e1e]"
+                    }`}
+                  >
+                    Full Experience
+                  </button>
+                </div>
+
+                {/* Dynamic Ticket Display Pane */}
+                {selectedTicket === "standard" ? (
+                  <div className="border-2 border-[#1e1e1e] bg-[#ccf6c5] p-5 flex flex-col gap-4">
+                    <div className="flex justify-between items-start gap-4">
+                      <div>
+                        <span className="font-mono text-[9px] uppercase tracking-wider text-[#34a853] bg-white border border-[#1e1e1e] px-2.5 py-0.5 rounded-full font-bold">
+                          Single Day
+                        </span>
+                        <h4 className="font-space font-bold text-2xl text-[#1e1e1e] mt-2">
+                          Standard Ticket
+                        </h4>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-3xl font-bold text-[#1e1e1e] block leading-none">
+                          ₦8,000
+                        </span>
+                        <span className="text-[10px] text-[#1e1e1e]/60 uppercase font-mono font-bold">
+                          per day
+                        </span>
+                      </div>
+                    </div>
+
+                    <p className="text-xs text-[#1e1e1e]/80 font-bold leading-relaxed pt-3 border-t border-[#1e1e1e]/20">
+                      Open to everyone — whether you&apos;re just starting out or deep in the industry.
+                    </p>
+
+                    <ul className="flex flex-col gap-2 text-xs text-[#1e1e1e] pt-2 font-bold font-mono">
+                      <li className="flex items-center gap-2">
+                        <span className="text-[#34a853]">✓</span> Access to all talks and sessions
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-[#34a853]">✓</span> Access to one day
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-[#34a853]">✓</span> Access to sponsor booths
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-[#34a853]">✓</span> Entry to the networking area
+                      </li>
+                    </ul>
+                  </div>
+                ) : (
+                  <div className="border-2 border-[#1e1e1e] bg-[#c3ecf6] p-5 flex flex-col gap-4">
+                    <div className="flex justify-between items-start gap-4">
+                      <div>
+                        <span className="font-mono text-[9px] uppercase tracking-wider text-[#4285f4] bg-white border border-[#1e1e1e] px-2.5 py-0.5 rounded-full font-bold">
+                          Two Days Full Pass
+                        </span>
+                        <h4 className="font-space font-bold text-2xl text-[#1e1e1e] mt-2">
+                          Full Experience
+                        </h4>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-3xl font-bold text-[#1e1e1e] block leading-none">
+                          ₦15,000
+                        </span>
+                        <span className="text-[10px] text-[#1e1e1e]/60 uppercase font-mono font-bold">
+                          both days
+                        </span>
+                      </div>
+                    </div>
+
+                    <p className="text-xs text-[#1e1e1e]/80 font-bold leading-relaxed pt-3 border-t border-[#1e1e1e]/20">
+                      For those who want more access and a more focused, premium experience across both days.
+                    </p>
+
+                    <ul className="flex flex-col gap-2 text-xs text-[#1e1e1e] pt-2 font-bold font-mono">
+                      <li className="flex items-center gap-2">
+                        <span className="text-[#34a853]">✓</span> Access to all talks and sessions
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-[#34a853]">✓</span> Access to both days
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-[#34a853]">✓</span> Access to sponsor booths
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-[#34a853]">✓</span> Entry to the networking area
+                      </li>
+                    </ul>
+                  </div>
+                )}
+
+                <a
+                  href={
+                    selectedTicket === "standard"
+                      ? "https://tickets.devfestlagos.com/buy#standard"
+                      : "https://tickets.devfestlagos.com/buy#pro"
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#1e1e1e] text-white border-2 border-[#1e1e1e] text-center py-4 font-space font-bold transition-all text-sm uppercase tracking-wider shadow-[4px_4px_0px_#1e1e1e] hover:shadow-none"
+                >
+                  Secure Ticket
+                </a>
+              </div>
+            </div>
+
           </div>
-        </footer>
-      </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#1e1e1e] text-[#f0f0f0] pt-16 pb-12 px-5 lg:px-12 relative overflow-hidden">
+        {/* Subtle grid pattern inside footer */}
+        <div 
+          className="pointer-events-none absolute inset-0 opacity-[0.03]"
+          style={{ 
+            backgroundImage: "radial-gradient(circle at 1px 1px, #f0f0f0 1.5px, transparent 0)", 
+            backgroundSize: "20px 24px" 
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-b border-[#f0f0f0]/10 pb-12 relative z-10">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3">
+            <Link href="/" className="flex items-center gap-3 no-underline">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/Logo.svg" alt="DevFest Lagos Logo" className="h-7 sm:h-9 filter brightness-0 invert" />
+              <span className="font-space font-bold text-2xl text-white"> <span className="text-[#ea4335]">2026</span></span>
+            </Link>
+            <p className="text-xs text-[#f0f0f0]/60 mt-1 max-w-[320px] leading-relaxed">
+              Google Developer Groups Lagos community-led tech conference.
+            </p>
+          </div>
+          <div className="flex gap-6 text-sm font-bold uppercase tracking-wider">
+            <a href="https://twitter.com/gdglagos" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffe7a5] transition-colors">Twitter / X</a>
+            <a href="https://instagram.com/gdglagos" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffe7a5] transition-colors">Instagram</a>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto pt-8 text-center text-[10px] text-[#f0f0f0]/40 uppercase tracking-widest font-mono relative z-10 font-bold">
+          &copy; 2026 GDG Lagos. All rights reserved.
+        </div>
+      </footer>
     </div>
   );
 }

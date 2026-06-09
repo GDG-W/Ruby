@@ -1,7 +1,7 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter,Space_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
 
@@ -15,6 +15,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
 const customFont = localFont({
   src: "./fonts/Akira.otf",
   variable: "--font-custom",
@@ -22,22 +34,22 @@ const customFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "DevFest Lagos 2025 - November 2025",
+  title: "DevFest Lagos 2026 - November 2026",
   openGraph: {
-    title: "DevFest Lagos 2025",
+    title: "DevFest Lagos 2026",
     images: {
       url: "https://storage.googleapis.com/devfestlagos2025/Ruby/preview.webp",
-      alt: "DevFest Lagos 2025",
+      alt: "DevFest Lagos 2026",
     },
     description:
       "DevFest Lagos is coming. The biggest conference in Lagos for tech lovers, ideas, and life-time connections. Something exciting is on the way. You won’t want to miss it.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DevFest Lagos 2025",
+    title: "DevFest Lagos 2026",
     images: {
       url: "https://storage.googleapis.com/devfestlagos2025/Ruby/preview.webp",
-      alt: "DevFest Lagos 2025",
+      alt: "DevFest Lagos 2026",
     },
     description:
       "DevFest Lagos is coming. The biggest conference in Lagos for tech lovers, ideas, and life-time connections. Something exciting is on the way. You won’t want to miss it.",
@@ -65,7 +77,7 @@ export default function RootLayout({
           gtag('config', 'G-ZR44Q96G06');`}
       </Script>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${customFont.variable} h-dvh bg-[#FFFAEB] antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${customFont.variable} ${spaceGrotesk.variable} ${inter.variable} min-h-screen bg-[#f0f0f0] text-[#1e1e1e] antialiased`}
       >
         <div>{children}</div>
       </body>
