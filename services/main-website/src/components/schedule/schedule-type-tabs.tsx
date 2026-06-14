@@ -15,18 +15,15 @@ export function ScheduleTypeTabs({
   return (
     <div className={styles.tabs}>
       <button
-        className={clsx(
-          styles.tab,
-          activeTab === "standard" && styles.active,
-        )}
+        type="button"
+        className={clsx(styles.tab, activeTab === "standard" && styles.active)}
         onClick={() => onTabChange("standard")}
       >
         STANDARD
       </button>
       <button
-        className={clsx(
-          styles.tab,          activeTab === "pro" && styles.active,
-        )}
+        type="button"
+        className={clsx(styles.tab, activeTab === "pro" && styles.active)}
         onClick={() => onTabChange("pro")}
       >
         PRO

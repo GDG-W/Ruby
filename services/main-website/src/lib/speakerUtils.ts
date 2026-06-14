@@ -24,13 +24,18 @@ export function mapSpeakersToDays(
         if (!session.speaker_id || session.speaker_id === "NULL") {
           return false;
         }
-        
+
         // Handle comma-separated speaker names in speaker_id field
-        const speakerNames = session.speaker_id.split(',').map(name => name.trim());
-        
+        const speakerNames = session.speaker_id
+          .split(",")
+          .map((name) => name.trim());
+
         // Check if this speaker is in the list of speakers for this session
-        return speakerNames.some(speakerName => 
-          speakerName && speakerName !== "NULL" && speakerName === speaker.speaker_name
+        return speakerNames.some(
+          (speakerName) =>
+            speakerName &&
+            speakerName !== "NULL" &&
+            speakerName === speaker.speaker_name,
         );
       });
 

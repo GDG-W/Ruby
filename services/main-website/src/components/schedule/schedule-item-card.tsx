@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import Image from "next/image";
 import breakoutIcon from "@/assets/breakout.svg";
-import defaultAvatar from "@/assets/default-avatar.png";
 import type { Speaker as APISpeaker, Session } from "@/types/api";
 import styles from "./schedule-item-card.module.scss";
 
-const defaultAvatarUrl = "https://storage.googleapis.com/devfestlagos2025/Ruby/Approved%20Speaker%20photos%20/Placeholder%20image.png"
+const defaultAvatarUrl =
+  "https://storage.googleapis.com/devfestlagos2025/Ruby/Approved%20Speaker%20photos%20/Placeholder%20image.png";
 
 export interface Speaker {
   name: string;
@@ -27,18 +27,20 @@ export function ScheduleItemCard({
 }: ScheduleItemCardProps) {
   // Find speaker data for this session
   const sessionSpeakers: Speaker[] = [];
-  
+
   if (session.speaker_id && session.speaker_id !== "NULL") {
     // Handle comma-separated speaker names in speaker_id field
-    const speakerNames = session.speaker_id.split(',').map(name => name.trim());
-    
+    const speakerNames = session.speaker_id
+      .split(",")
+      .map((name) => name.trim());
+
     for (const speakerName of speakerNames) {
       // Skip empty names or "NULL" values
       if (speakerName && speakerName !== "NULL") {
         const speakerData = speakers.find(
           (speaker) => speaker.speaker_name === speakerName,
         );
-        
+
         sessionSpeakers.push({
           name: speakerName,
           avatar:
@@ -76,31 +78,37 @@ export function ScheduleItemCard({
   // Parse multiple rooms from session
   const parseRooms = (roomType?: string) => {
     if (!roomType || roomType === "NULL") return [];
-    
+
     // Split by comma and process each room
-    const roomNames = roomType.split(',').map(name => name.trim().toUpperCase());
-    
-    return roomNames.map(name => {
+    const roomNames = roomType
+      .split(",")
+      .map((name) => name.trim().toUpperCase());
+
+    return roomNames.map((name) => {
       const mappedRoom = ROOM_MAPPING[name as keyof typeof ROOM_MAPPING];
-      return mappedRoom || {
-        class: "room1",
-        name: name.toLowerCase().replace(/\b\w/g, l => l.toUpperCase()),
-      };
+      return (
+        mappedRoom || {
+          class: "room1",
+          name: name.toLowerCase().replace(/\b\w/g, (l) => l.toUpperCase()),
+        }
+      );
     });
   };
 
   const roomInfos = parseRooms(session.room_type);
-  
+
   // Fallback for backward compatibility
-  const roomInfo = roomInfos.length > 0 ? roomInfos[0] : {
-    class: "room1",
-    name: session.room_type || "TBD",
-  };
+  const roomInfo =
+    roomInfos.length > 0
+      ? roomInfos[0]
+      : {
+          class: "room1",
+          name: session.room_type || "TBD",
+        };
 
   // Format time
   function formatTime(timeString?: string): string {
     if (!timeString || timeString === "NULL") return "";
-
 
     // Handle different time formats that might come from the API
 
@@ -213,12 +221,16 @@ export function ScheduleItemCard({
                   <span key={index}>
                     <span className={styles.speakerName}>{speaker.name}</span>
                     {index < sessionSpeakers.length - 1 && (
-                      <div className={clsx(styles.separator, styles.grayedOut)}></div>
+                      <div
+                        className={clsx(styles.separator, styles.grayedOut)}
+                      ></div>
                     )}
                   </span>
                 ))}
               </div>
-              <div className={clsx(styles.separator, styles[roomInfo.class])}></div>
+              <div
+                className={clsx(styles.separator, styles[roomInfo.class])}
+              ></div>
               <div className={styles.roomTags}>
                 {roomInfos.map((room, index) => (
                   <span key={index}>
@@ -234,10 +246,12 @@ export function ScheduleItemCard({
             </div>
           </>
         )}
-        
+
         {sessionSpeakers.length === 0 && (
           <div className={styles.speakerInfo}>
-            <div className={clsx(styles.separator, styles[roomInfo.class])}></div>
+            <div
+              className={clsx(styles.separator, styles[roomInfo.class])}
+            ></div>
             <div className={styles.roomTags}>
               {roomInfos.map((room, index) => (
                 <span key={index}>

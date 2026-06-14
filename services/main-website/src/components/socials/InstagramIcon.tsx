@@ -20,6 +20,7 @@ export function InstagramIcon({
       aria-hidden
       focusable="false"
     >
+      <title>Instagram</title>
       <rect width="50" height="50" rx="25" fill="var(--icon-bg, #1E1E1E)" />
       <g clipPath="url(#clip0)">
         <path

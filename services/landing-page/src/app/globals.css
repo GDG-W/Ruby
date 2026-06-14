@@ -4,6 +4,14 @@
   font-family: var(--font-custom), sans-serif;
 }
 
+@utility font-space {
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+@utility font-inter {
+  font-family: var(--font-inter), sans-serif;
+}
+
 @layer utilities {
   .bg-size-70vw {
     background-size: 70vw;

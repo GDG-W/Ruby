@@ -62,6 +62,7 @@ const Members = () => {
 
         <div className={styles.inner}>
           <button
+            type="button"
             onClick={() => setIsModalOpen(true)}
             className={styles.dropdown}
           >
@@ -69,6 +70,7 @@ const Members = () => {
           </button>
           <div className={styles.toggle}>
             <button
+              type="button"
               aria-label="Carousel view"
               onClick={() => setViewMode("carousel")}
               className={clsx(
@@ -85,6 +87,7 @@ const Members = () => {
               />
             </button>
             <button
+              type="button"
               aria-label="List view"
               onClick={() => setViewMode("list")}
               className={clsx(
@@ -110,6 +113,7 @@ const Members = () => {
           <div className={styles.pills}>
             {ROLES.map((role) => (
               <button
+                type="button"
                 key={role}
                 className={`${styles.pill} ${selectedRole === role ? styles.active : ""}`}
                 onClick={() => setSelectedRole(role)}
@@ -146,6 +150,7 @@ const Members = () => {
         <div className={styles.overlay} onClick={() => setIsModalOpen(false)}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <button
+              type="button"
               className={styles.close}
               onClick={() => setIsModalOpen(false)}
             >
@@ -153,6 +158,7 @@ const Members = () => {
             </button>
             {ROLES.map((role) => (
               <button
+                type="button"
                 key={role}
                 className={clsx(
                   styles.option,

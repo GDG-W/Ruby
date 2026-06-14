@@ -83,10 +83,7 @@ export default async function SchedulePage() {
       ...(dayIndex === 3 && { proTitle: day3ProTitle }),
       ...(dayIndex === 3 && { proDescription: day3ProDescription }),
     });
-
-
   }
-
 
   return (
     <div className={styles.schedulePage}>

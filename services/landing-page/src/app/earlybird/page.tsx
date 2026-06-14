@@ -122,11 +122,13 @@ const EarlyBirdPage = () => {
   useEffect(() => {
     const newTotal = selectedDates.reduce((acc, date) => acc + (ticketPrices[date] || 0), 0);
     setTotalPrice(newTotal);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedDates]);
 
   return (
     <div className={styles.container}>
       <header className={styles.header}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo.svg" alt="DevFest Lagos Logo" />
       </header>
 
