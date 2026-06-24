@@ -126,25 +126,7 @@ export default function DevFestLagos2026() {
                 LAGOS <span className="text-[#ea4335]">2026.</span>
               </h1>
 
-              {/* Grid-based coordinates badge block */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 border-2 border-[#1e1e1e] bg-[#f0f0f0]">
-                <div className="p-4 border-r border-[#1e1e1e] border-b sm:border-b-0">
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#1e1e1e]/60 block mb-1">Target Year</span>
-                  <span className="font-space font-bold text-base text-[#1e1e1e]">2026 Edition</span>
-                </div>
-                <div className="p-4 sm:border-r border-[#1e1e1e] border-b sm:border-b-0">
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#1e1e1e]/60 block mb-1">Chapters</span>
-                  <span className="font-space font-bold text-base text-[#1e1e1e]">GDG Lagos</span>
-                </div>
-                <div className="p-4 border-r border-[#1e1e1e]">
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#1e1e1e]/60 block mb-1">Physical Scale</span>
-                  <span className="font-space font-bold text-base text-[#1e1e1e]">5,000+ Expected</span>
-                </div>
-                <div className="p-4">
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#1e1e1e]/60 block mb-1">Community</span>
-                  <span className="font-space font-bold text-base text-[#ea4335]">14th Edition</span>
-                </div>
-              </div>
+
             </div>
 
             {/* Right Side: Retro Editorial Information Panel */}
@@ -205,18 +187,14 @@ export default function DevFestLagos2026() {
       {/* Flat Editorial Metric Stripe */}
       <section className="bg-[#f0f0f0] border-b-2 border-[#1e1e1e]" aria-label="DevFest highlights">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-            <div className="p-8 border-b-2 sm:border-b-0 sm:border-r-2 border-[#1e1e1e] flex flex-col justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3">
+            <div className="p-8 border-b-2 md:border-b-0 md:border-r-2 border-[#1e1e1e] flex flex-col justify-center">
               <span className="font-space font-bold text-5xl text-[#ea4335] leading-none mb-1">2 DAYS</span>
               <span className="font-mono text-xs uppercase tracking-wider text-[#1e1e1e]/70">13 & 14 November 2026</span>
             </div>
-            <div className="p-8 border-b-2 sm:border-b-0 md:border-r-2 border-[#1e1e1e] flex flex-col justify-center">
+            <div className="p-8 border-b-2 md:border-b-0 md:border-r-2 border-[#1e1e1e] flex flex-col justify-center">
               <span className="font-space font-bold text-5xl text-[#4285f4] leading-none mb-1">4+ TRACKS</span>
               <span className="font-mono text-xs uppercase tracking-wider text-[#1e1e1e]/70">Specialized technical disciplines</span>
-            </div>
-            <div className="p-8 border-b-2 sm:border-b-0 sm:border-r-2 border-[#1e1e1e] flex flex-col justify-center">
-              <span className="font-space font-bold text-5xl text-[#34a853] leading-none mb-1">5,000+</span>
-              <span className="font-mono text-xs uppercase tracking-wider text-[#1e1e1e]/70">Attendees physically</span>
             </div>
             <div className="p-8 flex flex-col justify-center">
               <span className="font-space font-bold text-5xl text-[#f9ab00] leading-none mb-1">14 YEARS</span>
@@ -287,7 +265,7 @@ export default function DevFestLagos2026() {
                 {/* Milestone 2 */}
                 <li className="relative">
                   <span className="absolute -left-[21px] sm:-left-[29px] top-1.5 flex h-3 w-3 sm:h-4 sm:w-4 items-center justify-center rounded-full bg-[#ea4335] border border-[#1e1e1e]" />
-                  <span className="font-mono text-[10px] uppercase font-bold text-[#ea4335] tracking-widest block">June 30, 2026</span>
+                  <span className="font-mono text-[10px] uppercase font-bold text-[#ea4335] tracking-widest block">July 15, 2026</span>
                   <h4 className="font-space font-bold text-lg text-[#1e1e1e] mt-0.5 mb-1">CfP Closes</h4>
                   <p className="text-xs text-[#1e1e1e]/70 leading-relaxed font-medium">The absolute final deadline to register speaker proposals. No extensions.</p>
                 </li>
