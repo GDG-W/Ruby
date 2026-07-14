@@ -265,7 +265,7 @@ export default function DevFestLagos2026() {
                 {/* Milestone 2 */}
                 <li className="relative">
                   <span className="absolute -left-[21px] sm:-left-[29px] top-1.5 flex h-3 w-3 sm:h-4 sm:w-4 items-center justify-center rounded-full bg-[#ea4335] border border-[#1e1e1e]" />
-                  <span className="font-mono text-[10px] uppercase font-bold text-[#ea4335] tracking-widest block">July 15, 2026</span>
+                  <span className="font-mono text-[10px] uppercase font-bold text-[#ea4335] tracking-widest block">July 30, 2026</span>
                   <h4 className="font-space font-bold text-lg text-[#1e1e1e] mt-0.5 mb-1">CfP Closes</h4>
                   <p className="text-xs text-[#1e1e1e]/70 leading-relaxed font-medium">The absolute final deadline to register speaker proposals. No extensions.</p>
                 </li>
@@ -273,7 +273,7 @@ export default function DevFestLagos2026() {
                 {/* Milestone 3 */}
                 <li className="relative">
                   <span className="absolute -left-[21px] sm:-left-[29px] top-1.5 flex h-3 w-3 sm:h-4 sm:w-4 items-center justify-center rounded-full bg-[#f9ab00] border border-[#1e1e1e]" />
-                  <span className="font-mono text-[10px] uppercase font-bold text-[#f9ab00] tracking-widest block">From July 15, 2026</span>
+                  <span className="font-mono text-[10px] uppercase font-bold text-[#f9ab00] tracking-widest block">From July 30, 2026</span>
                   <h4 className="font-space font-bold text-lg text-[#1e1e1e] mt-0.5 mb-1">Speaker Announcement</h4>
                   <p className="text-xs text-[#1e1e1e]/70 leading-relaxed font-medium">Core review panel processes drafts and announces selected talk sessions.</p>
                 </li>
