@@ -391,7 +391,7 @@ export default function DevFestLagos2026() {
                       </div>
                       <div className="text-right">
                         <span className="text-3xl font-bold text-[#1e1e1e] block leading-none">
-                          ₦15,000
+                          ₦16,000
                         </span>
                         <span className="text-[10px] text-[#1e1e1e]/60 uppercase font-mono font-bold">
                           both days
